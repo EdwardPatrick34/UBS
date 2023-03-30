@@ -70,8 +70,8 @@
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
         <!-- Menu -->
-
-        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+				
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme bg-primary" >
           <div class="app-brand demo">
             <a href="index.html" class="app-brand-link">
               <span class="app-brand-logo demo">
@@ -102,7 +102,7 @@
 
             <!-- Master -->
             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Home</span>
+              <span class="menu-header-text">MENU</span>
             </li>
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -111,20 +111,41 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="pages-account-settings-account.html" class="menu-link">
-                    <div data-i18n="Account">Account</div>
+                  <a href="/UBS/pindahhalaman/masterUnit" class="menu-link">
+                    <div >Unit</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="pages-account-settings-notifications.html" class="menu-link">
-                    <div data-i18n="Notifications">Notifications</div>
+                    <div >Jenis Unit</div>
                   </a>
                 </li>
-                <li class="menu-item">
-                  <a href="pages-account-settings-connections.html" class="menu-link">
-                    <div data-i18n="Connections">Connections</div>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Petugas</div>
                   </a>
                 </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Jenis Complain</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Status</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Repair</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Jenis SPK</div>
+                  </a>
+                </li>
+                
               </ul>
             </li>
 
@@ -135,19 +156,44 @@
                 <div data-i18n="Authentications">EDP - Infrastruktur</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Login</div>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Monitoring Complain</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Register</div>
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >SPK (Infrastruktur) </div>
                   </a>
                 </li>
-                <li class="menu-item">
-                  <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Forgot Password</div>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Repair (Vendor) </div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Complain/SPK Selesai</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Complain/SPK Batal</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Pending Complain/SPK</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Ubah Pending Jadi SPK lagi</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Ganti Password</div>
                   </a>
                 </li>
               </ul>
@@ -160,16 +206,72 @@
                 <div data-i18n="Misc">Laporan</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Error</div>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >History Complain</div>
                   </a>
                 </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Under Maintenance</div>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Listing Teknisi yang belum dapat SPK</div>
                   </a>
                 </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Listing Teknisi yang dapat SPK per range Tanggal</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Jumlah SPK per Teknisi</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Listing SPK per teknisi per Range Tanggal SPK</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Listing Uraian Complain Divisi</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Laporan Bulanan Infrastruktur</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Laporan Perbaikan Infrastruktur</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Jumlah Complain Divisi per Bulan</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Laporan Kegiatan Infrastruktur</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Laporan Pendingan per teknisi</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Laporan KPI Infrastruktur</div>
+                  </a>
+                </li>
+								<li class="menu-item">
+                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                    <div >Laporan Barang Rusak</div>
+                  </a>
+                </li>
+
               </ul>
             </li>
             
@@ -289,6 +391,7 @@
                           </p>
 
                           <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>
+													<h1>najay </h1>
                         </div>
                       </div>
                       <div class="col-sm-5 text-center text-sm-left">
@@ -302,6 +405,7 @@
                           />
                         </div>
                       </div>
+											
                     </div>
                   </div>
                 </div>
