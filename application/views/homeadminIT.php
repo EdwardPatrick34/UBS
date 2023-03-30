@@ -111,7 +111,7 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="/UBS/pindahhalaman/masterUnit" class="menu-link">
+                  <a href="<?= base_url('pindahhalaman/MasterUnit') ?>" class="menu-link">
                     <div >Unit</div>
                   </a>
                 </li>

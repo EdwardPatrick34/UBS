@@ -21,6 +21,11 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		// $this->load->view('welcome_message');
-		$this->load->view('homeadminIT');
+		// $this->load->view('template/headeradmin');
+		// $this->load->view('admin/homeadminIT');
+		// $this->load->view('template/footeradmin');
+
+		$this->load->view('login');
+
 	}
 }
