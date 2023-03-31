@@ -1,5 +1,6 @@
- <!-- Layout container -->
- <div class="layout-page">
+
+        <!-- Layout container -->
+        <div class="layout-page">
           <!-- Navbar -->
 
           <nav
@@ -29,9 +30,8 @@
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
-								<!-- Nama yang login -->
                 <li class="nav-item lh-1 me-3">
-                  Admin
+                  
                 </li>
 
                 <!-- User -->
@@ -79,7 +79,7 @@
                     <!-- -->
 
                     <li>
-										<a class="dropdown-item" href="<?= base_url('login') ?>">
+					<a class="dropdown-item" href="<?= base_url('login') ?>">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -104,9 +104,34 @@
                     <div class="d-flex align-items-end row">
                       <div >
                         <div class="card-body" >
-                          <h2 class="card-title text-primary"> Dashboard</h2>
-						  
-                          	
+                          <h2 class="card-title text-primary"> Master Repair</h2>
+						  <a href="/UBS/page/tambahRepair"><button class="btn btn-primary">Tambah Repair</button></a>
+						  <br><br>
+                          	<table class="table table-bordered border-dark table-hover">
+								<thead>
+									<tr>
+									<th scope="col">NO</th>
+									<th scope="col">Status</th>
+									<th scope="col">Nama Status</th>
+									<th scope="col">USERE</th>
+									<th scope="col">Aksi</th>		
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+									<th scope="row">1</th>
+									<td>Unit 1</td>
+									<td>Unit gajah</td>
+									<td>jojo</td>
+									<td>rusak bro</td>
+									<td>
+										<button>Edit</button>
+										<button>Hapus</button>
+									</td>
+									</tr>
+									
+								</tbody>
+							</table>
                         </div>
                       </div>
                       <!-- <div class="col-sm-5 text-center text-sm-left">
@@ -151,3 +176,4 @@
       </div>
 
       <!-- Overlay -->
+      

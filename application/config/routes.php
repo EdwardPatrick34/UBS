@@ -57,7 +57,9 @@ $route['translate_uri_dashes'] = FALSE;
 //ini cara biar controller gak masuk
 //test adalah route nya
 // login log adalah halaman yang ingin dituju
-$route['test'] = 'login/log';
+// $route['test'] = 'login/log';
+
+$route['login'] = 'login/log';
 
 
 

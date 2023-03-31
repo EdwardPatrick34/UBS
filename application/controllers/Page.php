@@ -9,6 +9,12 @@ class Page extends CI_Controller{
 		$this->load->view('template/footeradmin');
 	}
 
+	public function MasterUnit(){
+		$this->load->view('template/headeradmin');
+		$this->load->view('admin/Master/masterUnit');
+		$this->load->view('template/footeradmin');
+	}
+
 	public function MasterJenisUnit(){
 		$this->load->view('template/headeradmin');
 		$this->load->view('admin/Master/masterJenisUnit');
@@ -62,6 +68,29 @@ class Page extends CI_Controller{
 	public function TambahJenisComplain(){
 		$this->load->view('template/headeradmin');
 		$this->load->view("admin/Tambah/tambahJenisComplain");
+		$this->load->view('template/footeradmin');
+	}
+
+	public function TambahStatus(){
+		$this->load->view('template/headeradmin');
+		$this->load->view("admin/Tambah/tambahStatus");
+		$this->load->view('template/footeradmin');
+	}
+	public function TambahRepair(){
+		$this->load->view('template/headeradmin');
+		$this->load->view("admin/Tambah/tambahRepair");
+		$this->load->view('template/footeradmin');
+	}
+
+	public function TambahUnit(){
+		$this->load->view('template/headeradmin');
+		$this->load->view("admin/Tambah/tambahUnit");
+		$this->load->view('template/footeradmin');
+	}
+
+	public function TambahJenisSpk(){
+		$this->load->view('template/headeradmin');
+		$this->load->view("admin/Tambah/tambahJenisSpk");
 		$this->load->view('template/footeradmin');
 	}
 

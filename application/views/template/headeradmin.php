@@ -6,7 +6,7 @@
   class="light-style layout-menu-fixed"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="../assets/"
+  data-assets-path="<?= base_url("assets/") ?>"
   data-template="vertical-menu-template-free"
 >
   <head>
@@ -35,23 +35,23 @@
     <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../assets/css/demo.css" />
+    <link rel="stylesheet" href="<?= base_url("assets/vendor/css/core.css")?>" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="<?= base_url("assets/vendor/css/theme-default.css")?>" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="<?= base_url("assets/css/demo.css") ?>" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="<?= base_url("assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css") ?>" />
 
-    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="<?= base_url("assets/vendor/libs/apex-charts/apex-charts.css") ?>"/>
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="../assets/vendor/js/helpers.js"></script>
+    <script src="<?= base_url("assets/vendor/js/helpers.js") ?>"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../assets/js/config.js"></script>
+    <script src="<?= base_url("assets/js/config.js") ?> "></script>
   </head>
 
   <body>
@@ -64,7 +64,7 @@
           <div class="app-brand demo">
             <a href="index.html" class="app-brand-link">
               <span class="app-brand-logo demo">
-                <img src="../assets/img/icons/brands/ubs.png" alt class="w-px-40">
+                <img src="<?= base_url("assets/img/icons/brands/ubs.png") ?>" alt class="w-px-40">
               </span> 
                
               <span class="menu-text fw-bolder ms-2 px-15">UBS</span> 
@@ -81,7 +81,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item">
-              <a href="index.html" class="menu-link">
+              <a href="<?= base_url("page/HomeAdminIT") ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>

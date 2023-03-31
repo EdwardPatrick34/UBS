@@ -1,5 +1,7 @@
- <!-- Layout container -->
- <div class="layout-page">
+
+
+        <!-- Layout container -->
+        <div class="layout-page">
           <!-- Navbar -->
 
           <nav
@@ -29,9 +31,8 @@
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
-								<!-- Nama yang login -->
                 <li class="nav-item lh-1 me-3">
-                  Admin
+                  
                 </li>
 
                 <!-- User -->
@@ -79,7 +80,7 @@
                     <!-- -->
 
                     <li>
-										<a class="dropdown-item" href="<?= base_url('login') ?>">
+					<a class="dropdown-item" href="<?= base_url('login') ?>">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -104,8 +105,34 @@
                     <div class="d-flex align-items-end row">
                       <div >
                         <div class="card-body" >
-                          <h2 class="card-title text-primary"> Dashboard</h2>
+                          <h2 class="card-title text-primary"> Tambah Status</h2>
 						  
+						  <br><br>
+						  <form action="" method="post">
+							
+							<div class="mb-3">
+							<label class="form-label" for="status">Status</label>
+							<input type="text" class="form-control" id="status" placeholder="......." />
+							</div>
+
+							<div class="mb-3">
+							<label class="form-label" for="nama_status">Nama Status</label>
+							<input type="text" class="form-control" id="nama_status" placeholder="......." />
+							</div>
+
+						
+
+							<div class="mb-3">
+							<label class="form-label" for="usere">USERE</label>
+							<input type="text" class="form-control" id="usere" placeholder="......." />
+							</div>
+							
+							
+							
+							
+							
+							<button type="submit" class="btn btn-primary">Tambah</button>
+						  </form>
                           	
                         </div>
                       </div>
@@ -151,3 +178,4 @@
       </div>
 
       <!-- Overlay -->
+      
