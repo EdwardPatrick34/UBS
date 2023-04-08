@@ -2,7 +2,6 @@
 
 class Page extends CI_Controller{
 
-
 	public function HomeAdminIT(){
 		$this->load->view('template/headeradmin');
 		$this->load->view('admin/homeadminIT');

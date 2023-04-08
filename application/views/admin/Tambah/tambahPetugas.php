@@ -108,36 +108,36 @@
                           <h2 class="card-title text-primary"> Tambah Petugas</h2>
 						  
 						  <br><br>
-						  <form action="" method="post">
+						  <form action="<?php echo site_url("Cpetugas/Insertpetugas"); ?>" method="post">
 							
 							<div class="mb-3">
 							<label class="form-label" for="petugas">Petugas</label>
-							<input type="text" class="form-control" id="petugas" placeholder="......." />
+							<input type="text" class="form-control" id="petugas" name="petugas" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="nama_petugas">Nama Petugas</label>
-							<input type="text" class="form-control" id="nama_petugas" placeholder="......." />
+							<input type="text" class="form-control" id="nama_petugas" name="nama_petugas" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="usere">USERE</label>
-							<input type="text" class="form-control" id="usere" placeholder="......." />
+							<input type="text" class="form-control" id="usere" name="usere" placeholder="......." />
 							</div>
 							
 							<div class="mb-3">
 							<label class="form-label" for="aktif">Aktif</label>
-							<input type="text" class="form-control" id="aktif" placeholder="......." />
+							<input type="text" class="form-control" id="aktif" name="aktif" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="jam_kerja">Jam Kerja</label>
-							<input type="text" class="form-control" id="jam_kerja" placeholder="......." />
+							<input type="text" class="form-control" id="jam_kerja" name="jam_kerja" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="jam_kerja_baru">Jam Kerja Baru</label>
-							<input type="text" class="form-control" id="jam_kerja_baru" placeholder="......." />
+							<input type="text" class="form-control" id="jam_kerja_baru" name="jam_kerja_baru" placeholder="......." />
 							</div>
 							
 							

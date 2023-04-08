@@ -1,5 +1,5 @@
 <?php 
-class member extends CI_Model{
+class Mpetugas extends CI_Model{
 
     public function __construct()
     {
@@ -7,8 +7,8 @@ class member extends CI_Model{
         $this->load->database();
     }
 
-    public function getdata(){
-        $jum = $this->db->query("select * from member");
+    public function getdatapetugas(){
+        $jum = $this->db->query("select * from ed_petugas");
         $jums = $jum->num_rows();
         return $jums;
     }
