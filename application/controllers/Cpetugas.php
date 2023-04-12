@@ -17,6 +17,9 @@ class CPetugas extends CI_Controller
 
 
 		$this->Mpetugas->insertPetugas($petugas, $nama, $usere, $aktif, $jam_kerja, $jam_kerja_baru);
+		$this->load->view('template/headeradmin');
+		$this->load->view('admin/Master/masterPetugas');
+		$this->load->view('template/footeradmin');
 	}
 	
     

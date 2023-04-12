@@ -1,3 +1,9 @@
+      <!-- Data Table -->
+      <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>"></script>
+      <link href="<?= base_url("assets/css/jquery.dataTables.min.css") ?>">
+      <script src="<?= base_url("assets/js/jquery.dataTables.min.js") ?>"></script>
+
+
 
         <!-- Layout container -->
         <div class="layout-page">
@@ -79,7 +85,7 @@
                     <!-- -->
 
                     <li>
-										<a class="dropdown-item" href="<?= base_url('login') ?>">
+          <a class="dropdown-item" href="<?= base_url('login') ?>">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -105,37 +111,54 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Petugas</h2>
-						  <a href="/UBS/page/tambahPetugas"><button class="btn btn-primary">Tambah Petugas</button></a>
-						  <br><br>
-                          	<table class="table table-bordered border-dark table-hover">
-								<thead>
-									<tr>
-									<th scope="col">NO</th>
-									<th scope="col">Petugas</th>
-									<th scope="col">Nama Petugas</th>
-									<th scope="col">USERE</th>
-									<th scope="col">Aktif</th>
-									<th scope="col">Jam Kerja</th>
-									<th scope="col">Jam Kerja Baru</th>
-									<th scope="col">Aksi</th>
-									
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-									<th scope="row">1</th>
-									<td>Unit 1</td>
-									<td>Unit gajah</td>
-									<td>jojo</td>
-									<td>rusak bro</td>
-									<td>
-										<button>Edit</button>
-										<button>Hapus</button>
-									</td>
-									</tr>
-									
-								</tbody>
-							</table>
+        <a href="/UBS/page/tambahPetugas"><button class="btn btn-primary">Tambah Petugas</button></a>
+        <br><br>
+                <table id="Tpetugas" class="table table-bordered border-dark table-hover">
+        <thead>
+         <tr>
+                    <th scope="col">NO</th>
+                    <th scope="col">Petugas</th>
+                    <th scope="col">Nama Petugas</th>
+                    <th scope="col">USERE</th>
+                    <th scope="col">Aktif</th>
+                    <th scope="col">Jam Kerja</th>
+                    <th scope="col">Jam Kerja Baru</th>
+                    <th scope="col">Aksi</th>         
+         </tr>
+        </thead>
+        <tbody>
+          <?php 
+            foreach($datapetugas->result() as $row) {
+              // print_r($row.petugas);
+              echo  $row->petugas;
+              // echo '<tr>
+              //   <td scope="col">1</th>
+              //   <th scope="col">'.$row['PETUGAS'].'</th>
+              //   <th scope="col">'.$row->NAMA_PETUGAS.'</th>
+              //   <th scope="col">'.$row->USERE.'</th>
+              //   <th scope="col">'.$row->AKTIF.'</th>
+              //   <th scope="col">'.$row->jam_kerja.'</th>
+              //   <th scope="col">'.$row->jam_kerja_baru.'</th>
+              // </tr>';
+            }
+          ?>
+                  
+         <!-- <tr>
+         <th scope="row">1</th>
+         <td>Unit 1</td>
+         <td>Unit gajah</td>
+         <td>jojo</td>
+         <td>rusak bro</td>
+         <td>
+          <button>Edit</button>
+          <button>Hapus</button>
+         </td>
+         </tr> -->
+        </tbody>
+       </table>
+
+
+
                         </div>
                       </div>
                       <!-- <div class="col-sm-5 text-center text-sm-left">
@@ -149,7 +172,7 @@
                           />
                         </div>
                       </div> -->
-											
+           
                     </div>
                   </div>
                 </div>
@@ -180,4 +203,12 @@
       </div>
 
       <!-- Overlay -->
-      
+
+      <script language='javascript'>
+        var tabel = null;
+        $(document).ready(function(){
+          tabel = $("#Tpetugas").DataTable({
+            
+          });
+        });
+      </script>
