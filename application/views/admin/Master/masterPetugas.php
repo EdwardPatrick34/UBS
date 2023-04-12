@@ -113,7 +113,7 @@
                           <h2 class="card-title text-primary"> Master Petugas</h2>
         <a href="/UBS/page/tambahPetugas"><button class="btn btn-primary">Tambah Petugas</button></a>
         <br><br>
-                <table id="Tpetugas" class="table table-bordered border-dark table-hover">
+        <table id="Tpetugas" class="table table-bordered border-dark table-hover">
         <thead>
          <tr>
                     <th scope="col">NO</th>
@@ -129,19 +129,19 @@
         <tbody>
           <?php 
             foreach($datapetugas->result() as $row) {
-              // print_r($row.petugas);
-              echo  $row->petugas;
-              // echo '<tr>
-              //   <td scope="col">1</th>
-              //   <th scope="col">'.$row['PETUGAS'].'</th>
-              //   <th scope="col">'.$row->NAMA_PETUGAS.'</th>
-              //   <th scope="col">'.$row->USERE.'</th>
-              //   <th scope="col">'.$row->AKTIF.'</th>
-              //   <th scope="col">'.$row->jam_kerja.'</th>
-              //   <th scope="col">'.$row->jam_kerja_baru.'</th>
-              // </tr>';
+              echo '<tr>
+                <th scope="col">'.$row->PETUGAS.'</th>
+                <th scope="col">'.$row->NAMA_PETUGAS.'</th>
+                <th scope="col">'.$row->USERE.'</th>
+                <th scope="col">'.$row->AKTIF.'</th>
+                <th scope="col">'.$row->JAM_KERJA.'</th>
+                <th scope="col">'.$row->JAM_KERJA_BARU.'</th>
+                <th scope="col">'.$row->JAM_KERJA.'</th>
+                <th scope="col">'.$row->JAM_KERJA_BARU.'</th>
+              </tr>';
             }
           ?>
+          
                   
          <!-- <tr>
          <th scope="row">1</th>
