@@ -146,7 +146,7 @@
               </a>
               <ul class="menu-sub">
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="<?= base_url('page/monitoringComplain') ?>" class="menu-link">
                     <div >Monitoring Complain</div>
                   </a>
                 </li>

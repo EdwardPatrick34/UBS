@@ -94,6 +94,13 @@ class Page extends CI_Controller{
 		$this->load->view('template/footeradmin');
 	}
 
+	public function MonitoringComplain(){
+		$this->load->view('template/headeradmin');
+		$this->load->view("admin/infrastruktur/monitoringComplain");
+		$this->load->view('template/footeradmin');
+	}
+
+	
 
 }
 
