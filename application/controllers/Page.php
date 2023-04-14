@@ -1,7 +1,10 @@
 <?php
 
 class Page extends CI_Controller{
-
+	public function __construct() {
+		parent::__construct(); 
+		$this->load->model('Mpetugas'); 
+	}
 
 	public function HomeAdminIT(){
 		$this->load->view('template/headeradmin');
@@ -24,9 +27,12 @@ class Page extends CI_Controller{
 
 	public function MasterPetugas(){
 		$this->load->view('template/headeradmin');
-		$this->load->view('admin/Master/masterPetugas');
+	  
+		$param['datapetugas'] = $this->Mpetugas->getdatapetugas(); 
+	  
+		$this->load->view('admin/Master/masterPetugas', $param);
 		$this->load->view('template/footeradmin');
-	}
+	   }
 
 	public function MasterJenisComplain(){
 		$this->load->view('template/headeradmin');

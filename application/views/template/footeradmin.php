@@ -24,5 +24,9 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- Data Table -->
+    <link href='http://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css'>
+    <script src='https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js'></script>
   </body>
 </html>

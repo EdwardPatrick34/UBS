@@ -49,6 +49,10 @@
     <!-- Helpers -->
     <script src="<?= base_url("assets/vendor/js/helpers.js") ?>"></script>
 
+    <!-- Data Table -->
+    <!-- <link href='http://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css'>
+    <script src='https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js'></script> -->
+
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="<?= base_url("assets/js/config.js") ?> "></script>
