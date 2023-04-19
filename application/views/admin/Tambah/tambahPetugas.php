@@ -100,12 +100,15 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
               
+            
                 <div>
                   <div class="card">
                     <div class="d-flex align-items-end row">
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Tambah Petugas</h2>
+                            <!-- <?php echo validation_errors();?> -->
+                            <?php echo $this->session->flashdata('errormsg');?>
 						  
 						  <br><br>
 						  <form action="<?php echo site_url("Cpetugas/Insertpetugas"); ?>" method="post">
@@ -142,7 +145,7 @@
 							
 							
 							
-							<button type="submit" class="btn btn-primary">Tambah</button>
+							<button type="submit" class="btn btn-primary" name="btnTambahPetugas">Tambah</button>
 						  </form>
                           	
                         </div>
