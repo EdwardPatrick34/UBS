@@ -61,6 +61,12 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'login/log';
 
+//start adminSIT
+
+
+
+//END adminSIT
+
 
 
 

@@ -15,7 +15,7 @@
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
-              <div class="navbar-nav align-items-center">
+              <!-- <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
                   <i class="bx bx-search fs-4 lh-0"></i>
                   <input
@@ -25,7 +25,7 @@
                     aria-label="Search..."
                   />
                 </div>
-              </div>
+              </div> -->
               <!-- /Search -->
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
@@ -38,7 +38,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/blank.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="<?= base_url("assets/img/avatars/blank.png") ?>" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -47,7 +47,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="../assets/img/avatars/blank.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="<?= base_url("assets/img/avatars/blank.png") ?>" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -104,48 +104,86 @@
                     <div class="d-flex align-items-end row">
                       <div >
                         <div class="card-body" >
-                          <h2 class="card-title text-primary"> Master Jenis Complain</h2>
-						  <a href="<?= base_url('page/tambahJenisComplain') ?>"><button class="btn btn-primary">Tambah Jenis Complain</button></a>
-						  <br><br>
-                          	<table class="table table-bordered border-dark table-hover">
-								<thead>
-									<tr>
-									<th scope="col">NO</th>
-									<th scope="col">Jenis Complain</th>
-									<th scope="col">Nama Complain</th>
-									<th scope="col">USERE</th>
-									<th scope="col">Aksi</th>
-									
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-									<th scope="row">1</th>
-									<td>Unit 1</td>
-									<td>Unit gajah</td>
-									<td>jojo</td>
-									<td>rusak bro</td>
-									<td>
-										<button>Edit</button>
-										<button>Hapus</button>
-									</td>
-									</tr>
-									
-								</tbody>
-							</table>
+                          <h2 class="card-title text-primary"> Create Complain</h2>
+						  
+						  <form action="" method="post">
+
+							
+
+								<!-- start form 2 -->
+								<div class="row">
+                <div class="col-xl">
+                  
+                    
+                    <div class="card-body">
+                      
+											<div class="mb-3 row">
+												<label for="no_complain" class=" col-form-label">no complain</label>
+												<div class="col-sm-4 input-group input-group-merge">
+												<input type="text" class="form-control" id="no_complain">
+												</div>
+											</div>
+											<div class="mb-3 row">
+												<label for="divisi" class=" col-form-label">Divisi</label>
+												<div class="col-sm-4 input-group input-group-merge">
+												<input type="text" class="form-control" id="divisi">
+												</div>
+											</div>
+											<div class="mb-3 row">
+												<label for="kode_unit" class=" col-form-label">Kode Unit</label>
+												<div class="col-sm-4 input-group input-group-merge">
+												<input type="text" class="form-control" id="kode_unit">
+												</div>
+											</div>
+											<div class="mb-3 row">
+												<label for="lokasi_unit" class=" col-form-label">Lokasi unit</label>
+												<div class="col-sm-4 input-group input-group-merge">
+												<input type="text" class="form-control" id="lokasi_unit">
+												</div>
+											</div>
+											
+											<div class="mb-3 row">
+												<label for="uraian" class=" col-form-label">Uraian Problem/kerusakan</label>
+												<div class="col-sm-4 input-group input-group-merge">
+												<textarea class="form-control" id="uraian"></textarea>
+												</div>
+											</div>
+                        
+                      
+                    </div>
+                  
+                </div>
+                <div class="col-xl">
+                  
+                    
+                    <div class="card-body">
+											<div class="mb-3 row">
+												<label for="tgljamlapor" class=" col-form-label">Tgl dan jam lapor</label>
+												<div class="col-sm-4 input-group input-group-merge">
+												<input type="text" class="form-control" id="tgljamlapor">
+												</div>
+											</div>
+											<div class="mb-3 row">
+												<label for="nama_pelapor" class=" col-form-label">Nama pelapor</label>
+												<div class="col-sm-4 input-group input-group-merge">
+												<input type="text" class="form-control" id="nama_pelapor">
+												</div>
+											</div>
+											
+                    </div>
+
+                  
+                </div>
+              </div>
+            </div>
+
+								<!-- end form 2 -->
+
+						  </form>
+                          	
                         </div>
                       </div>
-                      <!-- <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
-                          <img
-                            src="../assets/img/illustrations/man-with-laptop-light.png"
-                            height="140"
-                            alt="View Badge User"
-                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                            data-app-light-img="illustrations/man-with-laptop-light.png"
-                          />
-                        </div>
-                      </div> -->
+                      
 											
                     </div>
                   </div>

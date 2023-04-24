@@ -1,27 +1,33 @@
 <?php
 
 class Page extends CI_Controller{
-	public function __construct() {
-		parent::__construct(); 
-		$this->load->model('Mpetugas'); 
-	}
+	// public function __construct() {
+	// 	parent::__construct(); 
+	// 	$this->load->model('Mpetugas'); 
+	// }
 
 	public function HomeAdminIT(){
 		$this->load->view('template/headeradmin');
 		$this->load->view('admin/homeadminIT');
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
+	}
+
+	public function MasterUser(){
+		$this->load->view('template/headeradmin');
+		$this->load->view('admin/Master/masterUser');
+		$this->load->view('template/footer');
 	}
 
 	public function MasterUnit(){
 		$this->load->view('template/headeradmin');
 		$this->load->view('admin/Master/masterUnit');
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 
 	public function MasterJenisUnit(){
 		$this->load->view('template/headeradmin');
 		$this->load->view('admin/Master/masterJenisUnit');
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 
 
@@ -31,82 +37,95 @@ class Page extends CI_Controller{
 		$param['datapetugas'] = $this->Mpetugas->getdatapetugas(); 
 	  
 		$this->load->view('admin/Master/masterPetugas', $param);
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	   }
 
 	public function MasterJenisComplain(){
 		$this->load->view('template/headeradmin');
 		$this->load->view('admin/Master/masterJenisComplain');
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 
 	public function MasterStatus(){
 		$this->load->view('template/headeradmin');
 		$this->load->view('admin/Master/masterStatus');
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 
 	public function MasterRepair(){
 		$this->load->view('template/headeradmin');
 		$this->load->view('admin/Master/masterRepair');
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 
 	public function MasterJenisSpk(){
 		$this->load->view('template/headeradmin');
 		$this->load->view('admin/Master/masterJenisSpk');
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 
 
 	public function TambahJenisUnit(){
 		$this->load->view('template/headeradmin');
 		$this->load->view("admin/Tambah/tambahJenisUnit");
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 
 	public function TambahPetugas(){
 		$this->load->view('template/headeradmin');
 		$this->load->view("admin/Tambah/tambahPetugas");
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 
 	public function TambahJenisComplain(){
 		$this->load->view('template/headeradmin');
 		$this->load->view("admin/Tambah/tambahJenisComplain");
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 
 	public function TambahStatus(){
 		$this->load->view('template/headeradmin');
 		$this->load->view("admin/Tambah/tambahStatus");
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 	public function TambahRepair(){
 		$this->load->view('template/headeradmin');
 		$this->load->view("admin/Tambah/tambahRepair");
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 
 	public function TambahUnit(){
 		$this->load->view('template/headeradmin');
 		$this->load->view("admin/Tambah/tambahUnit");
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 
 	public function TambahJenisSpk(){
 		$this->load->view('template/headeradmin');
 		$this->load->view("admin/Tambah/tambahJenisSpk");
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
+	}
+
+	public function TambahUser(){
+		$this->load->view('template/headeradmin');
+		$this->load->view("admin/Tambah/tambahUser");
+		$this->load->view('template/footer');
 	}
 
 	public function MonitoringComplain(){
 		$this->load->view('template/headeradmin');
 		$this->load->view("admin/infrastruktur/monitoringComplain");
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 
-	
+	public function CreateSpk(){
+		$this->load->view('template/headeradmin');
+		$this->load->view("admin/infrastruktur/spkInfra");
+		$this->load->view('template/footer');
+	}
+
+
+
 
 }
 

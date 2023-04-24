@@ -1,4 +1,5 @@
 
+
         <!-- Layout container -->
         <div class="layout-page">
           <!-- Navbar -->
@@ -79,7 +80,7 @@
                     <!-- -->
 
                     <li>
-                      <a class="dropdown-item" href="<?= base_url('login') ?>">
+					<a class="dropdown-item" href="<?= base_url('login') ?>">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -104,35 +105,30 @@
                     <div class="d-flex align-items-end row">
                       <div >
                         <div class="card-body" >
-                          <h2 class="card-title text-primary"> Master Jenis Complain</h2>
-						  <a href="<?= base_url('page/tambahJenisComplain') ?>"><button class="btn btn-primary">Tambah Jenis Complain</button></a>
+                          <h2 class="card-title text-primary"> Tambah User</h2>
+						  
 						  <br><br>
-                          	<table class="table table-bordered border-dark table-hover">
-								<thead>
-									<tr>
-									<th scope="col">NO</th>
-									<th scope="col">Jenis Complain</th>
-									<th scope="col">Nama Complain</th>
-									<th scope="col">USERE</th>
-									<th scope="col">Aksi</th>
-									
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-									<th scope="row">1</th>
-									<td>Unit 1</td>
-									<td>Unit gajah</td>
-									<td>jojo</td>
-									<td>rusak bro</td>
-									<td>
-										<button>Edit</button>
-										<button>Hapus</button>
-									</td>
-									</tr>
-									
-								</tbody>
-							</table>
+						  <form action="" method="post">
+							
+							<div class="mb-3">
+							<label class="form-label" for="username">Username</label>
+							<input type="text" class="form-control" id="username" placeholder="......." />
+							</div>
+
+							<div class="mb-3">
+							<label class="form-label" for="password">password</label>
+							<input type="text" class="form-control" id="password" placeholder="......." />
+							</div>
+
+							<div class="mb-3">
+							<label class="form-label" for="nama">Nama</label>
+							<input type="text" class="form-control" id="nama" placeholder="......." />
+							</div>
+
+							
+							<button type="submit" class="btn btn-primary">Tambah</button>
+						  </form>
+                          	
                         </div>
                       </div>
                       <!-- <div class="col-sm-5 text-center text-sm-left">

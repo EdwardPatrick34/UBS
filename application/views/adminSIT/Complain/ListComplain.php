@@ -38,7 +38,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/blank.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="<?= base_url("assets/img/avatars/blank.png") ?>" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -47,7 +47,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="../assets/img/avatars/blank.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="<?= base_url("assets/img/avatars/blank.png") ?>" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -79,7 +79,7 @@
                     <!-- -->
 
                     <li>
-                      <a class="dropdown-item" href="<?= base_url('login') ?>">
+										<a class="dropdown-item" href="<?= base_url('login') ?>">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -104,16 +104,17 @@
                     <div class="d-flex align-items-end row">
                       <div >
                         <div class="card-body" >
-                          <h2 class="card-title text-primary"> Master Jenis Complain</h2>
-						  <a href="<?= base_url('page/tambahJenisComplain') ?>"><button class="btn btn-primary">Tambah Jenis Complain</button></a>
+                          <h2 class="card-title text-primary"> List Complain Problem Komputer</h2>
+						  <a href="<?= base_url('Ccompkomputer/CreateComplain') ?>"><button class="btn btn-primary">Create Complain</button></a>
 						  <br><br>
                           	<table class="table table-bordered border-dark table-hover">
 								<thead>
 									<tr>
 									<th scope="col">NO</th>
-									<th scope="col">Jenis Complain</th>
-									<th scope="col">Nama Complain</th>
+									<th scope="col">Jenis Unit</th>
+									<th scope="col">Nama Jenis Unit</th>
 									<th scope="col">USERE</th>
+									<th scope="col">Jenis Complain</th>
 									<th scope="col">Aksi</th>
 									
 									</tr>

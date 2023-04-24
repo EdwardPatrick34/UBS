@@ -105,7 +105,7 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Unit</h2>
-						  <a href="/UBS/page/tambahUnit"><button class="btn btn-primary">Tambah Unit</button></a>
+						  <a href="<?= base_url('page/tambahUnit') ?>"><button class="btn btn-primary">Tambah Unit</button></a>
 						  <br><br>
                           	<table class="table table-bordered border-dark table-hover">
 								<thead>

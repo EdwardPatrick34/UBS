@@ -103,6 +103,11 @@
                 <div data-i18n="Account Settings">Master</div>
               </a>
               <ul class="menu-sub">
+								<li class="menu-item">
+                  <a href="<?= base_url('page/masterUser') ?>" class="menu-link">
+                    <div >User</div>
+                  </a>
+                </li>
                 <li class="menu-item">
                   <a href="<?= base_url('page/masterUnit') ?>" class="menu-link">
                     <div >Unit</div>
@@ -141,6 +146,7 @@
                 
               </ul>
             </li>
+						
 
             <!-- EDP-Infrastruktur -->
             <li class="menu-item">
@@ -155,7 +161,7 @@
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="<?= base_url('page/createSpk') ?>" class="menu-link">
                     <div >SPK (Infrastruktur) </div>
                   </a>
                 </li>

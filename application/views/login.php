@@ -116,9 +116,11 @@
                   </div>
                 </div> -->
                 <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                  <button class="btn btn-primary d-grid w-100" type="submit">Sign in admin</button>
                 </div>
               </form>
+							<a href="<?= base_url('CAdminSIT/HomeAdminSIT')?>"><button>sign in admin seleain IT</button></a>
+							<a href="<?= base_url('CTeknisi/HomeTeknisi')?>"><button>sign in Teknisi</button></a>
 
               
             </div>

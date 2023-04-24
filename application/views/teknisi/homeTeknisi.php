@@ -1,6 +1,5 @@
-
-        <!-- Layout container -->
-        <div class="layout-page">
+ <!-- Layout container -->
+ <div class="layout-page">
           <!-- Navbar -->
 
           <nav
@@ -30,15 +29,16 @@
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
+								<!-- Nama yang login -->
                 <li class="nav-item lh-1 me-3">
-                  
+                  Admin
                 </li>
 
                 <!-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/blank.png" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="<?= base_url("assets/img/avatars/blank.png") ?>" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -47,7 +47,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="../assets/img/avatars/blank.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="<?= base_url("assets/img/avatars/blank.png") ?>" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -79,7 +79,7 @@
                     <!-- -->
 
                     <li>
-                      <a class="dropdown-item" href="<?= base_url('login') ?>">
+										<a class="dropdown-item" href="<?= base_url('login') ?>">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -104,35 +104,9 @@
                     <div class="d-flex align-items-end row">
                       <div >
                         <div class="card-body" >
-                          <h2 class="card-title text-primary"> Master Jenis Complain</h2>
-						  <a href="<?= base_url('page/tambahJenisComplain') ?>"><button class="btn btn-primary">Tambah Jenis Complain</button></a>
-						  <br><br>
-                          	<table class="table table-bordered border-dark table-hover">
-								<thead>
-									<tr>
-									<th scope="col">NO</th>
-									<th scope="col">Jenis Complain</th>
-									<th scope="col">Nama Complain</th>
-									<th scope="col">USERE</th>
-									<th scope="col">Aksi</th>
-									
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-									<th scope="row">1</th>
-									<td>Unit 1</td>
-									<td>Unit gajah</td>
-									<td>jojo</td>
-									<td>rusak bro</td>
-									<td>
-										<button>Edit</button>
-										<button>Hapus</button>
-									</td>
-									</tr>
-									
-								</tbody>
-							</table>
+                          <h2 class="card-title text-primary"> Dashboard Teknisi</h2>
+						  
+                          	
                         </div>
                       </div>
                       <!-- <div class="col-sm-5 text-center text-sm-left">
@@ -177,4 +151,3 @@
       </div>
 
       <!-- Overlay -->
-      

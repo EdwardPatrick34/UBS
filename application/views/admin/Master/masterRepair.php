@@ -105,7 +105,7 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Repair</h2>
-						  <a href="/UBS/page/tambahRepair"><button class="btn btn-primary">Tambah Repair</button></a>
+						  <a href="/UBS/page/tambahRepair" href="<?= base_url('page/tambahRepair') ?>"><button class="btn btn-primary">Tambah Repair</button></a>
 						  <br><br>
                           	<table class="table table-bordered border-dark table-hover">
 								<thead>

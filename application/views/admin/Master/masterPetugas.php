@@ -111,7 +111,7 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Petugas</h2>
-        <a href="/UBS/page/tambahPetugas"><button class="btn btn-primary">Tambah Petugas</button></a>
+        <a href="<?= base_url('page/tambahPetugas') ?>"><button class="btn btn-primary">Tambah Petugas</button></a>
         <br><br>
         <table id="Tpetugas" class="table table-bordered border-dark table-hover">
         <thead>

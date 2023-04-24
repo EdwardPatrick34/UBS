@@ -105,7 +105,7 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Status</h2>
-						  <a href="/UBS/page/tambahStatus"><button class="btn btn-primary">Tambah Status</button></a>
+						  <a href="<?= base_url('page/tambahStatus') ?>"><button class="btn btn-primary">Tambah Status</button></a>
 						  <br><br>
                           	<table class="table table-bordered border-dark table-hover">
 								<thead>

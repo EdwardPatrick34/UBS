@@ -79,7 +79,7 @@
                     <!-- -->
 
                     <li>
-                      <a class="dropdown-item" href="<?= base_url('login') ?>">
+					<a class="dropdown-item" href="<?= base_url('login') ?>">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -104,18 +104,18 @@
                     <div class="d-flex align-items-end row">
                       <div >
                         <div class="card-body" >
-                          <h2 class="card-title text-primary"> Master Jenis Complain</h2>
-						  <a href="<?= base_url('page/tambahJenisComplain') ?>"><button class="btn btn-primary">Tambah Jenis Complain</button></a>
+                          <h2 class="card-title text-primary"> Master User</h2>
+						  <a href="<?= base_url('page/tambahUser') ?>"><button class="btn btn-primary">Tambah User</button></a>
 						  <br><br>
                           	<table class="table table-bordered border-dark table-hover">
 								<thead>
 									<tr>
 									<th scope="col">NO</th>
-									<th scope="col">Jenis Complain</th>
-									<th scope="col">Nama Complain</th>
-									<th scope="col">USERE</th>
-									<th scope="col">Aksi</th>
-									
+									<th scope="col">ID</th>
+									<th scope="col">Username</th>
+									<th scope="col">Password</th>
+									<th scope="col">Nama</th>		
+									<th scope="col">Aksi</th>		
 									</tr>
 								</thead>
 								<tbody>
