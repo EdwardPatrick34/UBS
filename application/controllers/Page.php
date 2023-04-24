@@ -4,6 +4,8 @@ class Page extends CI_Controller{
 	public function __construct() {
 		parent::__construct(); 
 		$this->load->model('Mpetugas'); 
+		$this->load->model('Mjeniscomplain');
+		$this->load->model('Mstatus');
 		$this->load->helper('url'); 
  
 	}
@@ -38,13 +40,18 @@ class Page extends CI_Controller{
 
 	public function MasterJenisComplain(){
 		$this->load->view('template/headeradmin');
-		$this->load->view('admin/Master/masterJenisComplain');
+
+		$param['dataComplain'] = $this->Mjeniscomplain->getdatacomplain();
+		
+		$this->load->view('admin/Master/masterJenisComplain', $param);
 		$this->load->view('template/footeradmin');
 	}
 
 	public function MasterStatus(){
 		$this->load->view('template/headeradmin');
-		$this->load->view('admin/Master/masterStatus');
+
+		$param['datastatus'] = $this->Mstatus->getdatastatus();
+		$this->load->view('admin/Master/masterStatus', $param);
 		$this->load->view('template/footeradmin');
 	}
 

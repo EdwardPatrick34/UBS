@@ -107,8 +107,12 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Tambah Petugas</h2>
-                            <!-- <?php echo validation_errors();?> -->
-                            <?php echo $this->session->flashdata('errormsg');?>
+                            <?php if($this->session->userdata ('errormsg')): ?>
+                              <div style="background-color: lightslategray; padding: 4px; color: white; height: 50px">
+                                <?php echo $this->session->flashdata('errormsg');?>
+                              </div>
+                            <?php endif ?>
+                            
 						  
 						  <br><br>
 						  <form action="<?php echo site_url("Cpetugas/Insertpetugas"); ?>" method="post">
