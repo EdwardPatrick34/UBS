@@ -23,7 +23,7 @@ class Mpetugas extends CI_Model{
 
 
     public function deletePetugas($Id){
-        $sql = "delete from ed_petugas where petugas = '"+$Id+"'";
+        $sql = "delete from ed_petugas where petugas = '".$Id."'";
         $this->db->query($sql);
     }
 

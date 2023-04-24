@@ -111,7 +111,13 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Petugas</h2>
-        <a href="<?= base_url('page/tambahPetugas') ?>"><button class="btn btn-primary">Tambah Petugas</button></a>
+                          <?php if($this->session->userdata('msg')): ?>
+                            <div style="background-color: lightslategray; padding: 4px; color: white; height : 50px">
+                              <?php echo $this->session->flashdata('msg');?>
+                            </div>
+                          <?php endif ?>
+                          
+        <a href="/UBS/page/tambahPetugas"><button class="btn btn-primary">Tambah Petugas</button></a>
         <br><br>
         <table id="Tpetugas" class="table table-bordered border-dark table-hover">
         <thead>
@@ -123,24 +129,27 @@
                     <th scope="col">Aktif</th>
                     <th scope="col">Jam Kerja</th>
                     <th scope="col">Jam Kerja Baru</th>
-                    <th scope="col">Aksi</th>         
+                    <th scope="col">Aksi</th>
+                    <!-- <th scope="col" colspan="2" style="text-align: center;">Aksi</th>          -->
          </tr>
         </thead>
         <tbody>
-          <?php 
-            foreach($datapetugas->result() as $row) {
-              echo '<tr>
-                <th scope="col">'.$row->PETUGAS.'</th>
-                <th scope="col">'.$row->NAMA_PETUGAS.'</th>
-                <th scope="col">'.$row->USERE.'</th>
-                <th scope="col">'.$row->AKTIF.'</th>
-                <th scope="col">'.$row->JAM_KERJA.'</th>
-                <th scope="col">'.$row->JAM_KERJA_BARU.'</th>
-                <th scope="col">'.$row->JAM_KERJA.'</th>
-                <th scope="col">'.$row->JAM_KERJA_BARU.'</th>
-              </tr>';
-            }
-          ?>
+          <?php foreach ($datapetugas->result() as $row): ?>
+            <tr>
+              <th scope="col"><?php echo $row->PETUGAS; ?></th>
+              <th scope="col"><?php echo $row->NAMA_PETUGAS; ?></th>
+              <th scope="col"><?php echo $row->USERE; ?></th>
+              <th scope="col"><?php echo $row->AKTIF; ?></th>
+              <th scope="col"><?php echo $row->JAM_KERJA; ?></th>
+              <th scope="col"><?php echo $row->JAM_KERJA_BARU; ?></th>
+              <th scope="col"><?php echo $row->NAMA_PETUGAS; ?></th>
+              <th>
+                <a href="<?php echo site_url('Cpetugas/deletePetugas/'.$row->PETUGAS); ?>">
+                  <button class="btn btn-danger">Delete</button>
+                </a>
+              </th>
+            </tr>
+          <?php endforeach; ?>  
           
                   
          <!-- <tr>

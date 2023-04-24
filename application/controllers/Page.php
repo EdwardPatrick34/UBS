@@ -1,10 +1,14 @@
 <?php
 
 class Page extends CI_Controller{
-	// public function __construct() {
-	// 	parent::__construct(); 
-	// 	$this->load->model('Mpetugas'); 
-	// }
+	public function __construct() {
+		parent::__construct(); 
+		$this->load->model('Mpetugas'); 
+		$this->load->model('Mjeniscomplain');
+		$this->load->model('Mstatus');
+		$this->load->helper('url'); 
+ 
+	}
 
 	public function HomeAdminIT(){
 		$this->load->view('template/headeradmin');
@@ -42,14 +46,19 @@ class Page extends CI_Controller{
 
 	public function MasterJenisComplain(){
 		$this->load->view('template/headeradmin');
-		$this->load->view('admin/Master/masterJenisComplain');
-		$this->load->view('template/footer');
+
+		$param['dataComplain'] = $this->Mjeniscomplain->getdatacomplain();
+		
+		$this->load->view('admin/Master/masterJenisComplain', $param);
+		$this->load->view('template/footeradmin');
 	}
 
 	public function MasterStatus(){
 		$this->load->view('template/headeradmin');
-		$this->load->view('admin/Master/masterStatus');
-		$this->load->view('template/footer');
+
+		$param['datastatus'] = $this->Mstatus->getdatastatus();
+		$this->load->view('admin/Master/masterStatus', $param);
+		$this->load->view('template/footeradmin');
 	}
 
 	public function MasterRepair(){

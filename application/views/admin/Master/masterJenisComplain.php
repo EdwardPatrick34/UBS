@@ -1,4 +1,8 @@
-
+        <!-- Data Table -->
+        <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>"></script>
+        <link href="<?= base_url("assets/css/jquery.dataTables.min.css") ?>">
+        <script src="<?= base_url("assets/js/jquery.dataTables.min.js") ?>"></script>
+        
         <!-- Layout container -->
         <div class="layout-page">
           <!-- Navbar -->
@@ -98,7 +102,6 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              
                 <div>
                   <div class="card">
                     <div class="d-flex align-items-end row">
@@ -107,30 +110,25 @@
                           <h2 class="card-title text-primary"> Master Jenis Complain</h2>
 						  <a href="<?= base_url('page/tambahJenisComplain') ?>"><button class="btn btn-primary">Tambah Jenis Complain</button></a>
 						  <br><br>
-                          	<table class="table table-bordered border-dark table-hover">
+              <table id="Tcomplain" class="table table-bordered border-dark table-hover">
 								<thead>
 									<tr>
-									<th scope="col">NO</th>
-									<th scope="col">Jenis Complain</th>
-									<th scope="col">Nama Complain</th>
-									<th scope="col">USERE</th>
-									<th scope="col">Aksi</th>
-									
+                    <th scope="col">NO</th>
+                    <th scope="col">Jenis Complain</th>
+                    <th scope="col">Nama Complain</th>
+                    <th scope="col">USERE</th>
+                    <th scope="col">Aksi</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-									<th scope="row">1</th>
-									<td>Unit 1</td>
-									<td>Unit gajah</td>
-									<td>jojo</td>
-									<td>rusak bro</td>
-									<td>
-										<button>Edit</button>
-										<button>Hapus</button>
-									</td>
-									</tr>
-									
+									<?php foreach($dataComplain->result() as $row): ?>
+                    <tr>
+                      <th scope="col"><?php echo $row->JENIS_COMPLAIN; ?></th>
+                      <th scope="col"><?php echo $row->JENIS_COMPLAIN; ?></th>
+                      <th scope="col"><?php echo $row->JENIS_COMPLAIN; ?></th>
+                      <th scope="col"><?php echo $row->JENIS_COMPLAIN; ?></th>
+                    </tr>
+                  <?php endforeach; ?>
 								</tbody>
 							</table>
                         </div>
@@ -175,6 +173,14 @@
         </div>
         <!-- / Layout page -->
       </div>
-
       <!-- Overlay -->
+
+      <script language='javascript'>
+        var tabel = null;
+        $(document).ready(function(){
+          tabel = $("#Tcomplain").DataTable({
+            
+          });
+        });
+      </script>
       
