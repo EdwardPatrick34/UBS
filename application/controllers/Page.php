@@ -58,7 +58,7 @@ class Page extends CI_Controller{
 
 		$param['datastatus'] = $this->Mstatus->getdatastatus();
 		$this->load->view('admin/Master/masterStatus', $param);
-		$this->load->view('template/footeradmin');
+		$this->load->view('template/footer');
 	}
 
 	public function MasterRepair(){
