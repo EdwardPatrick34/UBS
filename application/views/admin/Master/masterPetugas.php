@@ -129,7 +129,7 @@
                     <th scope="col">Aktif</th>
                     <th scope="col">Jam Kerja</th>
                     <th scope="col">Jam Kerja Baru</th>
-                    <th scope="col">Aksi</th>
+                    <th scope="col" style="text-align: center;">Aksi</th>
                     <!-- <th scope="col" colspan="2" style="text-align: center;">Aksi</th>          -->
          </tr>
         </thead>
@@ -146,6 +146,9 @@
               <th>
                 <a href="<?php echo site_url('Cpetugas/deletePetugas/'.$row->PETUGAS); ?>">
                   <button class="btn btn-danger">Delete</button>
+                </a>
+                <a href="">
+                  <button class="btn btn-info">Edit</button>
                 </a>
               </th>
             </tr>

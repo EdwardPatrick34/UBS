@@ -108,23 +108,23 @@
                           <h2 class="card-title text-primary"> Tambah Status</h2>
 						  
 						  <br><br>
-						  <form action="" method="post">
+						  <form action="<?php echo site_url("Cstatus/InsertStatus");?>" method="post">
 							
 							<div class="mb-3">
 							<label class="form-label" for="status">Status</label>
-							<input type="text" class="form-control" id="status" placeholder="......." />
+							<input type="text" class="form-control" id="status" name="status" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="nama_status">Nama Status</label>
-							<input type="text" class="form-control" id="nama_status" placeholder="......." />
+							<input type="text" class="form-control" id="nama_status" name="nama_status" placeholder="......." />
 							</div>
 
 						
 
 							<div class="mb-3">
 							<label class="form-label" for="usere">USERE</label>
-							<input type="text" class="form-control" id="usere" placeholder="......." />
+							<input type="text" class="form-control" id="usere" name="usere" placeholder="......." />
 							</div>
 							
 							

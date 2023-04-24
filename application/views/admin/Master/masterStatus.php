@@ -1,4 +1,8 @@
-
+        <!-- Data Table -->
+        <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>"></script>
+        <link href="<?= base_url("assets/css/jquery.dataTables.min.css") ?>">
+        <script src="<?= base_url("assets/js/jquery.dataTables.min.js") ?>"></script>
+        
         <!-- Layout container -->
         <div class="layout-page">
           <!-- Navbar -->
@@ -107,29 +111,33 @@
                           <h2 class="card-title text-primary"> Master Status</h2>
 						  <a href="<?= base_url('page/tambahStatus') ?>"><button class="btn btn-primary">Tambah Status</button></a>
 						  <br><br>
-                          	<table class="table table-bordered border-dark table-hover">
+                <table id="Tstatus" class="table table-bordered border-dark table-hover">
 								<thead>
 									<tr>
 									<th scope="col">NO</th>
 									<th scope="col">Status</th>
 									<th scope="col">Nama Status</th>
 									<th scope="col">USERE</th>
-									<th scope="col">Aksi</th>		
+									<th scope="col" style="text-align: center;">Aksi</th>		
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-									<th scope="row">1</th>
-									<td>Unit 1</td>
-									<td>Unit gajah</td>
-									<td>jojo</td>
-									<td>rusak bro</td>
-									<td>
-										<button>Edit</button>
-										<button>Hapus</button>
-									</td>
-									</tr>
-									
+									<?php foreach($datastatus->result() as $row): ?>
+                      <tr>
+                        <th scope="col">1</th>
+                        <th scope="col"><?php echo $row->STATUS; ?></th>
+                        <th scope="col"><?php echo $row->NAMA_STATUS; ?></th>
+                        <th scope="col"><?php echo $row->USERE; ?></th>
+                        <th>
+                          <a href="">
+                            <button class="btn btn-danger">Delete</button>
+                          </a>
+                          <a href="">
+                            <button class="btn btn-info">Edit</button>
+                          </a>
+                        </th>
+                      </tr>
+                  <?php endforeach; ?>
 								</tbody>
 							</table>
                         </div>
@@ -176,4 +184,12 @@
       </div>
 
       <!-- Overlay -->
+      <script language='javascript'>
+        var tabel = null;
+        $(document).ready(function(){
+          tabel = $("#Tstatus").DataTable({
+            
+          });
+        });
+      </script>
       
