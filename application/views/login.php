@@ -78,7 +78,7 @@
               <!-- <h4 class="mb-2">Welcome to Sneat! 👋</h4>
               <p class="mb-4">Please sign-in to your account and start the adventure</p> -->
 
-              <form id="formAuthentication" class="mb-3" action="<?= base_url('page/HomeAdminIT')?>" method="POST">
+              <form id="formAuthentication" class="mb-3" action="<?= base_url('CRAdmin/HomeAdminIT')?>" method="POST">
                 <div class="mb-3">
                   <label for="email" class="form-label"> Username</label>
                   <input
@@ -119,8 +119,8 @@
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign in admin</button>
                 </div>
               </form>
-							<a href="<?= base_url('CAdminSIT/HomeAdminSIT')?>"><button>sign in admin seleain IT</button></a>
-							<a href="<?= base_url('CTeknisi/HomeTeknisi')?>"><button>sign in Teknisi</button></a>
+							<a href="<?= base_url('CRAdminSIT/HomeAdminSIT')?>"><button>sign in admin seleain IT</button></a>
+							<a href="<?= base_url('CRTeknisi/HomeTeknisi')?>"><button>sign in Teknisi</button></a>
 
               
             </div>

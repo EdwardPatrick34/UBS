@@ -1,4 +1,10 @@
 
+
+
+	  <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>" language="javascript"></script>
+      <script src="<?= base_url("assets/js/jquery.dataTables.min.js") ?>" language="javascript"></script>
+      <link href="<?= base_url("assets/css/jquery.dataTables.min.css") ?>" type="text/css" rel="stylesheet">
+
         <!-- Layout container -->
         <div class="layout-page">
           <!-- Navbar -->
@@ -114,7 +120,7 @@
 						  
 						  <div class="row mb-5">
 						  	<div class="col-md-6 col-lg-3 mb-3">
-								<table class="table table-bordered border-dark table-hover" style="width: 80px;">
+								<table id="Tcomplain1" class="table table-bordered border-dark table-hover" style="width: 80px;">
 									<thead>
 										<tr>
 										<th scope="col">DIVISI</th>
@@ -135,7 +141,7 @@
 							</div>
 							<div class="col-md-6 col-lg-4 mb-3">
 
-								<table class="table table-bordered border-dark table-hover">
+								<table id="Tcomplain2" class="table table-bordered border-dark table-hover">
 									<thead>
 										<tr>
 										<th scope="col">NO COMPLAIN</th>
@@ -462,4 +468,21 @@
       </div>
 
       <!-- Overlay -->
+
+	  <script language='javascript'>
+        var tabel = null;
+		var tabel2 = null;
+        $(document).ready(function(){
+          tabel = $("#Tcomplain1").DataTable({
+		
+            
+          });
+
+		  tabel2 = $("#Tcomplain2").DataTable({
+
+		  });
+
+
+        });
+      </script>
       

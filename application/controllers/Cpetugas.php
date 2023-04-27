@@ -9,6 +9,16 @@ class CPetugas extends CI_Controller
 		$this->load->library('form_validation');
 	}
 
+
+	public function MasterPetugas(){
+		$this->load->view('template/headeradmin');
+	  
+		$param['datapetugas'] = $this->Mpetugas->getdatapetugas(); 
+	  
+		$this->load->view('admin/Master/masterPetugas', $param);
+		$this->load->view('template/footer');
+	}
+
 	public function Insertpetugas(){
 		$this->form_validation->set_rules('nama_petugas','nama_petugas', 'required', array ('required' => 'Nama harus diisi'));
 		$this->form_validation->set_rules('petugas', 'petugas', 'required', array('required' => 'Harus mengisi kode petugas'));

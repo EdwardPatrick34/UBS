@@ -1,6 +1,6 @@
 <?php
 
-class CAdminSIT extends CI_Controller{
+class CRAdminSIT extends CI_Controller{
 
 	public function HomeAdminSIT(){
 		$this->load->view('template/headeradminSIT');

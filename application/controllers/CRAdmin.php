@@ -3,10 +3,10 @@
 class Page extends CI_Controller{
 	public function __construct() {
 		parent::__construct(); 
-		$this->load->model('Mpetugas'); 
-		$this->load->model('Mjeniscomplain');
-		$this->load->model('Mstatus');
-		$this->load->helper('url'); 
+		// $this->load->model('Mpetugas'); 
+		// $this->load->model('Mjeniscomplain');
+		// $this->load->model('Mstatus');
+		// $this->load->helper('url'); 
  
 	}
 
@@ -22,11 +22,7 @@ class Page extends CI_Controller{
 		$this->load->view('template/footer');
 	}
 
-	public function MasterUnit(){
-		$this->load->view('template/headeradmin');
-		$this->load->view('admin/Master/masterUnit');
-		$this->load->view('template/footer');
-	}
+	
 
 	public function MasterJenisUnit(){
 		$this->load->view('template/headeradmin');

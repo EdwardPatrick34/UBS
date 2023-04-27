@@ -9,6 +9,14 @@ class Cstatus extends CI_Controller
 		$this->load->library('form_validation');
 	}
 
+	public function MasterStatus(){
+		$this->load->view('template/headeradmin');
+
+		$param['datastatus'] = $this->Mstatus->getdatastatus();
+		$this->load->view('admin/Master/masterStatus', $param);
+		$this->load->view('template/footer');
+	}
+
 	public function InsertStatus(){
 		$this->form_validation->set_rules('status','status', 'required', array ('required' => 'Nama harus diisi'));
 		$this->form_validation->set_rules('nama_status', 'nama_status', 'required', array('required' => 'Harus mengisi kode petugas'));

@@ -85,7 +85,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item">
-              <a href="<?= base_url("page/HomeAdminIT") ?>" class="menu-link">
+              <a href="<?= base_url("CRAdmin/HomeAdminIT") ?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -104,42 +104,42 @@
               </a>
               <ul class="menu-sub">
 								<li class="menu-item">
-                  <a href="<?= base_url('page/masterUser') ?>" class="menu-link">
+                  <a href="<?= base_url('CRAdmin/masterUser') ?>" class="menu-link">
                     <div >User</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="<?= base_url('page/masterUnit') ?>" class="menu-link">
+                  <a href="<?= base_url('CUnit/masterUnit') ?>" class="menu-link">
                     <div >Unit</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="<?= base_url('page/masterJenisUnit') ?>" class="menu-link">
+                  <a href="<?= base_url('CJenisUnit/masterJenisUnit') ?>" class="menu-link">
                     <div >Jenis Unit</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="<?= base_url('page/masterPetugas') ?>" class="menu-link">
+                  <a href="<?= base_url('Cpetugas/masterPetugas') ?>" class="menu-link">
                     <div >Petugas</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="<?= base_url('page/masterJenisComplain') ?>" class="menu-link">
+                  <a href="<?= base_url('CJenisComplain/masterJenisComplain') ?>" class="menu-link">
                     <div >Jenis Complain</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="<?= base_url('page/masterStatus') ?>" class="menu-link">
+                  <a href="<?= base_url('Cstatus/masterStatus') ?>" class="menu-link">
                     <div >Status</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="<?= base_url('page/masterRepair') ?>" class="menu-link">
+                  <a href="<?= base_url('CRepair/masterRepair') ?>" class="menu-link">
                     <div >Repair</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="<?= base_url('page/masterJenisSpk') ?>" class="menu-link">
+                  <a href="<?= base_url('CJenisSpk/masterJenisSpk') ?>" class="menu-link">
                     <div >Jenis SPK</div>
                   </a>
                 </li>
@@ -156,42 +156,42 @@
               </a>
               <ul class="menu-sub">
 								<li class="menu-item">
-                  <a href="<?= base_url('page/monitoringComplain') ?>" class="menu-link">
+                  <a href="<?= base_url('CRAdmin/monitoringComplain') ?>" class="menu-link">
                     <div >Monitoring Complain</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="<?= base_url('page/createSpk') ?>" class="menu-link">
+                  <a href="<?= base_url('CRAdmin/createSpk') ?>" class="menu-link">
                     <div >SPK (Infrastruktur) </div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Repair (Vendor) </div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Complain/SPK Selesai</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Complain/SPK Batal</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Pending Complain/SPK</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Ubah Pending Jadi SPK lagi</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Ganti Password</div>
                   </a>
                 </li>
@@ -206,67 +206,67 @@
               </a>
               <ul class="menu-sub">
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >History Complain</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Listing Teknisi yang belum dapat SPK</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Listing Teknisi yang dapat SPK per range Tanggal</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Jumlah SPK per Teknisi</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Listing SPK per teknisi per Range Tanggal SPK</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Listing Uraian Complain Divisi</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Laporan Bulanan Infrastruktur</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Laporan Perbaikan Infrastruktur</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Jumlah Complain Divisi per Bulan</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Laporan Kegiatan Infrastruktur</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Laporan Pendingan per teknisi</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Laporan KPI Infrastruktur</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Laporan Barang Rusak</div>
                   </a>
                 </li>
