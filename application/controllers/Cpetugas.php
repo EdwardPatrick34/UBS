@@ -26,7 +26,7 @@ class CPetugas extends CI_Controller
 			$aktif = $this->input->post("aktif");
 			$this->Mpetugas->insertPetugas($petugas, $nama, $usere, $aktif, $jam_kerja, $jam_kerja_baru);
 			$this->session->set_flashdata('msg','Berhasil menambahkan petugas');
-			redirect('UBS/page/masterPetugas');
+			redirect('page/masterPetugas');
 		}
 		
 		
