@@ -53,6 +53,7 @@ class Page extends CI_Controller{
 		$this->load->view('template/headeradmin');
 
 		$param['datastatus'] = $this->Mstatus->getdatastatus();
+		
 		$this->load->view('admin/Master/masterStatus', $param);
 		$this->load->view('template/footer');
 	}

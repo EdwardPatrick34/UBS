@@ -1,7 +1,7 @@
         <!-- Data Table -->
-        <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>"></script>
-        <link href="<?= base_url("assets/css/jquery.dataTables.min.css") ?>">
-        <script src="<?= base_url("assets/js/jquery.dataTables.min.js") ?>"></script>
+        <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>" language="javascript"></script>
+      <script src="<?= base_url("assets/js/jquery.dataTables.min.js") ?>" language="javascript"></script>
+      <link href="<?= base_url("assets/css/jquery.dataTables.min.css") ?>" type="text/css" rel="stylesheet">
         
         <!-- Layout container -->
         <div class="layout-page">
@@ -111,12 +111,12 @@
                           <h2 class="card-title text-primary"> Master Status</h2>
 						  <a href="<?= base_url('page/tambahStatus') ?>"><button class="btn btn-primary">Tambah Status</button></a>
 						  <br><br>
-                <table id="Tstatus" class="table table-bordered border-dark table-hover">
+                <table id="Tstatus" class="table table-sriped">
 								<thead>
 									<tr>
 									<th scope="col">NO</th>
 									<th scope="col">Status</th>
-									<th scope="col">Nama Status</th>
+                <th scope="col">Nama Status</th>
 									<th scope="col">USERE</th>
 									<th scope="col" style="text-align: center;">Aksi</th>		
 									</tr>
@@ -129,7 +129,7 @@
                         <th scope="col"><?php echo $row->NAMA_STATUS; ?></th>
                         <th scope="col"><?php echo $row->USERE; ?></th>
                         <th>
-                          <a href="">
+                          <a href="<?php echo site_url('Cstatus/deleteStatus/'.$row->STATUS) ;?>">
                             <button class="btn btn-danger">Delete</button>
                           </a>
                           <a href="">
