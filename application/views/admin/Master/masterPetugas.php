@@ -1,14 +1,11 @@
       <!-- Data Table -->
-      <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>"></script>
-      <link href="<?= base_url("assets/css/jquery.dataTables.min.css") ?>">
-      <script src="<?= base_url("assets/js/jquery.dataTables.min.js") ?>"></script>
-
-
+      <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>" language="javascript"></script>
+      <script src="<?= base_url("assets/js/jquery.dataTables.min.js") ?>" language="javascript"></script>
+      <link href="<?= base_url("assets/css/jquery.dataTables.min.css") ?>" type="text/css" rel="stylesheet">
 
         <!-- Layout container -->
         <div class="layout-page">
           <!-- Navbar -->
-
           <nav
             class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
             id="layout-navbar"
@@ -119,53 +116,40 @@
                           
         <a href="/UBS/CRAdmin/tambahPetugas"><button class="btn btn-primary">Tambah Petugas</button></a>
         <br><br>
-        <table id="Tpetugas" class="table table-bordered border-dark table-hover">
+        <table id="Tpetugas" class="table table-striped">
         <thead>
          <tr>
-                    <th scope="col">NO</th>
-                    <th scope="col">Petugas</th>
-                    <th scope="col">Nama Petugas</th>
-                    <th scope="col">USERE</th>
-                    <th scope="col">Aktif</th>
-                    <th scope="col">Jam Kerja</th>
-                    <th scope="col">Jam Kerja Baru</th>
-                    <th scope="col" style="text-align: center;">Aksi</th>
-                    <!-- <th scope="col" colspan="2" style="text-align: center;">Aksi</th>          -->
+            <th scope="col">NO</th>
+            <th scope="col">Petugas</th>
+            <th scope="col">Nama Petugas</th>
+            <th scope="col">USERE</th>
+            <th scope="col">Aktif</th>
+            <th scope="col">Jam Kerja</th>
+            <th scope="col">Jam Kerja Baru</th>
+            <th scope="col">Aksi</th>
+            <!-- <th scope="col" colspan="2" style="text-align: center;">Aksi</th>          -->
          </tr>
         </thead>
         <tbody>
-          <?php foreach ($datapetugas->result() as $row): ?>
+            <?php foreach ($datapetugas->result() as $row): ?>
             <tr>
-              <th scope="col"><?php echo $row->PETUGAS; ?></th>
-              <th scope="col"><?php echo $row->NAMA_PETUGAS; ?></th>
-              <th scope="col"><?php echo $row->USERE; ?></th>
-              <th scope="col"><?php echo $row->AKTIF; ?></th>
-              <th scope="col"><?php echo $row->JAM_KERJA; ?></th>
-              <th scope="col"><?php echo $row->JAM_KERJA_BARU; ?></th>
-              <th scope="col"><?php echo $row->NAMA_PETUGAS; ?></th>
-              <th>
+              <td scope="col"><?php echo $row->PETUGAS; ?></td>
+              <td scope="col"><?php echo $row->NAMA_PETUGAS; ?></td>
+              <td scope="col"><?php echo $row->USERE; ?></td>
+              <td scope="col"><?php echo $row->AKTIF; ?></td>
+              <td scope="col"><?php echo $row->JAM_KERJA; ?></td>
+              <td scope="col"><?php echo $row->JAM_KERJA_BARU; ?></td>
+              <td scope="col"><?php echo $row->NAMA_PETUGAS; ?></td>
+              <td>
                 <a href="<?php echo site_url('Cpetugas/deletePetugas/'.$row->PETUGAS); ?>">
                   <button class="btn btn-danger">Delete</button>
                 </a>
                 <a href="">
                   <button class="btn btn-info">Edit</button>
                 </a>
-              </th>
+              </td>
             </tr>
-          <?php endforeach; ?>  
-          
-                  
-         <!-- <tr>
-         <th scope="row">1</th>
-         <td>Unit 1</td>
-         <td>Unit gajah</td>
-         <td>jojo</td>
-         <td>rusak bro</td>
-         <td>
-          <button>Edit</button>
-          <button>Hapus</button>
-         </td>
-         </tr> -->
+            <?php endforeach; ?>  
         </tbody>
        </table>
 

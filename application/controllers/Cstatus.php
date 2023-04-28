@@ -30,7 +30,7 @@ class Cstatus extends CI_Controller
 			
 			$this->Mstatus->insertStatus($status, $nama, $usere);
 			$this->session->set_flashdata('msg','Berhasil menambahkan status');
-			redirect('UBS/page/masterStatus');
+			redirect('page/masterStatus');
 		}
 		
 		
@@ -40,17 +40,17 @@ class Cstatus extends CI_Controller
 		// $this->load->view('template/footeradmin');
 
 		$this->session->set_flashdata('errormsg', validation_errors());
-		redirect('UBS/page/tambahStatus');
+		redirect('page/tambahStatus');
 	}
 	
     public function editPetugas(){
 
 	}
 
-	public function deletePetugas($Petugas){
-		$this->Mpetugas->deletePetugas($Petugas);
+	public function deleteStatus($status){
+		$this->Mstatus->deletestatus($status);
 		$this->session->set_flashdata('msg','Berhasil menghapus data petugas');
-		redirect('UBS/page/masterStatus');
+		redirect('page/masterStatus');
 	}
         
 }
