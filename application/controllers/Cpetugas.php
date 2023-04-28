@@ -48,10 +48,18 @@ class CPetugas extends CI_Controller
 		$this->session->set_flashdata('errormsg', validation_errors());
 		redirect('page/tambahPetugas');
 	}
+
+	public function HEditpetugas(){
+		$this->load->view('template/headeradmin');
+		$this->load->view('admin/Edit/editPetugas');
+		$this->load->view('template/footer');
+	}
 	
     public function editPetugas(){
 
 	}
+
+	
 
 	public function deletePetugas($Petugas){
 		$this->Mpetugas->deletePetugas($Petugas);

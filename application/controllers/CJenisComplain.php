@@ -21,5 +21,15 @@ class CJenisComplain extends CI_Controller{
 		$this->load->view('admin/Master/masterJenisComplain', $param);
 		$this->load->view('template/footer');
 	}
+
+
+	public function HEditJenisComplain(){
+		$this->load->view('template/headeradmin');
+		$this->load->view('admin/Edit/editJenisComplain');
+		$this->load->view('template/footer');
+		
+	}
+
+	
 }
 ?>
