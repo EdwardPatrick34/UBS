@@ -108,7 +108,7 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Jenis Complain</h2>
-						  <a href="<?= base_url('page/tambahJenisComplain') ?>"><button class="btn btn-primary">Tambah Jenis Complain</button></a>
+						  <a href="<?= base_url('CRAdmin/tambahJenisComplain') ?>"><button class="btn btn-primary">Tambah Jenis Complain</button></a>
 						  <br><br>
               <table id="Tcomplain" class="table table-bordered border-dark table-hover">
 								<thead>

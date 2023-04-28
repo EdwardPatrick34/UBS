@@ -105,7 +105,7 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master User</h2>
-						  <a href="<?= base_url('page/tambahUser') ?>"><button class="btn btn-primary">Tambah User</button></a>
+						  <a href="<?= base_url('CRAdmin/tambahUser') ?>"><button class="btn btn-primary">Tambah User</button></a>
 						  <br><br>
                           	<table class="table table-bordered border-dark table-hover">
 								<thead>

@@ -109,7 +109,7 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Status</h2>
-						  <a href="<?= base_url('page/tambahStatus') ?>"><button class="btn btn-primary">Tambah Status</button></a>
+						  <a href="<?= base_url('CRAdmin/tambahStatus') ?>"><button class="btn btn-primary">Tambah Status</button></a>
 						  <br><br>
                 <table id="Tstatus" class="table table-bordered border-dark table-hover">
 								<thead>

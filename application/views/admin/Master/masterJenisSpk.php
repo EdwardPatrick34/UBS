@@ -105,7 +105,7 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Jenis SPK</h2>
-						  <a href="<?= base_url('page/tambahJenisSpk') ?>"><button class="btn btn-primary">Tambah Jenis SPK</button></a>
+						  <a href="<?= base_url('CRAdmin/tambahJenisSpk') ?>"><button class="btn btn-primary">Tambah Jenis SPK</button></a>
 						  <br><br>
                           	<table class="table table-bordered border-dark table-hover">
 								<thead>
