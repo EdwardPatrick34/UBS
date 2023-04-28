@@ -42,6 +42,12 @@ class Cstatus extends CI_Controller
 		$this->session->set_flashdata('errormsg', validation_errors());
 		redirect(base_url('CRAdmin/tambahStatus'));
 	}
+
+	public function HEditPetugas(){
+		$this->load->view('template/headeradmin');
+		$this->load->view('admin/Edit/editPetugas');
+		$this->load->view('template/footer');
+	}
 	
     public function editPetugas(){
 
