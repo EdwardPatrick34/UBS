@@ -6,10 +6,10 @@ class CJenisComplain extends CI_Controller{
 
 	public function __construct() {
 		parent::__construct(); 
-		// $this->load->model('Mpetugas'); 
-		// $this->load->model('Mjeniscomplain');
-		// $this->load->model('Mstatus');
-		// $this->load->helper('url'); 
+		$this->load->model('Mpetugas'); 
+		$this->load->model('Mjeniscomplain');
+		$this->load->model('Mstatus');
+		$this->load->helper('url'); 
  
 	}
 

@@ -36,7 +36,7 @@ class CPetugas extends CI_Controller
 			$aktif = $this->input->post("aktif");
 			$this->Mpetugas->insertPetugas($petugas, $nama, $usere, $aktif, $jam_kerja, $jam_kerja_baru);
 			$this->session->set_flashdata('msg','Berhasil menambahkan petugas');
-			redirect(base_url('page/masterPetugas'));
+			redirect(base_url('Cpetugas/masterPetugas'));
 		}
 		
 		
@@ -46,7 +46,7 @@ class CPetugas extends CI_Controller
 		// $this->load->view('template/footeradmin');
 
 		$this->session->set_flashdata('errormsg', validation_errors());
-		redirect('page/tambahPetugas');
+		redirect(base_url('CRAdmin/tambahPetugas'));
 	}
 	
     public function editPetugas(){
@@ -56,7 +56,7 @@ class CPetugas extends CI_Controller
 	public function deletePetugas($Petugas){
 		$this->Mpetugas->deletePetugas($Petugas);
 		$this->session->set_flashdata('msg','Berhasil menghapus data petugas');
-		redirect('page/masterPetugas');
+		redirect(base_url('Cpetugas/masterPetugas'));
 	}
         
 }
