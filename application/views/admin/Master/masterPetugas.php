@@ -108,6 +108,7 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Petugas</h2>
+                          <br>
                           <?php if($this->session->userdata('msg')): ?>
                             <div style="background-color: lightslategray; padding: 4px; color: white; height : 50px">
                               <?php echo $this->session->flashdata('msg');?>

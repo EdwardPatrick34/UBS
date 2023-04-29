@@ -106,30 +106,40 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Tambah Jenis Complain</h2>
-						  
+                          <br>
+                          <?php if($this->session->userdata ('errormsg')): ?>
+                              <div style="background-color: lightslategray; padding: 4px; color: white; height: 50px">
+                                <?php echo $this->session->flashdata('errormsg');?>
+                              </div>
+                          <?php endif ?>
 						  <br><br>
-						  <form action="" method="post">
+						  <form action="<?php echo site_url("CJenisComplain/insertjeniscomplain"); ?>" method="post">
 							
 							<div class="mb-3">
 							<label class="form-label" for="jenis_complain">Jenis Complain</label>
-							<input type="text" class="form-control" id="jenis_complain" placeholder="......." />
+							<input type="text" class="form-control" id="jenis_complain" name="jenis_complain" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="nama_complain">Nama Complain</label>
-							<input type="text" class="form-control" id="nama_complain" placeholder="......." />
+							<input type="text" class="form-control" id="nama_complain" name="nama_complain" placeholder="......." />
+							</div>
+
+              <div class="mb-3">
+							<label class="form-label" for="nama_complain">Nomor Complain</label>
+							<input type="text" class="form-control" id="nomor_complain" name="nomor_complain" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="usere">USERE</label>
-							<input type="text" class="form-control" id="usere" placeholder="......." />
+							<input type="text" class="form-control" id="usere" name="usere" placeholder="......." />
 							</div>
 							
 							
 							
 							
 							
-							<button type="submit" class="btn btn-primary">Tambah</button>
+							<button type="submit" name="btnTambahJenisComplain" class="btn btn-primary">Tambah</button>
 						  </form>
                           	
                         </div>

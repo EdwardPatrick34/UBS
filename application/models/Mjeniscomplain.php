@@ -15,18 +15,22 @@ class Mjeniscomplain extends CI_Model{
         // return $jums;
     }
 
-    public function insertComplain($id, $nama, $usere, $aktif, $jam_kerja, $jam_kerja_baru)
+    public function insertComplain($jenis_complain, $no_complain, $nama_complain, $usere)
     {
-        $sql = "insert into ed_jeniscomplain(jenis_complain, no_complain, nama_complain, usere) values()";
+        $sql = "insert into ed_jeniscomplain(jenis_complain, no_complain, nama_complain, usere) values('$jenis_complain', '$no_complain', '$nama_complain', '$usere')";
         $this->db->query($sql); 
     }
 
 
     public function deleteComplain($Id){
-        $sql = "delete from ed_jeniscomplain where petugas = '".$Id."'";
+        $sql = "delete from ed_jeniscomplain where jenis_complain = '".$Id."'";
         $this->db->query($sql);
     }
 
+
+    public function editComplain(){
+        
+    }
     
 }
 ?>

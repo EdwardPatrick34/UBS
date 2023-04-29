@@ -56,7 +56,7 @@ class CPetugas extends CI_Controller
 	}
 	
     public function editPetugas(){
-
+		
 	}
 
 	
