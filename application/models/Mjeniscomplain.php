@@ -28,8 +28,15 @@ class Mjeniscomplain extends CI_Model{
     }
 
 
-    public function editComplain(){
-        
+    public function editComplain($jenis_complain, $no_complain, $nama_complain, $usere)
+    {
+        $sql = "update ed_jeniscomplain SET nama_complain = '".$nama_complain."', usere ='".$usere."' where jenis_complain = '".$jenis_complain."'";
+        $this->db->query($sql);    
+    }
+
+    public function getjeniscomplainbyid($jeniscomplain){
+        $sql = $this->db->query("select * from ed_jeniscomplain where jenis_complain = '".$jeniscomplain."'");
+        return $sql;
     }
     
 }

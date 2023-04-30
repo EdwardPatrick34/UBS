@@ -120,14 +120,14 @@
 							<input type="text" class="form-control" id="jenis_complain" name="jenis_complain" placeholder="......." />
 							</div>
 
-							<div class="mb-3">
-							<label class="form-label" for="nama_complain">Nama Complain</label>
-							<input type="text" class="form-control" id="nama_complain" name="nama_complain" placeholder="......." />
-							</div>
-
               <div class="mb-3">
 							<label class="form-label" for="nama_complain">Nomor Complain</label>
 							<input type="text" class="form-control" id="nomor_complain" name="nomor_complain" placeholder="......." />
+							</div>
+
+              <div class="mb-3">
+							<label class="form-label" for="nama_complain">Nama Complain</label>
+							<input type="text" class="form-control" id="nama_complain" name="nama_complain" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
