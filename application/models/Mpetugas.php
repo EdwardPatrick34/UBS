@@ -28,7 +28,13 @@ class Mpetugas extends CI_Model{
     }
 
     public function editPetugas($id, $nama, $usere, $aktif, $jam_kerja, $jam_kerja_baru){
-        $sql = "";
+        $sql = "update ed_petugas SET nama_petugas = '".$nama."', usere = '".$usere."', aktif = '".$aktif."', jam_kerja = '".$jam_kerja."', jam_kerja_baru = '".$jam_kerja_baru."' where petugas = '".$id."'";
+        $this->db->query($sql);
+    }
+
+    public function getpetugasbyid($petugas){
+        $sql = $this->db->query("select * from ed_petugas where petugas = '".$petugas."'");
+        return $sql;
     }
 }
 ?>

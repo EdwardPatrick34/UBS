@@ -33,5 +33,6 @@ class Mstatus extends CI_Model{
         $sql = $this->db->query("select * from ed_status where status ='".$status."'");
         return $sql;
     }
+    
 }
 ?>

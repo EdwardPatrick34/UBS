@@ -72,7 +72,6 @@ class Cstatus extends CI_Controller
 	}
     
 	public function getstatusbyid($status){
-		
 		$this->load->view('template/headeradmin');
 		$param['datastatus'] = $this->Mstatus->getstatusbyid($status);
 		$this->load->view('admin/Edit/editStatus', $param);
