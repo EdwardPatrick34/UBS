@@ -108,26 +108,26 @@
                           <h2 class="card-title text-primary"> Edit Status</h2>
 						  
 						  <br><br>
-						  <form action="<?php echo site_url("Cstatus/InsertStatus");?>" method="post">
-							
+						  <form action="<?php echo site_url("Cstatus/editstatus");?>" method="post">
+							<?php foreach($datastatus->result() as $row): ?>
 							<div class="mb-3">
 							<label class="form-label" for="status">Status</label>
-							<input type="text" class="form-control" id="status" name="status" placeholder="......." />
+							<input type="text" class="form-control" id="status" name="status" value="<?php echo $row->STATUS; ?>" placeholder="......." readonly/>
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="nama_status">Nama Status</label>
-							<input type="text" class="form-control" id="nama_status" name="nama_status" placeholder="......." />
+							<input type="text" class="form-control" id="nama_status" value="<?php echo $row->NAMA_STATUS; ?>" name="nama_status" placeholder="......." />
 							</div>
 
 						
 
 							<div class="mb-3">
 							<label class="form-label" for="usere">USERE</label>
-							<input type="text" class="form-control" id="usere" name="usere" placeholder="......." />
+							<input type="text" class="form-control" id="usere" value="<?php echo $row->USERE; ?>" name="usere" placeholder="......." />
 							</div>
 							
-							
+							<?php endforeach; ?>
 							
 							
 							

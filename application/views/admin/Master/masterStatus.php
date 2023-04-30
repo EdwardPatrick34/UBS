@@ -109,14 +109,20 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Status</h2>
+                          <br>
+                          <?php if($this->session->userdata('msg')): ?>
+                            <div style="background-color: lightslategray; padding: 4px; color: white; height : 50px">
+                              <?php echo $this->session->flashdata('msg');?>
+                            </div>
+                          <?php endif ?>
 						  <a href="<?= base_url('CRAdmin/tambahStatus') ?>"><button class="btn btn-primary">Tambah Status</button></a>
 						  <br><br>
-                <table id="Tstatus" class="table table-sriped">
+                <table id="Tstatus" class="table table-striped">
 								<thead>
 									<tr>
 									<th scope="col">NO</th>
 									<th scope="col">Status</th>
-                <th scope="col">Nama Status</th>
+                  <th scope="col">Nama Status</th>
 									<th scope="col">USERE</th>
 									<th scope="col" style="text-align: center;">Aksi</th>		
 									</tr>
@@ -132,7 +138,7 @@
                           <a href="<?php echo site_url('Cstatus/deleteStatus/'.$row->STATUS) ;?>">
                             <button class="btn btn-danger">Delete</button>
                           </a>
-                          <a href="">
+                          <a href="<?php echo site_url('Cstatus/getstatusbyid/'.$row->STATUS);?>">
                             <button class="btn btn-info">Edit</button>
                           </a>
                         </th>
