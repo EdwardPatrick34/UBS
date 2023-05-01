@@ -111,26 +111,29 @@
                           <br>
                           <?php if($this->session->userdata('msg')): ?>
                             <div style="background-color: lightslategray; padding: 4px; color: white; height : 50px">
-                              <?php echo $this->session->flashdata('msg');?>
+                                <?php echo $this->session->flashdata('msg');?>
                             </div>
-                          <?php endif ?>
+                          <?php endif; ?>
 						  <a href="<?= base_url('CRAdmin/tambahJenisComplain') ?>"><button class="btn btn-primary">Tambah Jenis Complain</button></a>
 						  <br><br>
               <table id="Tcomplain" class="table table-striped">
 								<thead>
 									<tr>
-                    <th scope="col">No Complain</th>
+                    <th scope="col">Nomor Complain</th>
                     <th scope="col">Jenis Complain</th>
+                    <th scope="col">Sub Complain</th>
                     <th scope="col">Nama Complain</th>
                     <th scope="col">USERE</th>
                     <th scope="col">Aksi</th>
 									</tr>
 								</thead>
 								<tbody>
+                  
 									<?php foreach($dataComplain->result() as $row): ?>
                     <tr>
                       <th scope="col"><?php echo $row->NO_COMPLAIN; ?></th>
                       <th scope="col"><?php echo $row->JENIS_COMPLAIN; ?></th>
+                      <th scope="col"><?php echo $row->SUB_COMPLAIN; ?></th>
                       <th scope="col"><?php echo $row->NAMA_COMPLAIN; ?></th>
                       <th scope="col"><?php echo $row->USERE; ?></th>
                       <th>

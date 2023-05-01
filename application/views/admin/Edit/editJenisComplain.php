@@ -120,11 +120,6 @@
 							<input type="text" class="form-control" id="ejenis_complain" name="jenis_complain" value="<?php echo $row->JENIS_COMPLAIN; ?>" placeholder="......." readonly/>
 							</div>
 
-              <div class="mb-3">
-							<label class="form-label" for="jenis_complain">Nomor Complain</label>
-							<input type="text" class="form-control" id="ejenis_complain" name="nomor_complain" value="<?php echo $row->NO_COMPLAIN; ?>" placeholder="......." readonly/>
-							</div>
-
 							<div class="mb-3">
 							<label class="form-label" for="nama_complain">Nama Complain</label>
 							<input type="text" class="form-control" id="enama_complain" name="nama_complain" value="<?php echo $row->NAMA_COMPLAIN; ?>" placeholder="......." />
@@ -137,6 +132,23 @@
 							
 							<?php endforeach;?>
 							
+              <div class="mb-3">
+							<label class="form-label"  for="nama_complain">Nomor Complain</label>
+              <select class="form-control" name="nomor_complain" id="">
+                <?php foreach($dataCompB->result() as $row ):?>
+                  <option value="<?php echo $row->NO_COMPLAIN; ?>"><?php echo $row->NO_COMPLAIN; ?></option>
+                <?php endforeach;?>
+              </select>
+							</div>
+
+              <div class="mb-3">
+                  <label class="form-label" for="sub_complain">Sub Complain</label>
+                  <select class="form-control" name="sub_complain" id="">
+                  <?php foreach($dataCompB->result() as $row ):?>
+                    <option value="<?php echo $row->SUB_COMPLAIN; ?>"><?php echo $row->SUB_COMPLAIN; ?></option>
+                  <?php endforeach;?>
+                  </select>
+              </div>
 							
 							
 							<button type="submit" class="btn btn-primary" name="btneditjeniscomplain">Simpan</button>
