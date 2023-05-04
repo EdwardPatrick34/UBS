@@ -24,8 +24,15 @@ class Mstatus extends CI_Model{
         $this->db->query($sql);
     }
 
-    public function editstatus($id, $nama, $usere, $aktif, $jam_kerja, $jam_kerja_baru){
-        $sql = "";
+    public function editstatus($id, $nama, $usere){
+        $sql = "update ed_status SET nama_status = '".$nama."', usere = '".$usere."' where status = '".$id."'";
+        $this->db->query($sql);
     }
+
+    public function getstatusbyid($status){
+        $sql = $this->db->query("select * from ed_status where status ='".$status."'");
+        return $sql;
+    }
+    
 }
 ?>

@@ -3,6 +3,7 @@
 class CRAdmin extends CI_Controller{
 	public function __construct() {
 		parent::__construct(); 
+		$this->load->model('McompB');
 		// $this->load->model('Mpetugas'); 
 		// $this->load->model('Mjeniscomplain');
 		// $this->load->model('Mstatus');
@@ -85,7 +86,9 @@ class CRAdmin extends CI_Controller{
 
 	public function TambahJenisComplain(){
 		$this->load->view('template/headeradmin');
-		$this->load->view("admin/Tambah/tambahJenisComplain");
+
+		$param['datacompB'] = $this->McompB->getdatacompB();
+		$this->load->view("admin/Tambah/tambahJenisComplain", $param);
 		$this->load->view('template/footer');
 	}
 

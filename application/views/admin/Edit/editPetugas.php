@@ -115,39 +115,39 @@
                             
 						  
 						  <br><br>
-						  <form action="<?php echo site_url("Cpetugas/Insertpetugas"); ?>" method="post">
-							
+						  <form action="<?php echo site_url("Cpetugas/editPetugas"); ?>" method="post">
+							<?php foreach($datapetugas->result() as $row):?>
 							<div class="mb-3">
 							<label class="form-label" for="petugas">Petugas</label>
-							<input type="text" class="form-control" id="petugas" name="petugas" placeholder="......." />
+							<input type="text" class="form-control" id="petugas" name="petugas" value="<?php echo $row->PETUGAS; ?>"  placeholder="......." readonly/>
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="nama_petugas">Nama Petugas</label>
-							<input type="text" class="form-control" id="nama_petugas" name="nama_petugas" placeholder="......." />
+							<input type="text" class="form-control" id="nama_petugas" name="nama_petugas" value="<?php echo $row->NAMA_PETUGAS; ?>" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="usere">USERE</label>
-							<input type="text" class="form-control" id="usere" name="usere" placeholder="......." />
+							<input type="text" class="form-control" id="usere" name="usere" value="<?php echo $row->USERE; ?>" placeholder="......." />
 							</div>
 							
 							<div class="mb-3">
 							<label class="form-label" for="aktif">Aktif</label>
-							<input type="text" class="form-control" id="aktif" name="aktif" placeholder="......." />
+							<input type="text" class="form-control" id="aktif" name="aktif" value="<?php echo $row->AKTIF; ?>" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="jam_kerja">Jam Kerja</label>
-							<input type="text" class="form-control" id="jam_kerja" name="jam_kerja" placeholder="......." />
+							<input type="text" class="form-control" id="jam_kerja" name="jam_kerja" value="<?php echo $row->JAM_KERJA; ?>" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="jam_kerja_baru">Jam Kerja Baru</label>
-							<input type="text" class="form-control" id="jam_kerja_baru" name="jam_kerja_baru" placeholder="......." />
+							<input type="text" class="form-control" id="jam_kerja_baru" name="jam_kerja_baru" value="<?php echo $row->JAM_KERJA_BARU; ?>" placeholder="......." />
 							</div>
 							
-							
+							<?php endforeach;?>
 							
 							<button type="submit" class="btn btn-primary" name="btnTambahPetugas">Simpan</button>
 						  </form>

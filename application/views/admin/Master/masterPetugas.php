@@ -108,6 +108,7 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Petugas</h2>
+                          <br>
                           <?php if($this->session->userdata('msg')): ?>
                             <div style="background-color: lightslategray; padding: 4px; color: white; height : 50px">
                               <?php echo $this->session->flashdata('msg');?>
@@ -144,7 +145,7 @@
                 <a href="<?php echo site_url('Cpetugas/deletePetugas/'.$row->PETUGAS); ?>">
                   <button class="btn btn-danger">Delete</button>
                 </a>
-                <a href="">
+                <a href="<?php echo site_url('Cpetugas/getpetugasbyid/'.$row->PETUGAS);?>">
                   <button class="btn btn-info">Edit</button>
                 </a>
               </td>

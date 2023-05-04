@@ -106,30 +106,52 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Edit Jenis Complain</h2>
-						  
+                          <br>
+                          <?php if($this->session->userdata ('errormsg')): ?>
+                              <div style="background-color: lightslategray; padding: 4px; color: white; height: 50px">
+                                <?php echo $this->session->flashdata('errormsg');?>
+                              </div>
+                          <?php endif ?>
 						  <br><br>
-						  <form action="" method="post">
-							
+						  <form action="<?php echo site_url("CJenisComplain/editJenisComplain");?>" method="post">
+              <?php foreach($dataComplain->result() as $row): ?>
 							<div class="mb-3">
 							<label class="form-label" for="jenis_complain">Jenis Complain</label>
-							<input type="text" class="form-control" id="ejenis_complain" placeholder="......." />
+							<input type="text" class="form-control" id="ejenis_complain" name="jenis_complain" value="<?php echo $row->JENIS_COMPLAIN; ?>" placeholder="......." readonly/>
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="nama_complain">Nama Complain</label>
-							<input type="text" class="form-control" id="enama_complain" placeholder="......." />
+							<input type="text" class="form-control" id="enama_complain" name="nama_complain" value="<?php echo $row->NAMA_COMPLAIN; ?>" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="usere">USERE</label>
-							<input type="text" class="form-control" id="eusere" placeholder="......." />
+							<input type="text" class="form-control" id="eusere" name="usere" value="<?php echo $row->USERE; ?>" placeholder="......." />
 							</div>
 							
+							<?php endforeach;?>
+							
+              <div class="mb-3">
+							<label class="form-label"  for="nama_complain">Nomor Complain</label>
+              <select class="form-control" name="nomor_complain" id="">
+                <?php foreach($dataCompB->result() as $row ):?>
+                  <option value="<?php echo $row->NO_COMPLAIN; ?>"><?php echo $row->NO_COMPLAIN; ?></option>
+                <?php endforeach;?>
+              </select>
+							</div>
+
+              <div class="mb-3">
+                  <label class="form-label" for="sub_complain">Sub Complain</label>
+                  <select class="form-control" name="sub_complain" id="">
+                  <?php foreach($dataCompB->result() as $row ):?>
+                    <option value="<?php echo $row->SUB_COMPLAIN; ?>"><?php echo $row->SUB_COMPLAIN; ?></option>
+                  <?php endforeach;?>
+                  </select>
+              </div>
 							
 							
-							
-							
-							<button type="submit" class="btn btn-primary">Simpan</button>
+							<button type="submit" class="btn btn-primary" name="btneditjeniscomplain">Simpan</button>
 						  </form>
                           	
                         </div>
