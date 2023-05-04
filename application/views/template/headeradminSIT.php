@@ -100,7 +100,7 @@
 
 						
             <li class="menu-item">
-              <a href="<?= base_url("Ccompkomputer/List") ?>" class="menu-link">
+              <a href="<?= base_url("Ccompkomputer/CreateComplain") ?>" class="menu-link">
 							<i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div>Complain Problem Komputer</div>
               </a>

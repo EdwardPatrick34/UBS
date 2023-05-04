@@ -111,10 +111,10 @@
 								<thead>
 									<tr>
 									<th scope="col">NO</th>
-									<th scope="col">Jenis Unit</th>
-									<th scope="col">Nama Jenis Unit</th>
-									<th scope="col">USERE</th>
-									<th scope="col">Jenis Complain</th>
+									<th scope="col">Nomor Complain</th>
+									<th scope="col">Divisi</th>
+									<th scope="col">Pelapor</th>
+									<th scope="col">Tanggal</th>
 									<th scope="col">Aksi</th>
 									
 									</tr>
