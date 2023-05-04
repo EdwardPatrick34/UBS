@@ -1,3 +1,9 @@
+        <!-- Data Table -->
+        <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>" language="javascript"></script>
+        <script src="<?= base_url("assets/js/jquery.dataTables.min.js") ?>" language="javascript"></script>
+        <link href="<?= base_url("assets/css/jquery.dataTables.min.css") ?>" type="text/css" rel="stylesheet">
+
+
 
         <!-- Layout container -->
         <div class="layout-page">
@@ -105,31 +111,44 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Jenis SPK</h2>
+                          <br>
+                          <?php if($this->session->userdata('msg')): ?>
+                            <div style="background-color: lightslategray; padding: 4px; color: white; height : 50px">
+                              <?php echo $this->session->flashdata('msg');?>
+                            </div>
+                          <?php endif ?>
+
 						  <a href="<?= base_url('CRAdmin/tambahJenisSpk') ?>"><button class="btn btn-primary">Tambah Jenis SPK</button></a>
 						  <br><br>
-                          	<table class="table table-striped">
+              <table id="TjenisSpk" class="table table-striped">
 								<thead>
-									<tr>
-									<th scope="col">NO</th>
-									<th scope="col">Status</th>
-									<th scope="col">Nama Status</th>
-									<th scope="col">USERE</th>
-									<th scope="col">Aksi</th>		
+									<tr>                  
+									<th scope="col">Jenis SPK</th>
+									<th scope="col">No SPK</th>
+									<th scope="col">Nama SPK</th>
+									<th scope="col">Menit</th>
+									<th scope="col">User</th>
+                  <th scope="col">Aksi</th>		
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-									<th scope="row">1</th>
-									<td>Unit 1</td>
-									<td>Unit gajah</td>
-									<td>jojo</td>
-									<td>rusak bro</td>
-									<td>
-										<button>Edit</button>
-										<button>Hapus</button>
-									</td>
-									</tr>
-									
+                  <?php foreach ($datajenisspk->result() as $row):?>
+                    <tr>
+                      <th scope="col"><?php echo $row->JENIS_SPK; ?></th>
+                      <th scope="col"><?php echo $row->NO_SPK; ?></th>
+                      <th scope="col"><?php echo $row->NAMA_SPK; ?></th>
+                      <th scope="col"><?php echo $row->MENIT; ?></th>
+                      <th scope="col"><?php echo $row->USERE; ?></th>
+                      <th scope="col">
+                        <a href="<?php echo site_url('CJenisSpk/deletejenisspk/'.$row->JENIS_SPK);?>">
+                          <button class="btn btn-danger">Delete</button>
+                        </a>
+                        <a href="">
+                          <button class="btn btn-info">Edit</button>
+                        </a>
+                      </th>
+                    </tr>
+                  <?php endforeach; ?>
 								</tbody>
 							</table>
                         </div>
@@ -177,3 +196,11 @@
 
       <!-- Overlay -->
       
+      <script language='javascript'>
+        var tabel = null;
+        $(document).ready(function(){
+          tabel = $("#TjenisSpk").DataTable({
+            
+          });
+        });
+      </script>

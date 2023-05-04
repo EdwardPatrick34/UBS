@@ -108,31 +108,31 @@
                           <h2 class="card-title text-primary"> Tambah Jenis Unit</h2>
 						  
 						  <br><br>
-						  <form action="" method="post">
+						  <form action="<?php echo site_url('CJenisUnit/inserjenisunit');?>" method="post">
 							
 							<div class="mb-3">
 							<label class="form-label" for="jenis_unit">Jenis Unit</label>
-							<input type="text" class="form-control" id="jenis_unit" placeholder="......." />
+							<input type="text" class="form-control" id="jenis_unit" name="jenis_unit" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="nama_jenis_unit">Nama Jenis Unit</label>
-							<input type="text" class="form-control" id="nama_jenis_unit" placeholder="......." />
+							<input type="text" class="form-control" id="nama_jenis_unit" name="nama_ju" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="usere">USERE</label>
-							<input type="text" class="form-control" id="usere" placeholder="......." />
+							<input type="text" class="form-control" id="usere" name="usere" placeholder="......." />
 							</div>
 							
 							<div class="mb-3">
 							<label class="form-label" for="jenis_complain">Jenis Complain</label>
-							<input type="text" class="form-control" id="jenis_complain" placeholder="......." />
+							<input type="text" class="form-control" id="jenis_complain" name="jenis_complain" placeholder="......." />
 							</div>
 							
 							
 							
-							<button type="submit" class="btn btn-primary">Tambah</button>
+							<button type="submit" name="btnTambahJenisUnit" class="btn btn-primary">Tambah</button>
 						  </form>
                           	
                         </div>

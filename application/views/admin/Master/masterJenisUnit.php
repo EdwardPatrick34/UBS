@@ -1,3 +1,7 @@
+      <!-- Data Table -->
+      <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>" language="javascript"></script>
+      <script src="<?= base_url("assets/js/jquery.dataTables.min.js") ?>" language="javascript"></script>
+      <link href="<?= base_url("assets/css/jquery.dataTables.min.css") ?>" type="text/css" rel="stylesheet">
 
         <!-- Layout container -->
         <div class="layout-page">
@@ -105,33 +109,42 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Master Jenis Unit</h2>
+                          <br>
+                          <?php if($this->session->userdata('msg')): ?>
+                            <div style="background-color: lightslategray; padding: 4px; color: white; height : 50px">
+                              <?php echo $this->session->flashdata('msg');?>
+                            </div>
+                          <?php endif ?>
+
 						  <a  href="<?= base_url('CRAdmin/tambahJenisUnit') ?>"><button class="btn btn-primary">Tambah Jenis Unit</button></a>
 						  <br><br>
-                          	<table class="table table-bordered border-dark table-hover">
+                <table id="Tjenisunit" class="table table-striped">
 								<thead>
 									<tr>
-									<th scope="col">NO</th>
 									<th scope="col">Jenis Unit</th>
 									<th scope="col">Nama Jenis Unit</th>
 									<th scope="col">USERE</th>
 									<th scope="col">Jenis Complain</th>
 									<th scope="col">Aksi</th>
-									
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-									<th scope="row">1</th>
-									<td>Unit 1</td>
-									<td>Unit gajah</td>
-									<td>jojo</td>
-									<td>rusak bro</td>
-									<td>
-										<button>Edit</button>
-										<button>Hapus</button>
-									</td>
-									</tr>
-									
+									<?php foreach($datajenisunit->result() as $row):?>
+                    <tr>
+                      <th scope="col"><?php echo $row->JENIS_UNIT?></th>
+                      <th scope="col"><?php echo $row->NAMA_JU?></th>
+                      <th scope="col"><?php echo $row->USERE?></th>
+                      <th scope="col"><?php echo $row->JENIS_COMPLAIN?></th>
+                      <th scope="col">
+                        <a href="">
+                          <button class="btn btn-danger">Delete</button>
+                        </a>
+                        <a href="">
+                          <button class="btn btn-info">Edit</button>
+                        </a>
+                      </th>
+                    </tr>
+                  <?php endforeach;?>
 								</tbody>
 							</table>
                         </div>
@@ -178,4 +191,11 @@
       </div>
 
       <!-- Overlay -->
-      
+      <script language='javascript'>
+        var tabel = null;
+        $(document).ready(function(){
+          tabel = $("#Tjenisunit").DataTable({
+            
+          });
+        });
+      </script>
