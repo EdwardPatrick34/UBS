@@ -136,10 +136,10 @@
                       <th scope="col"><?php echo $row->USERE?></th>
                       <th scope="col"><?php echo $row->JENIS_COMPLAIN?></th>
                       <th scope="col">
-                        <a href="">
+                        <a href="<?php echo site_url('CJenisUnit/deletejenisunit/'.$row->JENIS_UNIT);?>">
                           <button class="btn btn-danger">Delete</button>
                         </a>
-                        <a href="">
+                        <a href="<?php echo site_url('CJenisUnit/getjenisunitbyid/'.$row->JENIS_UNIT);?>">
                           <button class="btn btn-info">Edit</button>
                         </a>
                       </th>

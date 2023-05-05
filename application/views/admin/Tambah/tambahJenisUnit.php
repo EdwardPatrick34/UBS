@@ -108,7 +108,7 @@
                           <h2 class="card-title text-primary"> Tambah Jenis Unit</h2>
 						  
 						  <br><br>
-						  <form action="<?php echo site_url('CJenisUnit/inserjenisunit');?>" method="post">
+						  <form action="<?php echo site_url('CJenisUnit/insertjenisunit');?>" method="post">
 							
 							<div class="mb-3">
 							<label class="form-label" for="jenis_unit">Jenis Unit</label>
