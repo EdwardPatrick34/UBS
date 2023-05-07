@@ -98,183 +98,355 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              
-                <div>
-                  <div class="card">
-                    <div class="d-flex align-items-end row">
-                      <div >
-                        <div class="card-body" >
-                          <h2 class="card-title text-primary"> Surat Perintah Kerja EDP - Infrastrktur</h2>
-						  
-						  <form action="" method="post">
+							<h4 class="fw-bold py-3 mb-4"> Surat Perintah Kerja EDP - Infrastruktur</h4>
+								<div class="col-sm-4 input-group input-group-merge">
+														
+									<button class="btn btn-primary">Cari</button>
+									&nbsp;
+									&nbsp;
+									<button class="btn btn-primary">Listing</button>
 
-							<!-- start form 1 -->
-						  <!-- <div class="row">
-									<div class="col-xl">
-									
-									
-										<div class="card-body">
+								
+								</div>
+								<br>
+
+								<div class="row">
+
+									<div class="col-xxl">
+														<div class="card mb-4">
+														<div class="d-flex align-items-end row">
+															<div >
 										
-											
-											<div class="mb-3 row">
-												<label for="inputPassword" class=" col-form-label">no complain</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<input type="password" class="form-control" id="inputPassword">
+																<div class="card-body" >
+																	<!-- form1 -->
+											<div class="col-xxl">
+														
+															<div class="d-flex align-items-end row">
+																<div>
+																	
+																	
+																	
+											<form action="" method="post">
+
+											<div class="row">
+												<div class="col-xl">
+													
+														
+														
+															
+															<div class="mb-3 row">
+																<label for="inputPassword" class=" col-form-label">no complain</label>
+																<div class="col-sm-4 input-group input-group-merge">
+																<input type="password" class="form-control" id="inputPassword">
+																</div>
+															</div>
+															<div class="mb-3 row">
+																<label for="inputPassword" class=" col-form-label">Tgl dan dam lapor</label>
+																<div class="col-sm-4 input-group input-group-merge">
+																<input type="password" class="form-control" id="inputPassword">
+																</div>
+															</div>
+															<div class="mb-3 row">
+																<label for="inputPassword" class=" col-form-label">Divisi dan nama pelapor</label>
+																<div class="col-sm-4 input-group input-group-merge">
+																<input type="password" class="form-control" id="inputPassword">
+																</div>
+															</div>
+															<div class="mb-3 row">
+																<label for="inputPassword" class=" col-form-label">Kode Unit</label>
+																<div class="col-sm-4 input-group input-group-merge">
+																<input type="password" class="form-control" id="inputPassword">
+																</div>
+															</div>
+															<div class="mb-3 row">
+																<label for="inputPassword" class=" col-form-label">Lokasi Unit</label>
+																<div class="col-sm-4 input-group input-group-merge">
+																<input type="password" class="form-control" id="inputPassword">
+																</div>
+															</div>
+															<div class="mb-3 row">
+																<label for="uraian" class=" col-form-label">Uraian Problem/kerusakan</label>
+																<div class="col-sm-4 input-group input-group-merge">
+																<textarea class="form-control" id="uraian"></textarea>
+																</div>
+															</div>
+																
+															
+														
+													
+												</div>
+												<div class="col-xl">
+													
+														
+														
+															<div class="mb-3 row">
+																<label for="inputPassword" class=" col-form-label">no spk</label>
+																<div class="col-sm-4 input-group input-group-merge">
+																<input type="password" class="form-control" id="inputPassword">
+																</div>
+															</div>
+															<div class="mb-3 row">
+																<label for="inputPassword" class=" col-form-label">tgl spk</label>
+																<div class="col-sm-4 input-group input-group-merge">
+																<input type="password" class="form-control" id="inputPassword">
+																</div>
+															</div>
+															<div class="mb-3 row">
+																<label for="uraian" class=" col-form-label">Pekerjaan</label>
+																<div class="col-sm-4 input-group input-group-merge">
+																<textarea class="form-control" id="uraian"></textarea>
+																</div>
+															</div>
+														
+
+													
 												</div>
 											</div>
-											<div class="mb-3 row">
-												<label for="inputPassword" class=" col-form-label">Tgl dan dam lapor</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<input type="password" class="form-control" id="inputPassword">
-												</div>
-											</div>
-											<div class="mb-3 row">
-												<label for="inputPassword" class=" col-form-label">Divisi dan nama pelapor</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<input type="password" class="form-control" id="inputPassword">
-												</div>
-											</div>
-											<div class="mb-3 row">
-												<label for="inputPassword" class=" col-form-label">Kode Unit</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<input type="password" class="form-control" id="inputPassword">
-												</div>
-											</div>
-											<div class="mb-3 row">
-												<label for="inputPassword" class=" col-form-label">Lokasi Unit</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<input type="password" class="form-control" id="inputPassword">
-												</div>
-											</div>
-											
-											<div class="mb-3">
-											<label class="form-label" for="basic-default-email">Email</label>
-											<div class="input-group input-group-merge">
-												<input
-												type="text"
-												id="basic-default-email"
-												class="form-control"
+						
+														
+											</form>
+											<br>
+
+											<table class="table table-bordered border-dark table-hover">
+											<thead>
+												<tr>
+												<th scope="col">Sub</th>
+												<th scope="col">Jenis Unit</th>
+												<th scope="col">Nama Jenis Unit</th>
+												<th scope="col">Jenis Comp</th>
+												<th scope="col">Nama Jenis Complain</th>
+												<th scope="col">Keterangan</th>
 												
-												/>
+
 												
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+												<th scope="row">1</th>
+												<td>Unit 1</td>
+												<td>Unit gajah</td>
+												<td>jojo</td>
+												<td>rusak bro</td>
+												<td>asd</td>
+												
+
+												</tr>
+												
+											</tbody>
+											</table>
+					
+																</div>
+															
+															
+															</div>
+														
 											</div>
+												
+
+												<!-- end form 1 -->
 											
-											</div>
-											<div class="mb-3">
-											<label class="form-label" for="basic-default-phone">Phone No</label>
-											<input
-												type="text"
-												id="basic-default-phone"
-												class="form-control"
-												placeholder="658 799 8941"
-											/>
-											</div>
-											<div class="mb-3">
-											<label class="form-label" for="basic-default-message">Message</label>
-											<textarea
-												id="basic-default-message"
-												class="form-control"
-												placeholder="Hi, Do you have a moment to talk Joe?"
-											></textarea>
-											</div>
-											<button type="submit" class="btn btn-dark">Send</button>
-										
-										</div>
-									
+											
+																</div>
+															</div>
+															
+															
+																</div>
+															</div>
 									</div>
 									
-								</div>
-								</div> -->
-								<!-- end form 1-->
 
-								<!-- start form 2 -->
-								<div class="row">
-                <div class="col-xl">
-                  
-                    
-                    <div class="card-body">
-                      
-											<div class="mb-3 row">
-												<label for="inputPassword" class=" col-form-label">no complain</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<input type="password" class="form-control" id="inputPassword">
-												</div>
-											</div>
-											<div class="mb-3 row">
-												<label for="inputPassword" class=" col-form-label">Tgl dan dam lapor</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<input type="password" class="form-control" id="inputPassword">
-												</div>
-											</div>
-											<div class="mb-3 row">
-												<label for="inputPassword" class=" col-form-label">Divisi dan nama pelapor</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<input type="password" class="form-control" id="inputPassword">
-												</div>
-											</div>
-											<div class="mb-3 row">
-												<label for="inputPassword" class=" col-form-label">Kode Unit</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<input type="password" class="form-control" id="inputPassword">
-												</div>
-											</div>
-											<div class="mb-3 row">
-												<label for="inputPassword" class=" col-form-label">Lokasi Unit</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<input type="password" class="form-control" id="inputPassword">
-												</div>
-											</div>
-											<div class="mb-3 row">
-												<label for="uraian" class=" col-form-label">Uraian Problem/kerusakan</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<textarea class="form-control" id="uraian"></textarea>
-												</div>
-											</div>
-                        
-                      
-                    </div>
-                  
-                </div>
-                <div class="col-xl">
-                  
-                    
-                    <div class="card-body">
-											<div class="mb-3 row">
-												<label for="inputPassword" class=" col-form-label">no spk</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<input type="password" class="form-control" id="inputPassword">
-												</div>
-											</div>
-											<div class="mb-3 row">
-												<label for="inputPassword" class=" col-form-label">tgl spk</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<input type="password" class="form-control" id="inputPassword">
-												</div>
-											</div>
-											<div class="mb-3 row">
-												<label for="uraian" class=" col-form-label">Pekerjaan</label>
-												<div class="col-sm-4 input-group input-group-merge">
-												<textarea class="form-control" id="uraian"></textarea>
-												</div>
-											</div>
-                    </div>
+									
+									<div class="col-xxl">
+														<div class="card mb-4">
+														<div class="d-flex align-items-end row">
+															<div >
+										
+																<div class="card-body" >
+																	<!-- form2 -->
+											<div class="col-xxl">
+														
+															<div class="d-flex align-items-end row">
+																<div>
+																	
+																	
+																	
+											<form action="" method="post">
 
-                  
-                </div>
-              </div>
-            </div>
+												<div class="row">
+													<div class="col-xl">
+						
+														<div class="mb-3 row">
+															<label for="divisi" class=" col-form-label">Petugas / Teknisi</label>
+															<div class="col-sm-4 input-group input-group-merge">
+																<div style="width: 100px;">
 
-								<!-- end form 2 -->
+																	<input type="text"  id="kodedivisi"  class="form-control">
+																</div>
+																&nbsp;
+																&nbsp;
+																
+																<div>
+																<input type="text"  id="nodivisi"  class="form-control">
+																</div>
 
-						  </form>
-                          	
-                        </div>
-                      </div>
-                      
+															</div>
+															
+														</div>
+
+														
+
+														
+
+														<button class="btn btn-primary">Tambah</button>
+
+													</div>
+
+												</div>
+											</form>
+											<br>
+
+											<table class="table table-bordered border-dark table-hover">
+											<thead>
+												<tr>
+												<th scope="col">Urut</th>
+												<th scope="col">Petugas</th>
+												<th scope="col">Nama Petugas/Teknisi</th>
+												
+												<th scope="col">Aksi</th>
+
+												
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+												<th scope="row">1</th>
+												<td>Unit 1</td>
+												<td>Unit gajah</td>
+												
+												<td>
+													<button>Hapus</button>
+												</td>
+
+												</tr>
+												
+											</tbody>
+											</table>
+					
+																</div>
+															
+															
+															</div>
+														
+											</div>
+												
+
+												<!-- end form 2 -->
 											
-                    </div>
-                  </div>
+											
+																</div>
+															</div>
+															
+															
+																</div>
+															</div>
+									</div>
+
+									<div class="col-xxl">
+															<div class="card mb-4">
+																<div class="d-flex align-items-end row">
+												<div>
+
+													<div class="card-body">
+														
+														<!-- form 3 -->
+												
+
+														<form action="" method="post">
+
+															<div class="row">
+																<div class="col-xl">
+						
+																	<div class="mb-3 row">
+																		<label for="divisi" class=" col-form-label">Jenis SPK</label>
+																		<div class="col-sm-4 input-group input-group-merge">
+																			<div style="width: 100px;">
+
+																				<input type="text"  id="kodedivisi"  class="form-control">
+																			</div>
+																			&nbsp;
+																			&nbsp;
+																			
+																			<div>
+																			<input type="text"  id="nodivisi"  class="form-control">
+																			</div>
+
+																		</div>
+																		
+																	</div>
+																	<div class="mb-3 row">
+																		<label for="uraian" class=" col-form-label">Keterangan</label>
+																		<div class="col-sm-4 input-group input-group-merge">
+																		<textarea class="form-control" id="uraian"></textarea>
+																		</div>
+																	</div>
+
+																</div>
+
+															</div>
+														</form>
+
+														<button class="btn btn-primary">Tambah</button>
+
+													<!-- end form 3 -->
+													<br>
+													<br>
+													<table class="table table-bordered border-dark table-hover">
+											<thead>
+												<tr>
+												<th scope="col">Urut</th>
+												<th scope="col">Jenis SPK</th>
+												<th scope="col">Nama SPK</th>
+												<th scope="col">Durasi (Menit)</th>
+												<th scope="col">Realisasi</th>
+												<th scope="col">Keterangan</th>
+
+												<th scope="col">Aksi</th>
+
+												
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+												<th scope="row">1</th>
+												<td>Unit 1</td>
+												<td>Unit gajah</td>
+												
+												<td>asd</td>
+												<td>
+													<button>Hapus</button>
+												</td>
+
+												</tr>
+												
+											</tbody>
+											</table>
+														
+													</div>
+												</div>
+												
+															
+															
+																</div>
+															</div>
+									</div>
+
+					
+
                 </div>
+
+                
+            </div>
                 
                 
               

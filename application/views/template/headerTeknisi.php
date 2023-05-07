@@ -98,14 +98,14 @@
               <span class="menu-header-text">MENU</span>
             </li>
 
-			<li class="menu-item">
+						<li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Account Settings">EDP-Infrastruktur</div>
               </a>
               <ul class="menu-sub">
 								<li class="menu-item">
-                  <a href="<?= base_url('page/masterUser') ?>" class="menu-link">
+                  <a href="<?= base_url('CRTeknisi/MonitoringComplain') ?>" class="menu-link">
                     <div >Monitoring Complain</div>
                   </a>
                 </li>
@@ -114,59 +114,44 @@
                     <div >Complain / SPK Selesai</div>
                   </a>
                 </li>
+                
+                
+              </ul>
+            </li>
+
+						<li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div data-i18n="Account Settings">Laporan</div>
+              </a>
+              <ul class="menu-sub">
+								<li class="menu-item">
+                  <a href="<?= base_url('page/masterUser') ?>" class="menu-link">
+                    <div >Laporan History Complain</div>
+                  </a>
+                </li>
                 <li class="menu-item">
-                  <a href="<?= base_url('page/masterJenisUnit') ?>" class="menu-link">
-                    <div >Jenis Unit</div>
+                  <a href="<?= base_url('page/masterUnit') ?>" class="menu-link">
+                    <div >Laporan Jumlah Spk per Teknisi</div>
                   </a>
                 </li>
-								<li class="menu-item">
-                  <a href="<?= base_url('page/masterPetugas') ?>" class="menu-link">
-                    <div >Petugas</div>
+                <li class="menu-item">
+                  <a href="<?= base_url('page/masterUnit') ?>" class="menu-link">
+                    <div >Laporan Bulanan Infrastruktur</div>
                   </a>
                 </li>
-								<li class="menu-item">
-                  <a href="<?= base_url('page/masterJenisComplain') ?>" class="menu-link">
-                    <div >Jenis Complain</div>
+                <li class="menu-item">
+                  <a href="<?= base_url('page/masterUnit') ?>" class="menu-link">
+                    <div >Laporan Pendingan</div>
                   </a>
                 </li>
-								<li class="menu-item">
-                  <a href="<?= base_url('page/masterStatus') ?>" class="menu-link">
-                    <div >Status</div>
-                  </a>
-                </li>
-								<li class="menu-item">
-                  <a href="<?= base_url('page/masterRepair') ?>" class="menu-link">
-                    <div >Repair</div>
-                  </a>
-                </li>
-								<li class="menu-item">
-                  <a href="<?= base_url('page/masterJenisSpk') ?>" class="menu-link">
-                    <div >Jenis SPK</div>
-                  </a>
-                </li>
+                
                 
               </ul>
             </li>
 
 						
-            <li class="menu-item">
-              <a href="<?= base_url("Ccompkomputer/List") ?>" class="menu-link">
-							<i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div>Complain Problem Komputer</div>
-              </a>
-            </li>
-						<li class="menu-item">
-              <a href="<?= base_url("CPengesahanpromblem") ?>" class="menu-link">
-							<i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Pengesahan Problem Komputer yang sudah Selesai</div>
-              </a>
-            </li>
-						<li class="menu-item">
-              <a href="<?= base_url("CAdminSIT/PGantiPass") ?>" class="menu-link">
-							<i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Ganti Password</div>
-              </a>
-            </li>
+            
 
 						<!-- end menu sidebar -->
 

@@ -112,34 +112,31 @@
                     <div class="d-flex align-items-end row">
                       <div >
 					  <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="mb-0">Status Complain</h5>
+                      <!-- <h5 class="mb-0">Status Complain</h5> -->
                       
                     </div>
                         <div class="card-body" >
                           <!-- <h2 class="card-title text-primary"> Monitoring Complain Divisi</h2> -->
-						  
-						  <div class="row mb-5">
-						  	<div class="col-md-6 col-lg-3 mb-3">
-								<table id="Tcomplain1" class="table table-bordered border-dark table-hover" style="width: 80px;">
-									<thead>
-										<tr>
-										<th scope="col">DIVISI</th>
-										<th scope="col">COMPLAIN</th>
-										
-										
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-										<td>1</td>
-										<td>Unit 1</td>
-										
-										</tr>
-										
-									</tbody>
-								</table>
+						  <div class="d-flex align-items-center">
+							<h5 class="mb-0" style="margin-top: 1px;">Status</h5>
+							&nbsp;
+							&nbsp;
+							&nbsp;
+							<div style="width: 100px;">
+								<select name="" id="" class="form-select">
+								<option value="">Complain</option>
+								<option value="">Spk</option>
+								<option value="">Pending</option>
+								<option value="">Selesai</option>
+								</select>
 							</div>
-							<div class="col-md-6 col-lg-4 mb-3">
+							&nbsp;
+							&nbsp;
+							&nbsp;
+							<button class="btn btn-primary">Pilih</button>
+							</div>
+						  <br>
+							
 
 								<table id="Tcomplain2" class="table table-bordered border-dark table-hover">
 									<thead>
@@ -170,8 +167,8 @@
 										
 									</tbody>
 								</table>
-							</div>
-						  </div>
+							
+						  
                         </div>
                       </div>
                       <!-- <div class="col-sm-5 text-center text-sm-left">
@@ -191,254 +188,11 @@
 					</div>
 
 					
-					<div class="col-xxl">
-                  	<div class="card mb-4">
-                    <div class="d-flex align-items-end row">
-                      <div >
-					  <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="mb-0">Status SPK</h5>
-                      
-                    </div>
-                        <div class="card-body" >
-                          <!-- <h2 class="card-title text-primary"> Monitoring Complain Divisi</h2> -->
-						  
-						  <div class="row mb-5">
-						  	<div class="col-md-6 col-lg-3 mb-3">
-								<table class="table table-bordered border-dark table-hover" style="width: 80px;">
-									<thead>
-										<tr>
-										<th scope="col">DIVISI</th>
-										<th scope="col">COMPLAIN</th>
-										
-										
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-										<td>1</td>
-										<td>Unit 1</td>
-										
-										</tr>
-										
-									</tbody>
-								</table>
-							</div>
-							<div class="col-md-6 col-lg-4 mb-3">
+					
 
-								<table class="table table-bordered border-dark table-hover">
-									<thead>
-										<tr>
-										<th scope="col">NO COMPLAIN</th>
-										<th scope="col">DIV</th>
-										<th scope="col">PELAPOR</th>
-										<th scope="col">TGL</th>
-										<th scope="col">JAM</th>
-										<th scope="col">UNIT</th>
-										<th scope="col">URAIAN</th>
-										
-										
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-										
-										<td>ZZZ97364HHH</td>
-										<td>Unit 1</td>
-										<td>Unit gajah</td>
-										<td>jojo</td>
-										<td>rusak bro</td>
-										<td>rusak bro</td>
-										<td>rusak bro</td>
-										
-										</tr>
-										
-									</tbody>
-								</table>
-							</div>
-						  </div>
-                        </div>
-                      </div>
-                      <!-- <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
-                          <img
-                            src="../assets/img/illustrations/man-with-laptop-light.png"
-                            height="140"
-                            alt="View Badge User"
-                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                            data-app-light-img="illustrations/man-with-laptop-light.png"
-                          />
-                        </div>
-                      </div> -->
-											
-                    		</div>
-                  		</div>
-					</div>
+					
 
-					<div class="col-xxl">
-                  	<div class="card mb-4">
-                    <div class="d-flex align-items-end row">
-                      <div >
-					  <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="mb-0">Status Pending</h5>
-                      
-                    </div>
-                        <div class="card-body" >
-                          <!-- <h2 class="card-title text-primary"> Monitoring Complain Divisi</h2> -->
-						  
-						  <div class="row mb-5">
-						  	<div class="col-md-6 col-lg-3 mb-3">
-								<table class="table table-bordered border-dark table-hover" style="width: 80px;">
-									<thead>
-										<tr>
-										<th scope="col">DIVISI</th>
-										<th scope="col">COMPLAIN</th>
-										
-										
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-										<td>1</td>
-										<td>Unit 1</td>
-										
-										</tr>
-										
-									</tbody>
-								</table>
-							</div>
-							<div class="col-md-6 col-lg-4 mb-3">
-
-								<table class="table table-bordered border-dark table-hover">
-									<thead>
-										<tr>
-										<th scope="col">NO COMPLAIN</th>
-										<th scope="col">DIV</th>
-										<th scope="col">PELAPOR</th>
-										<th scope="col">TGL</th>
-										<th scope="col">JAM</th>
-										<th scope="col">UNIT</th>
-										<th scope="col">URAIAN</th>
-										
-										
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-										
-										<td>ZZZ97364HHH</td>
-										<td>Unit 1</td>
-										<td>Unit gajah</td>
-										<td>jojo</td>
-										<td>rusak bro</td>
-										<td>rusak bro</td>
-										<td>rusak bro</td>
-										
-										</tr>
-										
-									</tbody>
-								</table>
-							</div>
-						  </div>
-                        </div>
-                      </div>
-                      <!-- <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
-                          <img
-                            src="../assets/img/illustrations/man-with-laptop-light.png"
-                            height="140"
-                            alt="View Badge User"
-                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                            data-app-light-img="illustrations/man-with-laptop-light.png"
-                          />
-                        </div>
-                      </div> -->
-											
-                    		</div>
-                  		</div>
-					</div>
-
-					<div class="col-xxl">
-                  	<div class="card mb-4">
-                    <div class="d-flex align-items-end row">
-                      <div >
-					  <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="mb-0">Status Selesai</h5>
-                      
-                    </div>
-                        <div class="card-body" >
-                          <!-- <h2 class="card-title text-primary"> Monitoring Complain Divisi</h2> -->
-						  
-						  <div class="row mb-5">
-						  	<div class="col-md-6 col-lg-3 mb-3">
-								<table class="table table-bordered border-dark table-hover" style="width: 80px;">
-									<thead>
-										<tr>
-										<th scope="col">DIVISI</th>
-										<th scope="col">COMPLAIN</th>
-										
-										
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-										<td>1</td>
-										<td>Unit 1</td>
-										
-										</tr>
-										
-									</tbody>
-								</table>
-							</div>
-							<div class="col-md-6 col-lg-4 mb-3">
-
-								<table class="table table-bordered border-dark table-hover">
-									<thead>
-										<tr>
-										<th scope="col">NO COMPLAIN</th>
-										<th scope="col">DIV</th>
-										<th scope="col">PELAPOR</th>
-										<th scope="col">TGL</th>
-										<th scope="col">JAM</th>
-										<th scope="col">UNIT</th>
-										<th scope="col">URAIAN</th>
-										
-										
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-										
-										<td>ZZZ97364HHH</td>
-										<td>Unit 1</td>
-										<td>Unit gajah</td>
-										<td>jojo</td>
-										<td>rusak bro</td>
-										<td>rusak bro</td>
-										<td>rusak bro</td>
-										
-										</tr>
-										
-									</tbody>
-								</table>
-							</div>
-						  </div>
-                        </div>
-                      </div>
-                      <!-- <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
-                          <img
-                            src="../assets/img/illustrations/man-with-laptop-light.png"
-                            height="140"
-                            alt="View Badge User"
-                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                            data-app-light-img="illustrations/man-with-laptop-light.png"
-                          />
-                        </div>
-                      </div> -->
-											
-                    		</div>
-                  		</div>
-					</div>
+					
 
                 </div>
                 
