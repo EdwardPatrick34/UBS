@@ -108,31 +108,31 @@
                           <h2 class="card-title text-primary"> Edit Jenis Unit</h2>
 						  
 						  <br><br>
-						  <form action="" method="post">
-							
+						  <form action="<?php echo site_url('CJenisUnit/editjenisunit');?>" method="post">
+							<?php foreach($datajenisunit->result() as $row): ?>
 							<div class="mb-3">
 							<label class="form-label" for="jenis_unit">Jenis Unit</label>
-							<input type="text" class="form-control" id="jenis_unit" placeholder="......." />
+							<input type="text" class="form-control" id="jenis_unit" name="jenis_unit" value="<?php echo $row->JENIS_UNIT;?>" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="nama_jenis_unit">Nama Jenis Unit</label>
-							<input type="text" class="form-control" id="nama_jenis_unit" placeholder="......." />
+							<input type="text" class="form-control" id="nama_jenis_unit" name="nama_ju" value="<?php echo $row->NAMA_JU;?>" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="usere">USERE</label>
-							<input type="text" class="form-control" id="usere" placeholder="......." />
+							<input type="text" class="form-control" id="usere" name="usere" value="<?php echo $row->USERE;?>" placeholder="......." />
 							</div>
 							
 							<div class="mb-3">
 							<label class="form-label" for="jenis_complain">Jenis Complain</label>
-							<input type="text" class="form-control" id="jenis_complain" placeholder="......." />
+							<input type="text" class="form-control" id="jenis_complain" name="jenis_complain" value="<?php echo $row->JENIS_COMPLAIN;?>" placeholder="......." />
 							</div>
 							
+							<?php endforeach;?>
 							
-							
-							<button type="submit" class="btn btn-primary">Simpan</button>
+							<button type="submit" name="btnEditJenisUnit" class="btn btn-primary">Simpan</button>
 						  </form>
                           	
                         </div>

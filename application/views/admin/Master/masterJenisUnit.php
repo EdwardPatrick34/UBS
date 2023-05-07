@@ -1,7 +1,7 @@
       <!-- Data Table -->
       <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>" language="javascript"></script>
-      <script src="<?= base_url("assets/js/jquery.dataTables.min.js") ?>" language="javascript"></script>
-      <link href="<?= base_url("assets/css/jquery.dataTables.min.css") ?>" type="text/css" rel="stylesheet">
+      <link href='http://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css' type='text/css' rel='stylesheet'>
+      <script src='http://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js' language='javascript'></script>
 
         <!-- Layout container -->
         <div class="layout-page">
@@ -136,10 +136,10 @@
                       <th scope="col"><?php echo $row->USERE?></th>
                       <th scope="col"><?php echo $row->JENIS_COMPLAIN?></th>
                       <th scope="col">
-                        <a href="">
+                        <a href="<?php echo site_url('CJenisUnit/deletejenisunit/'.$row->JENIS_UNIT);?>">
                           <button class="btn btn-danger">Delete</button>
                         </a>
-                        <a href="">
+                        <a href="<?php echo site_url('CJenisUnit/getjenisunitbyid/'.$row->JENIS_UNIT);?>">
                           <button class="btn btn-info">Edit</button>
                         </a>
                       </th>
