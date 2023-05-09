@@ -106,35 +106,77 @@
                       <div >
                         <div class="card-body" >
                           <h2 class="card-title text-primary"> Tambah Jenis Spk</h2>
+                          <br>
+                          <?php if($this->session->userdata ('errormsg')): ?>
+                              <div style="background-color: lightslategray; padding: 4px; color: white; height: 50px">
+                                <?php echo $this->session->flashdata('errormsg');?>
+                              </div>
+                          <?php endif ?>
 						  
 						  <br><br>
-						  <form action="" method="post">
+						  <form action="<?php site_url('CJenisSpk/insertjenisspk');?>" method="post">
 							
 							<div class="mb-3">
 							<label class="form-label" for="jenis_spk">Jenis SPK</label>
-							<input type="text" class="form-control" id="jenis_spk" placeholder="......." />
+							<input type="text" class="form-control" id="jenis_spk" name="jenis_spk" placeholder="......." />
 							</div>
+
+              <div class="mb-3">
+              <label class="form-label" for="no_spk">Nomor SPK</label>
+              <select class="form-control" name="no_spk" id="">
+                  <?php foreach($dataspkd->result() as $row):?>
+                    <option value="<?php echo $row->NO_SPK; ?>"><?php echo $row->NO_SPK; ?></option>
+                  <?php endforeach;?>
+              </select>
+              </div>
+
+              <div class="mb-3">
+              <label class="form-label" for="no_spk">Sub SPK</label>
+              <select class="form-control" name="sub_spk" id="">
+                  <?php foreach($dataspkd->result() as $row):?>
+                    <option value="<?php echo $row->SUB_SPK; ?>"><?php echo $row->SUB_SPK; ?></option>
+                  <?php endforeach;?>
+              </select>
+              </div>
+
+              <div class="mb-3">
+              <label class="form-label" for="no_complain">Nomor SPK</label>
+              <select class="form-control" name="no_complain" id="">
+                  <?php foreach($datacompc->result() as $row):?>
+                    <option value="<?php echo $row->NO_COMPLAIN; ?>"><?php echo $row->NO_COMPLAIN; ?></option>
+                  <?php endforeach;?>
+              </select>
+              </div>
+
+              <div class="mb-3">
+              <label class="form-label" for="sub_complain">Sub Complain</label>
+              <select class="form-control" name="sub_complain" id="">
+                  <?php foreach($datacompc->result() as $row):?>
+                    <option value="<?php echo $row->SUB_COMPLAIN; ?>"><?php echo $row->SUB_COMPLAIN; ?></option>
+                  <?php endforeach;?>
+              </select>
+              </div>
 
 							<div class="mb-3">
 							<label class="form-label" for="nama_spk">Nama SPK</label>
-							<input type="text" class="form-control" id="nama_spk" placeholder="......." />
+							<input type="text" class="form-control" id="nama_spk" name="nama_spk" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="menit">Menit</label>
-							<input type="text" class="form-control" id="menit" placeholder="......." />
+							<input type="text" class="form-control" id="menit" name="menit" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="usere">USERE</label>
-							<input type="text" class="form-control" id="usere" placeholder="......." />
+							<input type="text" class="form-control" id="usere" name="usere" placeholder="......." />
 							</div>
 							
 							
 							
 							
 							
-							<button type="submit" class="btn btn-primary">Tambah</button>
+							<button type="submit" name="btntambahjenisspk" class="btn btn-primary">Tambah</button>
 						  </form>
                           	
                         </div>

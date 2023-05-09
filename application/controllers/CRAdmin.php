@@ -6,6 +6,8 @@ class CRAdmin extends CI_Controller{
 		$this->load->model('McompB');
 		$this->load->model('Mpetugas'); 
 		$this->load->model('Mjeniscomplain');
+		$this->load->model('McompC');
+		$this->load->model('MspkD');
 		$this->load->model('Mstatus');
 		$this->load->helper('url'); 
  
@@ -111,7 +113,10 @@ class CRAdmin extends CI_Controller{
 
 	public function TambahJenisSpk(){
 		$this->load->view('template/headeradmin');
-		$this->load->view("admin/Tambah/tambahJenisSpk");
+
+		$param['datacompc'] = $this->McompC->getdatacompC();
+		$param['dataspkd'] = $this->MspkD->getdataspkD();
+		$this->load->view("admin/Tambah/tambahJenisSpk", $param);
 		$this->load->view('template/footer');
 	}
 

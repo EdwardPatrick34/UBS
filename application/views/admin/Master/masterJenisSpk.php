@@ -1,7 +1,7 @@
         <!-- Data Table -->
         <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>" language="javascript"></script>
-      <link href='http://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css' type='text/css' rel='stylesheet'>
-      <script src='http://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js' language='javascript'></script>
+        <link href='http://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css' type='text/css' rel='stylesheet'>
+        <script src='http://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js' language='javascript'></script>
 
 
 
@@ -125,6 +125,9 @@
 									<tr>                  
 									<th scope="col">Jenis SPK</th>
 									<th scope="col">No SPK</th>
+                  <th scope="col">Sub SPK</th>
+                  <th scope="col">No Complain</th>
+                  <th scope="col">Sub Complain</th>
 									<th scope="col">Nama SPK</th>
 									<th scope="col">Menit</th>
 									<th scope="col">User</th>
@@ -136,6 +139,9 @@
                     <tr>
                       <th scope="col"><?php echo $row->JENIS_SPK; ?></th>
                       <th scope="col"><?php echo $row->NO_SPK; ?></th>
+                      <th scope="col"><?php echo $row->SUB_SPK; ?></th>
+                      <th scope="col"><?php echo $row->NO_COMPLAIN; ?></th>
+                      <th scope="col"><?php echo $row->SUB_COMPLAIN; ?></th>
                       <th scope="col"><?php echo $row->NAMA_SPK; ?></th>
                       <th scope="col"><?php echo $row->MENIT; ?></th>
                       <th scope="col"><?php echo $row->USERE; ?></th>
@@ -143,7 +149,7 @@
                         <a href="<?php echo site_url('CJenisSpk/deletejenisspk/'.$row->JENIS_SPK);?>">
                           <button class="btn btn-danger">Delete</button>
                         </a>
-                        <a href="">
+                        <a href="<?php echo site_url('CJenisSpk/getjenisspkbyid/'.$row->JENIS_SPK);?>">
                           <button class="btn btn-info">Edit</button>
                         </a>
                       </th>
