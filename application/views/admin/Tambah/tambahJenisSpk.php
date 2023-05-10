@@ -121,42 +121,6 @@
 							<input type="text" class="form-control" id="jenis_spk" name="jenis_spk" placeholder="......." />
 							</div>
 
-              <div class="mb-3">
-              <label class="form-label" for="no_spk">Nomor SPK</label>
-              <select class="form-control" name="no_spk" id="">
-                  <?php foreach($dataspkd->result() as $row):?>
-                    <option value="<?php echo $row->NO_SPK; ?>"><?php echo $row->NO_SPK; ?></option>
-                  <?php endforeach;?>
-              </select>
-              </div>
-
-              <div class="mb-3">
-              <label class="form-label" for="no_spk">Sub SPK</label>
-              <select class="form-control" name="sub_spk" id="">
-                  <?php foreach($dataspkd->result() as $row):?>
-                    <option value="<?php echo $row->SUB_SPK; ?>"><?php echo $row->SUB_SPK; ?></option>
-                  <?php endforeach;?>
-              </select>
-              </div>
-
-              <div class="mb-3">
-              <label class="form-label" for="no_complain">Nomor SPK</label>
-              <select class="form-control" name="no_complain" id="">
-                  <?php foreach($datacompc->result() as $row):?>
-                    <option value="<?php echo $row->NO_COMPLAIN; ?>"><?php echo $row->NO_COMPLAIN; ?></option>
-                  <?php endforeach;?>
-              </select>
-              </div>
-
-              <div class="mb-3">
-              <label class="form-label" for="sub_complain">Sub Complain</label>
-              <select class="form-control" name="sub_complain" id="">
-                  <?php foreach($datacompc->result() as $row):?>
-                    <option value="<?php echo $row->SUB_COMPLAIN; ?>"><?php echo $row->SUB_COMPLAIN; ?></option>
-                  <?php endforeach;?>
-              </select>
-              </div>
-
 							<div class="mb-3">
 							<label class="form-label" for="nama_spk">Nama SPK</label>
 							<input type="text" class="form-control" id="nama_spk" name="nama_spk" placeholder="......." />

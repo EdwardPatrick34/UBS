@@ -124,10 +124,6 @@
 								<thead>
 									<tr>                  
 									<th scope="col">Jenis SPK</th>
-									<th scope="col">No SPK</th>
-                  <th scope="col">Sub SPK</th>
-                  <th scope="col">No Complain</th>
-                  <th scope="col">Sub Complain</th>
 									<th scope="col">Nama SPK</th>
 									<th scope="col">Menit</th>
 									<th scope="col">User</th>
@@ -138,10 +134,6 @@
                   <?php foreach ($datajenisspk->result() as $row):?>
                     <tr>
                       <th scope="col"><?php echo $row->JENIS_SPK; ?></th>
-                      <th scope="col"><?php echo $row->NO_SPK; ?></th>
-                      <th scope="col"><?php echo $row->SUB_SPK; ?></th>
-                      <th scope="col"><?php echo $row->NO_COMPLAIN; ?></th>
-                      <th scope="col"><?php echo $row->SUB_COMPLAIN; ?></th>
                       <th scope="col"><?php echo $row->NAMA_SPK; ?></th>
                       <th scope="col"><?php echo $row->MENIT; ?></th>
                       <th scope="col"><?php echo $row->USERE; ?></th>

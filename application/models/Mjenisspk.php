@@ -17,7 +17,7 @@ class Mjenisspk extends CI_Model{
 
     public function insertjenisspk($jenis_spk, $no_spk, $sub_spk,$no_complain,$sub_complain,$nama_spk, $menit,$usere)
     {
-        $sql = "insert into ed_jenisspk(jenis_spk, no_spk, sub_spk, no_complain, sub_complain, nama_spk, menit,usere) values('$jenis_spk', '$no_spk', '$sub_spk', '$no_complain', '$sub_complain','$nama_spk', '$menit','$usere')";
+        $sql = "insert into ed_jenisspk(jenis_spk,  nama_spk, menit,usere) values('$jenis_spk', '$nama_spk', '$menit','$usere')";
         $this->db->query($sql); 
     }
 
@@ -31,7 +31,7 @@ class Mjenisspk extends CI_Model{
     public function editjenisspk($jenis_spk, $no_spk, $sub_spk, $no_complain, $sub_complain, $nama_spk, $menit,$usere)
     {
         // no spk dan jenis spk yang gk boleh diganti
-        $sql = "update ed_jenisspk SET nama_spk = '".$nama_spk."', usere ='".$usere."', no_complain = '".$no_complain."', sub_complain = '".$sub_complain."', no_spk = '".$no_spk."', sub_spk = '".$sub_spk."', menit = '".$menit."' where jenis_spk = '".$jenis_spk."'";
+        $sql = "update ed_jenisspk SET nama_spk = '".$nama_spk."', usere ='".$usere."',  menit = '".$menit."' where jenis_spk = '".$jenis_spk."'";
         $this->db->query($sql);    
     }
 
