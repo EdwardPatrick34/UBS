@@ -9,6 +9,9 @@ class CRAdmin extends CI_Controller{
 		$this->load->model('McompC');
 		$this->load->model('MspkD');
 		$this->load->model('Mstatus');
+		$this->load->model('McompA');
+		$this->load->model('Mjenisspk');
+		$this->load->model('Mpetugas');
 		$this->load->helper('url'); 
  
 	}
@@ -134,13 +137,12 @@ class CRAdmin extends CI_Controller{
 
 	public function CreateSpk(){
 		$this->load->view('template/headeradmin');
-		$this->load->view("admin/infrastruktur/spkInfra");
+		$param['datacomplain'] = $this->McompA->getdatacompA(); 
+		$param['datajenisspk'] = $this->Mjenisspk->getdatajenisspk();
+		$param['datapetugas'] = $this->Mpetugas->getdatapetugas();
+		$this->load->view("admin/infrastruktur/spkInfra", $param);
 		$this->load->view('template/footer');
 	}
-
-
-
-
 }
-
 ?>
+
