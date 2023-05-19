@@ -12,6 +12,12 @@ class McompB extends CI_Model{
         return $jum; 
     }
 
+    public function insertdata($nocomplain, $sub_complain, $jenis_unit, $jenis_complain, $keterangan) {
+        $sql = "insert into ed_compB(NO_COMPLAIN, SUB_COMPLAIN, JENIS_UNIT, JENIS_COMPLAIN, KET, USERE) 
+                    values ('$nocomplain', '$sub_complain', '$jenis_unit', '$jenis_complain', '$keterangan', 'usere')";
+        $this->db->query($sql);
+    }
+
     // public function insertComplain($jenis_complain, $no_complain, $nama_complain, $usere)
     // {
     //     $sql = "insert into ed_jeniscomplain(jenis_complain, no_complain, nama_complain, usere) values('$jenis_complain', '$no_complain', '$nama_complain', '$usere')";

@@ -12,7 +12,10 @@ class McompC extends CI_Model{
         return $jum; 
     }
 
-   
-    
+    public function insertdata($nocomplain, $sub_complain, $jenis_spk, $realisasi) {
+        $sql = "insert into ed_compC(NO_COMPLAIN, SUB_COMPLAIN, JENIS_SPK, REALISASI) 
+                    values ('$nocomplain', '$sub_complain', '$jenis_spk', '$realisasi')";
+        $this->db->query($sql);
+    }
 }
 ?>

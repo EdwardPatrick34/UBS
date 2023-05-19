@@ -17,7 +17,7 @@ class Mjeniscomplain extends CI_Model{
 
     public function insertComplain($jenis_complain, $no_complain, $nama_complain, $usere, $sub_complain)
     {
-        $sql = "insert into ed_jeniscomplain(jenis_complain, sub_complain,no_complain, nama_complain, usere) values('$jenis_complain', '$sub_complain','$no_complain', '$nama_complain', '$usere')";
+        $sql = "insert into ed_jeniscomplain(jenis_complain,  nama_complain, usere) values('$jenis_complain',  '$nama_complain', '$usere')";
         $this->db->query($sql); 
     }
 
@@ -30,7 +30,7 @@ class Mjeniscomplain extends CI_Model{
 
     public function editComplain($jenis_complain, $sub_complain, $no_complain, $nama_complain, $usere)
     {
-        $sql = "update ed_jeniscomplain SET nama_complain = '".$nama_complain."', usere ='".$usere."', sub_complain = '".$sub_complain."', no_complain = '".$no_complain."' where jenis_complain = '".$jenis_complain."'";
+        $sql = "update ed_jeniscomplain SET nama_complain = '".$nama_complain."', usere ='".$usere."',  where jenis_complain = '".$jenis_complain."'";
         $this->db->query($sql);    
     }
 
@@ -41,4 +41,3 @@ class Mjeniscomplain extends CI_Model{
     
 }
 ?>
-

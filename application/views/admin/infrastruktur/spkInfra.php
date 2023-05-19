@@ -179,25 +179,25 @@
 													
 														
 														
-															<div class="mb-3 row">
-																<label for="inputPassword" class=" col-form-label">no spk</label>
-																<div class="col-sm-4 input-group input-group-merge">
-																<input type="password" class="form-control" id="inputPassword">
-																</div>
-															</div>
-															<div class="mb-3 row">
-																<label for="inputPassword" class=" col-form-label">tgl spk</label>
-																<div class="col-sm-4 input-group input-group-merge">
-																<input type="password" class="form-control" id="inputPassword">
-																</div>
-															</div>
-															<div class="mb-3 row">
-																<label for="uraian" class=" col-form-label">Pekerjaan</label>
-																<div class="col-sm-4 input-group input-group-merge">
-																<textarea class="form-control" id="uraian"></textarea>
-																</div>
-															</div>
-														
+													<div class="mb-3 row">
+														<label for="inputPassword" class=" col-form-label">no spk</label>
+														<div class="col-sm-4 input-group input-group-merge">
+														<input type="password" class="form-control" id="inputPassword">
+														</div>
+													</div>
+													<div class="mb-3 row">
+														<label for="inputPassword" class=" col-form-label">tgl spk</label>
+														<div class="col-sm-4 input-group input-group-merge">
+														<input type="password" class="form-control" id="inputPassword">
+														</div>
+													</div>
+													<div class="mb-3 row">
+														<label for="uraian" class=" col-form-label">Pekerjaan</label>
+														<div class="col-sm-4 input-group input-group-merge">
+														<textarea class="form-control" id="uraian"></textarea>
+														</div>
+													</div>
+												
 
 													
 												</div>
@@ -216,12 +216,9 @@
 												<th scope="col">Jenis Comp</th>
 												<th scope="col">Nama Jenis Complain</th>
 												<th scope="col">Keterangan</th>
-												
-
-												
 												</tr>
 											</thead>
-											<tbody>
+											<tbody id="hasilspk">
 												<tr>
 												<th scope="row">1</th>
 												<td>Unit 1</td>
@@ -229,17 +226,14 @@
 												<td>jojo</td>
 												<td>rusak bro</td>
 												<td>asd</td>
-												
-
 												</tr>
-												
 											</tbody>
 											</table>
 					
-																</div>
-															
-															
-															</div>
+											</div>
+										
+										
+										</div>
 														
 											</div>
 												
@@ -293,11 +287,6 @@
 															</div>
 															
 														</div>
-
-														
-
-														
-
 														<button class="btn btn-primary">Tambah</button>
 
 													</div>
@@ -318,7 +307,7 @@
 												
 												</tr>
 											</thead>
-											<tbody>
+											<tbody id="hasilpetugas">
 												<tr>
 												<th scope="row">1</th>
 												<td>Unit 1</td>
@@ -416,7 +405,7 @@
 												
 												</tr>
 											</thead>
-											<tbody>
+											<tbody id="hasiljenisspk">
 												<tr>
 												<th scope="row">1</th>
 												<td>Unit 1</td>

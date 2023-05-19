@@ -96,112 +96,100 @@
 	<!-- Content wrapper -->
 	<div class="content-wrapper">
 	<!-- Content -->
-
-		<div class="container-xxl flex-grow-1 container-p-y">
-			<h4 class="fw-bold py-3 mb-4"> Complain Problem Komputer</h4>
-			<div class="col-sm-4 input-group input-group-merge">
-													
-				<button class="btn btn-primary">Cari</button>
-				&nbsp;
-				&nbsp;
-				<button class="btn btn-primary">Listing</button>
-
-			
-			</div>
-			<br>
-			<div class="row">
-					<div class="col-xxl">
-                  	<div class="card mb-4">
-                    <div class="d-flex align-items-end row">
-                    	<div >
-
-							<form action="" method="post">
-
-							<!-- start form 1 -->
-							<div class="row">
-								<div class="col-xl">
-
-									<div class="card-body">
-
-										<div class="mb-3 row">
-											<label for="no_complain" class=" col-form-label">no complain</label>
-											<div class="col-sm-4 input-group input-group-merge">
-											<input type="text" class="form-control" id="no_complain">
-											</div>
-										</div>
-										<div class="mb-3 row">
-											<label for="divisi" class=" col-form-label">Divisi</label>
-											<div class="col-sm-4 input-group input-group-merge">
-												<div style="width: 100px;">
-
-													<input type="text"  id="kodedivisi"  class="form-control">
+			<form action="<?php echo site_url("/Ccompkomputer/createTicket");?>" method="post">
+				<div class="container-xxl flex-grow-1 container-p-y">
+					<h4 class="fw-bold py-3 mb-4"> Complain Problem Komputer</h4>
+					<div class="col-sm-4 input-group input-group-merge">
+															
+						<button class="btn btn-primary">Cari</button>
+						&nbsp;
+						&nbsp;
+						<button class="btn btn-primary">Listing</button>
+					</div>
+					<br>
+					<div class="row">
+							<div class="col-xxl">
+							<div class="card mb-4">
+							<div class="d-flex align-items-end row">
+								<div>
+								<!-- start form 1 -->
+								<div class="row">
+									<div class="col-xl">
+										<div class="card-body">
+											<div class="mb-12 row">
+												<label for="no_complain" class=" col-form-label">no complain</label>
+												<div class="col-sm-4 input-group input-group-merge">
+												<input type="text" class="form-control" name="no_complain" id="no_complain" readonly='readonly'>
 												</div>
-												&nbsp;
-												&nbsp;
-												
-												<div>
-												<input type="text"  id="nodivisi"  class="form-control">
+											</div>
+											<br>
+											<div class="mb-12 row">
+												<label for="tgljamlapor" class=" col-form-label">Tgl dan jam lapor</label>
+												<div class="col-sm-4 input-group input-group-merge">
+												<input type="datetime-local" class="form-control" name="tgljam" id="tgljamlapor">
 												</div>
+											</div>
+											<br>
+											<div class="mb-12 row">
+												<label for="nama_pelapor" class=" col-form-label">Nama pelapor</label>
+												<div class="col-sm-4 input-group input-group-merge">
+												<input type="text" class="form-control" name="nama_uc" id="nama_pelapor">
+												</div>
+											</div>																						
+											<br>
+											<div class="mb-12 row">
+												<label for="divisi" class=" col-form-label">Divisi</label>
+												<div class="col-sm-4 input-group input-group-merge">
+													<div style="width: 100px;">
+														<input type="text"  id="kodedivisi" name="kode_divisi"  class="form-control">
+													</div>
+													&nbsp;
+													&nbsp;
+													<div>
+														<input type="text"  id="nodivisi" name="no_divisi"  class="form-control">
+													</div>
 
+												</div>
 											</div>
-											
-										</div>
-										<div class="mb-3 row">
-											<label for="kode_unit" class=" col-form-label">Kode Unit</label>
-											<div class="col-sm-4 input-group input-group-merge">
-											<input type="text" class="form-control" id="kode_unit">
+											<br>
+											<div class="mb-12 row">
+												<label for="kode_unit" class=" col-form-label">Kode Unit</label>
+												<div class="col-sm-4 input-group input-group-merge">
+												<input type="text" class="form-control" name="kode_unit" id="kode_unit">
+												</div>
+											</div>
+											<br>
+											<div class="mb-12 row">
+												<label for="lokasi_unit" class=" col-form-label">Lokasi unit</label>
+												<div class="col-sm-4 input-group input-group-merge">
+												<input type="text" class="form-control" name="lokasi_unit" id="lokasi_unit">
+												</div>
+											</div>
+											<br>
+											<div class="mb-12 row">
+												<label for="uraian" class=" col-form-label">Uraian Problem/kerusakan</label>
+												<div class="col-sm-4 input-group input-group-merge">
+												<textarea class="form-control" name="uraian" id="uraian"></textarea>
+												</div>
 											</div>
 										</div>
-										<div class="mb-3 row">
-											<label for="lokasi_unit" class=" col-form-label">Lokasi unit</label>
-											<div class="col-sm-4 input-group input-group-merge">
-											<input type="text" class="form-control" id="lokasi_unit">
-											</div>
-										</div>
-										
-										<div class="mb-3 row">
-											<label for="uraian" class=" col-form-label">Uraian Problem/kerusakan</label>
-											<div class="col-sm-4 input-group input-group-merge">
-											<textarea class="form-control" id="uraian"></textarea>
-											</div>
-										</div>
-
-
 									</div>
-
-								</div>
-								<div class="col-xl">
-
-									<div class="card-body">
-										<div class="mb-3 row">
-											<label for="tgljamlapor" class=" col-form-label">Tgl dan jam lapor</label>
-											<div class="col-sm-4 input-group input-group-merge">
-											<input type="text" class="form-control" id="tgljamlapor">
-											</div>
+									<!-- <div class="col-xl">
+										<div class="card-body">
 										</div>
-										<div class="mb-3 row">
-											<label for="nama_pelapor" class=" col-form-label">Nama pelapor</label>
-											<div class="col-sm-4 input-group input-group-merge">
-											<input type="text" class="form-control" id="nama_pelapor">
-											</div>
-										</div>
-																					
-									</div>
-
-
+									</div> -->
 								</div>
-							</div>
 
 
 							<!-- end form 1 -->
 
-							</form>
+					</form>
 						  
 						  	
 							
 						  
                         	
-                    	</div>
+                    </div>
                       <!-- <div class="col-sm-5 text-center text-sm-left">
                         <div class="card-body pb-0 px-0 px-md-4">
                           <img
@@ -226,7 +214,7 @@
 					  
                         <div class="card-body" >
                           <!-- form2 -->
-							<div class="col-xxl">
+						<div class="col-xxl">
                   	
                     	<div class="d-flex align-items-end row">
                       	<div>
@@ -240,84 +228,59 @@
 		
 										<div class="mb-3 row">
 											<label for="divisi" class=" col-form-label">Jenis Unit</label>
-											<div class="col-sm-4 input-group input-group-merge">
-												<div style="width: 100px;">
-
-													<input type="text"  id="kodedivisi"  class="form-control">
-												</div>
-												&nbsp;
-												&nbsp;
-												
+											<div class="col-sm-8 input-group input-group-merge">
 												<div>
-												<input type="text"  id="nodivisi"  class="form-control">
-												</div>
-
+													<select class="form-select" id="jenis_unit">
+														<?php foreach($datajenisunit->result() as $row) :?>
+															<option value="<?php echo $row->JENIS_UNIT; ?>"><?php echo $row->JENIS_UNIT." - ".$row->NAMA_JU;?></option>
+														<?php endforeach;?>
+													</select>
+												</div>	
 											</div>
-											
 										</div>
 
 										<div class="mb-3 row">
 											<label for="divisi" class=" col-form-label">Jenis Complain</label>
-											<div class="col-sm-4 input-group input-group-merge">
-												<div style="width: 100px;">
-
-													<input type="text"  id="kodedivisi"  class="form-control">
-												</div>
-												&nbsp;
-												&nbsp;
-												
+											<div class="col-sm-8 input-group input-group-merge">
 												<div>
-												<input type="text"  id="nodivisi"  class="form-control">
-												</div>
-
+													<select class="form-select" id="jenis_complain">
+														<?php foreach($datajeniscomplain->result() as $row) :?>
+															<option value="<?php echo $row->JENIS_COMPLAIN;?>"><?php echo $row->JENIS_COMPLAIN." - ".$row->NAMA_COMPLAIN;?></option>
+														<?php endforeach;?>
+													</select>
+												</div>	
 											</div>
-											
 										</div>
 
 										<div class="mb-3 row">
 											<label for="uraian" class=" col-form-label">Keterangan</label>
 											<div class="col-sm-4 input-group input-group-merge">
-											<textarea class="form-control" id="uraian"></textarea>
+											<textarea class="form-control" id="keterangan"></textarea>
 											</div>
 										</div>
 
-										<button class="btn btn-primary">Tambah</button>
+										<button type="button" class="btn btn-primary" onclick="tambahunit()">Tambah</button>
 
 									</div>
 
 								</div>
 							</form>
 							<br>
-
-							<table class="table table-bordered border-dark table-hover">
-							<thead>
-								<tr>
-								<th scope="col">Sub</th>
-								<th scope="col">Jenis Unit</th>
-								<th scope="col">Nama Jenis Unit</th>
-								<th scope="col">Jenis Comp</th>
-								<th scope="col">Nama Jenis Complain</th>
-								<th scope="col">Keterangan</th>
-								<th scope="col">Aksi</th>
-
-								
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-								<th scope="row">1</th>
-								<td>Unit 1</td>
-								<td>Unit gajah</td>
-								<td>jojo</td>
-								<td>rusak bro</td>
-								<td>asd</td>
-								<td>
-									<button>Hapus</button>
-								</td>
-
-								</tr>
-								
-							</tbody>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+									<th scope="col">Sub</th>
+									<th scope="col">Jenis Unit</th>
+									<th scope="col">Nama Jenis Unit</th>
+									<th scope="col">Jenis Comp</th>
+									<th scope="col">Nama Jenis Complain</th>
+									<th scope="col">Keterangan</th>
+									<th scope="col">Aksi</th>
+									</tr>
+								</thead>
+								<tbody id="hasiljeniscomplain">
+									
+								</tbody>
 							</table>
 	
                       	</div>
@@ -356,18 +319,14 @@
 		
 													<div class="mb-3 row">
 														<label for="divisi" class=" col-form-label">Jenis SPK</label>
-														<div class="col-sm-4 input-group input-group-merge">
-															<div style="width: 100px;">
-
-																<input type="text"  id="kodedivisi"  class="form-control">
-															</div>
-															&nbsp;
-															&nbsp;
-															
+														<div class="col-sm-8 input-group input-group-merge">
 															<div>
-															<input type="text"  id="nodivisi"  class="form-control">
-															</div>
-
+																<select class="form-select" name="jenisspk" id="jenisspk">
+																	<?php foreach($datajenisspk->result() as $row) :?>
+																		<option value="<?php echo $row->JENIS_SPK; ?>"><?php echo $row->JENIS_SPK." - ".$row->NAMA_SPK;?></option>
+																	<?php endforeach;?>
+																</select>
+															</div>	
 														</div>
 														
 													</div>
@@ -377,12 +336,12 @@
 											</div>
 										</form>
 
-										<button class="btn btn-primary">Tambah</button>
+										<button type="button" class="btn btn-primary" onclick="tambahspk()">Tambah</button>
 
 									<!-- end form 3 -->
 									<br>
 									<br>
-									<table class="table table-bordered border-dark table-hover">
+							<table class="table table-striped">
 							<thead>
 								<tr>
 								<th scope="col">Urut</th>
@@ -394,18 +353,8 @@
 								
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-								<th scope="row">1</th>
-								<td>Unit 1</td>
-								<td>Unit gajah</td>
+							<tbody id="hasiljenisspk">
 								
-								<td>asd</td>
-								<td>
-									<button>Hapus</button>
-								</td>
-
-								</tr>
 								
 							</tbody>
 							</table>
@@ -452,3 +401,123 @@
 </div>
 
 <!-- Overlay -->
+
+<script src='http://code.jquery.com/jquery.js'></script>
+<script language='javascript'>
+var myurl = "<?php echo site_url(); ?>";
+
+function showdataunit() {
+ $.post(myurl + "/Ccompkomputer/selectTableComplain",
+  {}, function(result) {
+//    alert(result); 
+   var data = JSON.parse(result); 
+//    alert(data.length); 
+
+   var kal = ""; 
+   var cntr = 0;
+   for(var i = 0; i < data.length; i++) {
+	cntr++;
+	kal = kal + "<tr>"; 
+		kal = kal + "<td>" + cntr + "</td>"; 
+		kal = kal + "<td>" + data[i][0]['JENIS_UNIT'] + "</td>"; 
+		kal = kal + "<td>" + data[i][0]['NAMA_JU'] + "</td>"; 
+		kal = kal + "<td>" + data[i][1]['JENIS_COMPLAIN'] + "</td>"; 
+		kal = kal + "<td>" + data[i][1]['NAMA_COMPLAIN'] + "</td>"; 
+		kal = kal + "<td>" + data[i][2] + "</td>"; 
+		kal = kal + "<td><input type='button' value='Delete' onclick= delete('"+i+"') class='btn btn-danger' ></td>"; 
+	kal = kal + "</tr>"; 
+   }
+
+   $("#hasiljeniscomplain").html(kal); 
+  }
+ );
+ }
+
+ function showdataspk(){
+	$.post(myurl + "/Ccompkomputer/selectTableSpk",
+	{}, function(result){
+		// alert(result);
+		var data = JSON.parse(result); 
+		// alert(data.length);
+
+		var kal = "";
+		var cnt = 0;
+		for(var i = 0; i<data.length; i++){
+			cnt++;
+			kal = kal + "<tr>"; 
+				kal = kal + "<td>" + cnt + "</td>"; 
+				kal = kal + "<td>" + data[i][0]['JENIS_SPK'] + "</td>"; 
+				kal = kal + "<td>" + data[i][0]['NAMA_SPK'] + "</td>"; 
+				kal = kal + "<td>" + data[i][0]['MENIT'] + "</td>"; 
+				kal = kal + "<td><input type='button' value='Delete' onclick= delete('"+i+"') class='btn btn-danger' ></td>"; 
+			kal = kal + "</tr>"; 
+		}
+		$("#hasiljenisspk").html(kal);
+	}
+	);
+ }
+
+ function tambahunit() {
+	var unit = $("#jenis_unit").val();
+	var complain = $("#jenis_complain").val();
+	var keterangan = $("#keterangan").val()
+
+	// alert(unit + "-" + complain);
+	// alert(keterangan);
+	// alert(myurl + "/Ccompkomputer/insertTableComplain");
+
+	$.post(myurl + "/Ccompkomputer/insertTableComplain",
+		{unit: unit, complain: complain, keterangan: keterangan}, function(result) {
+		// alert(result); 
+		showdataunit();
+	}
+	);
+	// $.ajax({
+	//  url: myurl + "/Ccompkomputer/insertTableComplain",
+	//  type: "POST",
+	//  success: function(result){
+	//   alert(result); 
+	//   // var kal = "";
+	//   // kal = kal + "<tr>";
+	//   // for(var i = 0; i <result.length; i++){
+		
+	//   //   kal = kal + "<td>"+ i+1 +"</td>";
+	//   //   kal = kal + "<td>"+ result[i].jenis_unit +"</td>";
+	//   //   kal = kal + "<td>"+ result[i].nama_ju +"</td>";
+	//   //   kal = kal + "<td>"+ result[i].jenis_complain +"</td>";
+	//   //   kal = kal + "<td>"+ result[i].keterangan +"</td>";
+	//   // }
+	//   // kal = kal + "</tr>";
+	//   // $("#hasiljeniscomplain").html(kal);
+	//  }
+	// })
+ }
+
+ function tambahspk(){
+	var spk = $("#jenisspk").val();
+	// alert(spk);
+	
+	$.post(myurl + "/Ccompkomputer/insertTableSpk",
+		{spk: spk}, function(result){
+			// alert(result);
+			showdataspk();
+		}
+	);
+	// $.ajax({
+	// 	url: myurl + "/Ccompkomputer/insertTableSpk",
+	// 	data: { spk: spk },
+	// 	dataType: "json",
+	// 	type: "POST",
+	// 	success: function(result){
+	// 		var kal = "";
+	// 		kal = kal + "<tr>";
+			
+	// 		kal = kal = "</tr>";
+	// 		$("hasiljenisspk").html(kal);
+	// 	}
+	// })
+ }
+
+ showdataspk(); 
+ showdataunit(); 
+</script>

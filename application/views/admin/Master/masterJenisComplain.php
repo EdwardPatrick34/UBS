@@ -119,9 +119,7 @@
               <table id="Tcomplain" class="table table-striped">
 								<thead>
 									<tr>
-                    <th scope="col">Nomor Complain</th>
                     <th scope="col">Jenis Complain</th>
-                    <th scope="col">Sub Complain</th>
                     <th scope="col">Nama Complain</th>
                     <th scope="col">USERE</th>
                     <th scope="col">Aksi</th>
@@ -131,9 +129,7 @@
                   
 									<?php foreach($dataComplain->result() as $row): ?>
                     <tr>
-                      <th scope="col"><?php echo $row->NO_COMPLAIN; ?></th>
                       <th scope="col"><?php echo $row->JENIS_COMPLAIN; ?></th>
-                      <th scope="col"><?php echo $row->SUB_COMPLAIN; ?></th>
                       <th scope="col"><?php echo $row->NAMA_COMPLAIN; ?></th>
                       <th scope="col"><?php echo $row->USERE; ?></th>
                       <th>

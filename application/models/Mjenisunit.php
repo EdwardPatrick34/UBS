@@ -38,4 +38,3 @@ class Mjenisunit extends CI_Model{
     
 }
 ?>
-
