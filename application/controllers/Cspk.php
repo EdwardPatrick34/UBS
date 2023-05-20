@@ -9,6 +9,7 @@ class Cspk extends CI_Controller{
         $this->load->model("MspkB");
         $this->load->model("MspkC");
         $this->load->model("MspkD");
+        $this->load->model("McompA");
         $this->load->library('session');
     }
 
@@ -56,6 +57,21 @@ class Cspk extends CI_Controller{
     public function selectTableSpk(){
         $arr = [];
 		if($this->session->userdata('session_jenisspk')) { $arr = $this->session->userdata('session_jenisspk');}
+        echo json_encode($arr);
+    }
+
+    public function cariComplain(){
+        $no_complain = $this->input->post("no_complain");
+
+        $datacomplain = $this->McompA->getcompAbyid($no_complain);
+        foreach($datacomplain->result() as $row){$rowcomplain = $row;}
+        
+        
+        $arr = [];
+        if($this->session->userdata('session_complain')) {$arr = $this->session->userdata('session_complai');}
+        $jum = count($arr);
+        
+        $arr[$jum][0] = $rowcomplain;
         echo json_encode($arr);
     }
 }

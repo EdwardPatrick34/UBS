@@ -44,4 +44,3 @@ class McompB extends CI_Model{
     
 }
 ?>
-

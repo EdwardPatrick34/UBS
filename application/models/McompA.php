@@ -23,7 +23,9 @@ class McompA extends CI_Model{
     }
 
     public function getcompAbyid($no_complain){
-        $sql = $this->db->query("select * from ed_compA where no_complin = '".$no_complain."'");
+        $sql = $this->db->query("select * from ed_compA where no_complain = '".$no_complain."'");
+
+        return $sql;
     }
 }
 ?>

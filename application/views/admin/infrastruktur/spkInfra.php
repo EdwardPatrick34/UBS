@@ -138,7 +138,7 @@
 															<label for="inputPassword" class=" col-form-label">no complain</label>
 															<div class="col-sm-4 input-group input-group-merge">
 																<div>
-																	<select class="form-select" name="" id="no_complain">
+																	<select class="form-select" name="" id="no_complain" onchange="caricomplain()">
 																		<?php foreach($datacomplain->result() as $row) :?>
 																			<option value="<?php echo $row->NO_COMPLAIN ;?>"><?php echo $row->NO_COMPLAIN?></option>
 																		<?php endforeach;?>
@@ -511,6 +511,17 @@
 					kal = kal + "</tr>"; 
 				}
 				$("#hasiljenisspk").html(kal);
+			}
+			);
+		}
+
+		function caricomplain(){
+			var no_complain = $("#no_complain").val();
+			
+			$.post(myurl + "/Cspk/cariComplain",
+				{no_complain: no_complain}, function(result) {
+				alert(result); 
+				
 			}
 			);
 		}

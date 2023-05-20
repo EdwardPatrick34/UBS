@@ -36,18 +36,15 @@ class CJenisComplain extends CI_Controller{
 	public function insertjeniscomplain(){
 		$this->form_validation->set_rules('jenis_complain','jenis_complain','required',array('required'=>'jenis_complain tidak boleh kosong'));
 		$this->form_validation->set_rules('nama_complain', 'nama_complain', 'required', array('required'=>'nama_complain tidak boleh kosong'));
-		$this->form_validation->set_rules('sub_complain','sub_complain','required', array('required'=>'sub complain tidak boleh kosong'));
-		$this->form_validation->set_rules('nomor_complain','nomor_complain','required',array('required'=>'nomor_complain tidak boleh kosong'));
 		$this->form_validation->set_rules('usere','usere','required',array('required'=>'user tidak boleh kosong'));
 
 		if($this->form_validation->run() == true){
 			$jenis_complain = $this->input->post('jenis_complain');
 			$nama_complain = $this->input->post('nama_complain');
-			$nomor_complain = $this->input->post('nomor_complain');
-			$sub_complain = $this->input->post('sub_complain');
+			
 			$usere = $this->input->post("usere");
 
-			$this->Mjeniscomplain->insertComplain($jenis_complain, $nomor_complain, $nama_complain, $usere, $sub_complain);
+			$this->Mjeniscomplain->insertComplain($jenis_complain, $nomor_complain, $nama_complain, $usere);
 			$this->session->set_flashdata('msg','Berhasil menambahkan jenis complain');
 			redirect(base_url('CJenisComplain/masterJenisComplain'));
 		}
@@ -64,19 +61,16 @@ class CJenisComplain extends CI_Controller{
 
 	public function editJenisComplain(){
 		$this->form_validation->set_rules('jenis_complain','jenis_complain','required',array('required'=>'jenis_complain tidak boleh kosong'));
-		$this->form_validation->set_rules('sub_complain','sub_complain','required', array('required'=>'sub complain tidak boleh kosong'));
 		$this->form_validation->set_rules('nama_complain', 'nama_complain', 'required', array('required'=>'nama_complain tidak boleh kosong'));
-		$this->form_validation->set_rules('nomor_complain','nomor_complain','required',array('required'=>'nomor_complain tidak boleh kosong'));
 		$this->form_validation->set_rules('usere','usere','required',array('required'=>'user tidak boleh kosong'));
 
 		if($this->form_validation->run() == true){
 			$jenis_complain = $this->input->post('jenis_complain');
 			$nama_complain = $this->input->post('nama_complain');
-			$nomor_complain = $this->input->post('nomor_complain');
-			$sub_complain = $this->input->post('sub_complain');
+			
 			$usere = $this->input->post("usere");
 
-			$this->Mjeniscomplain->editComplain($jenis_complain, $sub_complain ,$nomor_complain, $nama_complain, $usere);
+			$this->Mjeniscomplain->editComplain($jenis_complain, $nama_complain, $usere);
 			$this->session->set_flashdata('msg','Berhasil mengedit jenis complain');
 			redirect(base_url('CJenisComplain/masterJenisComplain'));
 		}
