@@ -521,7 +521,10 @@
 			$.post(myurl + "/Cspk/cariComplain",
 				{no_complain: no_complain}, function(result) {
 				alert(result); 
-				
+				var data = JSON.parse(result);
+				for(var i = 0; i < data.length; i++){
+					$("")
+				}
 			}
 			);
 		}
