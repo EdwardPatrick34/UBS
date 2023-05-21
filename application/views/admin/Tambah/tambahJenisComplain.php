@@ -121,22 +121,7 @@
 							</div>
 
               <div class="mb-3">
-							<label class="form-label"  for="nama_complain">Nomor Complain</label>
-              <select class="form-control" name="nomor_complain" id="">
-                <?php foreach($datacompB->result() as $row ):?>
-                  <option value="<?php echo $row->NO_COMPLAIN; ?>"><?php echo $row->NO_COMPLAIN; ?></option>
-                <?php endforeach;?>
-              </select>
-							</div>
-
-              <div class="mb-3">
-                  <label class="form-label" for="sub_complain">Sub Complain</label>
-                  <select class="form-control" name="sub_complain" id="">
-                  <?php foreach($datacompB->result() as $row ):?>
-                    <option value="<?php echo $row->SUB_COMPLAIN; ?>"><?php echo $row->SUB_COMPLAIN; ?></option>
-                  <?php endforeach;?>
-                  </select>
-              </div>
+							
               
 
               <div class="mb-3">

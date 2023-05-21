@@ -2,7 +2,7 @@
       <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>" language="javascript"></script>
       <link href='http://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css' type='text/css' rel='stylesheet'>
       <script src='http://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js' language='javascript'></script>
-
+        
         <!-- Layout container -->
         <div class="layout-page">
           <!-- Navbar -->
@@ -83,7 +83,7 @@
                     <!-- -->
 
                     <li>
-										<a class="dropdown-item" href="<?= base_url('login') ?>">
+                      <a class="dropdown-item" href="<?= base_url('login') ?>">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -102,64 +102,85 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              
                 <div>
                   <div class="card">
                     <div class="d-flex align-items-end row">
                       <div >
                         <div class="card-body" >
-                          <h2 class="card-title text-primary"> Master Jenis Unit</h2>
+                          <h2 class="card-title text-primary"> Laporan History Complain</h2>
                           <br>
-                          <?php if($this->session->userdata('msg')): ?>
-                            <div style="background-color: lightslategray; padding: 4px; color: white; height : 50px">
-                              <?php echo $this->session->flashdata('msg');?>
-                            </div>
-                          <?php endif ?>
+													<form action="<?php echo base_url('CRAdmin/SearchLHistoryComplain'); ?>" method="post">
+						  	<div class="mb-12 row">
+								  <div class="col-sm-4 input-group input-group-merge">
+										
+											<label for="divisi" class=" col-form-label">Tanggal Awal</label>
+											&nbsp;
+											&nbsp;
+											&nbsp;
+											<div style="width: 200px;">
+												<input type="date"  id="tglawal" name="tglawal"  class="form-control">
+											</div>
+											&nbsp;
+											&nbsp;
+											&nbsp;
+											&nbsp;
+											<label for="divisi" class=" col-form-label">Tanggal Akhir</label>
+											&nbsp;
+											&nbsp;
+											&nbsp;
+											<div style="width: 200px;">
+												<input type="date"  id="tglakhir" name="tglakhir"  class="form-control">
+											</div>
+												&nbsp;
+												&nbsp;
+												&nbsp;
+											<button type="submit" class="btn btn-primary">Search</button>
+											&nbsp;
+											&nbsp;
+											&nbsp;
+											<button type="button" class="btn btn-primary" onclick="printPage()">Cetak</button>
+										
 
-						  <a  href="<?= base_url('CRAdmin/tambahJenisUnit') ?>"><button class="btn btn-primary">Tambah Jenis Unit</button></a>
+								</div>
+								
+							</div>
+							</form>
+							<br>
+                          
+						  
 						  <br><br>
-                <table id="Tjenisunit" class="table table-striped">
+              				<table id="LHComplain" class="table table-striped">
 								<thead>
 									<tr>
-									<th scope="col">Jenis Unit</th>
-									<th scope="col">Nama Jenis Unit</th>
-									<th scope="col">USERE</th>
-									<th scope="col">Jenis Complain</th>
-									<th scope="col">Aksi</th>
+										<th scope="col">NOMOR COMPLAIN</th>
+										<th scope="col">Tanggal</th>
+										<th scope="col">Status</th>
+										<th scope="col">Uraian</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach($datajenisunit->result() as $row):?>
-                    <tr>
-                      <th scope="col"><?php echo $row->JENIS_UNIT?></th>
-                      <th scope="col"><?php echo $row->NAMA_JU?></th>
-                      <th scope="col"><?php echo $row->USERE?></th>
-                      <th scope="col"><?php echo $row->JENIS_COMPLAIN?></th>
-                      <th scope="col">
-                        <a href="<?php echo site_url('CJenisUnit/deletejenisunit/'.$row->JENIS_UNIT);?>">
-                          <button class="btn btn-danger">Delete</button>
-                        </a>
-                        <a href="<?php echo base_url('CJenisUnit/getjenisunitbyid/'.$row->JENIS_UNIT);?>">
-                          <button class="btn btn-info">Edit</button>
-                        </a>
-                      </th>
-                    </tr>
-                  <?php endforeach;?>
+                  <?php 
+									if (isset($dataHComplain)) {
+										# code...
+										foreach($dataHComplain->result() as $row):
+									  ?>
+										<tr>
+											<td scope="col"><?php echo $row->NO_COMPLAIN; ?></td>
+											<td scope="col"><?php echo $row->TGL; ?></td>
+											<td scope="col"><?php echo $row->NAMA_STATUS; ?></td>
+											<td scope="col"><?php echo $row->URAIAN; ?></td>
+
+										</tr>
+
+									<?php endforeach; } ?>
+									
+                    
+                  
 								</tbody>
 							</table>
                         </div>
                       </div>
-                      <!-- <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
-                          <img
-                            src="../assets/img/illustrations/man-with-laptop-light.png"
-                            height="140"
-                            alt="View Badge User"
-                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                            data-app-light-img="illustrations/man-with-laptop-light.png"
-                          />
-                        </div>
-                      </div> -->
+                      
 											
                     </div>
                   </div>
@@ -189,13 +210,26 @@
         </div>
         <!-- / Layout page -->
       </div>
-
       <!-- Overlay -->
+
       <script language='javascript'>
         var tabel = null;
         $(document).ready(function(){
-          tabel = $("#Tjenisunit").DataTable({
+          tabel = $("#LHComplain").DataTable({
             
           });
         });
       </script>
+
+			<script>
+				function printPage() {
+
+					// Mencetak halaman
+					window.print(); 	
+				}
+					
+			</script>
+
+
+
+      

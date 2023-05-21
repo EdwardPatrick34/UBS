@@ -27,5 +27,18 @@ class McompA extends CI_Model{
 
         return $sql;
     }
+	// Search Laporan History Complain
+	public function SLHComplain($tglawal, $tglakhir){
+
+		
+		// ctivdate>TO_DATE('2022-01-01’,'YYYY-MM-DD')
+
+		$sql = $this->db->query("Select no_complain, tgl, nama_status, uraian from ed_compA join ed_status on ed_compa.status=ed_status.status where TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY");
+		
+		return $sql;
+
+		// select no_complain, tgl, nama_status, uraian from ed_compa  join ed_status  on ed_compa.status=ed_status.status;
+
+	}
 }
 ?>

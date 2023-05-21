@@ -143,6 +143,48 @@ class CRAdmin extends CI_Controller{
 		$this->load->view("admin/infrastruktur/spkInfra", $param);
 		$this->load->view('template/footer');
 	}
+
+
+
+	// Laporan History Complain
+	public function LaporanHistoryComplain(){
+		$this->load->view('template/headeradmin');
+		$this->load->view("admin/Laporan/historycomplain");
+		$this->load->view('template/footer');
+	}
+
+	public function SearchLHistoryComplain(){
+		
+		$tglawal = $this->input->post("tglawal");
+		$tglakhir = $this->input->post("tglakhir");
+		  // Assuming you are retrieving the value from a form submission
+		$tglawalstring = date("m/d/Y", strtotime($tglawal));
+		$tglakhirstring = date("m/d/Y", strtotime($tglakhir));
+		
+
+
+		$this->load->view('template/headeradmin');
+
+		$param['dataHComplain'] = $this->McompA->SLHComplain($tglawalstring, $tglakhirstring);
+		$this->load->view('admin/Laporan/historycomplain', $param);
+		$this->load->view('template/footer');
+	}
+
+		// untuk pindah ke halaman print yang ada
+	public function PHPrintHC(){
+
+		$tglAwal = $this->input->get('tglawal');
+    	$tglAkhir = $this->input->get('tglakhir');
+		$param['dataHComplain'] = $this->McompA->SLHComplain($tglAwal, $tglAkhir);
+		$this->load->view("admin/PrintLaporan/historycomplain", $param);
+	}
+
+	// End laporan History Complain
+
+
+	
+
+
 }
 ?>
 

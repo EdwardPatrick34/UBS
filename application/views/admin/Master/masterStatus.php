@@ -19,7 +19,7 @@
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
-              <div class="navbar-nav align-items-center">
+              <!-- <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
                   <i class="bx bx-search fs-4 lh-0"></i>
                   <input
@@ -29,7 +29,7 @@
                     aria-label="Search..."
                   />
                 </div>
-              </div>
+              </div> -->
               <!-- /Search -->
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
@@ -120,7 +120,7 @@
                 <table id="Tstatus" class="table table-striped">
 								<thead>
 									<tr>
-									<th scope="col">NO</th>
+									<!-- <th scope="col">NO</th> -->
 									<th scope="col">Status</th>
                   <th scope="col">Nama Status</th>
 									<th scope="col">USERE</th>
@@ -130,7 +130,7 @@
 								<tbody>
 									<?php foreach($datastatus->result() as $row): ?>
                       <tr>
-                        <th scope="col">1</th>
+                        <!-- <th scope="col">1</th> -->
                         <th scope="col"><?php echo $row->STATUS; ?></th>
                         <th scope="col"><?php echo $row->NAMA_STATUS; ?></th>
                         <th scope="col"><?php echo $row->USERE; ?></th>
@@ -138,7 +138,7 @@
                           <a href="<?php echo site_url('Cstatus/deleteStatus/'.$row->STATUS) ;?>">
                             <button class="btn btn-danger">Delete</button>
                           </a>
-                          <a href="<?php echo site_url('Cstatus/getstatusbyid/'.$row->STATUS);?>">
+                          <a href="<?php echo base_url('Cstatus/getstatusbyid/'.$row->STATUS);?>">
                             <button class="btn btn-info">Edit</button>
                           </a>
                         </th>

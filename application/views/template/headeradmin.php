@@ -207,7 +207,7 @@
               </a>
               <ul class="menu-sub">
 								<li class="menu-item">
-                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
+                  <a href="<?= base_url('CRAdmin/LaporanHistoryComplain') ?>" class="menu-link">
                     <div >History Complain</div>
                   </a>
                 </li>
