@@ -44,7 +44,7 @@ class CJenisComplain extends CI_Controller{
 			
 			$usere = $this->input->post("usere");
 
-			$this->Mjeniscomplain->insertComplain($jenis_complain, $nomor_complain, $nama_complain, $usere);
+			$this->Mjeniscomplain->insertComplain($jenis_complain, $nama_complain, $usere);
 			$this->session->set_flashdata('msg','Berhasil menambahkan jenis complain');
 			redirect(base_url('CJenisComplain/masterJenisComplain'));
 		}

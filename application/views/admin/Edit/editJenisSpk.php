@@ -114,29 +114,29 @@
                           <?php endif ?>
 						  
 						  <br><br>
-						  <form action="<?php site_url('CJenisSpk/editjenisspk')?>" method="post">
-							
+						  <form action="<?php echo base_url('CJenisSpk/editjenisspk')?>" method="post">
+							<?php foreach($datajenisspk->result() as $row): ?>
 							<div class="mb-3">
 							<label class="form-label" for="jenis_spk">Jenis SPK</label>
-							<input type="text" class="form-control" id="jenis_spk" placeholder="......." />
+							<input type="text" class="form-control" id="ejenis_spk" name="jenis_spk" value="<?= $row->JENIS_SPK?>" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="nama_spk">Nama SPK</label>
-							<input type="text" class="form-control" id="nama_spk" placeholder="......." />
+							<input type="text" class="form-control" id="enama_spk" name="nama_spk" value="<?= $row->NAMA_SPK?>" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="menit">Menit</label>
-							<input type="text" class="form-control" id="menit" placeholder="......." />
+							<input type="text" class="form-control" id="emenit" name="menit" value="<?= $row->MENIT?>" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="usere">USERE</label>
-							<input type="text" class="form-control" id="usere" placeholder="......." />
+							<input type="text" class="form-control" id="eusere" name="usere" value="<?= $row->USERE?>" placeholder="......." />
 							</div>
 							
-							
+							<?php endforeach;?>
 							
 							
 							

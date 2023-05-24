@@ -122,7 +122,7 @@
         <table id="Tpetugas" class="table table-striped">
         <thead>
          <tr>
-            <th scope="col">NO</th>
+            
             <th scope="col">Petugas</th>
             <th scope="col">Nama Petugas</th>
             <th scope="col">USERE</th>
@@ -142,7 +142,6 @@
               <td scope="col"><?php echo $row->AKTIF; ?></td>
               <td scope="col"><?php echo $row->JAM_KERJA; ?></td>
               <td scope="col"><?php echo $row->JAM_KERJA_BARU; ?></td>
-              <td scope="col"><?php echo $row->NAMA_PETUGAS; ?></td>
               <td>
                 <a href="<?php echo site_url('Cpetugas/deletePetugas/'.$row->PETUGAS); ?>">
                   <button class="btn btn-danger">Delete</button>

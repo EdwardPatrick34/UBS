@@ -28,7 +28,7 @@ class Mjenisspk extends CI_Model{
     }
 
 
-    public function editjenisspk($jenis_spk, $no_spk, $sub_spk, $no_complain, $sub_complain, $nama_spk, $menit,$usere)
+    public function editjenisspk($jenis_spk, $nama_spk, $menit,$usere)
     {
         // no spk dan jenis spk yang gk boleh diganti
         $sql = "update ed_jenisspk SET nama_spk = '".$nama_spk."', usere ='".$usere."',  menit = '".$menit."' where jenis_spk = '".$jenis_spk."'";
