@@ -139,5 +139,21 @@ class Ccompkomputer extends CI_Controller{
 
 		redirect(base_url("Ccompkomputer/CreateComplain"));
 	}
+
+	public function deleteunit(){
+		$id = $this->input->post("id");
+		$arr = $this->session->userdata("session_unit");
+
+		array_splice($arr, $id, 1);
+		$this->session->set_userdata("session_unit", $arr);
+	}
+
+	public function deletespk(){
+		$id = $this->input->post("id");
+		$arr = $this->session->userdata("session_spk");
+
+		array_splice($arr, $id, 1);
+		$this->session->set_userdata("session_spk", $arr);
+	}
 }
 ?>

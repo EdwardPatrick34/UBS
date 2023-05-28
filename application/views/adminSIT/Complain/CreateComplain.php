@@ -424,7 +424,7 @@ function showdataunit() {
 		kal = kal + "<td>" + data[i][1]['JENIS_COMPLAIN'] + "</td>"; 
 		kal = kal + "<td>" + data[i][1]['NAMA_COMPLAIN'] + "</td>"; 
 		kal = kal + "<td>" + data[i][2] + "</td>"; 
-		kal = kal + "<td><input type='button' value='Delete' onclick= delete('"+i+"') class='btn btn-danger' ></td>"; 
+		kal = kal + "<td><input type='button' value='Delete' onclick= deleteunit('"+i+"') class='btn btn-danger' ></td>"; 
 	kal = kal + "</tr>"; 
    }
 
@@ -449,12 +449,24 @@ function showdataunit() {
 				kal = kal + "<td>" + data[i][0]['JENIS_SPK'] + "</td>"; 
 				kal = kal + "<td>" + data[i][0]['NAMA_SPK'] + "</td>"; 
 				kal = kal + "<td>" + data[i][0]['MENIT'] + "</td>"; 
-				kal = kal + "<td><input type='button' value='Delete' onclick= delete('"+i+"') class='btn btn-danger' ></td>"; 
+				kal = kal + "<td><input type='button' value='Delete' onclick= deletespk('"+i+"') class='btn btn-danger' ></td>"; 
 			kal = kal + "</tr>"; 
 		}
 		$("#hasiljenisspk").html(kal);
 	}
 	);
+ }
+
+ function deleteunit(id){
+	$.post(myurl + "/Ccompkomputer/deleteunit", {id: id}, function(result){
+		showdataunit();
+	});
+ }
+
+ function deletespk(id){
+	$.post(myurl + "/Ccompkomputer/deletespk", {id: id}, function(result){
+		showdataspk(); 
+	});
  }
 
  function tambahunit() {
