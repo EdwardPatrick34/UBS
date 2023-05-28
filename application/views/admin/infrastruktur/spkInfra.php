@@ -98,6 +98,7 @@
 		<!-- Content -->
 
 		<div class="container-xxl flex-grow-1 container-p-y">
+		<form action="<?php echo site_url("Cspk/insertSpk");?>" method="post">
 						<h4 class="fw-bold py-3 mb-4"> Surat Perintah Kerja EDP - Infrastruktur</h4>
 							<div class="col-sm-4 input-group input-group-merge">
 													
@@ -126,7 +127,7 @@
 																
 																
 																
-										<form action="" method="post">
+										
 
 										<div class="row">
 											<div class="col-xl">
@@ -138,7 +139,7 @@
 															<label for="inputPassword" class=" col-form-label">no complain</label>
 															<div class="col-sm-4 input-group input-group-merge">
 																<div>
-																	<select class="form-select" name="" id="no_complain" onchange="caricomplain()">
+																	<select class="form-select" name="no_complain" id="no_complain" onchange="caricomplain()">
 																		<?php foreach($datacomplain->result() as $row) :?>
 																			<option value="<?php echo $row->NO_COMPLAIN ;?>"><?php echo $row->NO_COMPLAIN?></option>
 																		<?php endforeach;?>
@@ -149,31 +150,31 @@
 														<div class="mb-3 row">
 															<label for="inputPassword" class=" col-form-label">Tgl dan jam lapor</label>
 															<div class="col-sm-4 input-group input-group-merge">
-															<input type="datetime-local" class="form-control" name="tgljam" id="tgljamlapor">
+															<input type="datetime-local" class="form-control" name="tgljamlapor" id="tgljamlapor" readonly>
 															</div>
 														</div>
 														<div class="mb-3 row">
 															<label for="inputPassword" class=" col-form-label">Divisi dan nama pelapor</label>
 															<div class="col-sm-4 input-group input-group-merge">
-															<input type="password" class="form-control" id="inputPassword">
+															<input type="text" class="form-control" name="divisi" id="divisi" readonly>
 															</div>
 														</div>
 														<div class="mb-3 row">
 															<label for="inputPassword" class=" col-form-label">Kode Unit</label>
 															<div class="col-sm-4 input-group input-group-merge">
-															<input type="password" class="form-control" id="inputPassword">
+															<input type="text" class="form-control" name="kode_unit" id="kodeunit" readonly>
 															</div>
 														</div>
 														<div class="mb-3 row">
 															<label for="inputPassword" class=" col-form-label">Lokasi Unit</label>
-															<div class="col-sm-4 input-group input-group-merge">
-															<input type="password" class="form-control" id="inputPassword">
+														<div class="col-sm-4 input-group input-group-merge">
+															<input type="text" class="form-control" name="lokasi_unit" id="inputPassword">
 															</div>
 														</div>
 														<div class="mb-3 row">
 															<label for="uraian" class=" col-form-label">Uraian Problem/kerusakan</label>
 															<div class="col-sm-4 input-group input-group-merge">
-															<textarea class="form-control" id="uraian"></textarea>
+															<textarea class="form-control" id="uraian" name="uraian" readonly></textarea>
 															</div>
 														</div>
 															
@@ -181,26 +182,26 @@
 													
 												
 											</div>
-											<div class="col-xl">
+											<div class="col-xl">Cp
 												
 													
 													
 												<div class="mb-3 row">
 													<label for="inputPassword" class=" col-form-label">no spk</label>
 													<div class="col-sm-4 input-group input-group-merge">
-													<input type="password" class="form-control" id="inputPassword">
+													<input type="text" class="form-control" id="nospk" name="no_spk" readonly>
 													</div>
 												</div>
 												<div class="mb-3 row">
 													<label for="inputPassword" class=" col-form-label">tgl spk</label>
 													<div class="col-sm-4 input-group input-group-merge">
-													<input type="password" class="form-control" id="inputPassword">
+													<input type="datetime-local" class="form-control" id="tglspk" name="tglspk" readonly>
 													</div>
 												</div>
 												<div class="mb-3 row">
 													<label for="uraian" class=" col-form-label">Pekerjaan</label>
 													<div class="col-sm-4 input-group input-group-merge">
-													<textarea class="form-control" id="uraian"></textarea>
+													<textarea class="form-control" id="uraian" name="pekerjaan" readonly></textarea>
 													</div>
 												</div>
 											
@@ -213,28 +214,7 @@
 										</form>
 										<br>
 
-										<table class="table table-striped">
-										<thead>
-											<tr>
-											<th scope="col">Sub</th>
-											<th scope="col">Jenis Unit</th>
-											<th scope="col">Nama Jenis Unit</th>
-											<th scope="col">Jenis Comp</th>
-											<th scope="col">Nama Jenis Complain</th>
-											<th scope="col">Keterangan</th>
-											</tr>
-										</thead>
-										<tbody id="hasilspk">
-											<tr>
-											<th scope="row">1</th>
-											<td>Unit 1</td>
-											<td>Unit gajah</td>
-											<td>jojo</td>
-											<td>rusak bro</td>
-											<td>asd</td>
-											</tr>
-										</tbody>
-										</table>
+										
 				
 										</div>
 									
@@ -442,6 +422,14 @@
 	<script language='javascript'>
 		var myurl = "<?php echo site_url();?>";
 
+		var today = new Date();
+		var date = today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0');
+		var time = today.getHours().toString().padStart(2, '0') + ':' + today.getMinutes().toString().padStart(2, '0') + ':' + today.getSeconds().toString().padStart(2, '0');
+		var todayDateTime = date + ' ' + time;
+
+		// var t = "2020-10-10 10:11:24";
+		
+		alert(todayDateTime);
 		function tambahpetugas(){
 			var petugas = $("#petugas").val();
 
@@ -475,6 +463,19 @@
 			}
 			);
 		}
+
+		function deletepetugas(id){
+			$.post(myurl + "/Cspk/deletepetugas",{id: id}, function(result){
+				showpetugas();
+			});
+		}
+
+		function deletespk(id){
+			// alert(id);
+			$.post(myurl + "/Cspk/deletespk",{id: id}, function(result){
+				showspk();
+			});
+		}
 		
 		function tambahspk(){
 			var spk = $("#jenisspk").val();
@@ -482,7 +483,7 @@
 
 			$.post(myurl + "/Cspk/insertTableSpk",
 				{spk: spk, keterangan: keterangan}, function(result) {
-				alert(result); 
+				// alert(result); 
 				showspk();
 			}
 			);
@@ -520,13 +521,24 @@
 			
 			$.post(myurl + "/Cspk/cariComplain",
 				{no_complain: no_complain}, function(result) {
-				alert(result); 
+				// alert(result); 
+				// alert(todayDateTime)
 				var data = JSON.parse(result);
 				for(var i = 0; i < data.length; i++){
-					$("")
+					// alert(data[i][0]['KODE_UNIT']);
+					$("#tgljamlapor").val(data[i][0]['TGL']);
+					$("#uraian").val(data[i][1]['KET']);
+					$("#divisi").val(data[i][0]['KODEDIV']+"-"+data[i][0]["USERE"]);
+					$("#kodeunit").val(data[i][0]['KODE_UNIT']);
+					
 				}
+				$("#tglspk").val(todayDateTime); 
 			}
 			);
 		}
+
+		caricomplain();
+		showspk();
+		showpetugas();
 	</script>
 	
