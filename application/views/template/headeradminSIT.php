@@ -111,12 +111,7 @@
                 <div data-i18n="Analytics">Pengesahan Problem Komputer yang sudah Selesai</div>
               </a>
             </li>
-						<li class="menu-item">
-              <a href="<?= base_url("CRAdminSIT/PGantiPass") ?>" class="menu-link">
-							<i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Ganti Password</div>
-              </a>
-            </li>
+						
 
 						<!-- end menu sidebar -->
 

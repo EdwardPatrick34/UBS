@@ -76,9 +76,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => "(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA =
-	(SERVER = DEDICATED)(SERVICE_NAME = XE)))",
-	'username' => 'Edward',
-	'password' => 'Edward',
+	(SERVER = DEDICATED)(SERVICE_NAME = orcl)))",
+	'username' => 'jojo',
+	'password' => 'jojo',
 	'database' => '',
 	'dbdriver' => 'oci8',
 	'dbprefix' => '',
