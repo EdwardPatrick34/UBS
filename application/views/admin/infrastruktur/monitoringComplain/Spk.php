@@ -1,5 +1,13 @@
- <!-- Layout container -->
- <div class="layout-page">
+
+
+
+	  <!-- Data Table -->
+	  <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>" language="javascript"></script>
+        <link href='http://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css' type='text/css' rel='stylesheet'>
+        <script src='http://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js' language='javascript'></script>
+
+        <!-- Layout container -->
+        <div class="layout-page">
           <!-- Navbar -->
 
           <nav
@@ -14,7 +22,7 @@
 
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
-              <!-- <div class="navbar-nav align-items-center">
+              <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
                   <i class="bx bx-search fs-4 lh-0"></i>
                   <input
@@ -24,21 +32,20 @@
                     aria-label="Search..."
                   />
                 </div>
-              </div> -->
+              </div>
               <!-- /Search -->
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
-								<!-- Nama yang login -->
                 <li class="nav-item lh-1 me-3">
-                  Teknisi
+                  
                 </li>
 
                 <!-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="<?= base_url("assets/img/avatars/blank.png") ?>" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="../assets/img/avatars/blank.png" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -47,7 +54,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="<?= base_url("assets/img/avatars/blank.png") ?>" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="../assets/img/avatars/blank.png" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -98,15 +105,83 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
+			<h4 class="fw-bold py-3 mb-4"> Monitoring Complain Divisi</h4>
               
-                <div>
-                  <div class="card">
+                <div class="row">
+					<div class="col-xxl">
+                  	<div class="card mb-4">
                     <div class="d-flex align-items-end row">
                       <div >
+					  <div class="card-header d-flex align-items-center justify-content-between">
+                      <!-- <h5 class="mb-0">Status Complain</h5> -->
+                      
+                    </div>
                         <div class="card-body" >
-                          <h2 class="card-title text-primary"> Dashboard Teknisi</h2>
+                          <!-- <h2 class="card-title text-primary"> Monitoring Complain Divisi</h2> -->
+							<form action="<?= base_url("CRAdmin/FilterMonitoringComplain") ?>" method="post">
+								<div class="d-flex align-items-center">
+								<h5 class="mb-0" style="margin-top: 1px;">Pilihan</h5>
+								&nbsp;
+								&nbsp;
+								&nbsp;
+								
+								
+								<div style="width: 150px;">
+									<select name="statusc" id="statusc" class="form-select">
+									<option value="1">Complain</option>
+									<option value="2">Spk</option>
+									<option value="3">Pending</option>
+									<option value="4">Selesai</option>
+									</select>
+								</div>
+								&nbsp;
+								&nbsp;
+								&nbsp;
+								<button type="submit" class="btn btn-primary">Pilih</button>
+								</div>
+							</form>
+						  <br><br>
+							<h5 class="mb-0" style="margin-top: 1px;">Status SPK</h5>
+
+
+
+								<table id="Tcomplain2" class="table  border-dark table-hover">
+									<br>
+									<thead>
+										<tr>
+										<th scope="col">NO COMPLAIN</th>
+										<th scope="col">DIV</th>
+										<th scope="col">PELAPOR</th>
+										<th scope="col">TGL</th>
+										<th scope="col">JAM</th>
+										<th scope="col">UNIT</th>
+										<th scope="col">NOMOR SPK</th>
+										<th scope="col">NAMA PETUGAS</th>
+										
+										
+										</tr>
+									</thead>
+									<tbody>
+										<?php foreach($data->result() as $row): ?>
+											<tr>
+											
+												<td scope="col" ><?= $row->NO_COMPLAIN  ?> </td>
+												<td scope="col" ><?= $row->KODEDIV  ?> </td>
+												<td scope="col" ><?= $row->PELAPOR  ?> </td>
+												<td scope="col" ><?= $row->TANGGAL  ?> </td>
+												<td scope="col" ><?= $row->JAM  ?> </td>
+												<td scope="col" ><?= $row->UNIT  ?> </td>
+												<td scope="col" ><?= $row->NO_SPK  ?> </td>
+												<td scope="col" ><?= $row->NAMA_PETUGAS  ?> </td>
+												
+												
+											
+											</tr>
+										<?php endforeach; ?>
+									</tbody>
+								</table>
+							
 						  
-                          	
                         </div>
                       </div>
                       <!-- <div class="col-sm-5 text-center text-sm-left">
@@ -121,8 +196,17 @@
                         </div>
                       </div> -->
 											
-                    </div>
-                  </div>
+                    		</div>
+                  		</div>
+					</div>
+
+					
+					
+
+					
+
+					
+
                 </div>
                 
                 
@@ -151,3 +235,21 @@
       </div>
 
       <!-- Overlay -->
+
+	  <script language='javascript'>
+        var tabel = null;
+		var tabel2 = null;
+        $(document).ready(function(){
+          tabel = $("#Tcomplain1").DataTable({
+		
+            
+          });
+
+		  tabel2 = $("#Tcomplain2").DataTable({
+
+		  });
+
+
+        });
+      </script>
+      

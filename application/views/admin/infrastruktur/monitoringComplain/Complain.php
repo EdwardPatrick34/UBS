@@ -118,28 +118,35 @@
                     </div>
                         <div class="card-body" >
                           <!-- <h2 class="card-title text-primary"> Monitoring Complain Divisi</h2> -->
-						  <div class="d-flex align-items-center">
-							<h5 class="mb-0" style="margin-top: 1px;">Status</h5>
-							&nbsp;
-							&nbsp;
-							&nbsp;
-							<div style="width: 100px;">
-								<select name="" id="" class="form-select">
-								<option value="">Complain</option>
-								<option value="">Spk</option>
-								<option value="">Pending</option>
-								<option value="">Selesai</option>
-								</select>
-							</div>
-							&nbsp;
-							&nbsp;
-							&nbsp;
-							<button class="btn btn-primary">Pilih</button>
-							</div>
-						  <br>
-							
+							<form action="<?= base_url("CRAdmin/FilterMonitoringComplain") ?>" method="post">
+								<div class="d-flex align-items-center">
+								<h5 class="mb-0" style="margin-top: 1px;">Pilihan</h5>
+								&nbsp;
+								&nbsp;
+								&nbsp;
+								
+								
+								<div style="width: 150px;">
+									<select name="statusc" id="statusc" class="form-select">
+									<option value="1">Complain</option>
+									<option value="2">Spk</option>
+									<option value="3">Pending</option>
+									<option value="4">Selesai</option>
+									</select>
+								</div>
+								&nbsp;
+								&nbsp;
+								&nbsp;
+								<button type="submit" class="btn btn-primary">Pilih</button>
+								</div>
+							</form>
+						  <br><br>
+							<h5 class="mb-0" style="margin-top: 1px;">Status Comlpain</h5>
 
-								<table id="Tcomplain2" class="table table-bordered border-dark table-hover">
+
+
+								<table id="Tcomplain2" class="table  border-dark table-hover">
+									<br>
 									<thead>
 										<tr>
 										<th scope="col">NO COMPLAIN</th>
@@ -154,18 +161,20 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-										
-										<td>ZZZ97364HHH</td>
-										<td>Unit 1</td>
-										<td>Unit gajah</td>
-										<td>jojo</td>
-										<td>rusak bro</td>
-										<td>rusak bro</td>
-										<td>rusak bro</td>
-										
-										</tr>
-										
+										<?php foreach($data->result() as $row): ?>
+											<tr>
+											
+												<td scope="col" ><?= $row->NO_COMPLAIN  ?> </td>
+												<td scope="col" ><?= $row->KODEDIV  ?> </td>
+												<td scope="col" ><?= $row->USERE  ?> </td>
+												<td scope="col" ><?= $row->TGL  ?> </td>
+												<td scope="col" ><?= $row->JAM  ?> </td>
+												<td scope="col" ><?= $row->KODE_UNIT  ?> </td>
+												<td scope="col" ><?= $row->URAIAN  ?> </td>
+												
+											
+											</tr>
+										<?php endforeach; ?>
 									</tbody>
 								</table>
 							

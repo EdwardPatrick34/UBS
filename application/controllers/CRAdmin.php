@@ -8,6 +8,7 @@ class CRAdmin extends CI_Controller{
 		$this->load->model('Mjeniscomplain');
 		$this->load->model('McompC');
 		$this->load->model('MspkD');
+		$this->load->model('MspkA');
 		$this->load->model('Mstatus');
 		$this->load->model('McompA');
 		$this->load->model('Mjenisspk');
@@ -129,11 +130,7 @@ class CRAdmin extends CI_Controller{
 		$this->load->view('template/footer');
 	}
 
-	public function MonitoringComplain(){
-		$this->load->view('template/headeradmin');
-		$this->load->view("admin/infrastruktur/monitoringComplain");
-		$this->load->view('template/footer');
-	}
+	
 
 	public function CreateSpk(){
 		$this->load->view('template/headeradmin');
@@ -144,9 +141,42 @@ class CRAdmin extends CI_Controller{
 		$this->load->view('template/footer');
 	}
 
+	// =============================================================
+	// << Start Monitoring Complain >>
+
+	public function MonitoringComplain(){
+		$this->load->view('template/headeradmin');
+		$param["data"] = $this->McompA->getdatacompA();
+		$this->load->view("admin/infrastruktur/monitoringComplain/Complain", $param);
+		$this->load->view('template/footer');
+	}
 
 
-	// Laporan History Complain
+	public function FilterMonitoringComplain(){
+
+		$this->load->view('template/headeradmin');
+		$status = $this->input->post("statusc");
+
+		//jadi di sini halaman akan berganti sesuai dengan status yang dipilih
+		if ($status == 1) {
+			$param["data"] = $this->McompA->getdatacompA();	
+			$this->load->view("admin/infrastruktur/monitoringComplain/Complain", $param);
+		}
+		else if($status == 2){
+			$param["data"] = $this->MspkA->getMCspk();
+			$this->load->view("admin/infrastruktur/monitoringComplain/spk", $param);
+		}
+
+		$this->load->view('template/footer');
+	}
+	
+
+	// << end monitoring complain >>
+	// =============================================================
+
+
+	//==============================================================
+	// Start Laporan History Complain
 	public function LaporanHistoryComplain(){
 		$this->load->view('template/headeradmin');
 		$this->load->view("admin/Laporan/historycomplain");
@@ -180,6 +210,7 @@ class CRAdmin extends CI_Controller{
 	}
 
 	// End laporan History Complain
+	//==============================================================
 
 
 	
