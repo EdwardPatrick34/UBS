@@ -268,134 +268,118 @@
 											
 										</tbody>
 										</table>
+									</div>
 				
-															</div>
 														
-														
-														</div>
-													
-										</div>
-											
-
-											<!-- end form 2 -->
-										
-										
-															</div>
-														</div>
-														
-														
-															</div>
-														</div>
 								</div>
-
-								<div class="col-xxl">
-														<div class="card mb-4">
-															<div class="d-flex align-items-end row">
-											<div>
-
-												<div class="card-body">
+														
+							</div>
 													
-													<!-- form 3 -->
+							<!-- end form 2 -->
 											
 
-													<form action="" method="post">
+										
+						</div>
+					</div>
+										
+														
+				</div>
+			</div>
+		</div>
+														
+		<div class="col-xxl">
+			<div class="card mb-4">
+				<div class="d-flex align-items-end row">
+					<div>
 
-														<div class="row">
-															<div class="col-xl">
+						<div class="card-body">
+
+							<!-- form 3 -->
+													
+							<form action="" method="post">
+											
+
+								<div class="row">
+									<div class="col-xl">
+
+										<div class="mb-3 row">
+											<label for="divisi" class=" col-form-label">Jenis SPK</label>
+											<div class="col-sm-8 input-group input-group-merge">	
+												<div>
+													<select class="form-select" name="jenisspk" id="jenisspk">
+														<?php foreach($datajenisspk->result() as $row) :?>
+															<option value="<?php echo $row->JENIS_SPK; ?>"><?php echo $row->JENIS_SPK." - ".$row->NAMA_SPK;?></option>
+															<?php endforeach;?>
+														</select>
+													</div>	
+												</div>
 					
-																<div class="mb-3 row">
-																	<label for="divisi" class=" col-form-label">Jenis SPK</label>
-																	<div class="col-sm-8 input-group input-group-merge">	
-																		<div>
-																			<select class="form-select" name="jenisspk" id="jenisspk">
-																				<?php foreach($datajenisspk->result() as $row) :?>
-																					<option value="<?php echo $row->JENIS_SPK; ?>"><?php echo $row->JENIS_SPK." - ".$row->NAMA_SPK;?></option>
-																				<?php endforeach;?>
-																			</select>
-																		</div>	
-																	</div>
+											</div>
+											<div class="mb-3 row">
+												<label for="uraian" class=" col-form-label">Keterangan</label>
+												<div class="col-sm-4 input-group input-group-merge">
+													<textarea class="form-control" id="keterangan"></textarea>
+												</div>
+											</div>
+
+										</div>
 																	
-																</div>
-																<div class="mb-3 row">
-																	<label for="uraian" class=" col-form-label">Keterangan</label>
-																	<div class="col-sm-4 input-group input-group-merge">
-																	<textarea class="form-control" id="keterangan"></textarea>
-																	</div>
-																</div>
+									</div>
+								</form>
 
-															</div>
+								<button type="button" class="btn btn-primary" onclick="tambahspk()">Tambah</button>
 
-														</div>
-													</form>
-
-													<button type="button" class="btn btn-primary" onclick="tambahspk()">Tambah</button>
-
-												<!-- end form 3 -->
-												<br>
-												<br>
-												<table class="table table-striped">
-										<thead>
-											<tr>
+								<!-- end form 3 -->
+								<br>
+								<br>
+								<table class="table table-striped">
+									<thead>
+										<tr>
 											<th scope="col">Urut</th>
 											<th scope="col">Jenis SPK</th>
 											<th scope="col">Nama SPK</th>
 											<th scope="col">Durasi (Menit)</th>
 											<th scope="col">Realisasi</th>
 											<th scope="col">Keterangan</th>
-
 											<th scope="col">Aksi</th>
 
-											
-											</tr>
-										</thead>
-										<tbody id="hasiljenisspk">
+										</tr>
+										
+									</thead>
+
+									<tbody id="hasiljenisspk">
 											
 											
 										</tbody>
-										</table>
-													
-												</div>
-											</div>
+									</table>
 											
-														
-														
-															</div>
-														</div>
 								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+						
 
+			</div>
 				
 
-			</div>
+		</div>
 
 			
-		</div>
 			
 			
-			
-		</div>
-		<!-- / Content -->
-
-		<!-- Footer -->
-		<!-- <footer class="content-footer footer bg-footer-theme">
-			<div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-			<div class="mb-2 mb-md-0">
-				©
-				<script>
-				document.write(new Date().getFullYear());
-				</script>
-			</div>
-			</div>
-		</footer> -->
-		<!-- / Footer -->
-
-		<div class="content-backdrop fade"></div>
-		</div>
-		<!-- Content wrapper -->
 	</div>
-	<!-- / Layout page -->
-	</div>
+			
+		
+	<div class="content-backdrop fade"></div>
+</div>
+<!-- Content wrapper -->
+</div>
+<!-- / Layout page -->
+</div>
 
-	<!-- Overlay -->
+<!-- Overlay -->
+
 	<script src='http://code.jquery.com/jquery.js'></script>
 	<script language='javascript'>
 		var myurl = "<?php echo site_url();?>";
