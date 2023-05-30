@@ -40,5 +40,62 @@ class McompA extends CI_Model{
 		// select no_complain, tgl, nama_status, uraian from ed_compa  join ed_status  on ed_compa.status=ed_status.status;
 
 	}
+
+	// cari complain
+	// header
+	public function CariComplain1($nocomplain){
+		$sql = $this->db->query(
+		"SELECT 
+		A.NO_COMPLAIN As NO_COMPLAIN,
+		A.TGL As TANGGAL,
+		A.JAM As JAM,
+		A.USERE As PELAPOR,
+		A.KODEDIV As DIVISI,
+		A.KODE_UNIT As KODE_UNIT,
+		A.URAIAN As URAIAN 
+		FROM ED_COMPA A 
+		JOIN ED_COMPB B ON A.NO_COMPLAIN=B.NO_COMPLAIN 
+		JOIN ED_COMPC C ON C.NO_COMPLAIN=A.NO_COMPLAIN
+		WHERE A.NO_COMPLAIN='".$nocomplain."'
+		");
+
+		return $sql;
+		
+	}
+	// detail 1
+	public function CariComplain2($nocomplain){
+		$sql = $this->db->query(
+			"SELECT 
+			CB.SUB_COMPLAIN As SUB,
+			CB.JENIS_UNIT As JENIS_UNIT,
+			JU.NAMA_JU As NAMA_JENIS_UNIT,
+			CB.JENIS_COMPLAIN As JENIS_COMPLAIN,
+			JC.NAMA_COMPLAIN As NAMA_COMPLAIN,
+			CB.KET As KETERANGAN
+			FROM ED_COMPB CB 
+			JOIN ED_JENISUNIT JU ON CB.JENIS_UNIT=JU.JENIS_UNIT
+			JOIN ED_JENISCOMPLAIN JC ON CB.JENIS_COMPLAIN=JC.JENIS_COMPLAIN
+			WHERE CB.NO_COMPLAIN='".$nocomplain."'
+			");
+	
+			return $sql;
+	}
+	// detail 2
+	public function CariComplain3($nocomplain){
+		$sql = $this->db->query(
+			"SELECT 
+			CC.SUB_COMPLAIN As URUT,
+			CC.JENIS_SPK As JENIS_SPK,
+			JS.NAMA_SPK As NAMA_SPK,
+			JS.MENIT As MENIT
+			FROM ED_COMPC CC 
+			JOIN ED_JENISSPK JS ON CC.JENIS_SPK=JS.JENIS_SPK
+			WHERE CC.NO_COMPLAIN='".$nocomplain."'
+			");
+			
+	
+			return $sql;
+	}
+
 }
 ?>

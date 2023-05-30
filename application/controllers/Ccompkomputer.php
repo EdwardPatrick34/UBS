@@ -140,5 +140,27 @@ class Ccompkomputer extends CI_Controller{
 
 		echo "sukses"; 
 	}
+
+
+	// start cari complain
+
+	public function cariComplain(){
+
+		$no_complain = $this->input->post("cariNoComplain");
+
+		$this->load->view('template/headeradminSIT');
+
+		// $param["dataheader"] = $this->Mjenisspk->getdatajenisspk();
+		$param["dataheader"] = $this->McompA->CariComplain1($no_complain);
+		$param["datadetail1"] = $this->McompA->CariComplain2($no_complain);
+		$param["datadetail2"] = $this->McompA->CariComplain3($no_complain);
+		
+		$this->load->view('adminSIT/Complain/HasilCari', $param);
+		$this->load->view('template/footer');
+
+	}
+
+	// end cari complain
+
 }
 ?>
