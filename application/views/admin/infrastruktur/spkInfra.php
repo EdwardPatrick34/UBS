@@ -67,7 +67,7 @@
 		<div class="container-xxl flex-grow-1 container-p-y">
 			<h4 class="fw-bold py-3 mb-4"> Surat Perintah Kerja EDP - Infrastruktur</h4>
 			<div class="col-sm-4 input-group input-group-merge">				
-				<button class="btn btn-primary">Cari</button>
+				<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalcari">Cari</button>
 				&nbsp;
 				&nbsp;
 				<button class="btn btn-primary">Listing</button>
@@ -220,7 +220,9 @@
 								</div>
 							</div>
 						</div>
-										
+								
+						
+						
 				
 						<div class="col-xxl">
 							<div class="card mb-4">
@@ -372,6 +374,32 @@
 			
 			
 			</div>
+
+			<!-- start modal cari  -->
+			<form action="<?= base_url("/Cspk/cariSPK") ?>" method="post">
+				<div class="modal fade" id="modalcari" tabindex="-1" aria-labelledby="modalcari" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="labelcari">Cari SPK</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								
+									<label for="cariNoSPK" class="col-form-label">Nomor SPK</label>
+									<input type="text" name="cariNoSPK" id="cariNoSPK" class="form-control">
+								
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-primary">Cari</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+
+			<!-- end modal cari  -->
 			
 			
 			<div class="content-backdrop fade"></div>

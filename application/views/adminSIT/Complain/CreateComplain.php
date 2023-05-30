@@ -70,6 +70,17 @@
 
 		<div class="container-xxl flex-grow-1 container-p-y">
 			<h4 class="fw-bold py-3 mb-4"> Complain Problem Komputer</h4>
+			
+			<?php if($this->session->userdata('msg')): ?>
+				<div style="background-color: lightslategray; padding: 4px; color: white; height : 50px">
+					<?php echo $this->session->flashdata('msg');?>
+				</div>
+			<?php endif ?>
+				
+					
+				
+			
+			
 			<div class="col-sm-4 input-group input-group-merge">
 			
 				<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalcari">Cari</button>
@@ -159,6 +170,8 @@
 					</div>
 				</div>
 			</div>
+
+				
                       
 
 			<div class="col-xxl">
@@ -320,7 +333,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Cari Complain</h5>
+					<h5 class="modal-title" id="labelcari">Cari Complain</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
@@ -340,6 +353,10 @@
 
 	<!-- end modal cari  -->
 
+	<!-- start modal pesan -->
+
+	<!-- end modal pesan -->
+
 
 	<div class="content-backdrop fade"></div>
 
@@ -352,6 +369,10 @@
 
 
 <script src='http://code.jquery.com/jquery.js'></script>
+
+
+
+
 <script language='javascript'>
 var myurl = "<?php echo site_url(); ?>";
 

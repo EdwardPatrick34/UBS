@@ -156,5 +156,16 @@ class Cspk extends CI_Controller{
         $jenis_unit = $this->McompB->getjenisunitBbyid($no_complain);
         $this->MspkB->insertspkb($no_spk, 1, $jenis_unit);
     }
+
+
+
+	public function cariSPK(){
+		$this->load->view('template/headeradmin');
+		$param['datacomplain'] = $this->McompA->getdatacompA(); 
+		$param['datajenisspk'] = $this->Mjenisspk->getdatajenisspk();
+		$param['datapetugas'] = $this->Mpetugas->getdatapetugas();
+		$this->load->view("admin/infrastruktur/hasilCari", $param);
+		$this->load->view('template/footer');
+	}
 }
 ?>

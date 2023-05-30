@@ -1,4 +1,7 @@
 
+
+
+
 <!-- Layout container -->
 <div class="layout-page">
 	<!-- Navbar -->
@@ -76,6 +79,8 @@
 		<!-- Content wrapper -->
 		<div class="content-wrapper">
 			<!-- Content -->
+
+			
 			<div class="container-xxl flex-grow-1 container-p-y">
 				<h4 class="fw-bold py-3 mb-4"> Complain Problem Komputer</h4>
 				<div class="col-sm-4 input-group input-group-merge">
@@ -96,7 +101,14 @@
 								<div>
 									<!-- start form 1 -->
 									<!-- start untuk inisiasi data yang diambil -->
-									<?php $data = $dataheader->row();  ?>
+									<?php $data = $dataheader->row(); 
+										if ($data==null) {
+											# code...
+											$this->session->set_flashdata('msg','Complain tidak ditemukan');
+											redirect(base_url('Ccompkomputer/CreateComplain'));
+										}
+									
+									?>
 									<!-- end untuk inisiasi data yang diambil -->
 									<div class="row">
 										<div class="col-xl">
