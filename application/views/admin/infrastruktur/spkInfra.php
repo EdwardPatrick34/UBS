@@ -149,12 +149,26 @@
 																</div>
 															</div>
 													
-															<div class="mb-3 row">
-																<label for="inputPassword" class=" col-form-label">tgl spk</label>
-																<div class="col-sm-4 input-group input-group-merge">
-																<input type="password" class="form-control" id="inputPassword">
-																</div>
-															</div>
+													
+												<div class="mb-3 row">
+													<label for="inputPassword" class=" col-form-label">no spk</label>
+													<div class="col-sm-4 input-group input-group-merge">
+													<input type="text" class="form-control" id="nospk" name="no_spk" readonly>
+													</div>
+												</div>
+												<div class="mb-3 row">
+													<label for="inputPassword" class=" col-form-label">tgl spk</label>
+													<div class="col-sm-4 input-group input-group-merge">
+													<input type="datetime-local" class="form-control" id="tglspk" name="tglspk" readonly>
+													</div>
+												</div>
+												<div class="mb-3 row">
+													<label for="uraian" class=" col-form-label">Pekerjaan</label>
+													<div class="col-sm-4 input-group input-group-merge">
+													<textarea class="form-control" id="uraian" name="pekerjaan" readonly></textarea>
+													</div>
+												</div>
+											
 
 															<div class="mb-3 row">
 																<label for="uraian" class=" col-form-label">Pekerjaan</label>
@@ -191,8 +205,8 @@
 													</tbody>
 												</table>
 
-											</div>
-												
+										
+				
 										</div>
 									</div>
 									<!-- end form 1 -->
@@ -386,6 +400,14 @@
 	<script language='javascript'>
 		var myurl = "<?php echo site_url();?>";
 
+		var today = new Date();
+		var date = today.getFullYear() + '-' + (today.getMonth() + 1).toString().padStart(2, '0') + '-' + today.getDate().toString().padStart(2, '0');
+		var time = today.getHours().toString().padStart(2, '0') + ':' + today.getMinutes().toString().padStart(2, '0') + ':' + today.getSeconds().toString().padStart(2, '0');
+		var todayDateTime = date + ' ' + time;
+
+		// var t = "2020-10-10 10:11:24";
+		
+		alert(todayDateTime);
 		function tambahpetugas(){
 			var petugas = $("#petugas").val();
 
@@ -419,6 +441,19 @@
 			}
 			);
 		}
+
+		function deletepetugas(id){
+			$.post(myurl + "/Cspk/deletepetugas",{id: id}, function(result){
+				showpetugas();
+			});
+		}
+
+		function deletespk(id){
+			// alert(id);
+			$.post(myurl + "/Cspk/deletespk",{id: id}, function(result){
+				showspk();
+			});
+		}
 		
 		function tambahspk(){
 			var spk = $("#jenisspk").val();
@@ -426,7 +461,7 @@
 
 			$.post(myurl + "/Cspk/insertTableSpk",
 				{spk: spk, keterangan: keterangan}, function(result) {
-				alert(result); 
+				// alert(result); 
 				showspk();
 			}
 			);
@@ -464,13 +499,24 @@
 			
 			$.post(myurl + "/Cspk/cariComplain",
 				{no_complain: no_complain}, function(result) {
-				alert(result); 
+				// alert(result); 
+				// alert(todayDateTime)
 				var data = JSON.parse(result);
 				for(var i = 0; i < data.length; i++){
-					$("")
+					// alert(data[i][0]['KODE_UNIT']);
+					$("#tgljamlapor").val(data[i][0]['TGL']);
+					$("#uraian").val(data[i][1]['KET']);
+					$("#divisi").val(data[i][0]['KODEDIV']+"-"+data[i][0]["USERE"]);
+					$("#kodeunit").val(data[i][0]['KODE_UNIT']);
+					
 				}
+				$("#tglspk").val(todayDateTime); 
 			}
 			);
 		}
+
+		caricomplain();
+		showspk();
+		showpetugas();
 	</script>
 	

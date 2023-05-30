@@ -10,6 +10,7 @@ class Cspk extends CI_Controller{
         $this->load->model("MspkC");
         $this->load->model("MspkD");
         $this->load->model("McompA");
+        $this->load->model("McompB");
         $this->load->library('session');
     }
 
@@ -66,13 +67,81 @@ class Cspk extends CI_Controller{
         $datacomplain = $this->McompA->getcompAbyid($no_complain);
         foreach($datacomplain->result() as $row){$rowcomplain = $row;}
         
+        $datacomplainb = $this->McompB->getcompBbyid($no_complain);
+        foreach($datacomplainb->result() as $row){$rowcomplainb = $row;}
         
         $arr = [];
-        if($this->session->userdata('session_complain')) {$arr = $this->session->userdata('session_complai');}
+        if($this->session->userdata('session_complain')) {$arr = $this->session->userdata('session_complain');}
         $jum = count($arr);
         
         $arr[$jum][0] = $rowcomplain;
+        $arr[$jum][1] = $rowcomplainb;
         echo json_encode($arr);
+    }
+
+    public function deletespk(){
+        $id = $this->input->post("id");
+        $arr = $this->session->userdata("session_jenisspk");
+
+        array_splice($arr, $id, 1);
+        $this->session->set_userdata('session_jenisspk', $arr);
+    }
+
+    public function deletepetugas(){
+        $id = $this->input->post("id");
+        $arr = $this->session->userdata("session_petugas");
+
+        array_splice($arr, $id, 1);
+        $this->session->set_userdata('session_petugas', $arr);
+    }
+
+    public function insertSpk(){
+        //mengambil data dari input field
+        
+        $no_complain = $this->input->post("no_complain");
+        $kode_unit = $this->input->post("kode_unit");
+        $tgljamspk = $this->input->post("tglspk");
+       
+        $arrtgljamspk = explode("T",$tgljamspk); // berfungsi untuk memisahkan antara tanggal dan jam, spasi sebagai pemisahnya
+        $tglspk = $arrtgljamspk[0];
+        $jamspk = $arrtgljamspk[1];
+
+        $tgljamlapor = $this->input->post("tgljam");
+       
+        $arrtgljamlapor = explode("T",  $tgljamlapor);
+        $tgllapor = $arrtgljamlapor[0];
+        $jamlapor = $arrtgljamlapor[1];
+
+        $uraian = $this->input->post("uraian");
+        $divisi = $this->input->post("divisi");
+        
+        $arrdivisi = explode("-", $divisi);
+        $usere = $arrdivisi[1];
+        $status = 4;
+
+        $no_spk = $this->MspkA->insertspkA($no_complain, $tgljamspk, $jamspk, $tglspk, $tgljamlapor, $jamlapor, $tgllapor, $usere, $kode_unit, $status);
+
+        //untuk mengamil data dari session dan memindahkannya ke dalam array
+        $arrpetugas = $this->session->userdata('session_petugas');
+        $arrspk =$this->session->userdata('session_jenisspk');
+
+        for($i = 0; $i < count($arrpetugas); $i++){
+            $sub_spk = ($i+1);
+            $petugas = $arrpetugas[$i][0]->PETUGAS;
+            
+            $this->MspkC->insertspkc($no_spk, $sub_spk, $petugas);
+        }
+
+        for($i = 0; $i < count($arrspk); $i++){
+            $sub_spk = ($i+1);
+            $jenis_spk = $arrspk[$i][0]->JENIS_SPK;
+            $keterangan = $arrspk[$i][1];
+            $realisasi = 0;
+            $this->MspkD->insertspkd($no_spk, $sub_spk, $jenis_spk, $realisasi, $keterangan);
+        }
+
+        $this->MspkB->insertspkb();
+        redirect(base_url(""));
     }
 }
 ?>

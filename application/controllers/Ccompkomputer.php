@@ -3,7 +3,7 @@
 class Ccompkomputer extends CI_Controller{
 
 	public function __construct(){
-		parent::__construct();
+	parent::__construct();
 		$this->load->model("McompA");
 		$this->load->model("McompB");
 		$this->load->model("McompC");
@@ -111,19 +111,18 @@ class Ccompkomputer extends CI_Controller{
 
 		echo $kode_divisi."-".$no_divisi."-".$kode_unit."-".$lokasi_unit."-".$uraian."-".$tgljam;
 
-		$nocomplain = $this->McompA->insertcompa($kode_divisi, $no_divisi, $kode_unit, $lokasi_unit, $uraian, $tgl, $jam); 
+		$nocomplain = $this->McompA->insertcompa($kode_divisi, $no_divisi, $kode_unit, $lokasi_unit, $uraian, $tgl, $jam, $tgljam); 
 
 		// echo "<br>"; 
 		// echo $nocomplain;
 		// echo "<br>"; 
-
 		$arrcompb = $this->session->userdata('session_unit');
 		$arrcompc = $this->session->userdata('session_spk');
 		
 		echo "<br>".count($arrcompb)."<br>"; 
 
 		for($i = 0; $i < count($arrcompb); $i++){
-			print_r($arrcompb[$i][0]->JENIS_UNIT);
+		print_r($arrcompb[$i][0]->JENIS_UNIT);
 			$sub_complain = ($i+1);
 			$jenis_unit = $arrcompb[$i][0]->JENIS_UNIT;
 			$jenis_complain = $arrcompb[$i][1]->JENIS_COMPLAIN;
@@ -138,7 +137,23 @@ class Ccompkomputer extends CI_Controller{
 			$this->McompC->insertdata($nocomplain, $sub_complain, $jenis_spk, $realisasi);
 		}
 
-		echo "sukses"; 
+		redirect(base_url("Ccompkomputer/CreateComplain"));
+	}
+
+	public function deleteunit(){
+		$id = $this->input->post("id");
+		$arr = $this->session->userdata("session_unit");
+
+		array_splice($arr, $id, 1);
+		$this->session->set_userdata("session_unit", $arr);
+	}
+
+	public function deletespk(){
+		$id = $this->input->post("id");
+		$arr = $this->session->userdata("session_spk");
+
+		array_splice($arr, $id, 1);
+		$this->session->set_userdata("session_spk", $arr);
 	}
 
 
