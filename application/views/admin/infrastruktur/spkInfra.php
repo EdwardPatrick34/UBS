@@ -101,6 +101,8 @@
 																	</div>
 																</div>
 															</div>
+
+															
 															<div class="mb-3 row">
 																<label for="inputPassword" class=" col-form-label">Tgl dan jam lapor</label>
 																<div class="col-sm-4 input-group input-group-merge">
@@ -136,254 +138,251 @@
 															</div>
 															
 														</div>
-															
 														<div class="col-xl">
 														
-													
-												
-<<<<<<< Updated upstream
-=======
-											</div>
-											<div class="col-xl">
->>>>>>> Stashed changes
-												
-															<div class="mb-3 row">
-																<label for="inputPassword" class=" col-form-label">no spk</label>
-																<div class="col-sm-4 input-group input-group-merge">
-																<input type="password" class="form-control" id="inputPassword">
-																</div>
+															
 															</div>
 													
+															<div class="col-xl">
+												
+																<div class="mb-3 row">
+																	<label for="inputPassword" class=" col-form-label">no spk</label>
+																	<div class="col-sm-4 input-group input-group-merge">
+																		<input type="password" class="form-control" id="inputPassword">
+																	</div>
+																</div>
+												
 													
-												<div class="mb-3 row">
-													<label for="inputPassword" class=" col-form-label">no spk</label>
-													<div class="col-sm-4 input-group input-group-merge">
-													<input type="text" class="form-control" id="nospk" name="no_spk" readonly>
-													</div>
-												</div>
-												<div class="mb-3 row">
-													<label for="inputPassword" class=" col-form-label">tgl spk</label>
-													<div class="col-sm-4 input-group input-group-merge">
-													<input type="datetime-local" class="form-control" id="tglspk" name="tglspk" readonly>
-													</div>
-												</div>
-												<div class="mb-3 row">
-													<label for="uraian" class=" col-form-label">Pekerjaan</label>
-													<div class="col-sm-4 input-group input-group-merge">
-													<textarea class="form-control" id="uraian" name="pekerjaan" readonly></textarea>
-													</div>
-												</div>
+																<div class="mb-3 row">
+																	<label for="inputPassword" class=" col-form-label">no spk</label>
+																	<div class="col-sm-4 input-group input-group-merge">
+																	<input type="text" class="form-control" id="nospk" name="no_spk" readonly>
+																	</div>
+																</div>
+																<div class="mb-3 row">
+																	<label for="inputPassword" class=" col-form-label">tgl spk</label>
+																	<div class="col-sm-4 input-group input-group-merge">
+																	<input type="datetime-local" class="form-control" id="tglspk" name="tglspk" readonly>
+																	</div>
+																</div>
+																<div class="mb-3 row">
+																	<label for="uraian" class=" col-form-label">Pekerjaan</label>
+																	<div class="col-sm-4 input-group input-group-merge">
+																	<textarea class="form-control" id="uraian" name="pekerjaan" readonly></textarea>
+																	</div>
+																</div>
+													
 											
-
-															<div class="mb-3 row">
-																<label for="uraian" class=" col-form-label">Pekerjaan</label>
-																<div class="col-sm-4 input-group input-group-merge">
-																<textarea class="form-control" id="uraian"></textarea>
+																<div class="mb-3 row">
+																	<label for="uraian" class=" col-form-label">Pekerjaan</label>
+																	<div class="col-sm-4 input-group input-group-merge">
+																	<textarea class="form-control" id="uraian"></textarea>
+																	</div>
 																</div>
+
 															</div>
-													
 														</div>
-													</div>
-												</form>
-												<br>
+													</form>
+													<br>
+													
+													<table class="table table-striped">
+														<thead>
+															<tr>
+																<th scope="col">Sub</th>
+																<th scope="col">Jenis Unit</th>
+																<th scope="col">Nama Jenis Unit</th>
+																<th scope="col">Jenis Comp</th>
+																<th scope="col">Nama Jenis Complain</th>
+																<th scope="col">Keterangan</th>
+															</tr>
+														</thead>
+														<tbody id="hasilspk">
+															<tr>
+																<th scope="row">1</th>
+																<td>Unit 1</td>
+																<td>Unit gajah</td>
+																<td>jojo</td>
+																<td>rusak bro</td>
+																<td>asd</td>
+															</tr>
+														</tbody>
+													</table>
 												
-												<table class="table table-striped">
-													<thead>
-														<tr>
-															<th scope="col">Sub</th>
-															<th scope="col">Jenis Unit</th>
-															<th scope="col">Nama Jenis Unit</th>
-															<th scope="col">Jenis Comp</th>
-															<th scope="col">Nama Jenis Complain</th>
-															<th scope="col">Keterangan</th>
-														</tr>
-													</thead>
-													<tbody id="hasilspk">
-														<tr>
-															<th scope="row">1</th>
-															<td>Unit 1</td>
-															<td>Unit gajah</td>
-															<td>jojo</td>
-															<td>rusak bro</td>
-															<td>asd</td>
-														</tr>
-													</tbody>
-												</table>
 
 										
+												</div>
+											</div>
+											<!-- end form 1 -->
 				
+									
 										</div>
 									</div>
-									<!-- end form 1 -->
-									
-										
 								</div>
 							</div>
 						</div>
+										
+				
+						<div class="col-xxl">
+							<div class="card mb-4">
+								<div class="d-flex align-items-end row">
+									<div >
+										<div class="card-body" >
+											<!-- form2 -->
+											<div class="col-xxl">
+												<div class="d-flex align-items-end row">
+													<div>
+														<form action="" method="post">
+								
+															<div class="row">
+																<div class="col-xl">
+		
+							
+															<div class="mb-3 row">
+																<label for="divisi" class=" col-form-label">Petugas / Teknisi</label>
+																<div class="col-sm-8 input-group input-group-merge">
+																<div>
+																	<select class="form-select" name="petugas" id="petugas">
+																		<?php foreach($datapetugas->result() as $row) :?>
+																			<option value="<?php echo $row->PETUGAS; ?>"><?php echo $row->PETUGAS." - ".$row->NAMA_PETUGAS;?></option>
+																		<?php endforeach;?>
+																	</select>
+																</div>	
+																</div>
+															</div>
+															<button type="button" class="btn btn-primary" onclick="tambahpetugas()">Tambah</button>
+		
+														</div>
+		
+													</div>
+												</form>
+												<br>
+		
+												<table class="table table-striped">
+												<thead>
+													<tr>
+													<th scope="col">Urut</th>
+													<th scope="col">Petugas</th>
+													<th scope="col">Nama Petugas/Teknisi</th>
+													<th scope="col">Aksi</th>
+													</tr>
+												</thead>
+												<tbody id="hasilpetugas">
+													
+													
+												</tbody>
+												</table>
+											</div>
+						
+																
+										</div>
+																
+									</div>
+															
+									<!-- end form 2 -->
+													
+		
+												
+								</div>
+							</div>
+												
+																
+						</div>
 					</div>
 				</div>
-				
 
 				<div class="col-xxl">
 					<div class="card mb-4">
 						<div class="d-flex align-items-end row">
-							<div >
-								<div class="card-body" >
-									<!-- form2 -->
-									<div class="col-xxl">
-										<div class="d-flex align-items-end row">
-											<div>
-												<form action="" method="post">
-						
-													<div class="row">
-														<div class="col-xl">
-
-					
-													<div class="mb-3 row">
-														<label for="divisi" class=" col-form-label">Petugas / Teknisi</label>
-														<div class="col-sm-8 input-group input-group-merge">
+							<div>
+		
+								<div class="card-body">
+		
+									<!-- form 3 -->
+															
+									<form action="" method="post">
+													
+		
+										<div class="row">
+											<div class="col-xl">
+		
+												<div class="mb-3 row">
+													<label for="divisi" class=" col-form-label">Jenis SPK</label>
+													<div class="col-sm-8 input-group input-group-merge">	
 														<div>
-															<select class="form-select" name="petugas" id="petugas">
-																<?php foreach($datapetugas->result() as $row) :?>
-																	<option value="<?php echo $row->PETUGAS; ?>"><?php echo $row->PETUGAS." - ".$row->NAMA_PETUGAS;?></option>
-																<?php endforeach;?>
-															</select>
-														</div>	
+															<select class="form-select" name="jenisspk" id="jenisspk">
+																<?php foreach($datajenisspk->result() as $row) :?>
+																	<option value="<?php echo $row->JENIS_SPK; ?>"><?php echo $row->JENIS_SPK." - ".$row->NAMA_SPK;?></option>
+																	<?php endforeach;?>
+																</select>
+															</div>	
+														</div>
+							
+													</div>
+													<div class="mb-3 row">
+														<label for="uraian" class=" col-form-label">Keterangan</label>
+														<div class="col-sm-4 input-group input-group-merge">
+															<textarea class="form-control" id="keterangan"></textarea>
 														</div>
 													</div>
-													<button type="button" class="btn btn-primary" onclick="tambahpetugas()">Tambah</button>
-
+		
 												</div>
-
+																			
 											</div>
 										</form>
-										<br>
-
-										<table class="table table-striped">
-										<thead>
-											<tr>
-											<th scope="col">Urut</th>
-											<th scope="col">Petugas</th>
-											<th scope="col">Nama Petugas/Teknisi</th>
-											<th scope="col">Aksi</th>
-											</tr>
-										</thead>
-										<tbody id="hasilpetugas">
-											
-											
-										</tbody>
-										</table>
-									</div>
-				
-														
-								</div>
-														
-							</div>
-													
-							<!-- end form 2 -->
-											
-
-										
-						</div>
-					</div>
-										
-														
-				</div>
-			</div>
-		</div>
-														
-		<div class="col-xxl">
-			<div class="card mb-4">
-				<div class="d-flex align-items-end row">
-					<div>
-
-						<div class="card-body">
-
-							<!-- form 3 -->
-													
-							<form action="" method="post">
-											
-
-								<div class="row">
-									<div class="col-xl">
-
-										<div class="mb-3 row">
-											<label for="divisi" class=" col-form-label">Jenis SPK</label>
-											<div class="col-sm-8 input-group input-group-merge">	
-												<div>
-													<select class="form-select" name="jenisspk" id="jenisspk">
-														<?php foreach($datajenisspk->result() as $row) :?>
-															<option value="<?php echo $row->JENIS_SPK; ?>"><?php echo $row->JENIS_SPK." - ".$row->NAMA_SPK;?></option>
-															<?php endforeach;?>
-														</select>
-													</div>	
-												</div>
-					
-											</div>
-											<div class="mb-3 row">
-												<label for="uraian" class=" col-form-label">Keterangan</label>
-												<div class="col-sm-4 input-group input-group-merge">
-													<textarea class="form-control" id="keterangan"></textarea>
-												</div>
-											</div>
-
-										</div>
-																	
-									</div>
-								</form>
-
-								<button type="button" class="btn btn-primary" onclick="tambahspk()">Tambah</button>
-
-								<!-- end form 3 -->
-								<br>
-								<br>
-								<table class="table table-striped">
-									<thead>
-										<tr>
-											<th scope="col">Urut</th>
-											<th scope="col">Jenis SPK</th>
-											<th scope="col">Nama SPK</th>
-											<th scope="col">Durasi (Menit)</th>
-											<th scope="col">Realisasi</th>
-											<th scope="col">Keterangan</th>
-											<th scope="col">Aksi</th>
-
-										</tr>
-										
-									</thead>
-
-									<tbody id="hasiljenisspk">
-											
-											
-										</tbody>
-									</table>
-											
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-						
-
-			</div>
-				
-
-		</div>
-
-			
-			
-			
-	</div>
-			
 		
-	<div class="content-backdrop fade"></div>
-</div>
-<!-- Content wrapper -->
-</div>
-<!-- / Layout page -->
-</div>
+										<button type="button" class="btn btn-primary" onclick="tambahspk()">Tambah</button>
+		
+										<!-- end form 3 -->
+										<br>
+										<br>
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th scope="col">Urut</th>
+													<th scope="col">Jenis SPK</th>
+													<th scope="col">Nama SPK</th>
+													<th scope="col">Durasi (Menit)</th>
+													<th scope="col">Realisasi</th>
+													<th scope="col">Keterangan</th>
+													<th scope="col">Aksi</th>
+		
+												</tr>
+												
+											</thead>
+		
+											<tbody id="hasiljenisspk">
+													
+													
+												</tbody>
+											</table>
+													
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+								
+		
+					</div>
+						
+		
+				</div>
+														
 
-<!-- Overlay -->
+			
+			
+			</div>
+			
+			
+			<div class="content-backdrop fade"></div>
+		</div>
+		<!-- Content wrapper -->
+	</div>
+	<!-- / Layout page -->
+</div>
+		
+
+
 
 	<script src='http://code.jquery.com/jquery.js'></script>
 	<script language='javascript'>
