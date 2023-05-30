@@ -13,7 +13,7 @@ class MspkC extends CI_Model{
     }
 
     public function insertspkc($no_spk, $sub_spk,$petugas){
-        $sql = "insert into ed_spkc(no_spk, urut, petugas, ) valuess ('$no_spk', '$sub_spk', '$petugas')";
+        $sql = "insert into ed_spkc(NO_SPK, URUT, PETUGAS) values ('$no_spk', '$sub_spk', '$petugas')";
         $this->db->query($sql);
         
     }

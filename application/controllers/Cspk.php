@@ -62,6 +62,7 @@ class Cspk extends CI_Controller{
     }
 
     public function cariComplain(){
+        $this->session->unset_userdata("session_complain");
         $no_complain = $this->input->post("no_complain");
 
         $datacomplain = $this->McompA->getcompAbyid($no_complain);
@@ -77,6 +78,7 @@ class Cspk extends CI_Controller{
         $arr[$jum][0] = $rowcomplain;
         $arr[$jum][1] = $rowcomplainb;
         echo json_encode($arr);
+        $this->session->userdata('session_complain', $arr);
     }
 
     public function deletespk(){
@@ -104,11 +106,15 @@ class Cspk extends CI_Controller{
        
         $arrtgljamspk = explode("T",$tgljamspk); // berfungsi untuk memisahkan antara tanggal dan jam, spasi sebagai pemisahnya
         $tglspk = $arrtgljamspk[0];
-        $jamspk = $arrtgljamspk[1];
+        $ajamspk = $arrtgljamspk[1];
 
-        $tgljamlapor = $this->input->post("tgljam");
+        $jamspk = substr($ajamspk, 0, 5);
+        
+        
+
+        $tgljamlapor = $this->input->post("tgljamlapor");
        
-        $arrtgljamlapor = explode("T",  $tgljamlapor);
+        $arrtgljamlapor = explode("T",$tgljamlapor);
         $tgllapor = $arrtgljamlapor[0];
         $jamlapor = $arrtgljamlapor[1];
 
@@ -140,8 +146,15 @@ class Cspk extends CI_Controller{
             $this->MspkD->insertspkd($no_spk, $sub_spk, $jenis_spk, $realisasi, $keterangan);
         }
 
-        $this->MspkB->insertspkb();
-        redirect(base_url(""));
+        // $arrcompb = $this->session->userdata('session_complain');
+        // for($i = 0; $i < count($arrcompb); $i++){
+        //     $sub_spk = ($i + 1);
+        //     $jenis_unit = $arrcompb[$i][1]->JENIS_UNIT;
+        //     $this->MspkB->insertspkb($no_spk, $sub_spk, $jenis_unit);
+        // }
+
+        $jenis_unit = $this->McompB->getjenisunitBbyid($no_complain);
+        $this->MspkB->insertspkb($no_spk, 1, $jenis_unit);
     }
 }
 ?>
