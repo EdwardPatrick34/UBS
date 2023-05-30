@@ -141,6 +141,11 @@
 														
 													
 												
+<<<<<<< Updated upstream
+=======
+											</div>
+											<div class="col-xl">
+>>>>>>> Stashed changes
 												
 															<div class="mb-3 row">
 																<label for="inputPassword" class=" col-form-label">no spk</label>
@@ -407,7 +412,6 @@
 
 		// var t = "2020-10-10 10:11:24";
 		
-		alert(todayDateTime);
 		function tambahpetugas(){
 			var petugas = $("#petugas").val();
 

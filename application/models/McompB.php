@@ -23,6 +23,11 @@ class McompB extends CI_Model{
         return $jum; 
     }
 
+    public function getjenisunitBbyid($no_complain){
+        $jum = $this->db->query("select jenis_unit from ed_compB where no_complain = '".$no_complain."'");
+        return $jum;
+    }
+
     // public function insertComplain($jenis_complain, $no_complain, $nama_complain, $usere)
     // {
     //     $sql = "insert into ed_jeniscomplain(jenis_complain, no_complain, nama_complain, usere) values('$jenis_complain', '$no_complain', '$nama_complain', '$usere')";
