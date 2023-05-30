@@ -412,6 +412,7 @@
 
 		// var t = "2020-10-10 10:11:24";
 		
+		// alert(todayDateTime);
 		function tambahpetugas(){
 			var petugas = $("#petugas").val();
 
