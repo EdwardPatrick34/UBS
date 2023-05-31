@@ -66,10 +66,12 @@
 		<!-- Content -->
 		<div class="container-xxl flex-grow-1 container-p-y">
 			<h4 class="fw-bold py-3 mb-4"> Surat Perintah Kerja EDP - Infrastruktur</h4>
-			<div class="col-sm-4 input-group input-group-merge">				
+			<div class="col-sm-4 input-group input-group-merge">
+						
 				<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalcari">Cari</button>
 				&nbsp;
 				&nbsp;
+			<form action="<?php echo site_url("/Cspk/insertSpk");?>" method="post">	
 				<button class="btn btn-primary">Listing</button>
 
 			</div>
@@ -84,7 +86,7 @@
 									<div class="col-xxl">
 										<div class="d-flex align-items-end row">
 											<div>
-												<form action="" method="post">
+												
 
 													<div class="row">
 														<div class="col-xl">
@@ -144,14 +146,7 @@
 															</div>
 													
 															<div class="col-xl">
-												
-																<div class="mb-3 row">
-																	<label for="inputPassword" class=" col-form-label">no spk</label>
-																	<div class="col-sm-4 input-group input-group-merge">
-																		<input type="password" class="form-control" id="inputPassword">
-																	</div>
-																</div>
-												
+										
 													
 																<div class="mb-3 row">
 																	<label for="inputPassword" class=" col-form-label">no spk</label>
@@ -173,42 +168,13 @@
 																</div>
 													
 											
-																<div class="mb-3 row">
-																	<label for="uraian" class=" col-form-label">Pekerjaan</label>
-																	<div class="col-sm-4 input-group input-group-merge">
-																	<textarea class="form-control" id="uraian"></textarea>
-																	</div>
-																</div>
+																
 
 															</div>
 														</div>
 													</form>
 													<br>
-													
-													<table class="table table-striped">
-														<thead>
-															<tr>
-																<th scope="col">Sub</th>
-																<th scope="col">Jenis Unit</th>
-																<th scope="col">Nama Jenis Unit</th>
-																<th scope="col">Jenis Comp</th>
-																<th scope="col">Nama Jenis Complain</th>
-																<th scope="col">Keterangan</th>
-															</tr>
-														</thead>
-														<tbody id="hasilspk">
-															<tr>
-																<th scope="row">1</th>
-																<td>Unit 1</td>
-																<td>Unit gajah</td>
-																<td>jojo</td>
-																<td>rusak bro</td>
-																<td>asd</td>
-															</tr>
-														</tbody>
-													</table>
 												
-
 										
 												</div>
 											</div>

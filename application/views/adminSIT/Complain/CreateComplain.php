@@ -85,7 +85,7 @@
 			
 				<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalcari">Cari</button>
 				&nbsp;
-				&nbsp;
+			&nbsp;
 				<form action="<?php echo site_url("/Ccompkomputer/createTicket");?>" method="post">
 				<button class="btn btn-primary">Listing</button>
 			</div>
