@@ -95,7 +95,7 @@
 																<label for="inputPassword" class=" col-form-label">no complain</label>
 																<div class="col-sm-4 input-group input-group-merge">
 																	<div>
-																		<select class="form-select" name="" id="no_complain" onchange="caricomplain()">
+																		<select class="form-select" name="no_complain" id="no_complain" onchange="caricomplain()">
 																			<?php foreach($datacomplain->result() as $row) :?>
 																				<option value="<?php echo $row->NO_COMPLAIN ;?>"><?php echo $row->NO_COMPLAIN?></option>
 																			<?php endforeach;?>
@@ -108,13 +108,13 @@
 															<div class="mb-3 row">
 																<label for="inputPassword" class=" col-form-label">Tgl dan jam lapor</label>
 																<div class="col-sm-4 input-group input-group-merge">
-																	<input type="datetime-local" class="form-control" name="tgljam" id="tgljamlapor">
+																	<input type="datetime-local" class="form-control" name="tgljamlapor" id="tgljamlapor" readonly>
 																</div>
 															</div>
 															<div class="mb-3 row">
 																<label for="inputPassword" class=" col-form-label">Divisi dan nama pelapor</label>
 																<div class="col-sm-4 input-group input-group-merge">
-																	<input type="password" class="form-control" id="inputPassword">
+																	<input type="text" class="form-control" id="divisi" name="divisi" readonly>
 																</div>
 															</div>
 															

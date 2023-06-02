@@ -62,7 +62,7 @@ class Cspk extends CI_Controller{
     }
 
     public function cariComplain(){
-        $this->session->unset_userdata("session_complain");
+    
         $no_complain = $this->input->post("no_complain");
 
         $datacomplain = $this->McompA->getcompAbyid($no_complain);
@@ -78,7 +78,7 @@ class Cspk extends CI_Controller{
         $arr[$jum][0] = $rowcomplain;
         $arr[$jum][1] = $rowcomplainb;
         echo json_encode($arr);
-        $this->session->userdata('session_complain', $arr);
+        
     }
 
     public function deletespk(){
@@ -127,7 +127,7 @@ class Cspk extends CI_Controller{
 
         $no_spk = $this->MspkA->insertspkA($no_complain, $tgljamspk, $jamspk, $tglspk, $tgljamlapor, $jamlapor, $tgllapor, $usere, $kode_unit, $status);
 
-        //untuk mengamil data dari session dan memindahkannya ke dalam array
+        //untuk mengambil data dari session dan memindahkannya ke dalam array
         $arrpetugas = $this->session->userdata('session_petugas');
         $arrspk =$this->session->userdata('session_jenisspk');
 
@@ -146,15 +146,16 @@ class Cspk extends CI_Controller{
             $this->MspkD->insertspkd($no_spk, $sub_spk, $jenis_spk, $realisasi, $keterangan);
         }
 
-        // $arrcompb = $this->session->userdata('session_complain');
-        // for($i = 0; $i < count($arrcompb); $i++){
-        //     $sub_spk = ($i + 1);
-        //     $jenis_unit = $arrcompb[$i][1]->JENIS_UNIT;
-        //     $this->MspkB->insertspkb($no_spk, $sub_spk, $jenis_unit);
-        // }
+        $jenis_unit = $this->McompB->getjenisunitBbyid($no_complain);       
+        foreach($jenis_unit->result() as $row) {
+            $jenis_unit = $row->JENIS_UNIT;
+            $this->MspkB->insertspkb($no_spk, 1, $jenis_unit);
+        }
 
-        $jenis_unit = $this->McompB->getjenisunitBbyid($no_complain);
-        $this->MspkB->insertspkb($no_spk, 1, $jenis_unit);
+        $this->session->unset_userdata('session_petugas');
+        $this->session->unset_userdata('session_jenisspk');
+        redirect(base_url("CRAdmin/CreateSpk"));
+        
     }
 
 
