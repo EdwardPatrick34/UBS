@@ -62,7 +62,7 @@ class Ccompkomputer extends CI_Controller{
 		$datacomplain = $this->Mjeniscomplain->getjeniscomplainbyid($complain); 
 		foreach($datacomplain->result() as $row) { $rowcomplain = $row; }
 	  
-		// // masuk ke session
+		// masuk ke session
 		$arr = []; 
 		if($this->session->userdata('session_unit')) { $arr = $this->session->userdata('session_unit'); }
 		$jum = count($arr); 

@@ -162,22 +162,22 @@
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
+                  <a href="" class="menu-link">
                     <div >Repair (Vendor) </div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
+                  <a href="<?= base_url('CRAdmin/listmonitorspkselesai')?>" class="menu-link">
                     <div >Complain/SPK Selesai</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
+                  <a href="<?= base_url('CRAdmin/listmonitorspkbatal')?>" class="menu-link">
                     <div >Complain/SPK Batal</div>
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
+                  <a href="<?= base_url('CRAdmin/listmonitorspkpending')?>" class="menu-link">
                     <div >Pending Complain/SPK</div>
                   </a>
                 </li>
