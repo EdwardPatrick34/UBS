@@ -114,7 +114,7 @@
                           <?php endif ?>
 						  
 						  <br><br>
-						  <form action="<?php site_url('CJenisSpk/insertjenisspk');?>" method="post">
+						  <form action="<?php echo site_url('CJenisSpk/insertjenisspk');?>" method="post">
 							
 							<div class="mb-3">
 							<label class="form-label" for="jenis_spk">Jenis SPK</label>

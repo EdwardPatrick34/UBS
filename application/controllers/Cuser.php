@@ -18,6 +18,7 @@ class Cuser extends CI_Controller{
 		$password = $this->input->post("password");
 
 		$user = $this->Muser->getUserBy($username);
+		
 
 		$u = $user->row();
 		if ($u == null) {
