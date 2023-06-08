@@ -10,7 +10,8 @@ DROP TABLE ED_SPKC cascade constraint PURGE;
 DROP TABLE ED_PETUGAS cascade constraint PURGE;
 DROP TABLE ED_SPKA cascade constraint PURGE;
 DROP TABLE ED_STATUS cascade constraint PURGE;
-DROP TABLE ED_USER cascade constraint PURGE;
+DROP TABLE ED_USERE cascade constraint PURGE;
+DROP TABLE ED_STARTSTOP cascade constraint PURGE;
 
 create table ED_STATUS
 (
@@ -168,4 +169,16 @@ create table ED_USERE (
 	role varchar2(1)
 );
 
-INSERT INTO ED_USERE (ID, USERNAME, PASSWORD, NAMA, ROLE) VALUES (1, 'admin', 'admin', 'admin', 0);
+create table ED_STARTSTOP (
+	NO_SPK char(10) REFERENCES ED_SPKA(NO_SPK) not null,
+	sub_spk number(2,0),
+	TGL_START DATE,
+	TGL_STOP DATE,
+	USER_START char(6),
+	USER_STOP char(6),
+	KET varchar2(250),
+	PETUGAS char(6) REFERENCES ED_PETUGAS(PETUGAS),
+	constraint pk_ed_startstop primary key (NO_SPK,sub_spk) 
+);
+
+INSERT INTO ED_USERE (ID, USERNAME, PASSWORD, NAMA, ROLE) VALUES (1, "admin", "admin", "admin", 0);
