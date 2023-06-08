@@ -8,6 +8,7 @@ class Cuser extends CI_Controller{
 		$this->load->model('Muser');
 		$this->load->model('McompA');
 		$this->load->library('form_validation');
+		$this->load->library('session');
 	}
 
 
@@ -34,19 +35,20 @@ class Cuser extends CI_Controller{
 			$param["title"]= "Jumlah Complain Per Divisi";
 			$this->load->view('admin/homeadminIT', $param);
 			$this->load->view('template/footer');
+			$this->session->set_userdata('admin', $u);
 		}
 		else if($u->ROLE == "1"){
 			$this->load->view('template/headerTeknisi');
 			$this->load->view('teknisi/homeTeknisi');
 			$this->load->view('template/footer');
+			$this->session->set_userdata('teknisi', $u);
 		}
 		else if($u->ROLE == "2"){
 			$this->load->view('template/headeradminSIT');
 			$this->load->view('adminSIT/homeadminSIT');
 			$this->load->view('template/footer');
+			$this->session->set_userdata('adminNonIT', $u);
 		}
-
-
 
 
 	}
@@ -62,8 +64,6 @@ class Cuser extends CI_Controller{
 
 	public function InsertUser(){
 		
-		
-		
 		$id = $this->input->post('id');
 		$username = $this->input->post('username');
 		$password = $this->input->post("password");
@@ -73,9 +73,6 @@ class Cuser extends CI_Controller{
 		$this->Muser->insertUser($id, $username, $password, $nama, $role);
 		$this->session->set_flashdata('msg','Berhasil menambahkan user');
 		redirect(base_url('CRAdmin/masterUser'));
-		
-		
-		
 		
 	}
 
