@@ -220,6 +220,7 @@ class CRAdmin extends CI_Controller{
 		$this->load->view('template/headeradmin');
 
 		$param['dataHComplain'] = $this->McompA->SLHComplain($tglawalstring, $tglakhirstring);
+		$param['tglawal'] = $tglawal;
 		$this->load->view('admin/Laporan/historycomplain', $param);
 		$this->load->view('template/footer');
 	}
@@ -227,10 +228,8 @@ class CRAdmin extends CI_Controller{
 		// untuk pindah ke halaman print yang ada
 	public function PHPrintHC(){
 
-		$tglAwal = $this->input->get('tglawal');
-    	$tglAkhir = $this->input->get('tglakhir');
-		$param['dataHComplain'] = $this->McompA->SLHComplain($tglAwal, $tglAkhir);
-		$this->load->view("admin/PrintLaporan/historycomplain", $param);
+		
+
 	}
 
 	// End laporan History Complain

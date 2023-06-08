@@ -100,6 +100,9 @@
 																				<option value="<?php echo $row->NO_COMPLAIN ;?>"><?php echo $row->NO_COMPLAIN?></option>
 																			<?php endforeach;?>
 																		</select>
+																		<!-- <div>
+																		<input type="text" class="form-control" name="no_complain" id="no_complain" value="ZM23000505" onchange="caricomplain()" readonly>
+																		</div> -->
 																	</div>
 																</div>
 															</div>

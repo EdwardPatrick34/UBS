@@ -1,9 +1,3 @@
-create user magang identified by magang;
-grant connect, resource to magang;
-grant unlimited TABLESPACE to magang;
-
-connect magang/magang;
-
 DROP TABLE ED_COMPC cascade constraint;
 DROP TABLE ED_JENISCOMPLAIN cascade constraint;
 DROP TABLE ED_COMPB cascade constraint;
@@ -16,12 +10,26 @@ DROP TABLE ED_SPKC cascade constraint;
 DROP TABLE ED_PETUGAS cascade constraint;
 DROP TABLE ED_SPKA cascade constraint;
 DROP TABLE ED_STATUS cascade constraint;
+DROP TABLE ED_USER cascade constraint;
 
 create table ED_STATUS
 (
 	STATUS char(1) primary key not null,
 	nama_status varchar2(25),
 	usere char(8)
+);
+
+create table ED_JENISSPK(
+	jenis_spk char(10) primary key,
+	nama_spk varchar2(50),
+	menit number(6,0),
+	usere char(6)
+);
+
+create table ED_JENISCOMPLAIN (
+	jenis_complain number(2,0) primary key,
+	nama_complain varchar2(25),
+	USERE char(6)
 );
 
 create table ED_SPKA (
@@ -71,7 +79,7 @@ create table ED_SPKD
 (
 	NO_SPK  char(10) REFERENCES ED_SPKA(NO_SPK) not null,
 	SUB_SPK number(2,0) not null,
-	jenis_spk char(1),
+	jenis_spk char(10) REFERENCES ED_JENISSPK(JENIS_SPK),
 	realisasi number(6,0),
 	ket varchar2(250),
 	TGL_OSD DATE , 
@@ -93,14 +101,7 @@ create table ED_SPKB (
 	constraint PK_ED_SPKB primary key (NO_SPK, SUB_SPK) 
 );
 
-create table ED_JENISSPK(
-	jenis_spk number(2,0) primary key,
-	no_spk char(10),
-	nama_spk varchar2(50),
-	menit number(6,0),
-	usere char(6),
-	constraint fk_ED_JENISSPK FOREIGN KEY ( no_spk, jenis_spk ) REFERENCES ED_SPKB (NO_SPK, sub_spk)
-);
+
 
 create table ED_COMPA(
 	NO_COMPLAIN char(10) primary key not null,
@@ -141,28 +142,23 @@ create table ED_COMPA(
 create table ED_COMPB (
 	NO_COMPLAIN char(10) REFERENCES ED_COMPA(NO_COMPLAIN) not null,
 	SUB_COMPLAIN number(2,0),
-	JENIS_UNIT char(2),
-	JENIS_COMPLAIN char(1),
+	JENIS_UNIT char(2) ,
+	JENIS_COMPLAIN number(2,0) REFERENCES ED_JENISCOMPLAIN(JENIS_COMPLAIN),
 	KET varchar2(50), 
 	USERE char(6),
-	CONSTRAINT PK_ED_COMPB primary key (NO_COMPLAIN, SUB_COMPLAIN)
+	CONSTRAINT PK_ED_COMPB primary key (NO_COMPLAIN, SUB_COMPLAIN),
+	CONSTRAINT FK_ED_COMPB Foreign key (JENIS_UNIT) REFERENCES ED_JENISUNIT (JENIS_UNIT)
 );
 
-create table ED_JENISCOMPLAIN (
-	jenis_complain number(2,0) primary key,
-	no_complain char(10),
-	nama_complain varchar2(25),
-	USERE char(6),
-	constraint fk_ED_JENISCOMPLAIN FOREIGN KEY (no_complain, jenis_complain ) REFERENCES ED_COMPB (NO_complain, sub_complain)
-);
 
 create table ED_COMPC (
 	NO_COMPLAIN char(10) REFERENCES ED_COMPA (no_complain) not null,
 	sub_complain number(2,0) not null,
-	jenis_spk char(4),
+	jenis_spk char(10) REFERENCES ED_JENISSPK(JENIS_SPK),
 	realisasi number(6,0),
 	CONSTRAINT PK_ED_COMPC primary key (NO_COMPLAIN, SUB_COMPLAIN)
 );
+
 
 create table ED_USERE (
 	id char(10) primary key,

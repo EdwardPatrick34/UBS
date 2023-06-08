@@ -106,7 +106,15 @@
 											&nbsp;
 											&nbsp;
 											&nbsp;
-											<button type="button" class="btn btn-primary" onclick="printPage()">Cetak</button>
+											
+
+											
+												<a href="<?php echo base_url('CRAdmin/PHPrintHC') ;?>">
+													<button type="button" class="btn btn-primary">Cetak PDF</button>
+												</a>
+											
+											
+											
 										</div>
 
 									</div>
