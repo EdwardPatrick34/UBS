@@ -108,10 +108,21 @@
 											&nbsp;
 											
 
+											<?php  if(isset($tglawal)): ?>
+											<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="<?php echo base_url('CExportExcel/LaporanHistoryComplain?tglawal='.$tglawal ."&tglakir=" . $tglakir); ?>">
 											
-												<a href="<?php echo base_url('CRAdmin/PHPrintHC') ;?>">
-													<button type="button" class="btn btn-primary">Cetak PDF</button>
-												</a>
+											<i class="fa fa-file-excel-o"></i> 
+											Export to Excel
+											</a>
+
+											<?php else: ?>
+												<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="<?php echo base_url('CExportExcel/LaporanHistoryComplain'); ?>">
+											
+											<i class="fa fa-file-excel-o"></i> 
+											Export to Excel
+											</a>
+												
+											<?php endif; ?>
 											
 											
 											

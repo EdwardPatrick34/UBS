@@ -232,7 +232,8 @@ class CRAdmin extends CI_Controller{
 		$this->load->view('template/headeradmin');
 
 		$param['dataHComplain'] = $this->McompA->SLHComplain($tglawalstring, $tglakhirstring);
-		$param['tglawal'] = $tglawal;
+		$param['tglawal'] = $tglawalstring;
+		$param['tglakir'] = $tglakhirstring;
 		$this->load->view('admin/Laporan/historycomplain', $param);
 		$this->load->view('template/footer');
 	}
