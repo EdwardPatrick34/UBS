@@ -15,9 +15,9 @@ class Mjenisspk extends CI_Model{
         // return $jums;
     }
 
-    public function insertjenisspk($jenis_spk, $no_spk, $sub_spk,$no_complain,$sub_complain,$nama_spk, $menit,$usere)
+    public function insertjenisspk($jenis_spk,$nama_spk, $menit,$usere)
     {
-        $sql = "insert into ed_jenisspk(jenis_spk,  nama_spk, menit,usere) values('$jenis_spk', '$nama_spk', '$menit','$usere')";
+        $sql = "insert into ed_jenisspk(jenis_spk, nama_spk, menit, usere) values('$jenis_spk', '$nama_spk', '$menit','$usere')";
         $this->db->query($sql); 
     }
 
