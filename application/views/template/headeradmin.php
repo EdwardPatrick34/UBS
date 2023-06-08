@@ -157,7 +157,7 @@
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="<?= base_url('CRAdmin/createSpk') ?>" class="menu-link">
+                  <a href="<?= base_url('CRAdmin/listComplain') ?>" class="menu-link">
                     <div >SPK (Infrastruktur) </div>
                   </a>
                 </li>

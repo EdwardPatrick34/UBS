@@ -88,30 +88,8 @@
 									</div>
 									<div class="card-body" >
 										
-										<form action="<?= base_url("CRAdmin/FilterMonitoringComplain") ?>" method="post">
-										<div class="d-flex align-items-center">
-											<h5 class="mb-0" style="margin-top: 1px;">Pilihan</h5>
-											&nbsp;
-											&nbsp;
-											&nbsp;
-									    
-											<div style="width: 150px;">
-												<select name="statusc" id="statusc" class="form-select">
-												<option value="1">Complain</option>
-												<option value="2">Spk</option>
-												<option value="3">Pending</option>
-												<option value="4">Selesai</option>
-												</select>
-											</div>
-											
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											<button type="submit" class="btn btn-primary">Pilih</button>
-										</div>
-									</form>
-									<br><br>
-									<h5 class="mb-0" style="margin-top: 1px;">Status Comlpain</h5>
+										
+					
 								
 									<table id="Tcomplain2" class="table  border-dark table-hover">
 										<br>
@@ -124,6 +102,8 @@
 												<th scope="col">JAM</th>
 												<th scope="col">UNIT</th>
 												<th scope="col">URAIAN</th>
+												<th scope="col">AKSI</th>
+												
 											</tr>
 										</thead>
 												
@@ -138,6 +118,13 @@
 													<td scope="col" ><?= $row->JAM  ?> </td>
 													<td scope="col" ><?= $row->KODE_UNIT  ?> </td>
 													<td scope="col" ><?= $row->URAIAN  ?> </td>
+													<td>
+														<form action="<?php echo base_url('CRAdmin/CreateSpk');?>" method="post">
+															<button class="btn btn-primary" name="nocomp" value="<?=$row->NO_COMPLAIN ?>">Buat SPK</button>
+														</form>
+															
+														</a>
+													</td>
 													
 												
 												</tr>

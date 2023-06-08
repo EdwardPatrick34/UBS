@@ -139,11 +139,23 @@ class CRAdmin extends CI_Controller{
 	
 
 	public function CreateSpk(){
+
+		$no = $this->input->post('nocomp');
+		
 		$this->load->view('template/headeradmin');
 		$param['datacomplain'] = $this->McompA->getdatacompA(); 
 		$param['datajenisspk'] = $this->Mjenisspk->getdatajenisspk();
 		$param['datapetugas'] = $this->Mpetugas->getdatapetugas();
+		$param['nocomp'] = $no;
 		$this->load->view("admin/infrastruktur/spkInfra", $param);
+		$this->load->view('template/footer');
+	}
+
+	public function listComplain(){
+		$this->load->view('template/headeradmin');
+		$param["data"] = $this->McompA->getdatacompA();
+		
+		$this->load->view("admin/infrastruktur/listComplain", $param);
 		$this->load->view('template/footer');
 	}
 
