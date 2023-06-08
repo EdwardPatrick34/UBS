@@ -6,6 +6,7 @@ class Cuser extends CI_Controller{
 		parent::__construct(); 
 		$this->load->helper('url'); 
 		$this->load->model('Muser');
+		$this->load->model('McompA');
 		$this->load->library('form_validation');
 	}
 
@@ -28,7 +29,9 @@ class Cuser extends CI_Controller{
 		if($u->ROLE == "0"){
 
 			$this->load->view('template/headeradmin');
-			$this->load->view('admin/homeadminIT');
+			$param["datadivisi"] = $this->McompA->Cpd();
+			$param["title"]= "Jumlah Complain Per Divisi";
+			$this->load->view('admin/homeadminIT', $param);
 			$this->load->view('template/footer');
 		}
 		else if($u->ROLE == "1"){
