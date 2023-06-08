@@ -74,38 +74,40 @@
 					<div class="d-flex align-items-end row">
 						<div >
 							<div class="card-body" >
-								<h2 class="card-title text-primary"> Master Jenis Unit</h2>
+								<h2 class="card-title text-primary"> Master User</h2>
 								<br>
 								<?php if($this->session->userdata('msg')): ?>
 									<div style="background-color: lightslategray; padding: 4px; color: white; height : 50px">
 										<?php echo $this->session->flashdata('msg');?>
 									</div>
 								<?php endif ?>
-								<a  href="<?= base_url('CRAdmin/tambahJenisUnit') ?>"><button class="btn btn-primary">Tambah Jenis Unit</button></a>
+								<a  href="<?= base_url('Cuser/tambahUser') ?>"><button class="btn btn-primary">Tambah User</button></a>
 								<br><br>
 
                 <table id="Tjenisunit" class="table table-striped">
 									<thead>
 										<tr>
-											<th scope="col">Jenis Unit</th>
-											<th scope="col">Nama Jenis Unit</th>
-											<th scope="col">USERE</th>
-											<th scope="col">Jenis Complain</th>
+											<th scope="col">ID</th>
+											<th scope="col">Username</th>
+											<th scope="col">Password</th>
+											<th scope="col">Nama</th>
+											<th scope="col">Role</th>
 											<th scope="col">Aksi</th>
 										</tr>
 									</thead>
 									<tbody>
-										<?php foreach($datajenisunit->result() as $row):?>
+										<?php foreach($datauser->result() as $row):?>
 											<tr>
-												<th scope="col"><?php echo $row->JENIS_UNIT?></th>
-												<th scope="col"><?php echo $row->NAMA_JU?></th>
-												<th scope="col"><?php echo $row->USERE?></th>
-												<th scope="col"><?php echo $row->JENIS_COMPLAIN?></th>
+												<th scope="col"><?php echo $row->ID?></th>
+												<th scope="col"><?php echo $row->USERNAME?></th>
+												<th scope="col"><?php echo $row->PASSWORD?></th>
+												<th scope="col"><?php echo $row->NAMA?></th>
+												<th scope="col"><?php echo $row->ROLE?></th>
 												<th scope="col">
-													<a href="<?php echo site_url('CJenisUnit/deletejenisunit/'.$row->JENIS_UNIT);?>">
+													<a href="<?php echo site_url('CUser/deleteUser/'.$row->ID);?>">
 														<button class="btn btn-danger">Delete</button>
 													</a>
-													<a href="<?php echo base_url('CJenisUnit/getjenisunitbyid/'.$row->JENIS_UNIT);?>">
+													<a href="<?php echo base_url('CJenisUnit/getjenisunitbyid/'.$row->ID);?>">
 														<button class="btn btn-info">Edit</button>
 													</a>
 												</th>

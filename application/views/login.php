@@ -73,14 +73,14 @@
               </div>
               
 
-              <form id="formAuthentication" class="mb-3" action="<?= base_url('CRAdmin/HomeAdminIT')?>" method="POST">
+              <form id="formAuthentication" class="mb-3" action="<?= base_url('Cuser/Login')?>" method="POST">
                 <div class="mb-3">
                   <label for="email" class="form-label"> Username</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="email"
-                    name="email-username"
+                    id="username"
+                    name="username"
                     placeholder="Masukan Username"
                     autofocus
                   />
@@ -104,11 +104,15 @@
                 </div>
                 
                 <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Sign in admin</button>
+                  <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                 </div>
+								<?php if($this->session->userdata('msg')): ?>
+									<div style="color: red;">
+										<?php echo $this->session->flashdata('msg');?>
+									</div>
+								<?php endif ?>
               </form>
-							<a href="<?= base_url('CRAdminSIT/HomeAdminSIT')?>"><button>sign in admin seleain IT</button></a>
-							<a href="<?= base_url('CRTeknisi/HomeTeknisi')?>"><button>sign in Teknisi</button></a>
+							
 
               
             </div>

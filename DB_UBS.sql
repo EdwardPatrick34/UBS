@@ -164,9 +164,12 @@ create table ED_COMPC (
 	CONSTRAINT PK_ED_COMPC primary key (NO_COMPLAIN, SUB_COMPLAIN)
 );
 
-create table usere (
+create table ED_USERE (
 	id char(10) primary key,
 	username varchar2(20),
 	password varchar2(20),
-	nama varchar2(20)
+	nama varchar2(20),
+	role varchar2(1)
 );
+
+INSERT INTO ED_USERE (ID, USERNAME, PASSWORD, NAMA, ROLE) VALUES (1, "admin", "admin", "admin", 0);

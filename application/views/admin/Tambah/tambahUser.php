@@ -108,23 +108,39 @@
                           <h2 class="card-title text-primary"> Tambah User</h2>
 						  
 						  <br><br>
-						  <form action="" method="post">
+						  <form action="<?php echo base_url("Cuser/InsertUser"); ?>" method="post">
 							
 							<div class="mb-3">
+							<label class="form-label" for="id">ID</label>
+							<input type="text" class="form-control" id="id" name="id" placeholder="......." />
+							</div>
+
+							<div class="mb-3">
 							<label class="form-label" for="username">Username</label>
-							<input type="text" class="form-control" id="username" placeholder="......." />
+							<input type="text" class="form-control" id="username" name="username" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="password">password</label>
-							<input type="text" class="form-control" id="password" placeholder="......." />
+							<input type="text" class="form-control" id="password" name="password" placeholder="......." />
 							</div>
 
 							<div class="mb-3">
 							<label class="form-label" for="nama">Nama</label>
-							<input type="text" class="form-control" id="nama" placeholder="......." />
+							<input type="text" class="form-control" id="nama" name="nama" placeholder="......." />
 							</div>
 
+							<div class="mb-3">
+								<label class="form-label" for="role">Role</label>
+								<div>
+									<select name="role" id="role" class="form-select">
+									<option value="0">Admin</option>
+									<option value="1">Petugas</option>
+									<option value="2">Admin SIT</option>
+									
+									</select>
+								</div>
+							</div>
 							
 							<button type="submit" class="btn btn-primary">Tambah</button>
 						  </form>

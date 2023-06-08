@@ -106,8 +106,12 @@
 										</div>
 									</form>
 									<br><br>
+									<?php $status = $stat;
+										
 									
-									<h5 class="mb-0" style="margin-top: 1px;">Status SPK</h5>
+									?>
+									
+									<h5 class="mb-0" style="margin-top: 1px;">Status <?php echo "$status"; ?></h5>
 
 									<table id="Tcomplain2" class="table  border-dark table-hover">
 										<br>

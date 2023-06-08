@@ -22,6 +22,14 @@ class McompA extends CI_Model{
         return $nocomplain;
     }
 
+	//Monitoring Complain Per Divisi
+	public function Cpd(){
+
+		$query = $this->db->query("SELECT E.KODEDIV AS DIVISI, COUNT(*) AS TOTAL FROM ED_COMPA E GROUP BY E.KODEDIV")->result();
+
+		return $query;
+	}
+
     public function getcompAbyid($no_complain){
         // $sql = $this->db->query("select * from ed_compA where no_complain = '".$no_complain."'");
         $sql = $this->db->query("select no_complain, to_char(tgl , 'yyyy-mm-dd HH:MI:SS') as tgl, kodediv, kode_unit,usere from ed_compA where no_complain = '".$no_complain."'");

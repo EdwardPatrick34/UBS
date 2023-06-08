@@ -13,19 +13,25 @@ class CRAdmin extends CI_Controller{
 		$this->load->model('McompA');
 		$this->load->model('Mjenisspk');
 		$this->load->model('Mpetugas');
+		$this->load->model('Muser');
 		$this->load->helper('url'); 
+		
+
  
 	}
 
 	public function HomeAdminIT(){
 		$this->load->view('template/headeradmin');
-		$this->load->view('admin/homeadminIT');
+		$param["datadivisi"] = $this->McompA->Cpd();
+		$param["title"]= "Jumlah Complain Per Divisi";
+		$this->load->view('admin/homeadminIT', $param);
 		$this->load->view('template/footer');
 	}
 
 	public function MasterUser(){
 		$this->load->view('template/headeradmin');
-		$this->load->view('admin/Master/masterUser');
+		$param['datauser'] = $this->Muser->getAllUser(); 
+		$this->load->view('admin/Master/masterUser', $param);
 		$this->load->view('template/footer');
 	}
 
@@ -147,6 +153,7 @@ class CRAdmin extends CI_Controller{
 	public function MonitoringComplain(){
 		$this->load->view('template/headeradmin');
 		$param["data"] = $this->McompA->getdatacompA();
+		
 		$this->load->view("admin/infrastruktur/monitoringComplain/Complain", $param);
 		$this->load->view('template/footer');
 	}
@@ -157,14 +164,31 @@ class CRAdmin extends CI_Controller{
 		$this->load->view('template/headeradmin');
 		$status = $this->input->post("statusc");
 
+		
+
 		//jadi di sini halaman akan berganti sesuai dengan status yang dipilih
 		if ($status == 1) {
 			$param["data"] = $this->McompA->getdatacompA();	
+			
 			$this->load->view("admin/infrastruktur/monitoringComplain/Complain", $param);
 		}
 		else if($status == 2){
+			$param["stat"] = "Spk";
 			$param["data"] = $this->MspkA->getMCspk();
 			$this->load->view("admin/infrastruktur/monitoringComplain/spk", $param);
+		}
+		else if($status == 3){
+			$param["stat"] = "Pending";
+			$param["data"] = $this->MspkA->getMCpending();
+			$this->load->view("admin/infrastruktur/monitoringComplain/spk", $param);
+
+		}
+
+		else if($status == 4){
+			$param["stat"] = "Selesai";
+			$param["data"] = $this->MspkA->getMCpending();
+			$this->load->view("admin/infrastruktur/monitoringComplain/spk", $param);
+
 		}
 
 		$this->load->view('template/footer');

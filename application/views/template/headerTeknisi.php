@@ -80,7 +80,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item">
-              <a href="<?= base_url("CAdminSIT/HomeAdminSIT") ?>" class="menu-link">
+              <a href="<?= base_url("CRTeknisi/HomeTeknisi") ?>" class="menu-link">
 							<i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
