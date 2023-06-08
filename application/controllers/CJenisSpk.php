@@ -31,18 +31,21 @@ class CJenisSpk extends CI_Controller{
 			$usere = $this->input->post('usere');
 
 			$this->Mjenisspk->insertjenisspk($jenis_spk,  $nama_spk, $menit, $usere);
-			$this->session->set_flashdata('msg','Berhasil menambahkan jenis spk');
+			// $this->session->set_flashdata('msg','Berhasil menambahkan jenis spk');
+			$this->toastr->success('Berhasil Tambah Jenis Spk');
 			redirect(base_url('CJenisSpk/masterJenisSpk'));
 			
 		}
 
-		$this->session->set_flashdata('errormsg', validation_errors());
+		// $this->session->set_flashdata('errormsg', validation_errors());
+		$this->toastr->error('Cek kembali inputan dan semua harus di isi');
 		redirect(base_url('CRAdmin/tambahJenisSpk'));
 	}
 
 	public function deletejenisspk($id){
 		$this->Mjenisspk->deletejenisspk($id);
-		$this->session->set_flashdata('msg','Berhasil menghapus data jenis spk');
+		// $this->session->set_flashdata('msg','Berhasil menghapus data jenis spk');
+		$this->toastr->success('Berhasil Dlete Jenis Spk');
 		redirect(base_url('CJenisSpk/masterJenisSpk'));
 	}
 
@@ -72,12 +75,14 @@ class CJenisSpk extends CI_Controller{
 			$usere = $this->input->post('usere');
 
 			$this->Mjenisspk->editjenisspk($jenis_spk, $nama_spk, $menit, $usere);
-			$this->session->set_flashdata('msg','Berhasil mengedit jenis spk');
+			// $this->session->set_flashdata('msg','Berhasil mengedit jenis spk');
+			$this->toastr->success('Berhasil Edit Jenis Spk');
 			redirect(base_url('CJenisSpk/masterJenisSpk'));
 			
 		}
 
-		$this->session->set_flashdata('msg', validation_errors());
+		// $this->session->set_flashdata('msg', validation_errors());
+		$this->toastr->error('Cek kembali inputan dan semua harus di isi');
 		redirect(base_url('CJenisSpk/masterJenisSpk'));
 	}
 }

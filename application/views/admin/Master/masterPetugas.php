@@ -1,5 +1,7 @@
 <!-- DataTable -->
-      
+
+
+
 <script src="<?= base_url("assets/js/jquery-1.12.0.min.js") ?>" language="javascript"></script>
 <link href='http://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css' type='text/css' rel='stylesheet'>
 <script src='http://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js' language='javascript'></script>

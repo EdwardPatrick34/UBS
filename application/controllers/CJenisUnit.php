@@ -37,7 +37,8 @@ class CJenisUnit extends CI_Controller {
 			$jenis_complain = $this->input->post('jenis_complain');
 
 			$this->Mjenisunit->insertjenisunit($jenis_unit, $nama_ju, $usere, $jenis_complain);
-			$this->session->set_flashdata('msg', 'Berhasil menambahkan jenis unit');
+			// $this->session->set_flashdata('msg', 'Berhasil menambahkan jenis unit');
+			$this->toastr->success('Berhasil Tambah Jenis Unit');
 			redirect(base_url('CJenisUnit/masterJenisUnit'));
 		}
 
@@ -47,7 +48,8 @@ class CJenisUnit extends CI_Controller {
 
 	public function deletejenisunit($jenis_unit){
 		$this->Mjenisunit->deletejenisunit($jenis_unit); 
-		$this->session->set_flashdata('msg','Berhasil menghapus data jenis unit');
+		// $this->session->set_flashdata('msg','Berhasil menghapus data jenis unit');
+		$this->toastr->success('Berhasil Hapus Jenis Unit');
 		redirect(base_url('CJenisUnit/masterJenisUnit'));
 	}
 
@@ -72,11 +74,13 @@ class CJenisUnit extends CI_Controller {
 			$jenis_complain = $this->input->post('jenis_complain');
 
 			$this->Mjenisunit->editjenisunit($jenis_unit, $nama_ju, $usere, $jenis_complain);
-			$this->session->set_flashdata('msg', 'Berhasil mengedit jenis unit');
+			// $this->session->set_flashdata('msg', 'Berhasil mengedit jenis unit');
+			$this->toastr->success('Berhasil Edit Jenis Unit');
 			redirect(base_url('CJenisUnit/masterJenisUnit'));
 		}
 
-		$this->session->set_flashdata('msg',validation_errors());
+		// $this->session->set_flashdata('msg',validation_errors());
+		$this->toastr->error('Cek kembali inputan dan semua harus di isi');
 		redirect(base_url('CJenisUnit/masterJenisUnit'));
 	}
 }

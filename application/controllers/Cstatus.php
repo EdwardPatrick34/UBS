@@ -29,7 +29,8 @@ class Cstatus extends CI_Controller
 			$usere = $this->input->post("usere");
 			
 			$this->Mstatus->insertStatus($status, $nama, $usere);
-			$this->session->set_flashdata('msg','Berhasil menambahkan status');
+			// $this->session->set_flashdata('msg','Berhasil menambahkan status');
+			$this->toastr->success('Berhasil Tambah Status');
 			redirect(base_url('Cstatus/masterStatus'));
 		}
 		
@@ -39,7 +40,8 @@ class Cstatus extends CI_Controller
 		// $this->load->view("admin/Tambah/tambahPetugas");
 		// $this->load->view('template/footeradmin');
 
-		$this->session->set_flashdata('errormsg', validation_errors());
+		// $this->session->set_flashdata('errormsg', validation_errors());
+		$this->toastr->error('Cek kembali inputan dan semua harus di isi');
 		redirect(base_url('CRAdmin/tambahStatus'));
 	}
 
@@ -55,11 +57,13 @@ class Cstatus extends CI_Controller
 			$usere = $this->input->post("usere");
 			
 			$this->Mstatus->editstatus($status, $nama, $usere);
-			$this->session->set_flashdata('msg','Berhasil mengedit status');
+			// $this->session->set_flashdata('msg','Berhasil mengedit status');
+			$this->toastr->success('Berhasil Edit Status');
 			redirect(base_url('Cstatus/masterStatus'));
 		}
 
-		$this->session->set_flashdata('msg', validation_errors());
+		// $this->session->set_flashdata('msg', validation_errors());
+		$this->toastr->success('Cek kembali inputan dan semua harus di isi');
 		redirect(base_url('Cstatus/masterStatus'));
 	}
 	
@@ -67,7 +71,8 @@ class Cstatus extends CI_Controller
 
 	public function deleteStatus($status){
 		$this->Mstatus->deletestatus($status);
-		$this->session->set_flashdata('msg','Berhasil menghapus data petugas');
+		// $this->session->set_flashdata('msg','Berhasil menghapus data petugas');
+		$this->toastr->success('Berhasil Hapus status');
 		redirect(base_url('Cstatus/masterStatus'));
 	}
     

@@ -45,17 +45,20 @@ class CJenisComplain extends CI_Controller{
 			$usere = $this->input->post("usere");
 
 			$this->Mjeniscomplain->insertComplain($jenis_complain, $nama_complain, $usere);
-			$this->session->set_flashdata('msg','Berhasil menambahkan jenis complain');
+			// $this->session->set_flashdata('msg','Berhasil menambahkan jenis complain');
+			$this->toastr->success('Berhasil Tambah Jenis Complain');
 			redirect(base_url('CJenisComplain/masterJenisComplain'));
 		}
 
-		$this->session->set_flashdata('errormsg', validation_errors());
+		// $this->session->set_flashdata('errormsg', validation_errors());
+		$this->toastr->error(validation_errors());
 		redirect(base_url('CRAdmin/tambahJenisComplain'));
 	}
 
 	public function deleteJenisComplain($id){
 		$this->Mjeniscomplain->deleteComplain($id);
-		$this->session->set_flashdata('msg','Berhasil menghapus data jenis complain');
+		// $this->session->set_flashdata('msg','Berhasil menghapus data jenis complain');
+		$this->toastr->success('Berhasil Hapus Jenis Complain');
 		redirect(base_url('CJenisComplain/masterJenisComplain'));
 	}
 
@@ -71,11 +74,13 @@ class CJenisComplain extends CI_Controller{
 			$usere = $this->input->post("usere");
 
 			$this->Mjeniscomplain->editComplain($jenis_complain, $nama_complain, $usere);
-			$this->session->set_flashdata('msg','Berhasil mengedit jenis complain');
+			// $this->session->set_flashdata('msg','Berhasil mengedit jenis complain');
+			$this->toastr->success('Berhasil Edit Jenis Complain');
 			redirect(base_url('CJenisComplain/masterJenisComplain'));
 		}
 
-		$this->session->set_flashdata('msg', validation_errors());
+		// $this->session->set_flashdata('msg', validation_errors());
+		$this->toastr->error('Cek kembali inputan');
 		redirect(base_url('CJenisComplain/masterJenisComplain'));
 	}
 

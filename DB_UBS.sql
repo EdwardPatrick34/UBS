@@ -1,16 +1,16 @@
-DROP TABLE ED_COMPC cascade constraint;
-DROP TABLE ED_JENISCOMPLAIN cascade constraint;
-DROP TABLE ED_COMPB cascade constraint;
-DROP TABLE ED_COMPA cascade constraint;
-DROP TABLE ED_JENISSPK cascade constraint;
-DROP TABLE ED_SPKB cascade constraint;
-DROP TABLE ED_JENISUNIT cascade constraint;
-DROP TABLE ED_SPKD cascade constraint;
-DROP TABLE ED_SPKC cascade constraint;
-DROP TABLE ED_PETUGAS cascade constraint;
-DROP TABLE ED_SPKA cascade constraint;
-DROP TABLE ED_STATUS cascade constraint;
-DROP TABLE ED_USER cascade constraint;
+DROP TABLE ED_COMPC cascade constraint PURGE;
+DROP TABLE ED_JENISCOMPLAIN cascade constraint PURGE;
+DROP TABLE ED_COMPB cascade constraint PURGE;
+DROP TABLE ED_COMPA cascade constraint PURGE;
+DROP TABLE ED_JENISSPK cascade constraint PURGE;
+DROP TABLE ED_SPKB cascade constraint PURGE;
+DROP TABLE ED_JENISUNIT cascade constraint PURGE;
+DROP TABLE ED_SPKD cascade constraint PURGE;
+DROP TABLE ED_SPKC cascade constraint PURGE;
+DROP TABLE ED_PETUGAS cascade constraint PURGE;
+DROP TABLE ED_SPKA cascade constraint PURGE;
+DROP TABLE ED_STATUS cascade constraint PURGE;
+DROP TABLE ED_USER cascade constraint PURGE;
 
 create table ED_STATUS
 (
