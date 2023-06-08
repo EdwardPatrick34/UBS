@@ -168,4 +168,4 @@ create table ED_USERE (
 	role varchar2(1)
 );
 
-INSERT INTO ED_USERE (ID, USERNAME, PASSWORD, NAMA, ROLE) VALUES (1, "admin", "admin", "admin", 0);
+INSERT INTO ED_USERE (ID, USERNAME, PASSWORD, NAMA, ROLE) VALUES (1, 'admin', 'admin', 'admin', 0);

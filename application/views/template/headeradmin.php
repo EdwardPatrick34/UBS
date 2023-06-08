@@ -277,10 +277,10 @@
         </aside>
         <!-- / Menu -->
 				<div>
-<?php
-$this->load->view('alert');
-?>
-	</div>
+				<?php
+				$this->load->view('alert');
+				?>
+					</div>
 
        
       

@@ -158,9 +158,10 @@
           </ul>
         </aside>
         <!-- / Menu -->
+				<div>
 				<?php
-$this->load->view('alert');
-?>
-	</div>
+				$this->load->view('alert');
+				?>
+					</div>
        
       
