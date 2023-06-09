@@ -36,7 +36,7 @@ class McompA extends CI_Model{
 
         return $sql;
     }
-	// Search Laporan History Complain
+	// Search Laporan History Complain (sudah tidak dipakai)
 	public function SLHComplain($tglawal, $tglakhir){
 
 		
@@ -48,6 +48,53 @@ class McompA extends CI_Model{
 
 		// select no_complain, tgl, nama_status, uraian from ed_compa  join ed_status  on ed_compa.status=ed_status.status;
 
+	}
+	// laporan History Complain
+	public function LHComplain(){
+
+		$sql = $this->db->query("SELECT
+		EDCA.NO_COMPLAIN As NO_COMPLAIN,
+		EDCA.TGL As TGL,
+		EDCA.JAM As JAM,
+		EDCA.USERE As PELAPOR,
+		EDCA.KODEDIV AS KODEDIV,
+		EDSA.NO_SPK AS NO_SPK,
+		EDCA.KODE_UNIT As KODE_UNIT,
+		EDCA.URAIAN As URAIAN,
+		EDCA.TGL_S As TGL_SELESAI,
+		EDCA.JAM_S As JAM_SELESAI,
+		EDCA.TGL_SAH As TGL_SAH,
+		EDCA.JAM_SAH As JAM_SAH,
+		EDS.NAMA_STATUS As STATUS
+		FROM ED_COMPA EDCA
+		JOIN ED_SPKA EDSA ON EDCA.NO_COMPLAIN=EDSA.NO_COMPLAIN
+		JOIN ED_STATUS EDS ON EDS.STATUS=EDCA.STATUS
+		");
+
+		return $sql;
+	}
+
+	//Laporan Uraian Complain Divisi
+	public function LUCDivisi($tglawal, $tglakhir, $divisi){
+		$sql = $this->db->query("SELECT
+		EDSA.NO_SPK As NO_SPK,
+		EDCA.NO_COMPLAIN As NO_COMPLAIN,
+		EDCA.USERE As USERE,
+		EDCA.KODEDIV As KODEDIV,
+		EDCA.KODE_UNIT As KODE_UNIT,
+		EDCA.URAIAN As URAIAN,
+		EDCA.TGL As TGL,
+		EDCA.JAM As JAM,
+		EDCA.STATUS As STATUS,
+		EDS.NAMA_STATUS As NAMA_STATUS,
+		EDCA.TGL As TGL
+		FROM ED_COMPA EDCA
+		JOIN ED_SPKA EDSA ON EDCA.NO_COMPLAIN=EDSA.NO_COMPLAIN
+		JOIN ED_STATUS EDS ON EDS.STATUS=EDCA.STATUS
+		WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCA.KODEDIV='$divisi'
+		");
+
+		return $sql;
 	}
 
 	// cari complain

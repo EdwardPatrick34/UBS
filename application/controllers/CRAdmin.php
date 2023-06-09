@@ -14,6 +14,7 @@ class CRAdmin extends CI_Controller{
 		$this->load->model('Mjenisspk');
 		$this->load->model('Mpetugas');
 		$this->load->model('Muser');
+		$this->load->model('Mlaporan');
 		$this->load->helper('url'); 
 		
 
@@ -215,7 +216,8 @@ class CRAdmin extends CI_Controller{
 	// Start Laporan History Complain
 	public function LaporanHistoryComplain(){
 		$this->load->view('template/headeradmin');
-		$this->load->view("admin/Laporan/historycomplain");
+		$param["data"] = $this->McompA->LHComplain();
+		$this->load->view("admin/Laporan/historycomplain", $param);
 		$this->load->view('template/footer');
 	}
 
@@ -247,6 +249,122 @@ class CRAdmin extends CI_Controller{
 
 	// End laporan History Complain
 	//==============================================================
+
+	//StartLaporan Uraian Complain Divisi
+	public function UraianComplainDivisi(){
+		$this->load->view('template/headeradmin');
+		// $param["data"] = $this->McompA->LHComplain();
+		$this->load->view("admin/Laporan/uraianComplainDivisi");
+		$this->load->view('template/footer');
+	}
+
+	public function SearchLUCDivisi(){
+		$tglawal = $this->input->post('tglawal');
+		$tglakhir = $this->input->post('tglakhir');
+		$divisi = $this->input->post('divisi');
+
+		$tglawalstring = date("m/d/Y", strtotime($tglawal));
+		$tglakhirstring = date("m/d/Y", strtotime($tglakhir));
+
+		$cek = false;
+		
+		if ($tglawal== null) {
+			# code...
+			$pesan1= "Tanggal awal tidak boleh kosong";
+			$cek = true;
+		}
+		if ($tglakhir == null) {
+			# code...
+			$pesan2= "Tanggal akhir tidak boleh kosong";
+			$cek = true;
+		}
+		if ($divisi == null) {
+			# code...
+			$pesan3= "Divisi tidak boleh kosong";
+			$cek = true;
+		}
+		if ($tglawal > $tglakhir) {
+			# code...
+			$pesan4= "Tanggal akhir tidak boleh lebih kecil dari tanggal awal";
+			$cek = true;
+		}
+
+		if ($cek == true) {
+			# code...
+			$this->toastr->error("$pesan1 $pesan2 $pesan3 $pesan4");
+			redirect(base_url('CRAdmin/UraianComplainDivisi'));
+		}
+		else{
+			$this->load->view('template/headeradmin');
+			$param["data"] = $this->McompA->LUCDivisi($tglawalstring, $tglakhirstring, $divisi);
+			$param['tglawal'] = $tglawalstring;
+			$param['tglakir'] = $tglakhirstring;
+			$param['divisi'] = $divisi;
+			$this->load->view("admin/Laporan/uraianComplainDivisi", $param);
+			$this->load->view('template/footer');
+		}
+		
+
+	}
+	
+	// EndLaporan Uraian Complain Divisi
+
+	// Start laporan Bulanan Infrastruktur
+
+	public function LaporanBulananInfrastruktur(){
+		$this->load->view('template/headeradmin');
+		// $param["data"] = $this->McompA->LHComplain();
+		$this->load->view("admin/Laporan/bulananInfrastruktur");
+		$this->load->view('template/footer');
+	}
+
+	public function SearchLBI(){
+		$tglawal = $this->input->post('tglawal');
+		$tglakhir = $this->input->post('tglakhir');
+		
+
+		$tglawalstring = date("m/d/Y", strtotime($tglawal));
+		$tglakhirstring = date("m/d/Y", strtotime($tglakhir));
+
+		$cek = false;
+		
+		if ($tglawal== null) {
+			# code...
+			$pesan1= "Tanggal awal tidak boleh kosong";
+			$cek = true;
+		}
+		if ($tglakhir == null) {
+			# code...
+			$pesan2= "Tanggal akhir tidak boleh kosong";
+			$cek = true;
+		}
+		
+		if ($tglawal > $tglakhir) {
+			# code...
+			$pesan3= "Tanggal akhir tidak boleh lebih kecil dari tanggal awal";
+			$cek = true;
+		}
+
+		if ($cek == true) {
+			# code...
+			$this->toastr->error("$pesan1 $pesan2 $pesan3");
+			redirect(base_url('CRAdmin/LaporanBulananInfrastruktur'));
+		}
+		else{
+			$this->load->view('template/headeradmin');
+			$param["data"] = $this->McompA->LBInfrastruktur($tglawalstring, $tglakhirstring);
+			$param['tglawal'] = $tglawalstring;
+			$param['tglakir'] = $tglakhirstring;
+			
+			$this->load->view("admin/Laporan/bulananInfrastruktur", $param);
+			$this->load->view('template/footer');
+			
+		}
+	}
+
+	// END laporan Bulanan Infrastruktur
+
+	
 
 	// Monitor 
 	public function listmonitorspkpending(){

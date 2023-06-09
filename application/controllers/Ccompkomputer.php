@@ -157,7 +157,7 @@ class Ccompkomputer extends CI_Controller{
 	}
 
 
-	// start cari complain
+	// start cari complain halaman complain problem komputer
 
 	public function cariComplain(){
 
@@ -176,6 +176,35 @@ class Ccompkomputer extends CI_Controller{
 	}
 
 	// end cari complain
+
+
+	// detail complain laporan history complain
+	
+	public function detailComplain(){
+		// $no_complain = $this->input->post("cariNoComplain");
+
+		$no_complain = $_GET['nocomp'];
+
+		$this->load->view('template/headeradmin');
+
+		// $param["dataheader"] = $this->Mjenisspk->getdatajenisspk();
+		$param["dataheader"] = $this->McompA->CariComplain1($no_complain);
+		$param["datadetail1"] = $this->McompA->CariComplain2($no_complain);
+		$param["datadetail2"] = $this->McompA->CariComplain3($no_complain);
+		
+		$this->load->view('admin/Laporan/detailComplain', $param);
+		$this->load->view('template/footer');
+	}
+
+
+
+
+
+	//  end detail complain laporan history complain
+
+
+
+
 
 }
 ?>
