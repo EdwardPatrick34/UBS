@@ -220,6 +220,11 @@
                   </a>
                 </li>
 								<li class="menu-item">
+                  <a href="<?= base_url('CRAdmin/LaporanKegiatanInfrastruktur') ?>" class="menu-link">
+                    <div >Laporan Kegiatan Infrastruktur</div>
+                  </a>
+                </li>
+								<li class="menu-item">
                   <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Listing Teknisi yang belum dapat SPK</div>
                   </a>
@@ -251,11 +256,7 @@
                     <div >Jumlah Complain Divisi per Bulan</div>
                   </a>
                 </li>
-								<li class="menu-item">
-                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
-                    <div >Laporan Kegiatan Infrastruktur</div>
-                  </a>
-                </li>
+								
 								<li class="menu-item">
                   <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Laporan Pendingan per teknisi</div>

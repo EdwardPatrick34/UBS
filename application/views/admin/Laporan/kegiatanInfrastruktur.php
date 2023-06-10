@@ -75,9 +75,9 @@
 					<div class="d-flex align-items-end row">
 						<div >
 							<div class="card-body" >
-								<h2 class="card-title text-primary"> Laporan Bulanan Infrastruktur per Range Tanggal SPK</h2>
+								<h2 class="card-title text-primary"> Laporan Kegiatan Infrastruktur</h2>
 								<br>
-								<form action="<?php echo base_url('CRAdmin/SearchLBI'); ?>" method="post">
+								<form action="<?php echo base_url('CRAdmin/SearchLUCDivisi'); ?>" method="post">
 									<div class="mb-12 row">
 										<div class="col-sm-4 input-group input-group-merge">
 											
@@ -114,9 +114,12 @@
 
 									</div>
 
-											<br>
+									<label for="divisi" class=" col-form-label">Divisi</label>
+											<div style="width: 200px;">
+												<input type="text"  id="divisi" name="divisi"  class="form-control">
+											</div>
 											<?php  if(isset($tglawal)): ?>
-											<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="<?php echo base_url('CExportExcel/LaporanBulananInfrastruktur?tglawal='.$tglawal ."&tglakir=" . $tglakir); ?>">
+											<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="<?php echo base_url('CExportExcel/LaporanUraianComplainDivisi?tglawal='.$tglawal ."&tglakir=" . $tglakir ."&divisi=".$divisi); ?>">
 											
 											<i class="fa fa-file-excel-o"></i> 
 											Export to Excel
@@ -147,20 +150,16 @@
 										<tr>
 
 											<th scope="col">No</th>
-											<th scope="col">Nama Teknisi</th>
-											<th scope="col">NO Induk</th>
-											<th scope="col">No Complain</th>
+											<th scope="col">Jenis Unit</th>
+											<th scope="col">Nama Jenis Unit</th>
+											<th scope="col">No. Complain</th>
+											<th scope="col">Sub</th>
+											<th scope="col">Ket Kerusakan</th>
+											<th scope="col">Tanggal</th>
+											<th scope="col">Status</th>
 											
-											<th scope="col">KODEDIV</th>
-											<th scope="col">Kode Unit</th>
 											
-											<th scope="col">Uraian</th>
-											<th scope="col">Tgl.Complain</th>
-											<th scope="col">No SPk</th>
-											<th scope="col">Tgl. Spk</th>
-											<th scope="col">Tgl Selesai</th>
-											<th scope="col">Tgl Sah</th>
-											<th scope="col">Realisasi</th>
+											
 											
 										</tr>
 									</thead>
@@ -175,19 +174,16 @@
 									<tr>
 										
 										<td scope="col"><?php echo $no; ?></td>
-										<td scope="col"><?php echo $row->NAMA_PETUGAS; ?></td>
-										<td scope="col"><?php echo $row->NOMOR_INDUK; ?></td>
+										<td scope="col"><?php echo $row->NO_SPK; ?></td>
 										<td scope="col"><?php echo $row->NO_COMPLAIN; ?></td>
+										<td scope="col"><?php echo $row->USERE; ?></td>
 										<td scope="col"><?php echo $row->KODEDIV; ?></td>
 										<td scope="col"><?php echo $row->KODE_UNIT; ?></td>
 										<td scope="col"><?php echo $row->URAIAN; ?></td>
-										<td scope="col"><?php echo $row->TGL_COMPLAIN; ?></td>
-										<td scope="col"><?php echo $row->NO_SPK; ?></td>
-										<td scope="col"><?php echo $row->TGL_SPK; ?>  <?php echo $row->JAM_SPK; ?></td>
-										<td scope="col"><?php echo $row->TGL_SAH; ?>  <?php echo $row->JAM_SAH; ?></td>
-										<td scope="col"><?php echo $row->TGL_SAH; ?></td>
-										<td scope="col"><?php echo $row->JAM_SAH; ?></td>
-										<td scope="col"><?php echo $row->PEKERJAAN; ?></td>
+										<td scope="col"><?php echo $row->TGL; ?>  <?php echo $row->JAM; ?></td>
+										<td scope="col"><?php echo $row->STATUS; ?></td>
+										<td scope="col"><?php echo $row->NAMA_STATUS; ?></td>
+										<td scope="col"><?php echo $row->TGL; ?></td>
 										
 						
 									</tr>

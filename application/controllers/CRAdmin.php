@@ -352,7 +352,7 @@ class CRAdmin extends CI_Controller{
 		}
 		else{
 			$this->load->view('template/headeradmin');
-			$param["data"] = $this->McompA->LBInfrastruktur($tglawalstring, $tglakhirstring);
+			$param["data"] = $this->Mlaporan->LBInfrastruktur($tglawalstring, $tglakhirstring);
 			$param['tglawal'] = $tglawalstring;
 			$param['tglakir'] = $tglakhirstring;
 			
@@ -363,6 +363,20 @@ class CRAdmin extends CI_Controller{
 	}
 
 	// END laporan Bulanan Infrastruktur
+
+
+	//Start Laporan Kegiatan Infrastruktur
+
+	public function LaporanKegiatanInfrastruktur(){
+		$this->load->view('template/headeradmin');
+		// $param["data"] = $this->McompA->LHComplain();
+		$this->load->view("admin/Laporan/kegiatanInfrastruktur");
+		$this->load->view('template/footer');
+	}
+
+
+
+	//END Laporan Kegiatan Infrastruktur
 
 	
 
