@@ -81,14 +81,5 @@ class Cuser extends CI_Controller{
 		$this->session->set_flashdata('msg','Berhasil menghapus user');
 		redirect(base_url('CRAdmin/masterUser'));
 	}
-
-
-	
-
-
-
-
 }
-
-
 ?>

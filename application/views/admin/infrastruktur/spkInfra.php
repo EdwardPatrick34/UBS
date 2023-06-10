@@ -162,7 +162,7 @@
 																<div class="mb-3 row">
 																	<label for="uraian" class=" col-form-label">Pekerjaan</label>
 																	<div class="col-sm-4 input-group input-group-merge">
-																	<textarea class="form-control" id="uraian" name="pekerjaan" readonly></textarea>
+																	<textarea class="form-control" id="pekerjaan" name="pekerjaan" readonly></textarea>
 																	</div>
 																</div>
 													
@@ -489,7 +489,7 @@
 					$("#uraian").val(data[i][1]['KET']);
 					$("#divisi").val(data[i][0]['KODEDIV']+"-"+data[i][0]["USERE"]);
 					$("#kodeunit").val(data[i][0]['KODE_UNIT']);
-					
+					$("#pekerjaan").val(data[i][2]['NAMA_SPK']);
 				}
 				$("#tglspk").val(todayDateTime); 
 			}

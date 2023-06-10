@@ -70,6 +70,10 @@ class Cspk extends CI_Controller{
         
         $datacomplainb = $this->McompB->getcompBbyid($no_complain);
         foreach($datacomplainb->result() as $row){$rowcomplainb = $row;}
+
+        $datacomplainc = $this->McompC->getcompCbyid($no_complain);
+        foreach($datacomplainc->result() as $row){$rowcomplainc = $row;}
+        
         
         $arr = [];
         if($this->session->userdata('session_complain')) {$arr = $this->session->userdata('session_complain');}
@@ -77,6 +81,7 @@ class Cspk extends CI_Controller{
         
         $arr[$jum][0] = $rowcomplain;
         $arr[$jum][1] = $rowcomplainb;
+        $arr[$jum][2] = $rowcomplainc;
         echo json_encode($arr);
         
     }
@@ -152,9 +157,10 @@ class Cspk extends CI_Controller{
             $this->MspkB->insertspkb($no_spk, 1, $jenis_unit);
         }
 
+        
+        redirect(base_url("CRAdmin/CreateSpk"));
         $this->session->unset_userdata('session_petugas');
         $this->session->unset_userdata('session_jenisspk');
-        redirect(base_url("CRAdmin/CreateSpk"));
         
     }
 

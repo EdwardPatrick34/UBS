@@ -369,19 +369,19 @@ class CRAdmin extends CI_Controller{
 	// Monitor 
 	public function listmonitorspkpending(){
 		$this->load->view('template/headeradmin');
-		$this->load->view('');
+		$this->load->view('admin/infrastruktur/spkComplainPending');
 		$this->load->view('template/footer');
 	}
 
 	public function listmonitorspkselesai(){
 		$this->load->view('template/headeradmin');
-		$this->load->view('admin/infrastruktur/spkComplainPending');
+		$this->load->view('admin/infrastruktur/spkComplainSelesai');
 		$this->load->view('template/footer');
 	}
 
 	public function listmonitorspkbatal(){
 		$this->load->view('template/headeradmin');
-		$this->load->view('');
+		$this->load->view('admin/infrastruktur/spkComplainBatal');
 		$this->load->view('template/footer');
 	}
 }

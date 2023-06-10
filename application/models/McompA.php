@@ -15,8 +15,8 @@ class McompA extends CI_Model{
         $count = $qry->num_rows() + 1; 
         $nocomplain = 'ZM'.substr(date("Y"), 2, 2).str_pad($count, 6, "0", STR_PAD_LEFT);
 
-        $sql = "insert into ed_compA(NO_COMPLAIN, TGL, JAM,  KODEDIV, USERE, KODE_UNIT, URAIAN) 
-                    values ('$nocomplain', to_date('$tgl', 'yyyy-mm-dd HH:MI:SS'), '$jam', '$kode_divisi', 'usere', '$kode_unit', '$uraian')";
+        $sql = "insert into ed_compA(NO_COMPLAIN, TGL, JAM,  KODEDIV, USERE, KODE_UNIT, STATUS, URAIAN) 
+                    values ('$nocomplain', to_date('$tgl', 'yyyy-mm-dd HH:MI:SS'), '$jam', '$kode_divisi', 'usere', '$kode_unit', '1','$uraian')";
         $this->db->query($sql);
 
         return $nocomplain;

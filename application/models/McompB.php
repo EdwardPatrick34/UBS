@@ -31,7 +31,7 @@ class McompB extends CI_Model{
     // public function insertComplain($jenis_complain, $no_complain, $nama_complain, $usere)
     // {
     //     $sql = "insert into ed_jeniscomplain(jenis_complain, no_complain, nama_complain, usere) values('$jenis_complain', '$no_complain', '$nama_complain', '$usere')";
-    //     $this->db->query($sql); 
+//     $this->db->query($sql); 
     // }
 
 
