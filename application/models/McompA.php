@@ -10,6 +10,11 @@ class McompA extends CI_Model{
         return $sql;
     }
 
+	public function getMC(){
+        $sql = $this->db->query("select * from ed_compA WHERE STATUS=1");
+        return $sql;
+    }
+
     public function insertcompa($kode_divisi, $no_divisi, $kode_unit, $lokasi_unit, $uraian, $tgl, $jam, $tgljam) {
         $qry = $this->db->query('select * from ed_compA'); 
         $count = $qry->num_rows() + 1; 
@@ -68,7 +73,7 @@ class McompA extends CI_Model{
 		EDS.NAMA_STATUS As STATUS
 		FROM ED_COMPA EDCA
 		JOIN ED_SPKA EDSA ON EDCA.NO_COMPLAIN=EDSA.NO_COMPLAIN
-		FULL JOIN ED_STATUS EDS ON EDS.STATUS=EDCA.STATUS
+		JOIN ED_STATUS EDS ON EDS.STATUS=EDCA.STATUS
 		");
 
 		return $sql;

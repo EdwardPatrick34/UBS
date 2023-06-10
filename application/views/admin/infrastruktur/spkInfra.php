@@ -489,7 +489,7 @@
 					$("#uraian").val(data[i][1]['KET']);
 					$("#divisi").val(data[i][0]['KODEDIV']+"-"+data[i][0]["USERE"]);
 					$("#kodeunit").val(data[i][0]['KODE_UNIT']);
-					$("#pekerjaan").val(data[i][2]['NAMA_SPK']);
+					// $("#pekerjaan").val(data[i][2]['NAMA_SPK']);
 				}
 				$("#tglspk").val(todayDateTime); 
 			}

@@ -19,8 +19,9 @@ class McompC extends CI_Model{
     }
 
     public function getcompcByid($no_complain){
-        $sql = $this->db->query("select jenis_spk from ed_compC where no_complain = '".$no_complain."'");
+        // $sql = $this->db->query("select jenis_spk from ed_compC where no_complain = '".$no_complain."'");
 
+        // $sqlquery = $this->db->query("select * from ed_jenisspk where jenis_spk = '".$sql."'");
         $sqlquery = $this->db->query("select * from ed_jenisspk where jenis_spk = '".$sql."'");
         return $sqlquery;
     }

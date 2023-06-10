@@ -165,7 +165,7 @@ class CRAdmin extends CI_Controller{
 
 	public function MonitoringComplain(){
 		$this->load->view('template/headeradmin');
-		$param["data"] = $this->McompA->getdatacompA();
+		$param["data"] = $this->McompA->getMC();
 		
 		$this->load->view("admin/infrastruktur/monitoringComplain/Complain", $param);
 		$this->load->view('template/footer');
@@ -181,7 +181,7 @@ class CRAdmin extends CI_Controller{
 
 		//jadi di sini halaman akan berganti sesuai dengan status yang dipilih
 		if ($status == 1) {
-			$param["data"] = $this->McompA->getdatacompA();	
+			$param["data"] = $this->McompA->getMC();	
 			
 			$this->load->view("admin/infrastruktur/monitoringComplain/Complain", $param);
 		}
@@ -380,7 +380,7 @@ class CRAdmin extends CI_Controller{
 
 	
 
-	// Monitor 
+	// Monitor (gak kepape)
 	public function listmonitorspkpending(){
 		$this->load->view('template/headeradmin');
 		$this->load->view('admin/infrastruktur/spkComplainPending');

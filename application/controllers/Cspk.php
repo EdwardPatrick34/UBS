@@ -71,8 +71,8 @@ class Cspk extends CI_Controller{
         $datacomplainb = $this->McompB->getcompBbyid($no_complain);
         foreach($datacomplainb->result() as $row){$rowcomplainb = $row;}
 
-        $datacomplainc = $this->McompC->getcompCbyid($no_complain);
-        foreach($datacomplainc->result() as $row){$rowcomplainc = $row;}
+        // $datacomplainc = $this->McompC->getcompCbyid($no_complain);
+        // foreach($datacomplainc->result() as $row){$rowcomplainc = $row;}
         
         
         $arr = [];
@@ -81,7 +81,7 @@ class Cspk extends CI_Controller{
         
         $arr[$jum][0] = $rowcomplain;
         $arr[$jum][1] = $rowcomplainb;
-        $arr[$jum][2] = $rowcomplainc;
+        // $arr[$jum][2] = $rowcomplainc;
         echo json_encode($arr);
         
     }
