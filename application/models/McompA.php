@@ -25,6 +25,7 @@ class McompA extends CI_Model{
 		$sql = $this->db->query("select * from ed_compA WHERE STATUS=5");
         return $sql;
 	}
+	
 
     public function insertcompa($kode_divisi, $no_divisi, $kode_unit, $lokasi_unit, $uraian, $tgl, $jam, $tgljam) {
         $qry = $this->db->query('select * from ed_compA'); 
@@ -189,6 +190,7 @@ class McompA extends CI_Model{
 
 	public function ubahSelesai($no_complain){
 		$sql = "update ed_compa set STATUS='5' where NO_COMPLAIN = '".$no_complain."'";
+		
 		$this->db->query($sql); 
 	}
 
@@ -200,7 +202,7 @@ class McompA extends CI_Model{
 	public function ubahPengesahan($no_complain, $tanggal, $jampending){
 		$user = $this->session->userdata('adminNonIT');
 		$usere = $user->ID;
-		$sql = "update ed_compa set STATUS='4', TGL_SAH=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), JAM_SAH='".$jampending."', USERE_SAH='".trim($usere)."' where NO_COMPLAIN = '".$no_complain."'";
+		$sql = "update ed_compa set STATUS='4', TGL_SAH=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), JAM_SAH='".$jampending."', TGL_S=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), JAM_S='".$jampending."',USERE_SAH='".trim($usere)."' where NO_COMPLAIN = '".$no_complain."'";
 		$this->db->query($sql);
 	}
 }

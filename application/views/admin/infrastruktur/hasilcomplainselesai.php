@@ -260,9 +260,9 @@
 
 										<br>
 										<div >
-											<a href="<?php echo base_url('/Ccompkomputer/ubahselesaicomplain')?>">
+											<a href="<?php echo base_url('Ccompkomputer/ubahselesaicomplain?nocomp='.$data->NO_COMPLAIN)?>">
 												<button class="btn btn-success">SELESAI</button>
-											</a>
+											</href=>
 										</div>
 									</div>
 								</div>

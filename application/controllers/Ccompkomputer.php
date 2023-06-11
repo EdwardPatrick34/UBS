@@ -256,7 +256,7 @@ class Ccompkomputer extends CI_Controller{
 	}
 
 	public function ubahselesaicomplain(){
-		$no_complain = $this->session->userdata('no_complain');
+		$no_complain = $_GET['nocomp'];
 		$keterangan = $this->input->post('ket_pending');
 		$tanggal = date('Y:m:d H:i:s');
 		$arrtanggal = explode(" ", $tanggal);
