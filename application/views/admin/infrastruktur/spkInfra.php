@@ -120,14 +120,14 @@
 															<div class="mb-3 row">
 																<label for="inputPassword" class=" col-form-label">Kode Unit</label>
 																<div class="col-sm-4 input-group input-group-merge">
-																<input type="password" class="form-control" id="inputPassword">
+																<input type="text" class="form-control" id="inputPassword">
 																</div>
 															</div>
 															
 															<div class="mb-3 row">
 																<label for="inputPassword" class=" col-form-label">Lokasi Unit</label>
 																<div class="col-sm-4 input-group input-group-merge">
-																<input type="password" class="form-control" id="inputPassword">
+																<input type="text" class="form-control" id="inputPassword">
 																</div>
 															</div>
 															
@@ -394,7 +394,7 @@
 
 			$.post(myurl + "/Cspk/insertTablePetugas",
 				{petugas: petugas}, function(result) {
-				alert(result); 
+				
 				showpetugas();
 			}
 			);

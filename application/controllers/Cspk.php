@@ -12,6 +12,7 @@ class Cspk extends CI_Controller{
         $this->load->model("McompA");
         $this->load->model("McompB");
         $this->load->library('session');
+        
     }
 
     public function insertTableSpk(){
@@ -174,5 +175,22 @@ class Cspk extends CI_Controller{
 		$this->load->view("admin/infrastruktur/hasilCari", $param);
 		$this->load->view('template/footer');
 	}
+
+    // start stop
+    public function startspk(){
+        $no_spk = $_GET['nospk'];
+        $tanggal = date('Y:m:d H:i:s');
+        $this->MspkA->startSpk($no_spk, $tanggal);
+        $this->toastr->success('Berhasil memulai spk');
+        redirect(base_url('CRAdmin/spkStart'));
+    }
+
+    public function stopspk(){
+        $no_spk = $_GET['nospk'];
+        $tanggal = date('Y:m:d H:i:s');
+        $this->MspkA->stopspk($no_spk, $tanggal);
+        $this->toastr->success('Berhasil memberhentikan spk');
+        redirect(base_url('CRAdmin/spkStart'));
+    }
 }
 ?>

@@ -588,6 +588,28 @@ class CRAdmin extends CI_Controller{
 		$this->load->view('admin/infrastruktur/compPendingSelesai', $param);
 		$this->load->view('template/footer');
 	}
+
+	public function spkStart(){
+		$this->load->view('template/headeradmin');
+		$param["data"] = $this->MspkA->getStartStop();
+		$this->load->view("admin/infrastruktur/spkstartstop", $param);
+		$this->load->view('template/footer');
+	}
+
+	public function filterstartstop(){
+		$this->load->view('template/headeradmin');
+		$status = $this->input->post("statusc");
+
+		if($status == 1){
+			$param["data"] = $this->MspkA->getStartStop();
+			$this->load->view("admin/infrastruktur/spkstartstop", $param);
+		}
+		else if($status == 2){
+			$param["data"] = $this->MspkA->getStop();
+			$this->load->view("admin/infrastruktur/spkstop", $param);
+		}
+		$this->load->view('template/footer');
+	}
 }
 ?>
 

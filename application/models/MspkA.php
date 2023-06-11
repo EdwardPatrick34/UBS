@@ -20,7 +20,10 @@ class MspkA extends CI_Model{
         $sql = "insert into ed_spkA(NO_SPK, NO_COMPLAIN, TGL_SPK, JAM_SPK, STATUS, TGL_T, JAM_T, USERE) 
         values ('$no_spk', '$no_complain', to_date('$tglspk', 'yyyy-mm-dd HH:MI:SS'), '$jamspk', '4', to_date('$tgllapor', 'yyyy-mm-dd HH:MI:SS'), '$jamlapor',  '$usere')";
 
+
         $this->db->query($sql);
+
+        $sqlquery = $this->db->query("update ed_compa SET status='7' where no_complain='".$no_complain."'");
         return $no_spk;
     }
 	//get data Monitoring Complain status SPK
@@ -30,6 +33,16 @@ class MspkA extends CI_Model{
 		
 		return $sql;
 	}
+
+    public function getStartStop(){
+        $sql = $this->db->query("select * from ed_startstop where user_start='KSG'");
+        return $sql;
+    }
+
+    public function getStop(){
+        $sql = $this->db->query("select * from ed_startstop where user_start !='KSG' and user_stop='KSG'");
+        return $sql;
+    }
 
 	public function getMCpending(){
 
@@ -48,5 +61,19 @@ class MspkA extends CI_Model{
 
 	}
     
+    //start stop
+    public function startspk($no_spk, $tanggal){
+        $user = $this->session->userdata('admin');
+        $usere = $user->ID;
+        $sql = "update ed_startstop set TGL_START=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), USER_START ='".trim($usere)."' where NO_SPK ='".$no_spk."'";
+        $this->db->query($sql);
+    }
+
+    public function stopspk($no_spk, $tanggal){
+        $user = $this->session->userdata('admin');
+        $usere = $user->ID;
+        $sql = "update ed_startstop set TGL_STOP=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), USER_STOP ='".trim($usere)."' where NO_SPK ='".$no_spk."'";
+        $this->db->query($sql);
+    }
 }
 ?>
