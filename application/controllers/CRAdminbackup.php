@@ -545,46 +545,19 @@ class CRAdmin extends CI_Controller{
 	// Monitor (gak kepape)
 	public function listmonitorspkpending(){
 		$this->load->view('template/headeradmin');
-		$param["data"] = $this->McompA->getMC();
-		$this->load->view('admin/infrastruktur/spkComplainPending', $param);
-		$this->load->view('template/footer');
-	}
-
-	public function filtermonitorspkpending(){
-		$this->load->view('template/headeradmin');
-		$status = $this->input->post("statusc");
-
-		if($status == 1)
-		{
-			$param["data"] = $this->McompA->getMC();
-			$this->load->view('admin/infrastruktur/spkComplainPending', $param);
-		}
-		else if($status == 2){
-			$param["stat"] = "Spk";
-			$param["data"] = $this->MspkA->getMCspk();
-			$this->load->view("admin/infrastruktur/spkpending", $param);
-		}
+		$this->load->view('admin/infrastruktur/spkComplainPending');
 		$this->load->view('template/footer');
 	}
 
 	public function listmonitorspkselesai(){
 		$this->load->view('template/headeradmin');
-		$status = $this->input->post("statusc");
-		$param['data'] = $this->McompA->getMC();
-		$this->load->view('admin/infrastruktur/spkComplainSelesai', $param);
+		$this->load->view('admin/infrastruktur/spkComplainSelesai');
 		$this->load->view('template/footer');
 	}
 
 	public function listmonitorspkbatal(){
 		$this->load->view('template/headeradmin');
-		$param['data'] = $this->McompA->getMC();
-		$this->load->view('admin/infrastruktur/spkComplainBatal', $param);
-		$this->load->view('template/footer');
-	}
-
-	public function listpendingkeselesai(){
-		$this->load->view('template/headeradmin');
-
+		$this->load->view('admin/infrastruktur/spkComplainBatal');
 		$this->load->view('template/footer');
 	}
 }

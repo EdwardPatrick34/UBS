@@ -84,7 +84,8 @@ class CJenisComplain extends CI_Controller{
 		redirect(base_url('CJenisComplain/masterJenisComplain'));
 	}
 
-	public function getjeniscomplainbyid($jenis_complain){
+	public function getjeniscomplainbyid(){
+		$jenis_complain = $_GET['jeniscomplain'];
 		$this->load->view('template/headeradmin');
 		$param['dataCompB'] = $this->McompB->getdatacompB();
 		$param['dataComplain'] = $this->Mjeniscomplain->getjeniscomplainbyid($jenis_complain);

@@ -93,7 +93,8 @@ class CPetugas extends CI_Controller
 		redirect(base_url('Cpetugas/masterPetugas'));
 	}
 
-	public function getpetugasbyid($petugas){
+	public function getpetugasbyid(){
+		$petugas = $_GET['petugas'];
 		$this->load->view('template/headeradmin');
 		$param['datapetugas'] = $this->Mpetugas->getpetugasbyid($petugas);
 		$this->load->view('admin/Edit/editPetugas', $param);

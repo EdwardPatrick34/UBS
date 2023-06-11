@@ -114,7 +114,7 @@
 													<a href="<?php echo site_url('Cpetugas/deletePetugas/'.$row->PETUGAS); ?>">
 														<button class="btn btn-danger">Delete</button>
 													</a>
-													<a href="<?php echo base_url('Cpetugas/getpetugasbyid/'.$row->PETUGAS);?>">
+													<a href="<?php echo base_url('Cpetugas/getpetugasbyid?petugas='.$row->PETUGAS);?>">
 														<button class="btn btn-info">Edit</button>
 													</a>
 												</td>

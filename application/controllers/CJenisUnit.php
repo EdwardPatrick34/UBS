@@ -53,7 +53,8 @@ class CJenisUnit extends CI_Controller {
 		redirect(base_url('CJenisUnit/masterJenisUnit'));
 	}
 
-	public function getjenisunitbyid($jenis_unit){
+	public function getjenisunitbyid(){
+		$jenis_unit = $_GET['jenisunit'];
 		$this->load->view('template/headeradmin');
 		$param['datajenisunit'] = $this->Mjenisunit->getjenisunitbyid($jenis_unit);
 		$this->load->view('admin/Edit/editJenisUnit', $param);

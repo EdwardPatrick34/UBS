@@ -3,7 +3,6 @@ class McompA extends CI_Model{
     public function __construct(){
         parent::__construct();
         $this->load->database();
-		$this->load->library('session');
     }
 
     public function getdatacompA(){
@@ -162,19 +161,5 @@ class McompA extends CI_Model{
 			return $sql;
 	}
 
-	//ubah status 
-	public function ubahPending($no_complain, $tanggal, $jampending, $keterangan){
-		$user = $this->session->userdata('admin');
-		$sql = "update ed_compa set STATUS = '3', TGL_PENDING = to_date('".$tanggal."', 'yyyy-mm-dd HH:MI:SS'), JAM_PENDING = '".$jampending."', USERE_PENDING = '".$user."', KET_PENDING = '".$keterangan."' where NO_COMPLAIN = '".$no_complain."'";
-		$this->db->query($sql);
-	}
-
-	public function ubahBatal(){
-
-	}
-
-	public function ubahSelesai(){
-		
-	}
 }
 ?>

@@ -75,33 +75,24 @@
 					<div class="d-flex align-items-end row">
 						<div >
 							<div class="card-body" >
-								<h2 class="card-title text-primary"> Laporan Kegiatan Infrastruktur</h2>
+								<h2 class="card-title text-primary"> Laporan Pendingan Per Teknisi</h2>
 								<br>
-								<form action="<?php echo base_url('CRAdmin/SearchLKInfrastruktur'); ?>" method="post">
+								<form action="<?php echo base_url('CRAdmin/SearchLPTeknisi'); ?>" method="post">
 									<div class="mb-12 row">
 										<div class="col-sm-4 input-group input-group-merge">
 											
-											<label for="divisi" class=" col-form-label">Tanggal Awal</label>
+											<label for="teknisi" class=" col-form-label">Teknisi</label>
 											&nbsp;
 											&nbsp;
 											&nbsp;
 											<div style="width: 200px;">
-												<input type="date"  id="tglawal" name="tglawal"  class="form-control" value='' >
+												<input type="text"  id="teknisi" name="teknisi"  class="form-control" >
 											</div>
 											&nbsp;
 											&nbsp;
 											&nbsp;
 											&nbsp;
-											<label for="divisi" class=" col-form-label">Tanggal Akhir</label>
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											<div style="width: 200px;">
-												<input type="date"  id="tglakhir" name="tglakhir"  class="form-control">
-											</div>
-											&nbsp;
-											&nbsp;
-											&nbsp;
+											
 											<button type="submit" class="btn btn-primary">Search</button>
 											&nbsp;
 											&nbsp;
@@ -110,16 +101,14 @@
 											
 											
 											
+											
 										</div>
 
 									</div>
 
-									<label for="divisi" class=" col-form-label">Jenis Unit</label>
-											<div style="width: 200px;">
-												<input type="text"  id="jenisunit" name="jenisunit"  class="form-control">
-											</div>
-											<?php  if(isset($tglawal)): ?>
-											<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="<?php echo base_url('CExportExcel/LaporanKegiatanInfrastruktur?tglawal='.$tglawal ."&tglakir=" . $tglakir ."&ju=". $jenisunit); ?>">
+									
+											<?php  if(isset($teknisi)): ?>
+											<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="<?php echo base_url('CExportExcel/LaporanPendinganTeknisi?teknisi='.$teknisi); ?>">
 											
 											<i class="fa fa-file-excel-o"></i> 
 											Export to Excel
@@ -149,15 +138,16 @@
 									<thead>
 										<tr>
 
-											<th scope="col">No</th>
-											<th scope="col">Jenis Unit</th>
-											<th scope="col">Nama Jenis Unit</th>
-											<th scope="col">No. Complain</th>
+											<th scope="col">No Complain</th>
+											<th scope="col">Tgl Complain</th>
+											<th scope="col">Jam</th>
 											<th scope="col">Div</th>
-											<th scope="col">Sub</th>
-											<th scope="col">Ket Kerusakan</th>
-											<th scope="col">Tanggal</th>
-											<th scope="col">Status</th>
+											<th scope="col">USERE</th>
+											<th scope="col">KODE_UNIT</th>
+											<th scope="col">URAIAN</th>
+											<th scope="col">Tgl Pending</th>
+											<th scope="col">Jam Pending</th>
+											
 											
 											
 											
@@ -174,15 +164,17 @@
 										?>
 									<tr>
 										
-										<td scope="col"><?php echo $no; ?></td>
-										<td scope="col"><?php echo $row->JENIS_UNIT; ?></td>
-										<td scope="col"><?php echo $row->NAMA_JU; ?></td>
+										
 										<td scope="col"><?php echo $row->NO_COMPLAIN; ?></td>
+										<td scope="col"><?php echo $row->TGL_COMPLAIN; ?></td>
+										<td scope="col"><?php echo $row->JAM_COMPLAIN; ?></td>
 										<td scope="col"><?php echo $row->KODEDIV; ?></td>
-										<td scope="col"><?php echo $row->SUB; ?></td>
+										<td scope="col"><?php echo $row->USERE; ?></td>
+										<td scope="col"><?php echo $row->KODE_UNIT; ?></td>
 										<td scope="col"><?php echo $row->URAIAN; ?></td>
-										<td scope="col"><?php echo $row->TGL; ?>  <?php echo $row->JAM; ?></td>
-										<td scope="col"><?php echo $row->STATUS; ?></td>
+										<td scope="col"><?php echo $row->TGL_PENDING; ?></td>
+										<td scope="col"><?php echo $row->JAM_PENDING; ?></td>
+										
 										
 										
 						

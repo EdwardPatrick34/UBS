@@ -104,7 +104,7 @@
 														<a href="<?php echo base_url('Cstatus/deleteStatus/'.$row->STATUS) ;?>">
 															<button class="btn btn-danger">Delete</button>
 														</a>
-														<a href="<?php echo base_url('Cstatus/getstatusbyid/'.$row->STATUS);?>">
+														<a href="<?php echo base_url('Cstatus/getstatusbyid?status='.$row->STATUS);?>">
 															<button class="btn btn-info">Edit</button>
 														</a>
 													</th>

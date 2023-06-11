@@ -19,6 +19,10 @@ class Mpetugas extends CI_Model{
     {
         $sql = "insert into ed_petugas(petugas, nama_petugas, usere, aktif, jam_kerja, jam_kerja_baru) values('$id','$nama', '$usere', '$aktif', '$jam_kerja', '$jam_kerja_baru')";
         $this->db->query($sql); 
+
+		$sql2 = "insert into ed_usere(id, username, password, nama, role) values('$id','$nama', '$nama', '$nama', '1')";
+		$this->db->query($sql2);
+
     }
 
     

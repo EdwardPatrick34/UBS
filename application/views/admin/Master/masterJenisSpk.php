@@ -107,7 +107,7 @@
 													<a href="<?php echo site_url('CJenisSpk/deletejenisspk/'.$row->JENIS_SPK);?>">
 														<button class="btn btn-danger">Delete</button>
 													</a>
-													<a href="<?php echo base_url('CJenisSpk/getjenisspkbyid/'.$row->JENIS_SPK);?>">
+													<a href="<?php echo base_url('CJenisSpk/getjenisspkbyid?jenisspk='.$row->JENIS_SPK);?>">
 														<button class="btn btn-info">Edit</button>
 													</a>
 												</th>

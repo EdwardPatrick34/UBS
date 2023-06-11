@@ -163,6 +163,12 @@
 													<textarea class="form-control" name="uraian" readonly id="uraian"><?= $data->URAIAN ?></textarea>
 													</div>
 												</div>
+												<div class="mb-12 row">
+													<label for="uraian" class=" col-form-label" style="font-size: 20px;">STATUS TERAKHIR</label>
+													<div class="col-sm-4 input-group input-group-merge">
+													<div style="background-color: yellow; font-size: 30px;"><?= $data->NAMA_STATUS ?></div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>

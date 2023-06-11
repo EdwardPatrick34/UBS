@@ -105,7 +105,7 @@
 														<a href="<?php echo site_url('CJenisComplain/deleteJenisComplain/'.$row->JENIS_COMPLAIN);?>">
 															<button class="btn btn-danger">Delete</button>
 														</a>
-														<a href="<?php echo base_url('CJenisComplain/getjeniscomplainbyid/'.$row->JENIS_COMPLAIN);?>">
+														<a href="<?php echo base_url('CJenisComplain/getjeniscomplainbyid?jeniscomplain='.$row->JENIS_COMPLAIN);?>">
 															<button class="btn btn-info">Edit</button>
 														</a>
 													</th>

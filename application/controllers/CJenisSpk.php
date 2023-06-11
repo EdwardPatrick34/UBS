@@ -55,7 +55,8 @@ class CJenisSpk extends CI_Controller{
 		$this->load->view('template/footer');
 	}
 	
-	public function getjenisspkbyid($id){
+	public function getjenisspkbyid(){
+		$id = $_GET['jenisspk'];
 		$this->load->view('template/headeradmin');
 		
 		$param['datajenisspk'] = $this->Mjenisspk->getjenisspkbyid($id);

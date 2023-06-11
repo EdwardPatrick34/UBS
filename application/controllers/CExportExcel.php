@@ -166,7 +166,184 @@ class CExportExcel extends CI_Controller{
 		     
 	}
 
-	
+	public function LaporanKegiatanInfrastruktur(){
+
+		// $t = $this->input->post('data');
+		// var_dump($t);
+		$tglawalstring = $_GET['tglawal'];
+		$tglakhirstring = $_GET['tglakir'];
+		$jenisunit = $_GET['ju'];
+
+		$datalap = $this->Mlaporan->LKInfrastruktur($tglawalstring, $tglakhirstring, $jenisunit);
+		$datasum = $this->Mlaporan->SLKI($tglawalstring, $tglakhirstring, $jenisunit);
+
+		$fileName = 'laporanKegiatanInfrastruktur.xlsx';  
+		
+		// $employeeData = $this->EmployeeModel->employeeList();
+		$spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+       	$sheet->setCellValue('A1', 'Tanggal Complain :  '.$tglawalstring. '  s/d  '. $tglakhirstring);
+       	$sheet->setCellValue('A2', 'Jenis Unit :  '.$jenisunit);
+       	$sheet->setCellValue('A4', 'No');
+       	$sheet->setCellValue('B4', 'Jenis Unit');
+       	$sheet->setCellValue('C4', 'No. Complain');
+       	$sheet->setCellValue('D4', 'Div');
+       	$sheet->setCellValue('E4', 'Sub');
+       	$sheet->setCellValue('F4', 'Ket Kerusakan');
+       	$sheet->setCellValue('G4', 'Tanggal');
+       	$sheet->setCellValue('H4', 'Status');
+
+		$sheet->setCellValue('K3','SUMMARY');
+		$sheet->setCellValue('K4','JENIS UNIT');
+		$sheet->setCellValue('L4','TOTAL');
+       	
+       	
+		$rows = 5;
+		$no = 1;
+		foreach ($datalap->result() as $val){
+            $sheet->setCellValue('A' . $rows, $no);
+            $sheet->setCellValue('B' . $rows, $val->JENIS_UNIT);
+            
+            $sheet->setCellValue('C' . $rows, $val->NO_COMPLAIN);
+            $sheet->setCellValue('D' . $rows, $val->KODEDIV);
+            $sheet->setCellValue('E' . $rows, $val->SUB);
+            $sheet->setCellValue('F' . $rows, $val->URAIAN);
+            $sheet->setCellValue('G' . $rows, $val->TGL. ' ' .$val->JAM);
+            $sheet->setCellValue('H' . $rows, $val->STATUS);
+            
+	    	$no++;
+            $rows++;
+        } 
+
+		$rows2 = 5;
+		foreach ($datasum->result() as $val){
+            $sheet->setCellValue('K' . $rows2, $val->JENIS_UNIT);
+            $sheet->setCellValue('L' . $rows2, $val->TOTAL);
+            
+
+            $rows2++;
+        } 
+		
+        $writer = new Xlsx($spreadsheet);
+		$writer->save(FCPATH.'upload/'.$fileName);
+		header("Content-Type: application/vnd.ms-excel");
+        redirect(base_url()."/upload/".$fileName);
+		     
+	}	
+
+	public function LaporanPendinganTeknisi(){
+
+		// $t = $this->input->post('data');
+		// var_dump($t);
+		
+		$teknisi = $_GET['teknisi'];
+
+		$datalap = $this->Mlaporan->LPTeknisi($teknisi);
+		
+
+		$fileName = 'laporanPendinganTeknisi.xlsx';  
+		
+		// $employeeData = $this->EmployeeModel->employeeList();
+		$spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+       	$sheet->setCellValue('A1', 'Teknisi :  ');
+       	
+       	$sheet->setCellValue('A3', 'No');
+       	$sheet->setCellValue('B3', 'No. Complain');
+       	$sheet->setCellValue('C3', 'Tgl. Complain');
+       	$sheet->setCellValue('D3', 'Divisi');
+       	$sheet->setCellValue('E3', 'Kode Unit');
+       	$sheet->setCellValue('F3', 'Tgl Pending');
+       	
+
+		
+       	
+       	
+		$rows = 4;
+		$no = 1;
+		foreach ($datalap->result() as $val){
+            $sheet->setCellValue('A' . $rows, $no);
+            $sheet->setCellValue('B' . $rows, $val->NO_COMPLAIN);
+            $sheet->setCellValue('B' . $rows+1, 'Uraian : '. $val->URAIAN);
+            $sheet->setCellValue('B' . $rows+2, 'Keterangan : '. $val->KETERANGAN);
+            $sheet->setCellValue('C' . $rows, $val->TGL_COMPLAIN.'  '.$val->JAM_COMPLAIN);
+            $sheet->setCellValue('D' . $rows, $val->KODEDIV);
+            $sheet->setCellValue('E' . $rows, $val->KODE_UNIT);
+            $sheet->setCellValue('F' . $rows, $val->TGL_PENDING.'  '.$val->JAM_PENDING);
+            
+	    	$no++;
+            $rows+=3;
+        } 
+
+		
+		
+        $writer = new Xlsx($spreadsheet);
+		$writer->save(FCPATH.'upload/'.$fileName);
+		header("Content-Type: application/vnd.ms-excel");
+        redirect(base_url()."/upload/".$fileName);
+		     
+	}	
+
+	public function LaporanBarangRusak(){
+
+		// $t = $this->input->post('data');
+		// var_dump($t);
+		
+		$tglawalstring = $_GET['tglawal'];
+		$tglakhirstring = $_GET['tglakir'];
+		$jenisunit = $_GET['ju'];
+		$kodeunit = $_GET['kodeunit'];
+		$rusak = $_GET['rusak'];
+
+		$datalap = $this->Mlaporan->LBRusak($tglawalstring, $tglakhirstring, $jenisunit, $kodeunit, $rusak);
+		
+
+		$fileName = 'laporanBarangRusak.xlsx';  
+		
+		// $employeeData = $this->EmployeeModel->employeeList();
+		$spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+		$sheet->setCellValue('A1', 'Tanggal Complain :  '.$tglawalstring. '  s/d  '. $tglakhirstring);
+		$sheet->setCellValue('A2', 'Jenis Unit :  '.$jenisunit);
+		$sheet->setCellValue('A3', 'Kode Unit :  '.$kodeunit);
+		$sheet->setCellValue('A4', 'Rusak :  '.$rusak);
+       	
+       	$sheet->setCellValue('A5', 'No');
+       	$sheet->setCellValue('B5', 'Tgl. Selesai');
+       	$sheet->setCellValue('C5', 'No. Complain');
+       	$sheet->setCellValue('D5', 'Jenis Unit');
+       	$sheet->setCellValue('E5', 'Kode Unit');
+       	$sheet->setCellValue('F5', 'Uraian');
+       	$sheet->setCellValue('G5', 'Teknisi');
+       	
+
+		
+       	
+       	
+		$rows = 6;
+		$no = 1;
+		foreach ($datalap->result() as $val){
+            $sheet->setCellValue('A' . $rows, $no);
+            $sheet->setCellValue('B' . $rows, $val->TGL_SELESAI);
+            $sheet->setCellValue('C' . $rows, $val->NO_COMPLAIN);
+            
+            $sheet->setCellValue('D' . $rows, $val->JENIS_UNIT);
+            $sheet->setCellValue('E' . $rows, $val->KODE_UNIT);
+            $sheet->setCellValue('F' . $rows, $val->URAIAN);
+            $sheet->setCellValue('G' . $rows, $val->PETUGAS);
+            
+	    	$no++;
+            $rows++;
+        } 
+
+		
+		
+        $writer = new Xlsx($spreadsheet);
+		$writer->save(FCPATH.'upload/'.$fileName);
+		header("Content-Type: application/vnd.ms-excel");
+        redirect(base_url()."/upload/".$fileName);
+		     
+	}	
 }
 ?>
 

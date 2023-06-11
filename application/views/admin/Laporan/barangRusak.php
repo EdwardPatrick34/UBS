@@ -75,9 +75,9 @@
 					<div class="d-flex align-items-end row">
 						<div >
 							<div class="card-body" >
-								<h2 class="card-title text-primary"> Laporan Kegiatan Infrastruktur</h2>
+								<h2 class="card-title text-primary"> Laporan Barang Rusak</h2>
 								<br>
-								<form action="<?php echo base_url('CRAdmin/SearchLKInfrastruktur'); ?>" method="post">
+								<form action="<?php echo base_url('CRAdmin/SearchLBrusak'); ?>" method="post">
 									<div class="mb-12 row">
 										<div class="col-sm-4 input-group input-group-merge">
 											
@@ -118,8 +118,20 @@
 											<div style="width: 200px;">
 												<input type="text"  id="jenisunit" name="jenisunit"  class="form-control">
 											</div>
+
+											<label for="divisi" class=" col-form-label">Kode Unit</label>
+											<div style="width: 200px;">
+												<input type="text"  id="kodeunit" name="kodeunit"  class="form-control">
+											</div>
+											
+											<label for="divisi" class=" col-form-label">Rusak</label>
+											<select name="rusak" id="rusak" class="form-select" style="width: 200px;">
+												<option value="semua">Semua</option>
+												<option value="ya">Ya</option>
+												<option value="tidak">Tidak</option>
+											</select>
 											<?php  if(isset($tglawal)): ?>
-											<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="<?php echo base_url('CExportExcel/LaporanKegiatanInfrastruktur?tglawal='.$tglawal ."&tglakir=" . $tglakir ."&ju=". $jenisunit); ?>">
+											<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="<?php echo base_url('CExportExcel/LaporanBarangRusak?tglawal='.$tglawal ."&tglakir=" . $tglakir ."&ju=". $jenisunit . "&kodeunit=". $kodeunit. "&rusak=". $rusak); ?>">
 											
 											<i class="fa fa-file-excel-o"></i> 
 											Export to Excel
@@ -150,14 +162,13 @@
 										<tr>
 
 											<th scope="col">No</th>
-											<th scope="col">Jenis Unit</th>
-											<th scope="col">Nama Jenis Unit</th>
+											<th scope="col">TGL</th>
 											<th scope="col">No. Complain</th>
-											<th scope="col">Div</th>
-											<th scope="col">Sub</th>
-											<th scope="col">Ket Kerusakan</th>
-											<th scope="col">Tanggal</th>
-											<th scope="col">Status</th>
+											<th scope="col">Jenis Unit</th>
+											<th scope="col">Unit</th>
+											<th scope="col">Uraian</th>
+											<th scope="col">Teknisi</th>
+											
 											
 											
 											
@@ -175,14 +186,13 @@
 									<tr>
 										
 										<td scope="col"><?php echo $no; ?></td>
-										<td scope="col"><?php echo $row->JENIS_UNIT; ?></td>
-										<td scope="col"><?php echo $row->NAMA_JU; ?></td>
+										<td scope="col"><?php echo $row->TGL_SELESAI; ?></td>
 										<td scope="col"><?php echo $row->NO_COMPLAIN; ?></td>
-										<td scope="col"><?php echo $row->KODEDIV; ?></td>
-										<td scope="col"><?php echo $row->SUB; ?></td>
+										<td scope="col"><?php echo $row->JENIS_UNIT; ?></td>
+										<td scope="col"><?php echo $row->KODE_UNIT; ?></td>
 										<td scope="col"><?php echo $row->URAIAN; ?></td>
-										<td scope="col"><?php echo $row->TGL; ?>  <?php echo $row->JAM; ?></td>
-										<td scope="col"><?php echo $row->STATUS; ?></td>
+										<td scope="col"><?php echo $row->PETUGAS; ?></td>
+										
 										
 										
 						

@@ -76,61 +76,7 @@
 						<div >
 							<div class="card-body" >
 								<h2 class="card-title text-primary"> Laporan History Complain</h2>
-								<br>
-								<form action="<?php echo base_url('CRAdmin/SearchLHistoryComplain'); ?>" method="post">
-									<div class="mb-12 row">
-										<div class="col-sm-4 input-group input-group-merge">
-											
-											<label for="divisi" class=" col-form-label">Tanggal Awal</label>
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											<div style="width: 200px;">
-												<input type="date"  id="tglawal" name="tglawal"  class="form-control">
-											</div>
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											<label for="divisi" class=" col-form-label">Tanggal Akhir</label>
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											<div style="width: 200px;">
-												<input type="date"  id="tglakhir" name="tglakhir"  class="form-control">
-											</div>
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											<button type="submit" class="btn btn-primary">Search</button>
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											
-
-											<?php  if(isset($tglawal)): ?>
-											<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="<?php echo base_url('CExportExcel/LaporanHistoryComplain?tglawal='.$tglawal ."&tglakir=" . $tglakir); ?>">
-											
-											<i class="fa fa-file-excel-o"></i> 
-											Export to Excel
-											</a>
-
-											<?php else: ?>
-												<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="<?php echo base_url('CExportExcel/LaporanHistoryComplain'); ?>">
-											
-											<i class="fa fa-file-excel-o"></i> 
-											Export to Excel
-											</a>
-												
-											<?php endif; ?>
-											
-											
-											
-										</div>
-
-									</div>
-								</form>
-								<br>
+								
 							
 												
 								<br><br>

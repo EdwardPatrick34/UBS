@@ -76,7 +76,8 @@ class Cstatus extends CI_Controller
 		redirect(base_url('Cstatus/masterStatus'));
 	}
     
-	public function getstatusbyid($status){
+	public function getstatusbyid(){
+		$status = $_GET['status'];
 		$this->load->view('template/headeradmin');
 		$param['datastatus'] = $this->Mstatus->getstatusbyid($status);
 		$this->load->view('admin/Edit/editStatus', $param);
