@@ -21,6 +21,11 @@ class McompA extends CI_Model{
         return $sql;
 	}
 
+	public function getDone(){
+		$sql = $this->db->query("select * from ed_compA WHERE STATUS=5");
+        return $sql;
+	}
+
     public function insertcompa($kode_divisi, $no_divisi, $kode_unit, $lokasi_unit, $uraian, $tgl, $jam, $tgljam) {
         $qry = $this->db->query('select * from ed_compA'); 
         $count = $qry->num_rows() + 1; 
@@ -190,6 +195,13 @@ class McompA extends CI_Model{
 	public function ubahPendingSelesai($no_complain){
 		$sql = "update ed_compa set STATUS='1' where NO_COMPLAIN = '".$no_complain."'";
 		$this->db->query($sql); 
+	}
+
+	public function ubahPengesahan($no_complain, $tanggal, $jampending){
+		$user = $this->session->userdata('adminNonIT');
+		$usere = $user->ID;
+		$sql = "update ed_compa set STATUS='4', TGL_SAH=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), JAM_SAH='".$jampending."', USERE_SAH='".trim($usere)."' where NO_COMPLAIN = '".$no_complain."'";
+		$this->db->query($sql);
 	}
 }
 ?>
