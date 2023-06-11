@@ -101,7 +101,7 @@
 													<th scope="col"><?php echo $row->NAMA_STATUS; ?></th>
 													<th scope="col"><?php echo $row->USERE; ?></th>
 													<th>
-														<a href="<?php echo site_url('Cstatus/deleteStatus/'.$row->STATUS) ;?>">
+														<a href="<?php echo base_url('Cstatus/deleteStatus/'.$row->STATUS) ;?>">
 															<button class="btn btn-danger">Delete</button>
 														</a>
 														<a href="<?php echo base_url('Cstatus/getstatusbyid/'.$row->STATUS);?>">

@@ -12,6 +12,7 @@ class Ccompkomputer extends CI_Controller{
 		$this->load->model("Mjenisunit");
 		$this->load->library('form_validation');
 		$this->load->library('session');
+		$this->load->helper('url');
 	}
 
 	public function myList(){
@@ -138,6 +139,9 @@ class Ccompkomputer extends CI_Controller{
 		}
 
 		redirect(base_url("Ccompkomputer/CreateComplain"));
+		$this->session->unset_userdata('session_unit');
+		$this->session->unset_userdata('session_spk');
+		$this->toastr->success('Berhasil menambahkan complain');
 	}
 
 	public function deleteunit(){
@@ -162,6 +166,7 @@ class Ccompkomputer extends CI_Controller{
 	public function cariComplain(){
 
 		$no_complain = $this->input->post("cariNoComplain");
+		
 
 		$this->load->view('template/headeradminSIT');
 
@@ -203,8 +208,61 @@ class Ccompkomputer extends CI_Controller{
 	//  end detail complain laporan history complain
 
 
+	// ubah status + lihat detail
+	public function lihatdetailpending($no_complain){
+		$this->load->view('template/headeradmin');
+		$param['key'] = $no_complain;
+		$this->session->set_userdata('no_complain', $no_complain);
+		$param["dataheader"] = $this->McompA->cariComplain1($no_complain);
+		$param["datadetail1"] = $this->McompA->CariComplain2($no_complain);
+		$param["datadetail2"] = $this->McompA->CariComplain3($no_complain);
+		$this->load->view('admin/infrastruktur/hasilcomplainpending', $param);
+		$this->load->view('template/footer');
+	}
+
+	public function ubahPending(){
+		$no_complain = $this->session->userdata('no_complain');
+		$keterangan = $this->input->post('ket_pending');
+		$tanggal = date('Y:M:D H:i');
+		$arrtanggal = explode(" ", $tanggal);
+		$tanggalpending = $arrtanggal[0]; 
+		$jampending = $arrtanggal[1];
+		
+		
+		$this->McompA->ubahPending($no_complain, $tanggal, $jampending, $keterangan);
+		$this->toastr->success('Berhasil mengubah status complain menjadi pending');
+		redirect(base_url('/CRAdmin/listmonitorspkpending'));
+
+		$this->session->unset_userdata('no_complain');
+	}
 
 
+	public function lihatdetailselesaicomplain(){
+		$this->load->view('template/headeradmin');
+		$param['key'] = $no_complain;
+		$param["dataheader"] = $this->McompA->cariComplain1($no_complain);
+		$param["datadetail1"] = $this->McompA->CariComplain2($no_complain);
+		$param["datadetail2"] = $this->McompA->CariComplain3($no_complain);
+		$this->load->view('admin/infrastruktur/hasilcomplainpending', $param);
+		$this->load->view('template/footer');
+	}
 
+	public function ubahselesaicomplain(){
+
+	}
+
+	public function lihatdetailbatalcomplain($no_complain){
+		$this->load->view('template/headeradmin');
+		$param['key'] = $no_complain;
+		$param["dataheader"] = $this->McompA->cariComplain1($no_complain);
+		$param["datadetail1"] = $this->McompA->CariComplain2($no_complain);
+		$param["datadetail2"] = $this->McompA->CariComplain3($no_complain);
+		$this->load->view('admin/infrastruktur/hasilcomplainpending', $param);
+		$this->load->view('template/footer');
+	}
+
+	public function ubahbatalcomplain(){
+
+	}
 }
 ?>

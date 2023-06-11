@@ -35,6 +35,5 @@ class Mjenisunit extends CI_Model{
         $sql = $this->db->query("select * from ed_jenisunit where jenis_unit = '".$jenis_unit."'");
         return $sql;
     }
-    
 }
 ?>
