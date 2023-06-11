@@ -1,3 +1,7 @@
+
+
+
+
 <!-- Layout container -->
 <div class="layout-page">
 	<!-- Navbar -->
@@ -236,7 +240,7 @@
 													<th scope="col">Jenis SPK</th>
 													<th scope="col">Nama SPK</th>
 													<th scope="col">Durasi (Menit)</th>
-													
+													<th scope="col">Aksi</th>
 												</tr>
 											</thead>
 											<tbody id="hasiljenisspk">
@@ -253,15 +257,13 @@
 												<?php endforeach; ?>
 											</tbody>
 										</table>
-										
+
 										<br>
-										<div class="mb-12-row">
-											<a href="<?php echo base_url('/Ccompkomputer/ubahbatalcomplain')?>">
-												<button class="btn btn-danger">BATAL</button>
+										<div >
+											<a href="<?php echo base_url('/Ccompkomputer/ubahselesaicomplain')?>">
+												<button class="btn btn-success">SELESAI</button>
 											</a>
 										</div>
-
-										
 									</div>
 								</div>
 							</div>

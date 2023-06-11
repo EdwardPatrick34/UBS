@@ -77,7 +77,7 @@
 		<!-- Content -->
 
 		<div class="container-xxl flex-grow-1 container-p-y">
-			<h4 class="fw-bold py-3 mb-4"> Monitoring SPK Divisi</h4>
+			<h4 class="fw-bold py-3 mb-4"> Monitoring Complain Divisi</h4>
 			<div class="row">
 				<div class="col-xxl">
 
@@ -88,10 +88,10 @@
 									</div>
 									<div class="card-body" >
 										
-				
+										
 									
 									<h5 class="mb-0" style="margin-top: 1px;">Status Comlpain</h5>
-								
+									
 									<table id="Tcomplain2" class="table  border-dark table-hover">
 										<br>
 										<thead>
@@ -103,6 +103,7 @@
 												<th scope="col">JAM</th>
 												<th scope="col">UNIT</th>
 												<th scope="col">URAIAN</th>
+
 												<th scope="col">Aksi</th>
 											</tr>
 										</thead>
@@ -119,8 +120,8 @@
 													<td scope="col" ><?= $row->KODE_UNIT  ?> </td>
 													<td scope="col" ><?= $row->URAIAN  ?> </td>
 													<td>
-														<a href="<?php echo base_url('Ccompkomputer/lihatdetailselesaicomplain?nocomp='.$row->NO_COMPLAIN);?>">
-															<button class="btn btn-success">Selesai</button>
+														<a href="<?php echo base_url('Ccompkomputer/lihatdetailpendingselesai?nocomp='.$row->NO_COMPLAIN);?>">
+															<button class="btn btn-primary">Aktif</button>
 														</a>
 													</td>
 												

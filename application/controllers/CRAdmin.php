@@ -550,14 +550,14 @@ class CRAdmin extends CI_Controller{
 		$this->load->view('template/footer');
 	}
 
-	public function filtermonitorspkpending(){
+	public function filtermonitorspkbatal(){
 		$this->load->view('template/headeradmin');
 		$status = $this->input->post("statusc");
 
 		if($status == 1)
 		{
 			$param["data"] = $this->McompA->getMC();
-			$this->load->view('admin/infrastruktur/spkComplainPending', $param);
+			$this->load->view('admin/infrastruktur/spkComplainBatal', $param);
 		}
 		else if($status == 2){
 			$param["stat"] = "Spk";
@@ -584,7 +584,8 @@ class CRAdmin extends CI_Controller{
 
 	public function listpendingkeselesai(){
 		$this->load->view('template/headeradmin');
-
+		$param['data'] = $this->McompA->getPending();
+		$this->load->view('admin/infrastruktur/compPendingSelesai', $param);
 		$this->load->view('template/footer');
 	}
 }

@@ -77,7 +77,7 @@
 		<!-- Content -->
 
 		<div class="container-xxl flex-grow-1 container-p-y">
-			<h4 class="fw-bold py-3 mb-4"> Monitoring SPK Divisi</h4>
+			<h4 class="fw-bold py-3 mb-4"> Monitoring Complain Divisi</h4>
 			<div class="row">
 				<div class="col-xxl">
 
@@ -88,27 +88,8 @@
 									</div>
 									<div class="card-body" >
 										
-										<form action="<?= base_url("CRAdmin/filtermonitorspkpending") ?>" method="post">
-										<div class="d-flex align-items-center">
-											<h5 class="mb-0" style="margin-top: 1px;">Pilihan</h5>
-											&nbsp;
-											&nbsp;
-											&nbsp;
-									    
-											<div style="width: 150px;">
-												<select name="statusc" id="statusc" class="form-select">
-												<option value="1">Complain</option>
-												<option value="2">Spk</option>
-												</select>
-											</div>
-											
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											<button type="submit" class="btn btn-primary">Pilih</button>
-										</div>
-										</form>
-									<br><br>
+										
+									
 									<h5 class="mb-0" style="margin-top: 1px;">Status Comlpain</h5>
 									
 									<table id="Tcomplain2" class="table  border-dark table-hover">
@@ -139,7 +120,7 @@
 													<td scope="col" ><?= $row->KODE_UNIT  ?> </td>
 													<td scope="col" ><?= $row->URAIAN  ?> </td>
 													<td>
-														<a href="<?php echo base_url('Ccompkomputer/lihatdetailpending/'.$row->NO_COMPLAIN);?>">
+														<a href="<?php echo base_url('Ccompkomputer/lihatdetailpending?nocomp='.$row->NO_COMPLAIN);?>">
 															<button class="btn btn-warning">Pending</button>
 														</a>
 													</td>

@@ -122,6 +122,7 @@
 												<th scope="col">JAM</th>
 												<th scope="col">UNIT</th>
 												<th scope="col">URAIAN</th>
+												<th scope="col">Aksi</th>
 											</tr>
 										</thead>
 												
@@ -136,7 +137,11 @@
 													<td scope="col" ><?= $row->JAM  ?> </td>
 													<td scope="col" ><?= $row->KODE_UNIT  ?> </td>
 													<td scope="col" ><?= $row->URAIAN  ?> </td>
-													
+													<td>
+														<a href="<?php echo base_url('Ccompkomputer/lihatdetailbatalcomplain?nocomp='.$row->NO_COMPLAIN);?>">
+															<button class="btn btn-danger">Batal</button>
+														</a>
+													</td>
 												
 												</tr>
 											<?php endforeach; ?>

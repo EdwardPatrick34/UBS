@@ -137,11 +137,12 @@ class Ccompkomputer extends CI_Controller{
 			$realisasi = 0;
 			$this->McompC->insertdata($nocomplain, $sub_complain, $jenis_spk, $realisasi);
 		}
-
-		redirect(base_url("Ccompkomputer/CreateComplain"));
+		
 		$this->session->unset_userdata('session_unit');
 		$this->session->unset_userdata('session_spk');
 		$this->toastr->success('Berhasil menambahkan complain');
+		redirect(base_url("Ccompkomputer/CreateComplain"));
+		
 	}
 
 	public function deleteunit(){
@@ -209,7 +210,8 @@ class Ccompkomputer extends CI_Controller{
 
 
 	// ubah status + lihat detail
-	public function lihatdetailpending($no_complain){
+	public function lihatdetailpending(){
+		$no_complain = $_GET['nocomp'];
 		$this->load->view('template/headeradmin');
 		$param['key'] = $no_complain;
 		$this->session->set_userdata('no_complain', $no_complain);
@@ -223,13 +225,18 @@ class Ccompkomputer extends CI_Controller{
 	public function ubahPending(){
 		$no_complain = $this->session->userdata('no_complain');
 		$keterangan = $this->input->post('ket_pending');
-		$tanggal = date('Y:M:D H:i');
+		$tanggal = date('Y:m:d H:i:s');
 		$arrtanggal = explode(" ", $tanggal);
 		$tanggalpending = $arrtanggal[0]; 
 		$jampending = $arrtanggal[1];
+
+		$arrjam = explode(":", $jampending);
+		$jam = $arrjam[0];
+		$menit = $arrjam[1];
+		$jamtotal = $jam.":".$menit;
 		
 		
-		$this->McompA->ubahPending($no_complain, $tanggal, $jampending, $keterangan);
+		$this->McompA->ubahPending($no_complain, $tanggal, $jamtotal, $keterangan);
 		$this->toastr->success('Berhasil mengubah status complain menjadi pending');
 		redirect(base_url('/CRAdmin/listmonitorspkpending'));
 
@@ -238,31 +245,88 @@ class Ccompkomputer extends CI_Controller{
 
 
 	public function lihatdetailselesaicomplain(){
-		$this->load->view('template/headeradmin');
+		$no_complain = $_GET['nocomp'];
 		$param['key'] = $no_complain;
+		$this->load->view('template/headeradmin');
 		$param["dataheader"] = $this->McompA->cariComplain1($no_complain);
 		$param["datadetail1"] = $this->McompA->CariComplain2($no_complain);
 		$param["datadetail2"] = $this->McompA->CariComplain3($no_complain);
-		$this->load->view('admin/infrastruktur/hasilcomplainpending', $param);
+		$this->load->view('admin/infrastruktur/hasilcomplainselesai', $param);
 		$this->load->view('template/footer');
 	}
 
 	public function ubahselesaicomplain(){
+		$no_complain = $this->session->userdata('no_complain');
+		$keterangan = $this->input->post('ket_pending');
+		$tanggal = date('Y:m:d H:i:s');
+		$arrtanggal = explode(" ", $tanggal);
+		$tanggalpending = $arrtanggal[0]; 
+		$jampending = $arrtanggal[1];
 
+		$arrjam = explode(":", $jampending);
+		$jam = $arrjam[0];
+		$menit = $arrjam[1];
+		$jamtotal = $jam.":".$menit;
+		
+		
+		$this->McompA->ubahSelesai($no_complain);
+		$this->toastr->success('Berhasil mengubah status complain menjadi selesai');
+		redirect(base_url('/CRAdmin/listmonitorspkselesai'));
+
+		$this->session->unset_userdata('no_complain');
 	}
 
-	public function lihatdetailbatalcomplain($no_complain){
+	public function lihatdetailbatalcomplain(){
+		$no_complain = $_GET['nocomp'];
 		$this->load->view('template/headeradmin');
 		$param['key'] = $no_complain;
+		$this->session->set_userdata('no_complain', $no_complain);
 		$param["dataheader"] = $this->McompA->cariComplain1($no_complain);
 		$param["datadetail1"] = $this->McompA->CariComplain2($no_complain);
 		$param["datadetail2"] = $this->McompA->CariComplain3($no_complain);
-		$this->load->view('admin/infrastruktur/hasilcomplainpending', $param);
+		$this->load->view('admin/infrastruktur/hasilcomplainbatal', $param);
 		$this->load->view('template/footer');
 	}
 
 	public function ubahbatalcomplain(){
+		$no_complain = $this->session->userdata('no_complain');
+		$tanggal = date('Y:m:d H:i:s');
+		$arrtanggal = explode(" ", $tanggal);
+		$tanggalpending = $arrtanggal[0]; 
+		$jampending = $arrtanggal[1];
 
+		$arrjam = explode(":", $jampending);
+		$jam = $arrjam[0];
+		$menit = $arrjam[1];
+		$jamtotal = $jam.":".$menit;
+		
+		
+		$this->McompA->ubahBatal($no_complain, $tanggal, $jamtotal);
+		$this->toastr->success('Berhasil mengubah status complain menjadi batal');
+		redirect(base_url('/CRAdmin/listmonitorspkbatal'));
+
+		$this->session->unset_userdata('no_complain');
+	}
+
+	public function lihatdetailpendingselesai(){
+		$no_complain = $_GET['nocomp'];
+		$this->load->view('template/headeradmin');
+		$param['key'] = $no_complain;
+		$this->session->set_userdata('no_complain', $no_complain);
+		$param["dataheader"] = $this->McompA->cariComplain1($no_complain);
+		$param["datadetail1"] = $this->McompA->CariComplain2($no_complain);
+		$param["datadetail2"] = $this->McompA->CariComplain3($no_complain);
+		$this->load->view('admin/infrastruktur/hasilpendingselesai', $param);
+		$this->load->view('template/footer');
+	}
+
+	public function ubahpendingselesai(){
+		$no_complain = $this->session->userdata('no_complain');
+		$this->McompA->ubahPendingSelesai($no_complain);
+		$this->toastr->success('Berhasil mengubah status complain menjadi aktif');
+		redirect(base_url('/CRAdmin/listpendingkeselesai'));
+
+		$this->session->unset_userdata('no_complain');
 	}
 }
 ?>

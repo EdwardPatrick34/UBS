@@ -16,6 +16,11 @@ class McompA extends CI_Model{
         return $sql;
     }
 
+	public function getPending(){
+		$sql = $this->db->query("select * from ed_compA WHERE STATUS=3");
+        return $sql;
+	}
+
     public function insertcompa($kode_divisi, $no_divisi, $kode_unit, $lokasi_unit, $uraian, $tgl, $jam, $tgljam) {
         $qry = $this->db->query('select * from ed_compA'); 
         $count = $qry->num_rows() + 1; 
@@ -165,16 +170,26 @@ class McompA extends CI_Model{
 	//ubah status 
 	public function ubahPending($no_complain, $tanggal, $jampending, $keterangan){
 		$user = $this->session->userdata('admin');
-		$sql = "update ed_compa set STATUS = '3', TGL_PENDING = to_date('".$tanggal."', 'yyyy-mm-dd HH:MI:SS'), JAM_PENDING = '".$jampending."', USERE_PENDING = '".$user."', KET_PENDING = '".$keterangan."' where NO_COMPLAIN = '".$no_complain."'";
+		$usere = $user->ID;
+		$sql = "update ed_compa set STATUS='3', TGL_PENDING=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), JAM_PENDING='".$jampending."', USERE_PENDING='".trim($usere)."', KET_PENDING='".$keterangan."' where NO_COMPLAIN = '".$no_complain."'";
 		$this->db->query($sql);
 	}
 
-	public function ubahBatal(){
-
+	public function ubahBatal($no_complain, $tanggal, $jambatal){
+		$user = $this->session->userdata('admin');
+		$usere = $user->ID;
+		$sql = "update ed_compa set STATUS='6', TGL_BATAL=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), JAM_BATAL='".$jambatal."', USERE_BATAL='".trim($usere)."' where NO_COMPLAIN = '".$no_complain."'";
+		$this->db->query($sql); 
 	}
 
-	public function ubahSelesai(){
-		
+	public function ubahSelesai($no_complain){
+		$sql = "update ed_compa set STATUS='5' where NO_COMPLAIN = '".$no_complain."'";
+		$this->db->query($sql); 
+	}
+
+	public function ubahPendingSelesai($no_complain){
+		$sql = "update ed_compa set STATUS='1' where NO_COMPLAIN = '".$no_complain."'";
+		$this->db->query($sql); 
 	}
 }
 ?>

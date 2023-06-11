@@ -185,7 +185,7 @@
                   </a>
                 </li>
 								<li class="menu-item">
-                  <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
+                  <a href="<?= base_url('CRAdmin/listpendingkeselesai')?>" class="menu-link">
                     <div >Ubah Pending Jadi SPK lagi</div>
                   </a>
                 </li>
