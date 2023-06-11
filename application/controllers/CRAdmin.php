@@ -154,7 +154,7 @@ class CRAdmin extends CI_Controller{
 
 	public function listComplain(){
 		$this->load->view('template/headeradmin');
-		$param["data"] = $this->McompA->getdatacompA();
+		$param["data"] = $this->McompA->getdatacompANonSPK();
 		
 		$this->load->view("admin/infrastruktur/listComplain", $param);
 		$this->load->view('template/footer');
