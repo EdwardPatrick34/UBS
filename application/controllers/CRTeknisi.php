@@ -33,7 +33,7 @@ class CRTeknisi extends CI_Controller{
 	// STart monitoring COmplain
 	public function MonitoringComplain(){
 		$this->load->view('template/headerTeknisi');
-		$param["data"] = $this->McompA->getdatacompA();
+		$param["data"] = $this->McompA->getMC();
 		
 		$this->load->view("teknisi/edpinfra/monitoringComplain/Complain", $param);
 		$this->load->view('template/footer');
@@ -48,7 +48,7 @@ class CRTeknisi extends CI_Controller{
 
 		//jadi di sini halaman akan berganti sesuai dengan status yang dipilih
 		if ($status == 1) {
-			$param["data"] = $this->McompA->getdatacompA();	
+			$param["data"] = $this->McompA->getMC();	
 			
 			$this->load->view("teknisi/edpinfra/monitoringComplain/Complain", $param);
 		}
