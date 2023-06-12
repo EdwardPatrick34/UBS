@@ -18,7 +18,7 @@ class McompA extends CI_Model{
 	
 
 	public function getMC(){
-        $sql = $this->db->query("select * from ed_compA WHERE STATUS=1");
+        $sql = $this->db->query("select * from ed_compA WHERE STATUS=7");
         return $sql;
     }
 

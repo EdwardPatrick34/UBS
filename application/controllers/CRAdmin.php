@@ -199,7 +199,7 @@ class CRAdmin extends CI_Controller{
 
 		else if($status == 4){
 			$param["stat"] = "Selesai";
-			$param["data"] = $this->MspkA->getMCpending();
+			$param["data"] = $this->MspkA->getMCselesai();
 			$this->load->view("admin/infrastruktur/monitoringComplain/spk", $param);
 
 		}
