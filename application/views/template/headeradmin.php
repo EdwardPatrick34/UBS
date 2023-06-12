@@ -107,11 +107,11 @@
                     <div >User</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                <!-- <li class="menu-item">
                   <a href="<?= base_url('CUnit/masterUnit') ?>" class="menu-link">
                     <div >Unit</div>
                   </a>
-                </li>
+                </li> -->
                 <li class="menu-item">
                   <a href="<?= base_url('CJenisUnit/masterJenisUnit') ?>" class="menu-link">
                     <div >Jenis Unit</div>
@@ -132,11 +132,11 @@
                     <div >Status</div>
                   </a>
                 </li>
-								<li class="menu-item">
-                  <a href="<?= base_url('CRepair/masterRepair') ?>" class="menu-link">
-                    <div >Repair</div>
-                  </a>
-                </li>
+									<!-- <li class="menu-item">
+										<a href="<?= base_url('CRepair/masterRepair') ?>" class="menu-link">
+											<div >Repair</div>
+										</a>
+									</li> -->
 								<li class="menu-item">
                   <a href="<?= base_url('CJenisSpk/masterJenisSpk') ?>" class="menu-link">
                     <div >Jenis SPK</div>
@@ -239,12 +239,12 @@
                     <div >Laporan Barang Rusak</div>
                   </a>
                 </li>
-								<li class="menu-item">
+								<!-- <li class="menu-item">
                   <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Listing Teknisi yang belum dapat SPK</div>
                   </a>
-                </li>
-								<li class="menu-item">
+                </li> -->
+								<!-- <li class="menu-item">
                   <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Listing Teknisi yang dapat SPK per range Tanggal</div>
                   </a>
@@ -258,10 +258,10 @@
                   <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Listing SPK per teknisi per Range Tanggal SPK</div>
                   </a>
-                </li>
+                </li> -->
 								
 								
-								<li class="menu-item">
+								<!-- <li class="menu-item">
                   <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Laporan Perbaikan Infrastruktur</div>
                   </a>
@@ -270,14 +270,14 @@
                   <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Jumlah Complain Divisi per Bulan</div>
                   </a>
-                </li>
+                </li> -->
 								
 								
-								<li class="menu-item">
+								<!-- <li class="menu-item">
                   <a href="CRAdmins-account-settings-notifications.html" class="menu-link">
                     <div >Laporan KPI Infrastruktur</div>
                   </a>
-                </li>
+                </li> -->
 								
 
               </ul>

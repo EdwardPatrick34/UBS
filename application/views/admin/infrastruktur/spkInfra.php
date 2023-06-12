@@ -68,7 +68,7 @@
 			<h4 class="fw-bold py-3 mb-4"> Surat Perintah Kerja EDP - Infrastruktur</h4>
 			<div class="col-sm-4 input-group input-group-merge">
 						
-				<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalcari">Cari</button>
+				<!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalcari">Cari</button> -->
 				&nbsp;
 				&nbsp;
 			<form action="<?php echo site_url("/Cspk/insertSpk");?>" method="post">	
