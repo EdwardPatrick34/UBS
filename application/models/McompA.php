@@ -22,6 +22,11 @@ class McompA extends CI_Model{
         return $sql;
     }
 
+	public function getsudahspk(){
+        $sql = $this->db->query("select * from ed_compA WHERE STATUS=7");
+        return $sql;
+    }
+
 	public function getPending(){
 		$sql = $this->db->query("select * from ed_compA WHERE STATUS=3");
         return $sql;

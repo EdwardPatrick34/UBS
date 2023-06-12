@@ -545,7 +545,7 @@ class CRAdmin extends CI_Controller{
 	// Monitor (gak kepape)
 	public function listmonitorspkpending(){
 		$this->load->view('template/headeradmin');
-		$param["data"] = $this->McompA->getMC();
+		$param["data"] = $this->McompA->getsudahspk();
 		$this->load->view('admin/infrastruktur/spkComplainPending', $param);
 		$this->load->view('template/footer');
 	}
@@ -570,14 +570,14 @@ class CRAdmin extends CI_Controller{
 	public function listmonitorspkselesai(){
 		$this->load->view('template/headeradmin');
 		$status = $this->input->post("statusc");
-		$param['data'] = $this->McompA->getMC();
+		$param['data'] = $this->McompA->getsudahspk();
 		$this->load->view('admin/infrastruktur/spkComplainSelesai', $param);
 		$this->load->view('template/footer');
 	}
 
 	public function listmonitorspkbatal(){
 		$this->load->view('template/headeradmin');
-		$param['data'] = $this->McompA->getMC();
+		$param['data'] = $this->McompA->getsudahspk();
 		$this->load->view('admin/infrastruktur/spkComplainBatal', $param);
 		$this->load->view('template/footer');
 	}
