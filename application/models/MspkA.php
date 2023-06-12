@@ -14,7 +14,7 @@ class MspkA extends CI_Model{
 
     public function insertspkA($no_complain, $tgljamspk, $jamspk, $tglspk, $tgljamlapor, $jamlapor, $tgllapor, $usere, $status){
 		$user = $this->session->userdata('admin');
-		$idusere = $user->USERE;
+		$idusere = $user->ID;
         $qry = $this->db->query("select * from ed_spkA");
         $count = $qry->num_rows() + 1;
         $no_spk = 'ZN'.substr(date("Y"),2,2).str_pad($count, 6 , "0", STR_PAD_LEFT);

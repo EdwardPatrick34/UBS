@@ -40,7 +40,7 @@ class McompA extends CI_Model{
 
     public function insertcompa($kode_divisi, $no_divisi, $kode_unit, $lokasi_unit, $uraian, $tgl, $jam, $tgljam) {
 		$user = $this->session->userdata('adminNonIT');
-		$usere = $user->USERE;
+		$usere = $user->ID;
         $qry = $this->db->query('select * from ed_compA'); 
         $count = $qry->num_rows() + 1; 
         $nocomplain = 'ZM'.substr(date("Y"), 2, 2).str_pad($count, 6, "0", STR_PAD_LEFT);
@@ -217,6 +217,11 @@ class McompA extends CI_Model{
 		$usere = $user->ID;
 		$sql = "update ed_compa set STATUS='4', TGL_SAH=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), JAM_SAH='".$jampending."', TGL_S=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), JAM_S='".$jampending."',USERE_SAH='".trim($usere)."' where NO_COMPLAIN = '".$no_complain."'";
 		$this->db->query($sql);
+	}
+
+	public function ubahRusak($no_complain){
+		$sql = "update ed_compa set STATUS='2' where NO_COMPLAIN = '".$no_complain."'";
+		$this->db->query($sql); 
 	}
 }
 ?>

@@ -49,8 +49,6 @@ class Cuser extends CI_Controller{
 			$this->load->view('template/footer');
 			$this->session->set_userdata('adminNonIT', $u);
 		}
-
-
 	}
 
 

@@ -122,6 +122,9 @@
 														<a href="<?php echo base_url('Ccompkomputer/lihatdetailselesaicomplain?nocomp='.$row->NO_COMPLAIN);?>">
 															<button class="btn btn-success">Selesai</button>
 														</a>
+														<a href="<?php echo base_url('Ccompkomputer/ubahrusakcomplain?nocomp='.$row->NO_COMPLAIN);?>">
+															<button class="btn btn-danger">Rusak</button>
+														</a>
 													</td>
 												
 												</tr>

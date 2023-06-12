@@ -116,6 +116,12 @@ class CRTeknisi extends CI_Controller{
 		$this->session->unset_userdata('no_complain');
 	}
 
+	public function ubahrusakcomplainteknisi(){
+		$no_complain = $_GET['nocomp'];
+		$this->McompA->ubahRusak($no_complain);
+		$this->toastr->success('Berhasil mengubah status complain menjadi rusak');
+		redirect(base_url('/CRTeknisi/listmonitorspkselesai'));
+	}
 
 	public function LaporanHistoryComplain(){
 		$this->load->view('template/headerTeknisi');

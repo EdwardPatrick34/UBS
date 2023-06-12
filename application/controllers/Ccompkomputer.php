@@ -328,5 +328,12 @@ class Ccompkomputer extends CI_Controller{
 
 		$this->session->unset_userdata('no_complain');
 	}
+
+	public function ubahrusakcomplain(){
+		$no_complain = $_GET['nocomp'];
+		$this->McompA->ubahRusak($no_complain);
+		$this->toastr->success('Berhasil mengubah status complain menjadi rusak');
+		redirect(base_url('/CRAdmin/listmonitorspkselesai'));
+	}
 }
 ?>
