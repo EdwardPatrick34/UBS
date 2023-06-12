@@ -51,6 +51,8 @@
 
 
     <script src="<?= base_url("assets/js/config.js") ?> "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -105,7 +107,7 @@
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="<?= base_url('page/masterUnit') ?>" class="menu-link">
+                  <a href="<?= base_url('CRTeknisi/listmonitorspkselesai') ?>" class="menu-link">
                     <div >Complain / SPK Selesai</div>
                   </a>
                 </li>

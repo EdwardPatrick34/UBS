@@ -75,7 +75,45 @@ class CRTeknisi extends CI_Controller{
 
 	// ENd monitoring complain
 
+	public function listmonitorspkselesai(){
+		$this->load->view('template/headerTeknisi');
+		$status = $this->input->post("statusc");
+		$param['data'] = $this->McompA->getsudahspk();
+		$this->load->view('admin/infrastruktur/spkCompSelesaiTeknisi', $param);
+		$this->load->view('template/footer');
+	}
 	
+	public function lihatdetailselesaicomplainteknisi(){
+		$no_complain = $_GET['nocomp'];
+		$param['key'] = $no_complain;
+		$this->load->view('template/headerTeknisi');
+		$param["dataheader"] = $this->McompA->cariComplain1($no_complain);
+		$param["datadetail1"] = $this->McompA->CariComplain2($no_complain);
+		$param["datadetail2"] = $this->McompA->CariComplain3($no_complain);
+		$this->load->view('admin/infrastruktur/hasilcomplainselesaiteknisi', $param);
+		$this->load->view('template/footer');
+	}
+
+	public function ubahselesaicomplainteknisi(){
+		$no_complain = $_GET['nocomp'];
+		$keterangan = $this->input->post('ket_pending');
+		$tanggal = date('Y:m:d H:i:s');
+		$arrtanggal = explode(" ", $tanggal);
+		$tanggalpending = $arrtanggal[0]; 
+		$jampending = $arrtanggal[1];
+
+		$arrjam = explode(":", $jampending);
+		$jam = $arrjam[0];
+		$menit = $arrjam[1];
+		$jamtotal = $jam.":".$menit;
+		
+		
+		$this->McompA->ubahSelesai($no_complain);
+		$this->toastr->success('Berhasil mengubah status complain menjadi selesai');
+		redirect(base_url('/CRTeknisi/listmonitorspkselesai'));
+
+		$this->session->unset_userdata('no_complain');
+	}
 }
 
 ?>
