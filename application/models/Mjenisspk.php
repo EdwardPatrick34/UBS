@@ -23,7 +23,7 @@ class Mjenisspk extends CI_Model{
 
 
     public function deletejenisspk($Id){
-        $sql = "delete from ed_jeniscomplain where jenis_spk = '".$Id."'";
+        $sql = "delete from ed_jenisspk where jenis_spk = '".$Id."'";
         $this->db->query($sql);
     }
 

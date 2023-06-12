@@ -184,8 +184,8 @@
 										<td scope="col"><?php echo $row->TGL_COMPLAIN; ?></td>
 										<td scope="col"><?php echo $row->NO_SPK; ?></td>
 										<td scope="col"><?php echo $row->TGL_SPK; ?>  <?php echo $row->JAM_SPK; ?></td>
-										<td scope="col"><?php echo $row->TGL_SAH; ?>  <?php echo $row->JAM_SPK; ?></td>
-										<td scope="col"><?php echo $row->TGL_SAH; ?> <?php echo $row->JAM_SPK; ?> </td>
+										<td scope="col"><?php echo $row->TGL_SAH; ?>  <?php echo $row->JAM_SAH; ?></td>
+										<td scope="col"><?php echo $row->TGL_SAH; ?> <?php echo $row->JAM_SAH; ?> </td>
 										
 						
 									</tr>

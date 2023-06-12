@@ -20,7 +20,7 @@ class MspkA extends CI_Model{
         $no_spk = 'ZN'.substr(date("Y"),2,2).str_pad($count, 6 , "0", STR_PAD_LEFT);
 
         $sql = "insert into ed_spkA(NO_SPK, NO_COMPLAIN, TGL_SPK, JAM_SPK, STATUS, TGL_T, JAM_T, USERE) 
-        values ('$no_spk', '$no_complain', to_date('$tglspk', 'yyyy-mm-dd HH:MI:SS'), '$jamspk', '4', to_date('$tgllapor', 'yyyy-mm-dd HH:MI:SS'), '$jamlapor',  '$idusere')";
+        values ('$no_spk', '$no_complain', to_date('$tglspk', 'yyyy-mm-dd HH:MI:SS'), '$jamspk', '4', to_date('$tgllapor', 'yyyy-mm-dd HH:MI:SS'), '$jamlapor',  '".trim($idusere)."')";
 
 
         $this->db->query($sql);
@@ -94,7 +94,7 @@ class MspkA extends CI_Model{
 		join ED_COMPA ED2 on ED1.NO_COMPLAIN=ED2.NO_COMPLAIN
 		JOIN ED_SPKC EDSC ON ED1.NO_SPK=EDSC.NO_SPK
 		JOIN ED_PETUGAS EDP ON EDSC.PETUGAS=EDP.PETUGAS
-		WHERE ED2.STATUS=4");
+		WHERE ED2.STATUS=5");
 
 		return $sql;
 

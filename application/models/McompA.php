@@ -18,7 +18,7 @@ class McompA extends CI_Model{
 	
 
 	public function getMC(){
-        $sql = $this->db->query("select * from ed_compA WHERE STATUS=7");
+        $sql = $this->db->query("select * from ed_compA WHERE STATUS=1");
         return $sql;
     }
 
@@ -46,7 +46,7 @@ class McompA extends CI_Model{
         $nocomplain = 'ZM'.substr(date("Y"), 2, 2).str_pad($count, 6, "0", STR_PAD_LEFT);
 
         $sql = "insert into ed_compA(NO_COMPLAIN, TGL, JAM,  KODEDIV, USERE, KODE_UNIT, STATUS, URAIAN) 
-                    values ('$nocomplain', to_date('$tgl', 'yyyy-mm-dd HH:MI:SS'), '$jam', '$kode_divisi', '$usere', '$kode_unit', '1','$uraian')";
+                    values ('$nocomplain', to_date('$tgl', 'yyyy-mm-dd HH:MI:SS'), '$jam', '$kode_divisi', '".trim($usere)."', '$kode_unit', '1','$uraian')";
         $this->db->query($sql);
 
         return $nocomplain;
@@ -208,7 +208,7 @@ class McompA extends CI_Model{
 	}
 
 	public function ubahPendingSelesai($no_complain){
-		$sql = "update ed_compa set STATUS='1' where NO_COMPLAIN = '".$no_complain."'";
+		$sql = "update ed_compa set STATUS='7' where NO_COMPLAIN = '".$no_complain."'";
 		$this->db->query($sql); 
 	}
 

@@ -98,7 +98,11 @@
 
 										<div class="mb-3">
 										<label class="form-label" for="aktif">Aktif</label>
-										<input type="text" class="form-control" id="aktif" name="aktif" value="<?php echo $row->AKTIF; ?>" placeholder="......." />
+										<!-- <input type="text" class="form-control" id="aktif" name="aktif" placeholder="......." /> -->
+										<select name="aktif" id="aktif" class="form-select">
+											<option value="1">YA</option>
+											<option value="0">TIDAK</option>
+										</select>
 										</div>
 							
 										<div class="mb-3">

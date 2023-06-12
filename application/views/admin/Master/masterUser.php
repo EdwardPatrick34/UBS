@@ -107,9 +107,7 @@
 													<a href="<?php echo site_url('CUser/deleteUser/'.$row->ID);?>">
 														<button class="btn btn-danger">Delete</button>
 													</a>
-													<a href="<?php echo base_url('CJenisUnit/getjenisunitbyid/'.$row->ID);?>">
-														<button class="btn btn-info">Edit</button>
-													</a>
+													
 												</th>
 											</tr>
 										<?php endforeach;?>

@@ -159,9 +159,10 @@ class Cspk extends CI_Controller{
         }
 
         
-        redirect(base_url("CRAdmin/CreateSpk"));
         $this->session->unset_userdata('session_petugas');
         $this->session->unset_userdata('session_jenisspk');
+		$this->toastr->success('Berhasil Create SPK');
+        redirect(base_url("CRAdmin/CreateSpk"));
         
     }
 

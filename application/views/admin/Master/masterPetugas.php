@@ -107,7 +107,14 @@
 												<td scope="col"><?php echo $row->PETUGAS; ?></td>
 												<td scope="col"><?php echo $row->NAMA_PETUGAS; ?></td>
 												<td scope="col"><?php echo $row->USERE; ?></td>
-												<td scope="col"><?php echo $row->AKTIF; ?></td>
+												<?php if ($row->AKTIF == 1): 
+													# code...
+												?>
+												<td scope="col">Aktif</td>
+												<?php else: ?>
+													<td scope="col">Non-Aktif</td>
+													<?php endif; ?>
+												
 												<td scope="col"><?php echo $row->JAM_KERJA; ?></td>
 												<td scope="col"><?php echo $row->JAM_KERJA_BARU; ?></td>
 												<td>
