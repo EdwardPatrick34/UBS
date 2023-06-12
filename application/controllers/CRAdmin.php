@@ -453,7 +453,7 @@ class CRAdmin extends CI_Controller{
 		if ($cek == true) {
 			# code...
 			$this->toastr->error("$pesan1");
-			redirect(base_url('CRAdmin/LaporanKegiatanInfrastruktur'));
+			redirect(base_url('CRAdmin/LaporanPendinganTeknisi'));
 		}
 		else{
 			$this->load->view('template/headeradmin');

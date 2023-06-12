@@ -75,63 +75,8 @@
 					<div class="d-flex align-items-end row">
 						<div >
 							<div class="card-body" >
-								<h2 class="card-title text-primary"> Laporan Bulanan Infrastruktur per Range Tanggal SPK</h2>
-								<br>
-								<form action="<?php echo base_url('CRAdmin/SearchLBI'); ?>" method="post">
-									<div class="mb-12 row">
-										<div class="col-sm-4 input-group input-group-merge">
-											
-											<label for="divisi" class=" col-form-label">Tanggal Awal</label>
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											<div style="width: 200px;">
-												<input type="date"  id="tglawal" name="tglawal"  class="form-control" value='' >
-											</div>
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											<label for="divisi" class=" col-form-label">Tanggal Akhir</label>
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											<div style="width: 200px;">
-												<input type="date"  id="tglakhir" name="tglakhir"  class="form-control">
-											</div>
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											<button type="submit" class="btn btn-primary">Search</button>
-											&nbsp;
-											&nbsp;
-											&nbsp;
-											
-											
-											
-											
-										</div>
-
-									</div>
-
-											<br>
-											<?php  if(isset($tglawal)): ?>
-											<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="<?php echo base_url('CExportExcel/LaporanBulananInfrastruktur?tglawal='.$tglawal ."&tglakir=" . $tglakir); ?>">
-											
-											<i class="fa fa-file-excel-o"></i> 
-											Export to Excel
-											</a>
-
-											<?php else: ?>
-												<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="">
-											
-											<i class="fa fa-file-excel-o"></i> 
-											Export to Excel
-											</a>
-												
-											<?php endif; ?>
-								</form>
-								<br>
+								<h2 class="card-title text-primary"> Laporan History Complain</h2>
+								
 							
 												
 								<br><br>
@@ -142,55 +87,54 @@
         overflow-x: auto;
         overflow-y: hidden;
         white-space: nowrap;">
-								<table id="UCDivisi" class="table table-striped">
+								<table id="LHComplain" class="table table-striped">
 									<thead>
 										<tr>
 
-											<th scope="col">No</th>
-											<th scope="col">Nama Teknisi</th>
-											<th scope="col">NO Induk</th>
-											<th scope="col">No Complain</th>
-											
-											<th scope="col">KODEDIV</th>
+											<th scope="col">Aksi</th>
+											<th scope="col">NOMOR COMPLAIN</th>
+											<th scope="col">Tanggal Lapor</th>
+											<th scope="col">Jam</th>
+											<th scope="col">Pelapor</th>
+											<th scope="col">Div</th>
+											<th scope="col">No. Spk</th>
 											<th scope="col">Kode Unit</th>
 											
-											<th scope="col">Uraian</th>
-											<th scope="col">Tgl.Complain</th>
-											<th scope="col">No SPk</th>
-											<th scope="col">Tgl. Spk</th>
-											<th scope="col">Tgl Selesai</th>
+											<th scope="col">Uraian Problem</th>
+											<th scope="col">Tgl.Selesai</th>
+											<th scope="col">Jam Selesai</th>
 											<th scope="col">Tgl Sah</th>
-											<!-- <th scope="col">Realisasi</th> -->
-											
+											<th scope="col">Jam Sah</th>
+											<th scope="col">Status</th>
 										</tr>
 									</thead>
 									<tbody>
 										<?php 
 								if (isset($data)) {
 									# code...
-									$no = 1;
 									foreach($data->result() as $row):
-										
 										?>
 									<tr>
-										
-										<td scope="col"><?php echo $no; ?></td>
-										<td scope="col"><?php echo $row->NAMA_PETUGAS; ?></td>
-										<td scope="col"><?php echo $row->NOMOR_INDUK; ?></td>
+										<td>
+											<a href="<?= base_url('CRTeknisi/DetailComplain?nocomp='.$row->NO_COMPLAIN) ?>"><button class="btn btn-primary">Pilih</button></a>
+										</td>
 										<td scope="col"><?php echo $row->NO_COMPLAIN; ?></td>
+										<td scope="col"><?php echo $row->TGL; ?></td>
+										<td scope="col"><?php echo $row->JAM; ?></td>
 										<td scope="col"><?php echo $row->KODEDIV; ?></td>
+										<td scope="col"><?php echo $row->KODEDIV; ?></td>
+										<td scope="col"><?php echo $row->NO_SPK; ?></td>
 										<td scope="col"><?php echo $row->KODE_UNIT; ?></td>
 										<td scope="col"><?php echo $row->URAIAN; ?></td>
-										<td scope="col"><?php echo $row->TGL_COMPLAIN; ?></td>
-										<td scope="col"><?php echo $row->NO_SPK; ?></td>
-										<td scope="col"><?php echo $row->TGL_SPK; ?>  <?php echo $row->JAM_SPK; ?></td>
-										<td scope="col"><?php echo $row->TGL_SAH; ?>  <?php echo $row->JAM_SPK; ?></td>
-										<td scope="col"><?php echo $row->TGL_SAH; ?> <?php echo $row->JAM_SPK; ?> </td>
-										
+										<td scope="col"><?php echo $row->TGL_SELESAI; ?></td>
+										<td scope="col"><?php echo $row->JAM_SELESAI; ?></td>
+										<td scope="col"><?php echo $row->TGL_SAH; ?></td>
+										<td scope="col"><?php echo $row->JAM_SAH; ?></td>
+										<td scope="col"><?php echo $row->STATUS; ?></td>
 						
 									</tr>
 
-									<?php $no++; endforeach; } ?>
+									<?php endforeach; } ?>
 
 								
 								</tbody>
@@ -215,7 +159,7 @@
 <script language='javascript'>
 	var tabel = null;
 	$(document).ready(function(){
-		tabel = $("#UCDivisi").DataTable({
+		tabel = $("#LHComplain").DataTable({
 
 		});
 	});

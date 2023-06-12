@@ -147,6 +147,8 @@
 											<th scope="col">URAIAN</th>
 											<th scope="col">Tgl Pending</th>
 											<th scope="col">Jam Pending</th>
+											<th scope="col">Ket Pending</th>
+
 											
 											
 											
@@ -174,6 +176,7 @@
 										<td scope="col"><?php echo $row->URAIAN; ?></td>
 										<td scope="col"><?php echo $row->TGL_PENDING; ?></td>
 										<td scope="col"><?php echo $row->JAM_PENDING; ?></td>
+										<td scope="col"><?php echo $row->KETERANGAN; ?></td>
 										
 										
 										

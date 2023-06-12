@@ -122,24 +122,20 @@
                 <div data-i18n="Account Settings">Laporan</div>
               </a>
               <ul class="menu-sub">
-								<li class="menu-item">
-                  <a href="<?= base_url('page/masterUser') ?>" class="menu-link">
-                    <div >Laporan History Complain</div>
+							<li class="menu-item">
+                  <a href="<?= base_url('CRTeknisi/LaporanHistoryComplain') ?>" class="menu-link">
+                    <div >History Complain</div>
                   </a>
                 </li>
+                
                 <li class="menu-item">
-                  <a href="<?= base_url('page/masterUnit') ?>" class="menu-link">
-                    <div >Laporan Jumlah Spk per Teknisi</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="<?= base_url('page/masterUnit') ?>" class="menu-link">
+                  <a href="<?= base_url('CRTeknisi/LaporanBulananInfrastruktur')?>" class="menu-link">
                     <div >Laporan Bulanan Infrastruktur</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="<?= base_url('page/masterUnit') ?>" class="menu-link">
-                    <div >Laporan Pendingan</div>
+                  <a href="<?= base_url('CRTeknisi/LaporanPendinganTeknisi') ?>" class="menu-link">
+                    <div >Laporan Pendingan per teknisi</div>
                   </a>
                 </li>
                 

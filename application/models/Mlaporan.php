@@ -29,7 +29,7 @@ class Mlaporan extends CI_Model{
 		JOIN ED_SPKB EDSB ON EDSA.NO_SPK=EDSB.NO_SPK
 		JOIN ED_SPKD EDSD ON EDSA.NO_SPK=EDSD.NO_SPK
 		JOIN ED_COMPA EDCA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
-		WHERE EDSA.TGL_SPK >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDSA.TGL_SPK <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY
+		WHERE EDSA.TGL_SPK >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDSA.TGL_SPK <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY AND EDCA.STATUS=2 OR EDCA.STATUS=4 OR EDCA.STATUS=5 OR EDCA.STATUS=6
 		");
 
 		
@@ -139,7 +139,7 @@ class Mlaporan extends CI_Model{
 		FROM ED_COMPA EDCA
 		JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
 		JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
-		WHERE EDSC.PETUGAS='$teknisi' AND EDCA.TGL_PENDING!=null 
+		WHERE EDSC.PETUGAS=$teknisi and EDCA.STATUS=3
 		
 		");
 
@@ -187,7 +187,168 @@ class Mlaporan extends CI_Model{
 				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
 				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
 				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
-				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY AND EDCA.STATUS=4 or EDCA.STATUS=5
+				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY AND EDCA.STATUS=4 or EDCA.STATUS=5 or EDCA.STATUS=2
+				
+				");
+				return $sql;
+
+			}
+			else if ($cekjenisunit == true && $cekkodeunit == false) {
+				# code...
+					$sql = $this->db->query("SELECT
+				EDCA.TGL_SAH As TGL_SELESAI,
+				EDCA.NO_COMPLAIN As NO_COMPLAIN,
+				EDCB.JENIS_UNIT As JENIS_UNIT,
+				EDCA.KODE_UNIT As KODE_UNIT,
+				EDCA.URAIAN As URAIAN,
+				EDSC.PETUGAS As PETUGAS,
+				EDCA.TGL As TGL_COMPLAIN
+				FROM ED_COMPA EDCA
+				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
+				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
+				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
+				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCB.JENIS_UNIT='".$jenisunit."' AND EDCA.STATUS=4 or EDCA.STATUS=5 or EDCA.STATUS=2
+				
+				");
+				return $sql;
+			}
+			else if($cekjenisunit == false && $cekkodeunit == true){
+					$sql = $this->db->query("SELECT
+				EDCA.TGL_SAH As TGL_SELESAI,
+				EDCA.NO_COMPLAIN As NO_COMPLAIN,
+				EDCB.JENIS_UNIT As JENIS_UNIT,
+				EDCA.KODE_UNIT As KODE_UNIT,
+				EDCA.URAIAN As URAIAN,
+				EDSC.PETUGAS As PETUGAS,
+				EDCA.TGL As TGL_COMPLAIN
+				FROM ED_COMPA EDCA
+				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
+				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
+				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
+				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCA.KODE_UNIT='".$kodeunit."' AND EDCA.STATUS=4 or EDCA.STATUS=5 or EDCA.STATUS=2
+				
+				");
+				return $sql;
+			}
+			else if($cekjenisunit == false && $cekkodeunit == false){
+					$sql = $this->db->query("SELECT
+				EDCA.TGL_SAH As TGL_SELESAI,
+				EDCA.NO_COMPLAIN As NO_COMPLAIN,
+				EDCB.JENIS_UNIT As JENIS_UNIT,
+				EDCA.KODE_UNIT As KODE_UNIT,
+				EDCA.URAIAN As URAIAN,
+				EDSC.PETUGAS As PETUGAS,
+				EDCA.TGL As TGL_COMPLAIN
+				FROM ED_COMPA EDCA
+				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
+				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
+				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
+				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCA.KODE_UNIT='".$kodeunit."' and EDCB.JENIS_UNIT='".$jenisunit."' AND EDCA.STATUS=4 or EDCA.STATUS=5 or EDCA.STATUS=2
+				
+				");
+				return $sql;
+			}
+			
+		}
+		else if ($rusak=="ya") {
+			# code...
+			
+			if ($cekjenisunit== true && $cekkodeunit == true) {
+				# code...
+					$sql = $this->db->query("SELECT
+				EDCA.TGL_SAH As TGL_SELESAI,
+				EDCA.NO_COMPLAIN As NO_COMPLAIN,
+				EDCB.JENIS_UNIT As JENIS_UNIT,
+				EDCA.KODE_UNIT As KODE_UNIT,
+				EDCA.URAIAN As URAIAN,
+				EDSC.PETUGAS As PETUGAS,
+				EDCA.TGL As TGL_COMPLAIN
+				FROM ED_COMPA EDCA
+				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
+				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
+				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
+				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY AND EDCA.STATUS=2
+				
+				");
+
+				return $sql;
+
+			}
+			else if ($cekjenisunit == true && $cekkodeunit == false) {
+				# code...
+					$sql = $this->db->query("SELECT
+				EDCA.TGL_SAH As TGL_SELESAI,
+				EDCA.NO_COMPLAIN As NO_COMPLAIN,
+				EDCB.JENIS_UNIT As JENIS_UNIT,
+				EDCA.KODE_UNIT As KODE_UNIT,
+				EDCA.URAIAN As URAIAN,
+				EDSC.PETUGAS As PETUGAS,
+				EDCA.TGL As TGL_COMPLAIN
+				FROM ED_COMPA EDCA
+				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
+				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
+				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
+				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCB.JENIS_UNIT='".$jenisunit."' AND EDCA.STATUS=2
+				
+				");
+
+				return $sql;
+			}
+			else if($cekjenisunit == false && $cekkodeunit == true){
+					$sql = $this->db->query("SELECT
+				EDCA.TGL_SAH As TGL_SELESAI,
+				EDCA.NO_COMPLAIN As NO_COMPLAIN,
+				EDCB.JENIS_UNIT As JENIS_UNIT,
+				EDCA.KODE_UNIT As KODE_UNIT,
+				EDCA.URAIAN As URAIAN,
+				EDSC.PETUGAS As PETUGAS,
+				EDCA.TGL As TGL_COMPLAIN
+				FROM ED_COMPA EDCA
+				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
+				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
+				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
+				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCA.KODE_UNIT='".$kodeunit."' AND EDCA.STATUS=2
+				
+				");
+
+				return $sql;
+			}
+			else if($cekjenisunit == false && $cekkodeunit == false){
+					$sql = $this->db->query("SELECT
+				EDCA.TGL_SAH As TGL_SELESAI,
+				EDCA.NO_COMPLAIN As NO_COMPLAIN,
+				EDCB.JENIS_UNIT As JENIS_UNIT,
+				EDCA.KODE_UNIT As KODE_UNIT,
+				EDCA.URAIAN As URAIAN,
+				EDSC.PETUGAS As PETUGAS,
+				EDCA.TGL As TGL_COMPLAIN
+				FROM ED_COMPA EDCA
+				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
+				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
+				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
+				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCA.KODE_UNIT='".$kodeunit."' and EDCB.JENIS_UNIT='".$jenisunit."' AND EDCA.STATUS=2
+				
+				");
+				return $sql;
+			}
+			
+		}
+		else if($rusak=="tidak"){
+			if ($cekjenisunit== true && $cekkodeunit == true) {
+				# code...
+					$sql = $this->db->query("SELECT
+				EDCA.TGL_SAH As TGL_SELESAI,
+				EDCA.NO_COMPLAIN As NO_COMPLAIN,
+				EDCB.JENIS_UNIT As JENIS_UNIT,
+				EDCA.KODE_UNIT As KODE_UNIT,
+				EDCA.URAIAN As URAIAN,
+				EDSC.PETUGAS As PETUGAS,
+				EDCA.TGL As TGL_COMPLAIN
+				FROM ED_COMPA EDCA
+				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
+				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
+				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
+				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCA.STATUS=4 or EDCA.STATUS=5
 				
 				");
 				return $sql;
@@ -244,167 +405,6 @@ class Mlaporan extends CI_Model{
 				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
 				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
 				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCA.KODE_UNIT='".$kodeunit."' and EDCB.JENIS_UNIT='".$jenisunit."' AND EDCA.STATUS=4 or EDCA.STATUS=5
-				
-				");
-				return $sql;
-			}
-			
-		}
-		else if ($rusak=="ya") {
-			# code...
-			
-			if ($cekjenisunit== true && $cekkodeunit == true) {
-				# code...
-					$sql = $this->db->query("SELECT
-				EDCA.TGL_SAH As TGL_SELESAI,
-				EDCA.NO_COMPLAIN As NO_COMPLAIN,
-				EDCB.JENIS_UNIT As JENIS_UNIT,
-				EDCA.KODE_UNIT As KODE_UNIT,
-				EDCA.URAIAN As URAIAN,
-				EDSC.PETUGAS As PETUGAS,
-				EDCA.TGL As TGL_COMPLAIN
-				FROM ED_COMPA EDCA
-				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
-				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
-				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
-				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCA.RUSAK!=null AND EDCA.STATUS=4 or EDCA.STATUS=5
-				
-				");
-
-				return $sql;
-
-			}
-			else if ($cekjenisunit == true && $cekkodeunit == false) {
-				# code...
-					$sql = $this->db->query("SELECT
-				EDCA.TGL_SAH As TGL_SELESAI,
-				EDCA.NO_COMPLAIN As NO_COMPLAIN,
-				EDCB.JENIS_UNIT As JENIS_UNIT,
-				EDCA.KODE_UNIT As KODE_UNIT,
-				EDCA.URAIAN As URAIAN,
-				EDSC.PETUGAS As PETUGAS,
-				EDCA.TGL As TGL_COMPLAIN
-				FROM ED_COMPA EDCA
-				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
-				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
-				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
-				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCB.JENIS_UNIT='".$jenisunit."' and EDCA.RUSAK!=null AND EDCA.STATUS=4 or EDCA.STATUS=5
-				
-				");
-
-				return $sql;
-			}
-			else if($cekjenisunit == false && $cekkodeunit == true){
-					$sql = $this->db->query("SELECT
-				EDCA.TGL_SAH As TGL_SELESAI,
-				EDCA.NO_COMPLAIN As NO_COMPLAIN,
-				EDCB.JENIS_UNIT As JENIS_UNIT,
-				EDCA.KODE_UNIT As KODE_UNIT,
-				EDCA.URAIAN As URAIAN,
-				EDSC.PETUGAS As PETUGAS,
-				EDCA.TGL As TGL_COMPLAIN
-				FROM ED_COMPA EDCA
-				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
-				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
-				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
-				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCA.KODE_UNIT='".$kodeunit."' and EDCA.RUSAK!=null AND EDCA.STATUS=4 or EDCA.STATUS=5 
-				
-				");
-
-				return $sql;
-			}
-			else if($cekjenisunit == false && $cekkodeunit == false){
-					$sql = $this->db->query("SELECT
-				EDCA.TGL_SAH As TGL_SELESAI,
-				EDCA.NO_COMPLAIN As NO_COMPLAIN,
-				EDCB.JENIS_UNIT As JENIS_UNIT,
-				EDCA.KODE_UNIT As KODE_UNIT,
-				EDCA.URAIAN As URAIAN,
-				EDSC.PETUGAS As PETUGAS,
-				EDCA.TGL As TGL_COMPLAIN
-				FROM ED_COMPA EDCA
-				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
-				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
-				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
-				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCA.KODE_UNIT='".$kodeunit."' and EDCB.JENIS_UNIT='".$jenisunit."' and EDCA.RUSAK!=null AND EDCA.STATUS=4 or EDCA.STATUS=5
-				
-				");
-				return $sql;
-			}
-			
-		}
-		else if($rusak=="tidak"){
-			if ($cekjenisunit== true && $cekkodeunit == true) {
-				# code...
-					$sql = $this->db->query("SELECT
-				EDCA.TGL_SAH As TGL_SELESAI,
-				EDCA.NO_COMPLAIN As NO_COMPLAIN,
-				EDCB.JENIS_UNIT As JENIS_UNIT,
-				EDCA.KODE_UNIT As KODE_UNIT,
-				EDCA.URAIAN As URAIAN,
-				EDSC.PETUGAS As PETUGAS,
-				EDCA.TGL As TGL_COMPLAIN
-				FROM ED_COMPA EDCA
-				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
-				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
-				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
-				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCA.RUSAK=null
-				
-				");
-				return $sql;
-
-			}
-			else if ($cekjenisunit == true && $cekkodeunit == false) {
-				# code...
-					$sql = $this->db->query("SELECT
-				EDCA.TGL_SAH As TGL_SELESAI,
-				EDCA.NO_COMPLAIN As NO_COMPLAIN,
-				EDCB.JENIS_UNIT As JENIS_UNIT,
-				EDCA.KODE_UNIT As KODE_UNIT,
-				EDCA.URAIAN As URAIAN,
-				EDSC.PETUGAS As PETUGAS,
-				EDCA.TGL As TGL_COMPLAIN
-				FROM ED_COMPA EDCA
-				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
-				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
-				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
-				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCB.JENIS_UNIT='".$jenisunit."' and EDCA.RUSAK=null AND EDCA.STATUS=4 or EDCA.STATUS=5
-				
-				");
-				return $sql;
-			}
-			else if($cekjenisunit == false && $cekkodeunit == true){
-					$sql = $this->db->query("SELECT
-				EDCA.TGL_SAH As TGL_SELESAI,
-				EDCA.NO_COMPLAIN As NO_COMPLAIN,
-				EDCB.JENIS_UNIT As JENIS_UNIT,
-				EDCA.KODE_UNIT As KODE_UNIT,
-				EDCA.URAIAN As URAIAN,
-				EDSC.PETUGAS As PETUGAS,
-				EDCA.TGL As TGL_COMPLAIN
-				FROM ED_COMPA EDCA
-				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
-				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
-				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
-				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCA.KODE_UNIT='".$kodeunit."' and EDCA.RUSAK=null AND EDCA.STATUS=4 or EDCA.STATUS=5
-				
-				");
-				return $sql;
-			}
-			else if($cekjenisunit == false && $cekkodeunit == false){
-					$sql = $this->db->query("SELECT
-				EDCA.TGL_SAH As TGL_SELESAI,
-				EDCA.NO_COMPLAIN As NO_COMPLAIN,
-				EDCB.JENIS_UNIT As JENIS_UNIT,
-				EDCA.KODE_UNIT As KODE_UNIT,
-				EDCA.URAIAN As URAIAN,
-				EDSC.PETUGAS As PETUGAS,
-				EDCA.TGL As TGL_COMPLAIN
-				FROM ED_COMPA EDCA
-				JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
-				JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
-				JOIN ED_COMPB EDCB ON EDCA.NO_COMPLAIN=EDCB.NO_COMPLAIN
-				WHERE EDCA.TGL >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDCA.TGL <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY and EDCA.KODE_UNIT='".$kodeunit."' and EDCB.JENIS_UNIT='".$jenisunit."' and EDCA.RUSAK=null AND EDCA.STATUS=4 or EDCA.STATUS=5
 				
 				");
 				return $sql;

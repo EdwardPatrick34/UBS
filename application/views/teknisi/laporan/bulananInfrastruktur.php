@@ -77,7 +77,7 @@
 							<div class="card-body" >
 								<h2 class="card-title text-primary"> Laporan Bulanan Infrastruktur per Range Tanggal SPK</h2>
 								<br>
-								<form action="<?php echo base_url('CRAdmin/SearchLBI'); ?>" method="post">
+								<form action="<?php echo base_url('CRTeknisi/SearchLBI'); ?>" method="post">
 									<div class="mb-12 row">
 										<div class="col-sm-4 input-group input-group-merge">
 											
@@ -186,6 +186,8 @@
 										<td scope="col"><?php echo $row->TGL_SPK; ?>  <?php echo $row->JAM_SPK; ?></td>
 										<td scope="col"><?php echo $row->TGL_SAH; ?>  <?php echo $row->JAM_SPK; ?></td>
 										<td scope="col"><?php echo $row->TGL_SAH; ?> <?php echo $row->JAM_SPK; ?> </td>
+										
+										
 										
 						
 									</tr>

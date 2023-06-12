@@ -15,6 +15,7 @@ class CRTeknisi extends CI_Controller{
 		$this->load->model('Mjenisspk');
 		$this->load->model('Mpetugas');
 		$this->load->model('Muser');
+		$this->load->model('Mlaporan');
 		$this->load->helper('url'); 
 		
 
@@ -65,7 +66,7 @@ class CRTeknisi extends CI_Controller{
 
 		else if($status == 4){
 			$param["stat"] = "Selesai";
-			$param["data"] = $this->MspkA->getMCpending();
+			$param["data"] = $this->MspkA->getMCselesai();
 			$this->load->view("teknisi/edpinfra/monitoringComplain/spk", $param);
 
 		}
@@ -114,6 +115,128 @@ class CRTeknisi extends CI_Controller{
 
 		$this->session->unset_userdata('no_complain');
 	}
+
+
+	public function LaporanHistoryComplain(){
+		$this->load->view('template/headerTeknisi');
+		$param["data"] = $this->McompA->LHComplain();
+		$this->load->view("teknisi/laporan/historycomplain", $param);
+		$this->load->view('template/footer');
+	}
+
+	public function detailComplain(){
+		// $no_complain = $this->input->post("cariNoComplain");
+
+		$no_complain = $_GET['nocomp'];
+
+		$this->load->view('template/headerTeknisi');
+
+		// $param["dataheader"] = $this->Mjenisspk->getdatajenisspk();
+		$param["dataheader"] = $this->McompA->CariComplain1($no_complain);
+		$param["datadetail1"] = $this->McompA->CariComplain2($no_complain);
+		$param["datadetail2"] = $this->McompA->CariComplain3($no_complain);
+		
+		$this->load->view('teknisi/laporan/detailComplain', $param);
+		$this->load->view('template/footer');
+	}
+
+
+	// Start laporan Bulanan Infrastruktur
+
+	public function LaporanBulananInfrastruktur(){
+		$this->load->view('template/headerTeknisi');
+		// $param["data"] = $this->McompA->LHComplain();
+		$this->load->view("teknisi/laporan/bulananInfrastruktur");
+		$this->load->view('template/footer');
+	}
+
+	public function SearchLBI(){
+		$tglawal = $this->input->post('tglawal');
+		$tglakhir = $this->input->post('tglakhir');
+		
+
+		$tglawalstring = date("m/d/Y", strtotime($tglawal));
+		$tglakhirstring = date("m/d/Y", strtotime($tglakhir));
+
+		$cek = false;
+		
+		if ($tglawal== null) {
+			# code...
+			$pesan1= "Tanggal awal tidak boleh kosong";
+			$cek = true;
+		}
+		if ($tglakhir == null) {
+			# code...
+			$pesan2= "Tanggal akhir tidak boleh kosong";
+			$cek = true;
+		}
+		
+		if ($tglawal > $tglakhir) {
+			# code...
+			$pesan3= "Tanggal akhir tidak boleh lebih kecil dari tanggal awal";
+			$cek = true;
+		}
+
+		if ($cek == true) {
+			# code...
+			$this->toastr->error("$pesan1 $pesan2 $pesan3");
+			redirect(base_url('CRTeknisi/LaporanBulananInfrastruktur'));
+		}
+		else{
+			$this->load->view('template/headerTeknisi');
+			$param["data"] = $this->Mlaporan->LBInfrastruktur($tglawalstring, $tglakhirstring);
+			$param['tglawal'] = $tglawalstring;
+			$param['tglakir'] = $tglakhirstring;
+			
+			$this->load->view("teknisi/laporan/bulananInfrastruktur", $param);
+			$this->load->view('template/footer');
+			
+		}
+	}
+
+	// END laporan Bulanan Infrastruktur
+
+
+	// START LAPORAN PENDINGAN PER TEKNISI
+
+	public function LaporanPendinganTeknisi(){
+
+		$this->load->view('template/headerTeknisi');
+		// $param["data"] = $this->McompA->LHComplain();
+		$this->load->view("teknisi/laporan/pendinganTeknisi");
+		$this->load->view('template/footer');
+
+	}
+
+	public function SearchLPTeknisi(){
+
+		$teknisi = $this->input->post('teknisi');
+
+		$cek = false;
+		
+		if ($teknisi== null) {
+			# code...
+			$pesan1= "Teknisi tidak boleh kosong";
+			$cek = true;
+		}
+
+		if ($cek == true) {
+			# code...
+			$this->toastr->error("$pesan1");
+			redirect(base_url('CRTeknisi/LaporanPendinganTeknisi'));
+		}
+		else{
+			$this->load->view('template/headerTeknisi');
+			$param["data"] = $this->Mlaporan->LPTeknisi($teknisi);
+			$param['teknisi'] = $teknisi;
+			
+			$this->load->view("teknisi/laporan/pendinganTeknisi", $param);
+			$this->load->view('template/footer');
+		}
+	}
+
+
+	// END LAPORAN PENDINGAN PER TEKNISI
 }
 
 ?>
