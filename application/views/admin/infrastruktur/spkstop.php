@@ -132,7 +132,7 @@
 													<td scope="col" ><?= $row->TGL_STOP  ?> </td>
 													<td scope="col" ><?= $row->USER_START  ?> </td>
 													<td scope="col" ><?= $row->USER_STOP  ?> </td>
-													<td scope="col" ><?= $row->KET  ?> </td>
+													<td scope="col" ><?= $row->KETERANGAN  ?> </td>
 													<td scope="col" ><?= $row->PETUGAS  ?> </td>
 													<td>
                                                         <a href="<?php echo base_url('Cspk/stopspk?nospk='.$row->NO_SPK);?>">

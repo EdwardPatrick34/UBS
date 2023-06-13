@@ -177,8 +177,7 @@ create table ED_STARTSTOP (
 	USER_START char(6),
 	USER_STOP char(6),
 	KET varchar2(250),
-	PETUGAS char(6) REFERENCES ED_PETUGAS(PETUGAS),
-	constraint pk_ed_startstop primary key (NO_SPK,sub_spk) 
+	PETUGAS char(6) REFERENCES ED_PETUGAS(PETUGAS)
 );
 
 INSERT INTO ED_USERE (ID, USERNAME, PASSWORD, NAMA, ROLE) VALUES (1, "admin", "admin", "admin", 0);

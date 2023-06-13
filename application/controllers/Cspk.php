@@ -181,7 +181,26 @@ class Cspk extends CI_Controller{
     public function startspk(){
         $no_spk = $_GET['nospk'];
         $tanggal = date('Y:m:d H:i:s');
-        $this->MspkA->startSpk($no_spk, $tanggal);
+        $petugas = $this->MspkA->getspkc($no_spk);
+        foreach($petugas->result() as $row){$petugasa = $row->PETUGAS;};
+        
+
+        $dataspkc = $this->MspkA->getspkd($no_spk);
+        foreach($dataspkc->result() as $row){
+           $rowdata = $row;
+        }
+
+        $arr = [];
+        $jum = count($arr);
+        $arr[$jum][0] = $rowdata;
+        
+        for($i = 0; $i < count($arr); $i++){
+            $keterangan = $arr[$i][0]->KET;
+            
+            $sub_spk = $arr[$i][0]->SUB_SPK;
+            
+            $this->MspkA->startspk($no_spk, $tanggal, $petugasa, $sub_spk, $keterangan);
+        }
         $this->toastr->success('Berhasil memulai spk');
         redirect(base_url('CRAdmin/spkStart'));
     }
