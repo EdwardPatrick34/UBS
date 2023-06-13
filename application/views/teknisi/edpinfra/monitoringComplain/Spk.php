@@ -92,7 +92,7 @@
                       
 											<div style="width: 150px;">
 												<select name="statusc" id="statusc" class="form-select">
-												<option value="1">Complain</option>
+												<!-- <option value="1">Complain</option> -->
 												<option value="2">Spk</option>
 												<option value="3">Pending</option>
 												<option value="4">Selesai</option>

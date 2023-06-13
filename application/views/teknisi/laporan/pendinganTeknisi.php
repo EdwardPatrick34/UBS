@@ -86,7 +86,7 @@
 											&nbsp;
 											&nbsp;
 											<div style="width: 200px;">
-												<input type="text"  id="teknisi" name="teknisi"  class="form-control" >
+												<input type="text"  id="teknisi" name="teknisi"  class="form-control" value="<?=$idteknisi ?>" readonly >
 											</div>
 											&nbsp;
 											&nbsp;

@@ -170,6 +170,9 @@
 									# code...
 									$no = 1;
 									foreach($data->result() as $row):
+										if ($row->STATUS==2 || $row->STATUS==4 || $row->STATUS==5 || $row->STATUS==6):
+											
+										
 										
 										?>
 									<tr>
@@ -184,15 +187,15 @@
 										<td scope="col"><?php echo $row->TGL_COMPLAIN; ?></td>
 										<td scope="col"><?php echo $row->NO_SPK; ?></td>
 										<td scope="col"><?php echo $row->TGL_SPK; ?>  <?php echo $row->JAM_SPK; ?></td>
-										<td scope="col"><?php echo $row->TGL_SAH; ?>  <?php echo $row->JAM_SPK; ?></td>
-										<td scope="col"><?php echo $row->TGL_SAH; ?> <?php echo $row->JAM_SPK; ?> </td>
+										<td scope="col"><?php echo $row->TGL_SAH; ?>  <?php echo $row->JAM_SAH; ?></td>
+										<td scope="col"><?php echo $row->TGL_SAH; ?> <?php echo $row->JAM_SAH; ?> </td>
 										
 										
 										
 						
 									</tr>
 
-									<?php $no++; endforeach; } ?>
+									<?php endif; $no++; endforeach; } ?>
 
 								
 								</tbody>

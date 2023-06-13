@@ -113,6 +113,10 @@
 								if (isset($data)) {
 									# code...
 									foreach($data->result() as $row):
+
+										if ($row->STATUS ==4 || $row->STATUS ==5|| $row->STATUS ==2 || $row->STATUS ==6  ):
+											# code...
+										
 										?>
 									<tr>
 										<td>
@@ -130,11 +134,11 @@
 										<td scope="col"><?php echo $row->JAM_SELESAI; ?></td>
 										<td scope="col"><?php echo $row->TGL_SAH; ?></td>
 										<td scope="col"><?php echo $row->JAM_SAH; ?></td>
-										<td scope="col"><?php echo $row->STATUS; ?></td>
+										<td scope="col"><?php echo $row->NAMA_STATUS; ?></td>
 						
 									</tr>
 
-									<?php endforeach; } ?>
+									<?php endif;  endforeach; } ?>
 
 								
 								</tbody>

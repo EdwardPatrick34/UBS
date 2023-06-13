@@ -5,7 +5,38 @@ class Mlaporan extends CI_Model{
     {
         parent::__construct();
         $this->load->database();
+		$this->load->library('session');
     }
+
+	// laporan History Complain Teknisi
+	public function LHComplainTeknisi(){
+		$user = $this->session->userdata('teknisi');
+		$usere = $user->ID;
+
+		$sql = $this->db->query("SELECT
+		EDCA.NO_COMPLAIN As NO_COMPLAIN,
+		EDCA.TGL As TGL,
+		EDCA.JAM As JAM,
+		EDCA.USERE As PELAPOR,
+		EDCA.KODEDIV AS KODEDIV,
+		EDSA.NO_SPK AS NO_SPK,
+		EDCA.KODE_UNIT As KODE_UNIT,
+		EDCA.URAIAN As URAIAN,
+		EDCA.TGL_S As TGL_SELESAI,
+		EDCA.JAM_S As JAM_SELESAI,
+		EDCA.TGL_SAH As TGL_SAH,
+		EDCA.JAM_SAH As JAM_SAH,
+		EDS.STATUS As STATUS,
+		EDS.NAMA_STATUS As NAMA_STATUS
+		FROM ED_COMPA EDCA
+		JOIN ED_SPKA EDSA ON EDCA.NO_COMPLAIN=EDSA.NO_COMPLAIN
+		JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
+		JOIN ED_STATUS EDS ON EDS.STATUS=EDCA.STATUS
+		WHERE EDSC.PETUGAS=$usere
+		");
+
+		return $sql;
+	}
 
 	// laporan bulanan infrastruktur
     public function LBInfrastruktur($tglawal, $tglakhir){
@@ -30,6 +61,40 @@ class Mlaporan extends CI_Model{
 		JOIN ED_SPKD EDSD ON EDSA.NO_SPK=EDSD.NO_SPK
 		JOIN ED_COMPA EDCA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
 		WHERE EDSA.TGL_SPK >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDSA.TGL_SPK <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY AND EDCA.STATUS=2 OR EDCA.STATUS=4 OR EDCA.STATUS=5 OR EDCA.STATUS=6
+		");
+
+		
+
+		return $sql;
+	}
+
+	public function LBInfrastrukturTeknisi($tglawal, $tglakhir){
+		$user = $this->session->userdata('teknisi');
+		$usere = $user->ID;
+
+		$sql = $this->db->query("SELECT
+		EDP.NAMA_PETUGAS As NAMA_PETUGAS,
+		EDP.PETUGAS As NOMOR_INDUK,
+		EDCA.NO_COMPLAIN As NO_COMPLAIN,
+		EDCA.KODEDIV As KODEDIV,
+		EDCA.KODE_UNIT As KODE_UNIT,
+		EDCA.TGL As TGL_COMPLAIN,
+		EDCA.URAIAN As URAIAN,
+		EDSA.NO_SPK As NO_SPK,
+		EDSA.TGL_SPK As TGL_SPK,
+		EDSA.JAM_SPK As JAM_SPK,
+		EDCA.TGL_SAH As TGL_SAH,
+		EDCA.JAM_SAH As JAM_SAH,
+		EDSB.PEKERJAAN As PEKERJAAN,
+		EDCA.STATUS As STATUS
+		FROM ED_PETUGAS EDP
+		JOIN ED_SPKC EDSC ON EDP.PETUGAS=EDSC.PETUGAS
+		JOIN ED_SPKA EDSA ON EDSC.NO_SPK=EDSA.NO_SPK
+		JOIN ED_SPKB EDSB ON EDSA.NO_SPK=EDSB.NO_SPK
+		JOIN ED_SPKD EDSD ON EDSA.NO_SPK=EDSD.NO_SPK
+		JOIN ED_COMPA EDCA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
+		WHERE EDP.PETUGAS=015393 AND EDSA.TGL_SPK >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDSA.TGL_SPK <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY
+		
 		");
 
 		
@@ -125,6 +190,31 @@ class Mlaporan extends CI_Model{
 
 	// Laporan Pendingan Per Teknisi
 	public function LPTeknisi($teknisi){
+		$sql = $this->db->query("SELECT
+		EDCA.NO_COMPLAIN As NO_COMPLAIN,
+		EDCA.TGL As TGL_COMPLAIN,
+		EDCA.JAM As JAM_COMPLAIN,
+		EDCA.KODEDIV As KODEDIV,
+		EDCA.USERE As USERE,
+		EDCA.KODE_UNIT As KODE_UNIT,
+		EDCA.URAIAN As URAIAN,
+		EDCA.KET_PENDING As KETERANGAN,
+		EDCA.TGL_PENDING As TGL_PENDING,
+		EDCA.JAM_PENDING As JAM_PENDING
+		FROM ED_COMPA EDCA
+		JOIN ED_SPKA EDSA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
+		JOIN ED_SPKC EDSC ON EDSA.NO_SPK=EDSC.NO_SPK
+		WHERE EDSC.PETUGAS=$teknisi and EDCA.STATUS=3
+		
+		");
+
+		return $sql;
+		
+
+	}
+
+	// Laporan Pendingan Per Teknisi
+	public function LPRoleTeknisi($teknisi){
 		$sql = $this->db->query("SELECT
 		EDCA.NO_COMPLAIN As NO_COMPLAIN,
 		EDCA.TGL As TGL_COMPLAIN,

@@ -17,6 +17,7 @@ class CRTeknisi extends CI_Controller{
 		$this->load->model('Muser');
 		$this->load->model('Mlaporan');
 		$this->load->helper('url'); 
+		$this->load->library('session');
 		
 
  
@@ -33,9 +34,9 @@ class CRTeknisi extends CI_Controller{
 	// STart monitoring COmplain
 	public function MonitoringComplain(){
 		$this->load->view('template/headerTeknisi');
-		$param["data"] = $this->McompA->getMC();
-		
-		$this->load->view("teknisi/edpinfra/monitoringComplain/Complain", $param);
+		$param["data"] = $this->MspkA->getMCspkTeknisi();
+		$param["stat"] = "Spk";
+		$this->load->view("teknisi/edpinfra/monitoringComplain/spk", $param);
 		$this->load->view('template/footer');
 	}
 
@@ -54,19 +55,19 @@ class CRTeknisi extends CI_Controller{
 		}
 		else if($status == 2){
 			$param["stat"] = "Spk";
-			$param["data"] = $this->MspkA->getMCspk();
+			$param["data"] = $this->MspkA->getMCspkTeknisi();
 			$this->load->view("teknisi/edpinfra/monitoringComplain/spk", $param);
 		}
 		else if($status == 3){
 			$param["stat"] = "Pending";
-			$param["data"] = $this->MspkA->getMCpending();
+			$param["data"] = $this->MspkA->getMCpendingTeknisi();
 			$this->load->view("teknisi/edpinfra/monitoringComplain/spk", $param);
 
 		}
 
 		else if($status == 4){
 			$param["stat"] = "Selesai";
-			$param["data"] = $this->MspkA->getMCselesai();
+			$param["data"] = $this->MspkA->getMCselesaiTeknisi();
 			$this->load->view("teknisi/edpinfra/monitoringComplain/spk", $param);
 
 		}
@@ -125,7 +126,7 @@ class CRTeknisi extends CI_Controller{
 
 	public function LaporanHistoryComplain(){
 		$this->load->view('template/headerTeknisi');
-		$param["data"] = $this->McompA->LHComplain();
+		$param["data"] = $this->Mlaporan->LHComplainTeknisi();
 		$this->load->view("teknisi/laporan/historycomplain", $param);
 		$this->load->view('template/footer');
 	}
@@ -190,7 +191,7 @@ class CRTeknisi extends CI_Controller{
 		}
 		else{
 			$this->load->view('template/headerTeknisi');
-			$param["data"] = $this->Mlaporan->LBInfrastruktur($tglawalstring, $tglakhirstring);
+			$param["data"] = $this->Mlaporan->LBInfrastrukturTeknisi($tglawalstring, $tglakhirstring);
 			$param['tglawal'] = $tglawalstring;
 			$param['tglakir'] = $tglakhirstring;
 			
@@ -206,16 +207,18 @@ class CRTeknisi extends CI_Controller{
 	// START LAPORAN PENDINGAN PER TEKNISI
 
 	public function LaporanPendinganTeknisi(){
-
+		$user = $this->session->userdata('teknisi');
+		$usere = $user->ID;
 		$this->load->view('template/headerTeknisi');
-		// $param["data"] = $this->McompA->LHComplain();
-		$this->load->view("teknisi/laporan/pendinganTeknisi");
+		$param["idteknisi"] = $usere;
+		$this->load->view("teknisi/laporan/pendinganTeknisi", $param);
 		$this->load->view('template/footer');
 
 	}
 
 	public function SearchLPTeknisi(){
-
+		$user = $this->session->userdata('teknisi');
+		$usere = $user->ID;
 		$teknisi = $this->input->post('teknisi');
 
 		$cek = false;
@@ -233,8 +236,9 @@ class CRTeknisi extends CI_Controller{
 		}
 		else{
 			$this->load->view('template/headerTeknisi');
-			$param["data"] = $this->Mlaporan->LPTeknisi($teknisi);
+			$param["data"] = $this->Mlaporan->LPRoleTeknisi($teknisi);
 			$param['teknisi'] = $teknisi;
+			$param['idteknisi'] = $teknisi;
 			
 			$this->load->view("teknisi/laporan/pendinganTeknisi", $param);
 			$this->load->view('template/footer');

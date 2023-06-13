@@ -5,6 +5,7 @@ class MspkA extends CI_Model{
     {
         parent::__construct();
         $this->load->database();
+		$this->load->library('session');
     }
 
     public function getdataspkA(){
@@ -30,7 +31,8 @@ class MspkA extends CI_Model{
     }
 	//get data Monitoring Complain status SPK
 	public function getMCspk(){
-
+		$user = $this->session->userdata('teknisi');
+		$usere = $user->ID;
 		$sql = $this->db->query("select 
 		ED2.NO_COMPLAIN As NO_COMPLAIN,
 		ED2.KODEDIV as KODEDIV,
@@ -45,6 +47,28 @@ class MspkA extends CI_Model{
 		JOIN ED_SPKC EDSC ON ED1.NO_SPK=EDSC.NO_SPK
 		JOIN ED_PETUGAS EDP ON EDSC.PETUGAS=EDP.PETUGAS
 		WHERE ED2.STATUS='7'");
+		
+		return $sql;
+	}
+
+	//get data Monitoring Complain status SPK
+	public function getMCspkTeknisi(){
+		$user = $this->session->userdata('teknisi');
+		$usere = $user->ID;
+		$sql = $this->db->query("select 
+		ED2.NO_COMPLAIN As NO_COMPLAIN,
+		ED2.KODEDIV as KODEDIV,
+		ED2.USERE As PELAPOR,
+		ED1.TGL_SPK As TANGGAL,
+		ED1.JAM_SPK As JAM,
+		ED2.KODE_UNIT As UNIT,
+		ED1.NO_SPK As NO_SPK,
+		EDP.NAMA_PETUGAS As NAMA_PETUGAS
+		from ED_SPKA ED1 
+		join ED_COMPA ED2 on ED1.NO_COMPLAIN=ED2.NO_COMPLAIN
+		JOIN ED_SPKC EDSC ON ED1.NO_SPK=EDSC.NO_SPK
+		JOIN ED_PETUGAS EDP ON EDSC.PETUGAS=EDP.PETUGAS
+		WHERE ED2.STATUS='7' and EDSC.PETUGAS=$usere ");
 		
 		return $sql;
 	}
@@ -80,6 +104,29 @@ class MspkA extends CI_Model{
 
 	}
 
+	public function getMCpendingTeknisi(){
+
+		//where di sesuaikan oleh master status
+		$user = $this->session->userdata('teknisi');
+		$usere = $user->ID;
+		$sql = $this->db->query("select ED2.NO_COMPLAIN As NO_COMPLAIN,
+		ED2.KODEDIV as KODEDIV,
+		ED2.USERE As PELAPOR,
+		ED1.TGL_SPK As TANGGAL,
+		ED1.JAM_SPK As JAM,
+		ED2.KODE_UNIT As UNIT,
+		ED1.NO_SPK As NO_SPK,
+		EDP.NAMA_PETUGAS As NAMA_PETUGAS
+		from ED_SPKA ED1 
+		join ED_COMPA ED2 on ED1.NO_COMPLAIN=ED2.NO_COMPLAIN 
+		JOIN ED_SPKC EDSC ON ED1.NO_SPK=EDSC.NO_SPK
+		JOIN ED_PETUGAS EDP ON EDSC.PETUGAS=EDP.PETUGAS
+		WHERE ED2.STATUS=3 and EDSC.PETUGAS=$usere ");
+
+		return $sql;
+
+	}
+
 	public function getMCselesai(){
 		//where di sesuaikan oleh master status
 		$sql = $this->db->query("select ED2.NO_COMPLAIN As NO_COMPLAIN,
@@ -95,6 +142,28 @@ class MspkA extends CI_Model{
 		JOIN ED_SPKC EDSC ON ED1.NO_SPK=EDSC.NO_SPK
 		JOIN ED_PETUGAS EDP ON EDSC.PETUGAS=EDP.PETUGAS
 		WHERE ED2.STATUS=5");
+
+		return $sql;
+
+	}
+
+	public function getMCselesaiTeknisi(){
+		//where di sesuaikan oleh master status
+		$user = $this->session->userdata('teknisi');
+		$usere = $user->ID;
+		$sql = $this->db->query("select ED2.NO_COMPLAIN As NO_COMPLAIN,
+		ED2.KODEDIV as KODEDIV,
+		ED2.USERE As PELAPOR,
+		ED1.TGL_SPK As TANGGAL,
+		ED1.JAM_SPK As JAM,
+		ED2.KODE_UNIT As UNIT,
+		ED1.NO_SPK As NO_SPK,
+		EDP.NAMA_PETUGAS As NAMA_PETUGAS
+		from ED_SPKA ED1 
+		join ED_COMPA ED2 on ED1.NO_COMPLAIN=ED2.NO_COMPLAIN
+		JOIN ED_SPKC EDSC ON ED1.NO_SPK=EDSC.NO_SPK
+		JOIN ED_PETUGAS EDP ON EDSC.PETUGAS=EDP.PETUGAS
+		WHERE ED2.STATUS=5 and EDSC.PETUGAS=$usere ");
 
 		return $sql;
 
