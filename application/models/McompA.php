@@ -22,17 +22,34 @@ class McompA extends CI_Model{
         return $sql;
     }
 
-	
-
-	
 
 	public function getsudahspk(){
-        $sql = $this->db->query("select * from ed_compA WHERE STATUS=7");
+        $sql = $this->db->query("SELECT
+		ED_COMPA.NO_COMPLAIN as NO_COMPLAIN,
+		ED_COMPA.KODEDIV as KODEDIV,
+		ED_COMPA.USERE as USERE,
+		ED_COMPA.TGL as TGL,
+		ED_COMPA.JAM as JAM,
+		ED_COMPA.KODE_UNIT as UNIT,
+		ED_COMPA.URAIAN as URAIAN
+		from ED_COMPA
+		join ED_SPKA on ED_COMPA.NO_COMPLAIN = ED_SPKA.NO_COMPLAIN
+		WHERE ED_SPKA.STATUS='1'");
         return $sql;
     }
 
 	public function getPending(){
-		$sql = $this->db->query("select * from ed_compA WHERE STATUS=3");
+		$sql = $this->db->query("SELECT
+		ED_COMPA.NO_COMPLAIN as NO_COMPLAIN,
+		ED_COMPA.KODEDIV as KODEDIV,
+		ED_COMPA.USERE as USERE,
+		ED_COMPA.TGL as TGL,
+		ED_COMPA.JAM as JAM,
+		ED_COMPA.KODE_UNIT as UNIT,
+		ED_COMPA.URAIAN as URAIAN
+		from ED_COMPA
+		join ED_SPKA on ED_COMPA.NO_COMPLAIN = ED_SPKA.NO_COMPLAIN
+		WHERE ED_SPKA.STATUS='3'");
         return $sql;
 	}
 
@@ -195,7 +212,9 @@ class McompA extends CI_Model{
 		$user = $this->session->userdata('admin');
 		$usere = $user->ID;
 		$sql = "update ed_compa set STATUS='3', TGL_PENDING=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), JAM_PENDING='".$jampending."', USERE_PENDING='".trim($usere)."', KET_PENDING='".$keterangan."' where NO_COMPLAIN = '".$no_complain."'";
+		$sqlquery = "update ed_spka set STATUS = '3' where no_complain = '".$no_complain."'";
 		$this->db->query($sql);
+		$this->db->query($sqlquery);
 	}
 
 	public function ubahBatal($no_complain, $tanggal, $jambatal){
@@ -212,8 +231,10 @@ class McompA extends CI_Model{
 	}
 
 	public function ubahPendingSelesai($no_complain){
-		$sql = "update ed_compa set STATUS='7' where NO_COMPLAIN = '".$no_complain."'";
+		$sql = "update ed_compa set STATUS='1' where NO_COMPLAIN = '".$no_complain."'";
+		$sqlquery = "update ed_spka set STATUS ='1' where no_complain = '".$no_complain."'";
 		$this->db->query($sql); 
+		$this->db->query($sqlquery);
 	}
 
 	public function ubahPengesahan($no_complain, $tanggal, $jampending){

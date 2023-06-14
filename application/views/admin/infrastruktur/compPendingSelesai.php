@@ -117,7 +117,7 @@
 													<td scope="col" ><?= $row->USERE  ?> </td>
 													<td scope="col" ><?= $row->TGL  ?> </td>
 													<td scope="col" ><?= $row->JAM  ?> </td>
-													<td scope="col" ><?= $row->KODE_UNIT  ?> </td>
+													<td scope="col" ><?= $row->UNIT  ?> </td>
 													<td scope="col" ><?= $row->URAIAN  ?> </td>
 													<td>
 														<a href="<?php echo base_url('Ccompkomputer/lihatdetailpendingselesai?nocomp='.$row->NO_COMPLAIN);?>">

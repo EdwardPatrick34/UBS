@@ -74,7 +74,7 @@ class MspkA extends CI_Model{
 	}
 
     public function getStartStop(){
-        $sql = $this->db->query("SELECT
+        $sql = $this->db->query("SELECT DISTINCT
 		ED_SPKA.NO_SPK as NO_SPK,
 		ED_SPKC.PETUGAS as PETUGAS,
 		ED_STARTSTOP.TGL_START as TGL_START,
@@ -92,7 +92,7 @@ class MspkA extends CI_Model{
     }
 
     public function getStop(){
-        $sql = $this->db->query("SELECT
+        $sql = $this->db->query("SELECT DISTINCT
 		ED_STARTSTOP.NO_SPK as NO_SPK,
 		ED_STARTSTOP.TGL_START as TGL_START,
 		ED_STARTSTOP.TGL_STOP as TGL_STOP,
