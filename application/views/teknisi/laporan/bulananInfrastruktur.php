@@ -116,7 +116,7 @@
 
 											<br>
 											<?php  if(isset($tglawal)): ?>
-											<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="<?php echo base_url('CExportExcel/LaporanBulananInfrastruktur?tglawal='.$tglawal ."&tglakir=" . $tglakir); ?>">
+											<a class="pull-right btn btn-warning btn-large" style="margin-right:40px" href="<?php echo base_url('CExportExcel/LaporanBulananInfrastrukturTeknisi?tglawal='.$tglawal ."&tglakir=" . $tglakir); ?>">
 											
 											<i class="fa fa-file-excel-o"></i> 
 											Export to Excel

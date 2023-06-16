@@ -31,8 +31,7 @@ class MspkA extends CI_Model{
     }
 	//get data Monitoring Complain status SPK
 	public function getMCspk(){
-		$user = $this->session->userdata('teknisi');
-		$usere = $user->ID;
+		
 		$sql = $this->db->query("select 
 		ED2.NO_COMPLAIN As NO_COMPLAIN,
 		ED2.KODEDIV as KODEDIV,

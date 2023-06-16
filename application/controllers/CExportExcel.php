@@ -166,6 +166,64 @@ class CExportExcel extends CI_Controller{
 		     
 	}
 
+	public function LaporanBulananInfrastrukturTeknisi(){
+
+		// $t = $this->input->post('data');
+		// var_dump($t);
+		$tglawalstring = $_GET['tglawal'];
+		$tglakhirstring = $_GET['tglakir'];
+		
+
+		$datalap = $this->Mlaporan->LBInfrastrukturTeknisi($tglawalstring, $tglakhirstring);
+		$fileName = 'laporanBulananInfrastruktur.xlsx';  
+		
+		// $employeeData = $this->EmployeeModel->employeeList();
+		$spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+       	$sheet->setCellValue('A1', 'Tanggal SPK :  '.$tglawalstring. '  s/d  '. $tglakhirstring);
+       	$sheet->setCellValue('A3', 'No');
+       	$sheet->setCellValue('B3', 'Nama Teknisi');
+       	$sheet->setCellValue('C3', 'No. Induk');
+       	$sheet->setCellValue('D3', 'No Complain');
+       	$sheet->setCellValue('E3', 'Div');
+       	$sheet->setCellValue('F3', 'Kode Unit');
+       	$sheet->setCellValue('G3', 'Tgl. Complain');
+       	$sheet->setCellValue('H3', 'No SPK');
+       	$sheet->setCellValue('I3', 'Tgl. Spk');
+       	$sheet->setCellValue('J3', 'Tgl. Selesai');
+       	$sheet->setCellValue('K3', 'Tgl. SAH');
+       	
+		$rows = 4;
+		$no = 1;
+		foreach ($datalap->result() as $val){
+
+			if ($val->STATUS==2 || $val->STATUS==4 || $val->STATUS==5 || $val->STATUS==6){
+
+				$sheet->setCellValue('A' . $rows, $no);
+				$sheet->setCellValue('B' . $rows, $val->NAMA_PETUGAS);
+				$sheet->setCellValue('B' . $rows+1, 'Uraian : '. $val->URAIAN);
+				$sheet->setCellValue('B' . $rows+2, 'Pekerjaan : '. $val->PEKERJAAN);
+				$sheet->setCellValue('C' . $rows, $val->NOMOR_INDUK);
+				$sheet->setCellValue('D' . $rows, $val->NO_COMPLAIN);
+				$sheet->setCellValue('E' . $rows, $val->KODEDIV);
+				$sheet->setCellValue('F' . $rows, $val->KODE_UNIT);
+				$sheet->setCellValue('G' . $rows, $val->TGL_COMPLAIN);
+				$sheet->setCellValue('H' . $rows, $val->NO_SPK);
+				$sheet->setCellValue('I' . $rows, $val->TGL_SPK);
+				$sheet->setCellValue('J' . $rows, $val->TGL_SAH);
+				$sheet->setCellValue('K' . $rows, $val->TGL_SAH);
+				$no++;
+				$rows+=3;
+			}
+        } 
+		
+        $writer = new Xlsx($spreadsheet);
+		$writer->save(FCPATH.'upload/'.$fileName);
+		header("Content-Type: application/vnd.ms-excel");
+        redirect(base_url()."/upload/".$fileName);
+		     
+	}
+
 	public function LaporanKegiatanInfrastruktur(){
 
 		// $t = $this->input->post('data');

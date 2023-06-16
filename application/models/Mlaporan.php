@@ -93,7 +93,7 @@ class Mlaporan extends CI_Model{
 		JOIN ED_SPKB EDSB ON EDSA.NO_SPK=EDSB.NO_SPK
 		JOIN ED_SPKD EDSD ON EDSA.NO_SPK=EDSD.NO_SPK
 		JOIN ED_COMPA EDCA ON EDSA.NO_COMPLAIN=EDCA.NO_COMPLAIN
-		WHERE EDP.PETUGAS=015393 AND EDSA.TGL_SPK >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDSA.TGL_SPK <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY
+		WHERE EDP.PETUGAS=$usere AND EDSA.TGL_SPK >= to_date('".$tglawal."', 'MM/DD/YYYY') and EDSA.TGL_SPK <= to_date('".$tglakhir."', 'MM/DD/YYYY') + INTERVAL '1' DAY
 		
 		");
 
