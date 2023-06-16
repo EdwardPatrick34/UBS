@@ -90,6 +90,44 @@ class MspkA extends CI_Model{
         return $sql;
     }
 
+	public function gettablestartstop(){
+		$sql = $this->db->query(
+			"SELECT ED_SPKA.NO_SPK as NO_SPK,
+			ED_SPKC.PETUGAS as PETUGAS,
+			ED_SPKC.URUT as SUB_SPK,
+			ED_SPKD.KET as KETERANGAN
+			from ED_SPKA
+			join ED_SPKC on ED_SPKA.NO_SPK = ED_SPKC.NO_SPK
+			join ED_SPKD on ED_SPKA.NO_SPK = ED_SPKD.NO_SPK
+			where ED_SPKA.STATUS = '1'"
+		);
+		return $sql;
+	}
+
+	public function getdatastart($no_spk){
+		$query = $this->db->query("select * from ed_startstop where no_spk ='".$no_spk."' order by id desc");
+		return $query;
+	}
+
+	public function gettablestop(){
+		$sql = $this->db->query(
+			"SELECT ED_SPKA.NO_SPK as NO_SPK,
+			ED_SPKC.PETUGAS as PETUGAS,
+			ED_SPKC.URUT as SUB_SPK,
+			ED_SPKD.KET as KETERANGAN
+			from ED_SPKA
+			join ED_SPKC on ED_SPKA.NO_SPK = ED_SPKC.NO_SPK
+			join ED_SPKD on ED_SPKA.NO_SPK = ED_SPKD.NO_SPK
+			where ED_SPKA.STATUS = '9'"
+		);
+		return $sql;
+	}
+
+	public function getdatastop($no_spk){
+		$query = $this->db->query("select * from ed_startstop where no_spk ='".$no_spk."' order by id desc");
+		return $query;
+	}
+
     public function getStop(){
         $sql = $this->db->query("SELECT DISTINCT
 		ED_STARTSTOP.NO_SPK as NO_SPK,
@@ -206,9 +244,20 @@ class MspkA extends CI_Model{
     public function startspk($no_spk, $tanggal, $petugas, $sub_spk, $keterangan){
         $user = $this->session->userdata('admin');
         $usere = $user->ID; // user yang sedang login
+		$jumcount = $this->db->query("select * from ed_startstop");
+		
+		if($jumcount->num_rows() == 0){
+			$id = 1;
+		}
+		else{
+			$check = $this->db->query("select max(id) as ID from ed_startstop");
+			foreach($check->result() as $row){$ctr = $row->ID;}
+			$id = $ctr + 1;
+		}
+		
 
-		$sql = "insert into ed_startstop(NO_SPK, SUB_SPK, TGL_START, USER_START, KET, PETUGAS) 
-		values ('$no_spk', '$sub_spk', to_date('$tanggal','yyyy-mm-dd HH24:Mi:SS'), '".trim($usere)."', '$keterangan', '$petugas')";
+		$sql = "insert into ed_startstop(ID,NO_SPK, SUB_SPK, TGL_START, USER_START, KET, PETUGAS) 
+		values ('$id', '$no_spk', '$sub_spk', to_date('$tanggal','yyyy-mm-dd HH24:Mi:SS'), '".trim($usere)."', '$keterangan', '$petugas')";
 		$this->db->query($sql);
 
 		$sqlquery = "update ed_spka set status='9' where no_spk ='".$no_spk."'";

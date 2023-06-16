@@ -591,7 +591,26 @@ class CRAdmin extends CI_Controller{
 
 	public function spkStart(){
 		$this->load->view('template/headeradmin');
-		$param["data"] = $this->MspkA->getStartStop();
+		$res = $this->MspkA->gettablestartstop();
+		$hasil = $res->result();
+		
+		foreach($hasil as $row){
+			$res2 = $this->MspkA->getdatastart($row->NO_SPK);
+			$row->start ='';
+			$row->stop = '';
+			$row->userstart ='';
+			$row->userstop = '';
+			if($res2->num_rows() > 0){
+				foreach($res2->result() as $row2){
+					$row->start = $row2->TGL_START;
+					$row->stop = $row2-> TGL_STOP;
+					$row->userstart = $row2->USER_START;
+					$row->userstop = $row2->USER_STOP;
+				}
+			}
+		}
+
+		$param["data"] = $hasil;
 		$this->load->view("admin/infrastruktur/spkstartstop", $param);
 		$this->load->view('template/footer');
 	}
@@ -601,11 +620,49 @@ class CRAdmin extends CI_Controller{
 		$status = $this->input->post("statusc");
 
 		if($status == 1){
-			$param["data"] = $this->MspkA->getStartStop();
+			$res = $this->MspkA->gettablestartstop();
+			$hasil = $res->result();
+			
+			foreach($hasil as $row){
+				$res2 = $this->MspkA->getdatastart($row->NO_SPK);
+				$row->start ='';
+				$row->stop = '';
+				$row->userstart ='';
+				$row->userstop = '';
+				if($res2->num_rows() > 0){
+					foreach($res2->result() as $row2){
+						$row->start = $row2->TGL_START;
+						$row->stop = $row2-> TGL_STOP;
+						$row->userstart = $row2->USER_START;
+						$row->userstop = $row2->USER_STOP;
+					}
+				}
+			}
+
+			$param["data"] = $hasil;
 			$this->load->view("admin/infrastruktur/spkstartstop", $param);
 		}
 		else if($status == 2){
-			$param["data"] = $this->MspkA->getStop();
+			$res = $this->MspkA->gettablestop();
+			$hasil = $res->result();
+			
+			foreach($hasil as $row){
+				$res2 = $this->MspkA->getdatastop($row->NO_SPK);
+				$row->start ='';
+				$row->stop = '';
+				$row->userstart ='';
+				$row->userstop = '';
+				if($res2->num_rows() > 0){
+					foreach($res2->result() as $row2){
+						$row->start = $row2->TGL_START;
+						$row->stop = $row2-> TGL_STOP;
+						$row->userstart = $row2->USER_START;
+						$row->userstop = $row2->USER_STOP;
+					}
+				}
+			}
+
+			$param["data"] = $hasil;
 			$this->load->view("admin/infrastruktur/spkstop", $param);
 		}
 		$this->load->view('template/footer');

@@ -123,15 +123,15 @@
 											</tr>
 										</thead>
 										<tbody>
-											<?php foreach($data->result() as $row): ?>
+											<?php foreach($data as $row): ?>
 												<tr>
 												
 													<td scope="col" ><?= $row->NO_SPK  ?> </td>
 													<td scope="col" ><?= $row->SUB_SPK  ?> </td>
-													<td scope="col" ><?= $row->TGL_START  ?> </td>
-													<td scope="col" ><?= $row->TGL_STOP  ?> </td>
-													<td scope="col" ><?= $row->USER_START  ?> </td>
-													<td scope="col" ><?= $row->USER_STOP  ?> </td>
+													<td scope="col" ><?= $row->start  ?> </td>
+													<td scope="col" ><?= $row->stop  ?> </td>
+													<td scope="col" ><?= $row->userstart  ?> </td>
+													<td scope="col" ><?= $row->userstop  ?> </td>
 													<td scope="col" ><?= $row->KETERANGAN  ?> </td>
 													<td scope="col" ><?= $row->PETUGAS  ?> </td>
 													<td>

@@ -170,6 +170,7 @@ create table ED_USERE (
 );
 
 create table ED_STARTSTOP (
+	ID char(10) primary key,
 	NO_SPK char(10) REFERENCES ED_SPKA(NO_SPK) not null,
 	sub_spk number(2,0),
 	TGL_START DATE,
