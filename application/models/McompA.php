@@ -38,6 +38,30 @@ class McompA extends CI_Model{
         return $sql;
     }
 
+	public function getNoSpk($PETUGAS){
+		$query = $this->db->query("SELECT NO_SPK FROM ED_SPKC WHERE PETUGAS='".$PETUGAS."'");
+		return $query;
+	}
+
+	public function getsudahspkteknisi($no_spk){
+		$user = $this->session->userdata('teknisi');
+		$usere = $user->ID;
+
+		
+		$sql = $this->db->query("SELECT
+		ED_COMPA.NO_COMPLAIN as NO_COMPLAIN,
+		ED_COMPA.KODEDIV as KODEDIV,
+		ED_COMPA.USERE as USERE,
+		ED_COMPA.TGL as TGL,
+		ED_COMPA.JAM as JAM,
+		ED_COMPA.KODE_UNIT as UNIT,
+		ED_COMPA.URAIAN as URAIAN
+		from ED_COMPA
+		join ED_SPKA on ED_COMPA.NO_COMPLAIN = ED_SPKA.NO_COMPLAIN
+		WHERE ED_SPKA.STATUS='1' and ED_SPKC.PETUGAS = '".$usere."'");
+        return $sql;
+	}
+
 	public function getPending(){
 		$sql = $this->db->query("SELECT
 		ED_COMPA.NO_COMPLAIN as NO_COMPLAIN,
@@ -221,12 +245,15 @@ class McompA extends CI_Model{
 		$user = $this->session->userdata('admin');
 		$usere = $user->ID;
 		$sql = "update ed_compa set STATUS='6', TGL_BATAL=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), JAM_BATAL='".$jambatal."', USERE_BATAL='".trim($usere)."' where NO_COMPLAIN = '".$no_complain."'";
+		$sqlquery = "update ed_spka set STATUS ='6' where no_complain = '".$no_complain."'";
 		$this->db->query($sql); 
+		$this->db->query($sqlquery); 
 	}
 
 	public function ubahSelesai($no_complain){
 		$sql = "update ed_compa set STATUS='5' where NO_COMPLAIN = '".$no_complain."'";
-		
+		$sqlquery = "update ed_spka set STATUS='5' where NO_COMPLAIN = '".$no_complain."'";
+		$this->db->query($sqlquery);
 		$this->db->query($sql); 
 	}
 

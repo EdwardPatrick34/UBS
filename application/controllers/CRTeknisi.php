@@ -80,7 +80,13 @@ class CRTeknisi extends CI_Controller{
 	public function listmonitorspkselesai(){
 		$this->load->view('template/headerTeknisi');
 		$status = $this->input->post("statusc");
-		$param['data'] = $this->McompA->getsudahspk();
+
+		$user = $this->session->userdata('teknisi');
+		$usere = $user->ID;
+		$nospk = $this->McompA->getNoSpk($usere);
+		foreach($petugas->result() as $row){$no_spk = $row;}
+
+		$param['data'] = $this->McompA->getsudahspkteknisi($no_spk);
 		$this->load->view('admin/infrastruktur/spkCompSelesaiTeknisi', $param);
 		$this->load->view('template/footer');
 	}
