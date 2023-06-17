@@ -43,11 +43,12 @@ class McompA extends CI_Model{
 		return $query;
 	}
 
-	public function getsudahspkteknisi($no_spk){
+	public function getsudahspkteknisi(){
 		$user = $this->session->userdata('teknisi');
 		$usere = $user->ID;
 
 		
+
 		$sql = $this->db->query("SELECT
 		ED_COMPA.NO_COMPLAIN as NO_COMPLAIN,
 		ED_COMPA.KODEDIV as KODEDIV,
@@ -58,6 +59,7 @@ class McompA extends CI_Model{
 		ED_COMPA.URAIAN as URAIAN
 		from ED_COMPA
 		join ED_SPKA on ED_COMPA.NO_COMPLAIN = ED_SPKA.NO_COMPLAIN
+		join ED_SPKC on ED_SPKA.NO_SPK = ED_SPKC.NO_SPK
 		WHERE ED_SPKA.STATUS='1' and ED_SPKC.PETUGAS = '".$usere."'");
         return $sql;
 	}
@@ -268,7 +270,9 @@ class McompA extends CI_Model{
 		$user = $this->session->userdata('adminNonIT');
 		$usere = $user->ID;
 		$sql = "update ed_compa set STATUS='4', TGL_SAH=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), JAM_SAH='".$jampending."', TGL_S=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), JAM_S='".$jampending."',USERE_SAH='".trim($usere)."' where NO_COMPLAIN = '".$no_complain."'";
+		$sqlquery = "update ed_spka set STATUS='4' where no_complain ='".$no_complain."'";
 		$this->db->query($sql);
+		$this->db->query($sqlquery);
 	}
 
 	public function ubahRusak($no_complain){
