@@ -273,7 +273,9 @@ class McompA extends CI_Model{
 
 	public function ubahRusak($no_complain){
 		$sql = "update ed_compa set STATUS='2' where NO_COMPLAIN = '".$no_complain."'";
+		$sqlquery = "update ed_spka set STATUS ='2' where no_complain = '".$no_complain."'";
 		$this->db->query($sql); 
+		$this->db->query($sqlquery);
 	}
 }
 ?>
