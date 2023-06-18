@@ -164,11 +164,7 @@
                     <div >SPK (Infrastruktur) </div>
                   </a>
                 </li>
-								<li class="menu-item">
-                  <a href="" class="menu-link">
-                    <div >Repair (Vendor) </div>
-                  </a>
-                </li>
+								
 								<li class="menu-item">
                   <a href="<?= base_url('CRAdmin/listmonitorspkselesai')?>" class="menu-link">
                     <div >Complain/SPK Selesai</div>
