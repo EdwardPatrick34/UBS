@@ -257,7 +257,7 @@ class MspkA extends CI_Model{
 		
 
 		$sql = "insert into ed_startstop(ID,NO_SPK, SUB_SPK, TGL_START, USER_START, KET, PETUGAS) 
-		values ('$id', '$no_spk', '$sub_spk', to_date('$tanggal','yyyy-mm-dd HH24:Mi:SS'), '".trim($usere)."', '$keterangan', '$petugas')";
+		values ('$id', '$no_spk', '$sub_spk', sysdate, '".trim($usere)."', '$keterangan', '$petugas')";
 		$this->db->query($sql);
 
 		$sqlquery = "update ed_spka set status='9' where no_spk ='".$no_spk."'";
@@ -267,7 +267,7 @@ class MspkA extends CI_Model{
     public function stopspk($no_spk, $tanggal){
         $user = $this->session->userdata('admin');
         $usere = $user->ID;
-        $sql = "update ed_startstop set TGL_STOP=to_date('".$tanggal."', 'yyyy-mm-dd HH24:MI:SS'), USER_STOP ='".trim($usere)."' where NO_SPK ='".$no_spk."'";
+        $sql = "update ed_startstop set TGL_STOP= sysdate, USER_STOP ='".trim($usere)."' where NO_SPK ='".$no_spk."'";
 		$sqlquery = "update ed_spka set status='1' where no_spk ='".$no_spk."'";
 		$this->db->query($sqlquery);
         $this->db->query($sql);
